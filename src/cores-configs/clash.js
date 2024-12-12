@@ -39,15 +39,15 @@ async function buildClashDNS (proxySettings, isChain, isWarp) {
         "use-hosts": true,
         "use-system-hosts": false,
         "nameserver": isWarp 
-            ? warpRemoteDNS.map(dns => isChain ? `${dns}#💦 Warp - Best Ping 🚀` : `${dns}#✅ Selector`) 
-            : [isChain ? `${remoteDNS}#proxy-1` : `${remoteDNS}#✅ Selector`],
+            ? warpRemoteDNS.map(dns => isChain ? `${dns}#🔴 Warp Best Ping` : `${dns}#🔴 Selector`) 
+            : [isChain ? `${remoteDNS}#proxy-1` : `${remoteDNS}#🔴 Selector`],
         "proxy-server-nameserver": [`${localDNS}#DIRECT`]
     };
 
     if (isChain && !isWarp) {
         const chainOutboundServer = JSON.parse(outProxyParams).server;
         if (isDomain(chainOutboundServer)) dns["nameserver-policy"] = {
-            [chainOutboundServer]: isChain ? `${remoteDNS}#proxy-1` : `${remoteDNS}#✅ Selector`
+            [chainOutboundServer]: isChain ? `${remoteDNS}#proxy-1` : `${remoteDNS}#🔴 Selector`
         };    
     } 
 
@@ -244,7 +244,7 @@ function buildClashRoutingRules (proxySettings) {
 
     const rules = [...directDomainRules, ...directIPRules, ...blockDomainRules, ...blockIPRules];
     blockUDP443 && rules.push("AND,((NETWORK,udp),(DST-PORT,443)),REJECT");
-    rules.push("MATCH,✅ Selector");
+    rules.push("MATCH,🔴 Selector");
     return { rules, ruleProviders };
 }
 
@@ -349,7 +349,7 @@ function buildClashChainOutbound(chainProxyParams) {
 
     const { server, port, uuid, flow, security, type, sni, fp, alpn, pbk, sid, headerType, host, path, serviceName } = chainProxyParams;
     const chainOutbound = {
-        "name": "💦 Chain Best Ping 💥",
+        "name": "🔴 Chain Best Ping",
         "type": "vless",
         "server": server,
         "port": +port,
@@ -357,7 +357,7 @@ function buildClashChainOutbound(chainProxyParams) {
         "uuid": uuid,
         "flow": flow,
         "network": type,
-        "dialer-proxy": "💦 Best Ping 💥"
+        "dialer-proxy": "🔴 Best Ping"
     };
 
     if (security === 'tls') {
@@ -422,17 +422,17 @@ export async function getClashWarpConfig(request, env) {
     config['rule-providers'] = ruleProviders;
     const selector = config['proxy-groups'][0];
     const warpUrlTest = config['proxy-groups'][1];
-    selector.proxies = ['💦 Warp - Best Ping 🚀', '💦 WoW - Best Ping 🚀'];
-    warpUrlTest.name = '💦 Warp - Best Ping 🚀';
+    selector.proxies = ['🔴 Warp Best Ping', '🔴 WoW Best Ping'];
+    warpUrlTest.name = '🔴 Warp Best Ping';
     warpUrlTest.interval = +proxySettings.bestWarpInterval;
     config['proxy-groups'].push(structuredClone(warpUrlTest));
     const WoWUrlTest = config['proxy-groups'][2];
-    WoWUrlTest.name = '💦 WoW - Best Ping 🚀';
+    WoWUrlTest.name = '🔴 WoW Best Ping';
     let warpRemarks = [], WoWRemarks = [];
     
     warpEndpoints.split(',').forEach( (endpoint, index) => {
-        const warpRemark = `💦 ${index + 1} - Warp 🇮🇷`;
-        const WoWRemark = `💦 ${index + 1} - WoW 🌍`;
+        const warpRemark = `⚫️ ${index + 1} - Warp`;
+        const WoWRemark = `⚪ ${index + 1} - WoW`;
         const warpOutbound = buildClashWarpOutbound(warpConfigs, warpRemark, endpoint, '');
         const WoWOutbound = buildClashWarpOutbound(warpConfigs, WoWRemark, endpoint, warpRemark);
         config.proxies.push(WoWOutbound, warpOutbound);
@@ -501,8 +501,8 @@ export async function getClashNormalConfig (request, env) {
     config['rule-providers'] = ruleProviders;
     const selector = config['proxy-groups'][0];
     const urlTest = config['proxy-groups'][1];
-    selector.proxies = ['💦 Best Ping 💥'];
-    urlTest.name = '💦 Best Ping 💥';
+    selector.proxies = ['🔴 Best Ping'];
+    urlTest.name = '🔴 Best Ping';
     urlTest.interval = +bestVLESSTrojanInterval;
     const Addresses = await getConfigAddresses(cleanIPs, enableIPv6);
     const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
@@ -630,14 +630,14 @@ const clashConfigTemp = {
     "proxies": [],
     "proxy-groups": [
         {
-            "name": "✅ Selector",
+            "name": "🔴 Selector",
             "type": "select",
             "proxies": []
         },
         {
             "name": "",
             "type": "url-test",
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://clients3.google.com/generate_204",
             "interval": 30,
             "tolerance": 50,
             "proxies": []
