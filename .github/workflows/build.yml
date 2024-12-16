@@ -3,7 +3,7 @@ name: Build, Deploy and Obfs SRC
 on:
   push:
     branches:
-      - test
+      - main
 
 permissions:
   contents: write
