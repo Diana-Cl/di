@@ -1,4 +1,4 @@
-export async function renderLoginPage () {
+export async function renderLoginPage() {
     const loginPage = `
     <!DOCTYPE html>
     <html lang="en">
