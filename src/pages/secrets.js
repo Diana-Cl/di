@@ -1,4 +1,4 @@
-export async function renderSecretsPage () {
+export async function renderSecretsPage() {
     const secretsPage = `
     <!DOCTYPE html>
     <html lang="en">
@@ -8,16 +8,16 @@ export async function renderSecretsPage () {
     <title>User Login</title>
     <style>
         :root {
-            --color: black;
-            --primary-color: #09639f;
-            --header-color: #09639f; 
-            --background-color: #fff;
-            --form-background-color: #f9f9f9;
-            --lable-text-color: #333;
-            --h2-color: #3b3b3b;
-            --border-color: #ddd;
-            --input-background-color: white;
-            --header-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+              --color: black;
+              --primary-color: #09639f;
+              --header-color: #09639f;
+              --background-color: #fff;
+              --form-background-color: #f9f9f9;
+              --lable-text-color: #333;
+              --h2-color: #3b3b3b;
+              --border-color: #ddd;
+              --input-background-color: white;
+              --header-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
         }
         html, body { height: 100%; margin: 0; }
         body {
@@ -25,12 +25,11 @@ export async function renderSecretsPage () {
             background-color: var(--background-color);
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
         body.dark-mode {
             --color: white;
             --primary-color: #09639F;
-            --header-color: #3498DB; 
+            --header-color: #3498DB;
             --background-color: #121212;
             --form-background-color: #121212;
             --lable-text-color: #DFDFDF;
@@ -49,7 +48,6 @@ export async function renderSecretsPage () {
         }
         h1 { font-size: 2.5rem; text-align: center; color: var(--header-color); margin: 0 auto 30px; text-shadow: var(--header-shadow); }        
         h2 { text-align: center; color: var(--h2-color) }
-        strong { color: var(--lable-text-color); }
         .output-container {
             display: flex;
             align-items: center;
@@ -91,7 +89,7 @@ export async function renderSecretsPage () {
             color: white;
             background-color: var(--primary-color);
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.6s ease;
         }
         .button:hover,
         button:focus {
@@ -100,32 +98,56 @@ export async function renderSecretsPage () {
             transform: translateY(-2px);
         }
         button.button:hover { color: white; }
-        .button:active { transform: translateY(1px); box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); }
+        .button:active { transform: translateY(2px); box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); }
         @media only screen and (min-width: 768px) {
-            .container { width: 40%; }
+            .container { width: 30%; }
         }
+        .button {
+        background: linear-gradient(45deg,
+                #09639f, rgba(32, 195, 190, 0.67), 
+                #3498db 34.14%, #3498db, #00ffd5, #3498db 51.5%);
+            background-size: 200%;
+            color: white;
+            font-weight: 600;
+            animation: rainbow 20s linear infinite;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: rainbow 5s linear infinite;
+            }
+            @keyframes rainbow {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            @keyframes textclip {
+              0% { background-position: 200% center; }
+              100% { background-position: -200% center; }
+            }
     </style>
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${globalThis.panelVersion}</span> 💦</h1>
+            <h1><i class="fa-sharp fa-solid fa-beat-fade">BPB PANEL 👻 <span style="font-size:14px; position: fixed; right: 0px; margin-top: 43px;">${globalThis.panelVersion}</span></i></h1>
             <div class="form-container">
                 <h2>Secrets generator</h2>
                 <div>
                     <strong>Random UUID</strong>
                     <div class="output-container">
                         <span id="uuid" class="output"></span>
-                        <span class="copy-icon" onclick="copyToClipboard('uuid')">📋</span>
+                        <span class="copy-icon" onclick="copyToClipboard('uuid')"><i class="fa-solid fa-copy"></i></span>
                     </div>
                 </div>
                 <div>
                     <strong>Random Trojan Password</strong>
                     <div class="output-container">
                         <span id="trojan-password" class="output"></span>
-                        <span class="copy-icon" onclick="copyToClipboard('trojan-password')">📋</span>
+                        <span class="copy-icon" onclick="copyToClipboard('trojan-password')"><i class="fa-solid fa-copy"></i></span>
                     </div>
                 </div>
-                <button class="button" onclick="generateCredentials()">Generate Again ♻️</button>
+                <button class="button" onclick="generateCredentials()">Generate Again <i class="fa-solid fa-dice-three"></i> </button>
             </div>
         </div>
         <script>
@@ -158,7 +180,7 @@ export async function renderSecretsPage () {
             function copyToClipboard(elementId) {
                 const textToCopy = document.getElementById(elementId).textContent;
                 navigator.clipboard.writeText(textToCopy)
-                    .then(() => alert('✅ Copied to clipboard!'))
+                    .then(() => alert('✔️ Copied to clipboard!'))
                     .catch(err => console.error('Failed to copy text:', err));
             }
     
@@ -167,5 +189,10 @@ export async function renderSecretsPage () {
     </body>
     </html>`;
 
-    return new Response(secretsPage, { status: 200, headers: {'Content-Type': 'text/html'}});
+    return new Response(secretsPage, {
+        status: 200,
+        headers: {
+            'Content-Type': 'text/html'
+        }
+    });
 }
