@@ -89,7 +89,8 @@ export async function renderHomePage (proxySettings, isPassSet) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="timestamp" content=${Date.now()}>
         <title>BPB Panel ${globalThis.panelVersion}</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/69b597926c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <title>Collapsible Sections</title>
         <style>
@@ -100,15 +101,19 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 --header-color: #09639f; 
                 --background-color: #fff;
                 --form-background-color: #f9f9f9;
+                --reset-button-color: ghostwhite;
+                --reset-button-background-color: red;
+                --reset-button-border-color: #dc3545;
+                --reset-button-shadow-color: #dc3545;
                 --table-active-color: #f2f2f2;
                 --hr-text-color: #3b3b3b;
                 --lable-text-color: #333;
                 --border-color: #ddd;
                 --button-color: #09639f;
                 --input-background-color: white;
-                --header-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+                --header-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); 
             }
-            body { font-family: Twemoji Country Flags, system-ui; background-color: var(--background-color); color: var(--color) }
+            body { font-family: system-ui; background-color: var(--background-color); color: var(--color) }
             body.dark-mode {
                 --color: white;
                 --primary-color: #09639F;
@@ -116,6 +121,10 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 --header-color: #3498DB; 
                 --background-color: #121212;
                 --form-background-color: #121212;
+                --reset-button-color: var(--secondary-color);
+                --reset-button-background-color: black;
+                --reset-button-border-color: var(--secondary-color);
+                --reset-button-shadow-color: var(--primary-color);
                 --table-active-color: #252525;
                 --hr-text-color: #D5D5D5;
                 --lable-text-color: #DFDFDF;
@@ -136,14 +145,43 @@ export async function renderHomePage (proxySettings, isPassSet) {
             summary {
                 font-weight: bold;
                 cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-align: center;
-                text-wrap: nowrap;
+                user-select: none;
+                text-wrap: nowrap; 
             }
             summary::marker { font-size: 1.5rem; color: var(--secondary-color); }
             summary h2 { display: inline-flex; }
             h1 { font-size: 2.5em; text-align: center; color: var(--header-color); text-shadow: var(--header-shadow); }
             h2,h3 { margin: 30px 0; text-align: center; color: var(--hr-text-color); }
             hr { border: 1px solid var(--border-color); margin: 20px 0; }
+            details summary::-webkit-details-marker {display: none; }   
+            details[open] summary ~ * {animation: sweep 0.5s ease-in-out; overflow: hidden; }
+            @keyframes sweep {
+                0% { opacity: 0; margin-top: -10px; }
+                100% { opacity: 1; margin-top: 0; }
+            }
+            details summary i {
+                margin-right: 10px;
+                vertical-align: middle;
+                max-height: 0;
+                transition: max-height 0.5s ease-in-out;
+            }
+            details[open] summary ~ * {max-height: 1000px; }
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+            .fa-cog {color: var(--hr-text-color); }
             .footer {
                 display: flex;
                 font-weight: 600;
@@ -162,11 +200,11 @@ export async function renderHomePage (proxySettings, isPassSet) {
             }
             .form-control button {
                 background-color: var(--form-background-color);
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: var(--button-color);
-                border-color: var(--primary-color);
-                border: 1px solid;
+                font-size: 1rem;
+                font-weight: 500;
+                color: #ffffff;
+                border-color: var(--color);
+                border: 1px;
             }
             #apply {display: block; margin-top: 20px;}
             input.button {font-weight: 600; padding: 15px 0; font-size: 1.1rem;}
@@ -184,7 +222,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             select {
                 width: 100%;
                 text-align: center;
-                padding: 10px;
+                padding: 3px;
                 border: 1px solid var(--border-color);
                 border-radius: 5px;
                 font-size: 16px;
@@ -225,20 +263,17 @@ export async function renderHomePage (proxySettings, isPassSet) {
             }
             table button { margin: auto; width: auto; }
             .button.disabled {
-                background-color: #ccc;
+                background-color: #cccccc;
                 cursor: not-allowed;
                 box-shadow: none;
                 pointer-events: none;
-            }
+            } 
             .button:hover,
             table button:hover,
             table button:focus {
                 background-color: #2980b9;
                 box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
                 transform: translateY(-2px);
-            }
-            .header-container button:hover {
-                transform: scale(1.1);
             }
             button.button:hover { color: white; }
             .button:active,
@@ -344,6 +379,35 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 overflow: auto;
                 background-color: rgba(0, 0, 0, 0.4);
             }
+            .routing { 
+                display: grid;
+                justify-content: flex-start;
+                grid-template-columns: 1fr 1fr 10fr 1fr;
+                margin-bottom: 15px;
+            }
+            .form-control .routing input { grid-column: 2 / 3; }
+            #routing-rules.form-control { display: grid; grid-template-columns: 1fr 1fr; }
+            .routing label {
+                text-align: left;
+                margin: 0 0 0 10px;
+                font-weight: 400;
+                font-size: 100%;
+                text-wrap: nowrap;
+            }
+            .form-control input[type="password"]:focus { border-color: var(--secondary-color); outline: none; }
+            #passwordError { color: red; margin-bottom: 10px; }
+            .symbol { margin-right: 8px; }
+            .modalQR {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
             .floating-button {
                 position: fixed;
                 bottom: 20px;
@@ -365,51 +429,141 @@ export async function renderHomePage (proxySettings, isPassSet) {
             .input-with-select { width: 100%; }
             body.dark-mode .floating-button { background-color: var(--color); }
             body.dark-mode .floating-button:hover { transform: scale(1.1); }
-            #ips th { background-color: var(--hr-text-color); color: var(--background-color); width: unset; }
-            #ips td { background-color: unset; }
-            #ips td:first-child { background-color: var(--table-active-color); }
-            .header-container { display: flex; align-items: center; justify-content: center; }
             @media only screen and (min-width: 768px) {
-                .form-container { max-width: 70%; }
-                .form-control { 
-                    margin-bottom: 15px;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    align-items: baseline;
-                    justify-content: flex-end;
-                    font-family: Arial, sans-serif;
-                }
-                #apply { display: block; margin: 20px auto 0 auto; max-width: 50%; }
-                .modal-content { width: 30% }
-                .routing { display: grid; grid-template-columns: 4fr 1fr 3fr 4fr; }
+            .form-container { max-width: 70%; }
+            .form-control { 
+                 margin-bottom: 15px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: baseline;
+                justify-content: flex-end;
+                font-family: Arial, sans-serif;
+            }
+            .animated.fast {
+                font-family: inherit;
+            }
+            #apply { display: block; margin: 20px auto 0 auto; max-width: 80%; }
+            .modal-content { width: 30% }
+            .routing { display: grid; grid-template-columns: 4fr 1fr 3fr 4fr; }
+            }
+            #resetSettings { 
+                background-color: var(--reset-button-background-color) !important; 
+                color: var(--reset-button-color) !important; 
+                border: 1px solid var(--reset-button-border-color) !important; 
+                box-shadow: 0 8px 10px var(--reset-button-shadow-color);
+                padding: 15px;
+                font-size: 110%; 
+                font-weight: 600;
+                max-width: 100%;
+                text-transform: uppercase;
+                border-radius: 5px; 
+                transition: all 0.3s ease; 
+            }
+            #resetSettings:hover {
+                background-color: var(--reset-button-color) !important; 
+                color: var(--reset-button-background-color) !important; 
+                border-color: var(--reset-button-border-color) !important; 
+                box-shadow: 0 35px 15px var(--reset-button-shadow-color); 
+                transform: translateY(-2px);
+                max-width: 100%;
+                padding: 15px;
+                font-size: 122%;
+                font-weight: 600;
+                transform: translateY(-2px);
+            }
+            #resetSettings:active {
+                transform: translateY(2px);
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            }
+            #resetSettings.disabled {
+                background-color: var(--reset-button-background-color);
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+            .button {
+                background: linear-gradient(45deg,
+                #09639f, rgba(32, 195, 190, 0.67), 
+                #3498db 34.14%, #3498db, #00ffd5, #3498db 51.5%);
+                background-size: 200%;
+                color: white;
+                font-weight: 600;
+                animation: rainbow 20s linear infinite;
+                transition: all 0.3s ease;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: none;
+                animation: rainbow 5s linear infinite;
+            }
+            .footer #openModalBtn {
+                background: linear-gradient(45deg,
+                #09639f, rgba(32, 195, 190, 0.67), 
+                #3498db 34.14%, #3498db, #00ffd5, #3498db 51.5%);
+                background-size: 200%;
+                color: white;
+                font-weight: 600;
+                animation: rainbow 20s linear infinite;
+                transition: all 0.3s ease;
+            }
+            .footer #openModalBtn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                animation: rainbow 5s linear infinite;
+            }
+            @keyframes rainbow {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+            @keyframes textclip {
+                0% { background-position: 200% center; }
+                100% { background-position: -200% center; }
+            }
+            .button.disabled {
+                background: #ccc !important;
+                cursor: not-allowed;
+                transform: none !important;
+                animation: none !important;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
             }
         </style>
     </head>
     <body>
-        <h1>BPB Panel <span style="font-size: smaller;">${globalThis.panelVersion}</span> 💦</h1>
+        <h1><i class="fa-sharp fa-solid fa-beat-fade">BPB PANEL 👻 <span style="font-size:12px; position: fixed; right: 0px; margin-top: 43px;">${globalThis.panelVersion}</span></i></h1>
         <div class="form-container">
             <form id="configForm">
-                <details open>
-                    <summary><h2>VLESS - TROJAN ⚙️</h2></summary>
-                    <div class="form-control">
-                        <label for="remoteDNS">🌏 Remote DNS</label>
-                        <input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
-                    </div>
-                    <div class="form-control">
-                        <label for="localDNS">🏚️ Local DNS</label>
-                        <input type="text" id="localDNS" name="localDNS" value="${localDNS}"
-                            pattern="^(?:\\d{1,3}\\.){3}\\d{1,3}$"
-                            title="Please enter a valid DNS IP Address!"  required>
-                    </div>
-                    <div class="form-control">
-                        <label for="vlessTrojanFakeDNS">🧢 Fake DNS</label>
-                        <div class="input-with-select">
-                            <select id="vlessTrojanFakeDNS" name="vlessTrojanFakeDNS">
-                                <option value="true" ${vlessTrojanFakeDNS ? 'selected' : ''}>Enabled</option>
-                                <option value="false" ${!vlessTrojanFakeDNS ? 'selected' : ''}>Disabled</option>
-                            </select>
-                        </div>
-                    </div>
+        <details open>
+          <summary>
+            <h2>VLESS - TROJAN </h2>
+              <i class="fa-solid fa-cog fa-spin fa-spin-reverse fa-xl"></i>
+            <span class="sr-only">Loading...</span>
+          </summary>
+          <div class="form-control">
+            <label for="remoteDNS">
+              <i class="fa-solid fa-globe"></i> Remote DNS
+            </label>
+            <input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
+          </div>
+          <div class="form-control">
+            <label for="localDNS">
+              <i class="fa-solid fa-house-chimney"></i> Local DNS
+            </label>
+            <input type="text" id="localDNS" name="localDNS" value="${localDNS}"
+              pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
+              title="Please enter a valid DNS IP Address or localhost!"  required>
+          </div>
+          <div class="form-control">
+            <label for="vlessTrojanFakeDNS">
+              <i class="fa-solid fa-ghost"></i> Fake DNS
+            </label>
+            <div class="input-with-select">
+              <select id="vlessTrojanFakeDNS" name="vlessTrojanFakeDNS">
+              <option value="true" ${vlessTrojanFakeDNS ? "selected" : ""}>Enabled</option>
+              <option value="false" ${!vlessTrojanFakeDNS ? "selected" : ""}>Disabled</option>
+              </select>
+            </div>
+          </div>
                     <div class="form-control">
                         <label for="proxyIP">📍 Proxy IPs / Domains</label>
                         <input type="text" id="proxyIP" name="proxyIP" value="${proxyIP.replaceAll(",", " , ")}">
@@ -660,21 +814,19 @@ export async function renderHomePage (proxySettings, isPassSet) {
                     </div>
                 </details>
                 <div id="apply" class="form-control">
-                    <div style="grid-column: 2; width: 100%; display: inline-flex;">
-                        <input type="submit" id="applyButton" style="margin-right: 10px;" class="button disabled" value="APPLY SETTINGS 💥" form="configForm">
-                        <button type="button" id="resetSettings" style="background: none; margin: 0; border: none; cursor: pointer;">
-                            <i class="fa fa-refresh fa-2x fa-border" style="border-radius: .2em; border-color: var(--border-color);" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-            <hr>            
-            <h2>🔗 NORMAL SUB</h2>
-            <div class="table-container">
-                <table id="normal-configs-table">
-                    <tr>
-                        <th>Application</th>
-                        <th>Subscription</th>
+          <div style="grid-column: 2; width: 100%; display: grid; grid-template-columns: 5fr 1fr; gap: 10px;">
+            <input type="submit" id="applyButton" class="button disabled" value="APPLY SETTINGS" form="configForm">
+            <button type="button" id="resetSettings" class="reset-button">RESET</button>
+          </div>
+        </div>
+      </form>
+    <hr>       
+            <h2>NORMAL SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
+    <div class="table-container">
+      <table id="normal-configs-table">
+        <tr>
+          <th>Application</th>
+          <th>Subscription</th>
                     </tr>
                     <tr>
                         <td>
