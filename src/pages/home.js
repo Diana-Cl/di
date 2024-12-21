@@ -312,13 +312,8 @@ export async function renderHomePage(proxySettings, isPassSet) {
             }
             th, td { padding: 10px; border-bottom: 1px solid var(--border-color); }
             td div { display: flex; align-items: center; }
-            th { background-image: linear-gradient(45deg, rgba(26, 26, 26, 0.01) 0%, rgba(26, 26, 26, 0.01) 20%,rgba(131, 131, 131, 0.01) 20%, rgba(131, 131, 131, 0.01) 40%,rgba(218, 218, 218, 0.01) 40%, rgba(218, 218, 218, 0.01) 60%,rgba(82, 82, 82, 0.01) 60%, rgba(82, 82, 82, 0.01) 80%,rgba(228, 228, 228, 0.01) 80%, rgba(228, 228, 228, 0.01) 100%),
-                linear-gradient(45deg, rgba(224, 224, 224, 0.03) 0%, rgba(224, 224, 224, 0.03) 12.5%,rgba(5, 5, 5, 0.03) 12.5%, rgba(5, 5, 5, 0.03) 25%,rgba(163, 163, 163, 0.03) 25%, rgba(163, 163, 163, 0.03) 37.5%,rgba(85, 85, 85, 0.03) 37.5%, rgba(85, 85, 85, 0.03) 50%,rgba(37, 37, 37, 0.03) 50%, rgba(37, 37, 37, 0.03) 62.5%,rgba(123, 123, 123, 0.03) 62.5%, rgba(123, 123, 123, 0.03) 75%,rgba(142, 142, 142, 0.03) 75%, rgba(142, 142, 142, 0.03) 87.5%,rgba(137, 137, 137, 0.03) 87.5%, rgba(137, 137, 137, 0.03) 100%),
-                linear-gradient(0deg, rgba(100, 100, 100, 0.1) 0%, rgba(100, 100, 100, 0.1) 20%,rgba(70, 70, 70, 0.1) 20%, rgba(70, 70, 70, 0.1) 40%,rgba(171, 171, 171, 0.1) 40%, rgba(171, 171, 171, 0.1) 60%,rgba(71, 71, 71, 0.1) 60%, rgba(71, 71, 71, 0.1) 80%,rgba(87, 87, 87, 0.1) 80%, rgba(87, 87, 87, 0.1) 100%),linear-gradient(90deg, rgba(37, 37, 37, 0.01) 0%, rgba(37, 37, 37, 0.01) 12.5%,rgba(56, 56, 56, 0.01) 12.5%, rgba(56, 56, 56, 0.01) 25%,rgba(55, 55, 55, 0.01) 25%, rgba(55, 55, 55, 0.01) 37.5%,rgba(38, 38, 38, 0.01) 37.5%, rgba(38, 38, 38, 0.01) 50%,rgba(38, 38, 38, 0.01) 50%, rgba(38, 38, 38, 0.01) 62.5%,rgba(251, 251, 251, 0.01) 62.5%, rgba(251, 251, 251, 0.01) 75%,rgba(190, 190, 190, 0.01) 75%, rgba(190, 190, 190, 0.01) 87.5%,rgba(253, 253, 253, 0.01) 87.5%, rgba(253, 253, 253, 0.01) 100%),
-                linear-gradient(45deg, rgba(162, 162, 162, 0.1) 0%, rgba(162, 162, 162, 0.1) 12.5%,rgba(109, 109, 109, 0.1) 12.5%, rgba(109, 109, 109, 0.1) 25%,rgba(152, 152, 152, 0.1) 25%, rgba(152, 152, 152, 0.1) 37.5%,rgba(82, 82, 82, 0.1) 37.5%, rgba(82, 82, 82, 0.1) 50%,rgba(239, 239, 239, 0.1) 50%, rgba(239, 239, 239, 0.1) 62.5%,rgba(252, 252, 252, 0.1) 62.5%, rgba(252, 252, 252, 0.1) 75%,rgba(246, 246, 246, 0.1) 75%, rgba(246, 246, 246, 0.1) 87.5%,rgba(16, 16, 16, 0.1) 87.5%, rgba(16, 16, 16, 0.1) 100%),
-                linear-gradient(90deg, rgb(25, 93, 249),rgb(143, 196, 218)); 
-            color: white; font-weight: bold; font-size: 1.1rem; width: 50%;}
-            td:last-child { background-color: var(--table-active-color); }               
+            th { background-color: var(--secondary-color); color: white; font-weight: bold; font-size: 1.1rem; width: 50%;}
+            td:last-child { background-color: var(--table-active-color); }              
             tr:hover { background-color: var(--table-active-color); }
             .modal {
                 display: none;
@@ -474,11 +469,10 @@ export async function renderHomePage(proxySettings, isPassSet) {
                 box-shadow: none;
             }
             .button {
-              background-image: linear-gradient(45deg, rgba(26, 26, 26, 0.01) 0%, rgba(26, 26, 26, 0.01) 20%,rgba(131, 131, 131, 0.01) 20%, rgba(131, 131, 131, 0.01) 40%,rgba(218, 218, 218, 0.01) 40%, rgba(218, 218, 218, 0.01) 60%,rgba(82, 82, 82, 0.01) 60%, rgba(82, 82, 82, 0.01) 80%,rgba(228, 228, 228, 0.01) 80%, rgba(228, 228, 228, 0.01) 100%),
-                linear-gradient(45deg, rgba(224, 224, 224, 0.03) 0%, rgba(224, 224, 224, 0.03) 12.5%,rgba(5, 5, 5, 0.03) 12.5%, rgba(5, 5, 5, 0.03) 25%,rgba(163, 163, 163, 0.03) 25%, rgba(163, 163, 163, 0.03) 37.5%,rgba(85, 85, 85, 0.03) 37.5%, rgba(85, 85, 85, 0.03) 50%,rgba(37, 37, 37, 0.03) 50%, rgba(37, 37, 37, 0.03) 62.5%,rgba(123, 123, 123, 0.03) 62.5%, rgba(123, 123, 123, 0.03) 75%,rgba(142, 142, 142, 0.03) 75%, rgba(142, 142, 142, 0.03) 87.5%,rgba(137, 137, 137, 0.03) 87.5%, rgba(137, 137, 137, 0.03) 100%),
-                linear-gradient(0deg, rgba(100, 100, 100, 0.1) 0%, rgba(100, 100, 100, 0.1) 20%,rgba(70, 70, 70, 0.1) 20%, rgba(70, 70, 70, 0.1) 40%,rgba(171, 171, 171, 0.1) 40%, rgba(171, 171, 171, 0.1) 60%,rgba(71, 71, 71, 0.1) 60%, rgba(71, 71, 71, 0.1) 80%,rgba(87, 87, 87, 0.1) 80%, rgba(87, 87, 87, 0.1) 100%),linear-gradient(90deg, rgba(37, 37, 37, 0.01) 0%, rgba(37, 37, 37, 0.01) 12.5%,rgba(56, 56, 56, 0.01) 12.5%, rgba(56, 56, 56, 0.01) 25%,rgba(55, 55, 55, 0.01) 25%, rgba(55, 55, 55, 0.01) 37.5%,rgba(38, 38, 38, 0.01) 37.5%, rgba(38, 38, 38, 0.01) 50%,rgba(38, 38, 38, 0.01) 50%, rgba(38, 38, 38, 0.01) 62.5%,rgba(251, 251, 251, 0.01) 62.5%, rgba(251, 251, 251, 0.01) 75%,rgba(190, 190, 190, 0.01) 75%, rgba(190, 190, 190, 0.01) 87.5%,rgba(253, 253, 253, 0.01) 87.5%, rgba(253, 253, 253, 0.01) 100%),
-                linear-gradient(45deg, rgba(162, 162, 162, 0.1) 0%, rgba(162, 162, 162, 0.1) 12.5%,rgba(109, 109, 109, 0.1) 12.5%, rgba(109, 109, 109, 0.1) 25%,rgba(152, 152, 152, 0.1) 25%, rgba(152, 152, 152, 0.1) 37.5%,rgba(82, 82, 82, 0.1) 37.5%, rgba(82, 82, 82, 0.1) 50%,rgba(239, 239, 239, 0.1) 50%, rgba(239, 239, 239, 0.1) 62.5%,rgba(252, 252, 252, 0.1) 62.5%, rgba(252, 252, 252, 0.1) 75%,rgba(246, 246, 246, 0.1) 75%, rgba(246, 246, 246, 0.1) 87.5%,rgba(16, 16, 16, 0.1) 87.5%, rgba(16, 16, 16, 0.1) 100%),
-                linear-gradient(90deg, rgb(25, 93, 249),rgb(143, 196, 218));
+              background-image: linear-gradient(147deg, transparent 0%, transparent 8%,rgba(9,99,159, 0.45) 8%, rgba(9,99,159, 0.45) 46%,transparent 46%, transparent 100%),
+              linear-gradient(107deg, transparent 0%, transparent 21%,rgba(9,99,159, 0.45) 21%, rgba(9,99,159, 0.45) 53%,transparent 53%, transparent 100%),
+              linear-gradient(288deg, transparent 0%, transparent 35%,rgba(9,99,159, 0.45) 35%, rgba(9,99,159, 0.45) 91%,transparent 91%, transparent 100%),
+              linear-gradient(90deg, rgba(52,152,219, 0.6),rgba(52,152,219, 0.6));
               background-size: 200%;
                 color: white;
                 font-weight: 600;
