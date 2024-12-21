@@ -1,11 +1,11 @@
-export async function renderHomePage (proxySettings, isPassSet) {
+export async function renderHomePage(proxySettings, isPassSet) {
     const {
-        remoteDNS, 
+        remoteDNS,
         localDNS,
-        vlessTrojanFakeDNS, 
-        proxyIP, 
+        vlessTrojanFakeDNS,
+        proxyIP,
         outProxy,
-        cleanIPs, 
+        cleanIPs,
         enableIPv6,
         customCdnAddrs,
         customCdnHost,
@@ -14,11 +14,11 @@ export async function renderHomePage (proxySettings, isPassSet) {
         vlessConfigs,
         trojanConfigs,
         ports,
-        lengthMin, 
-        lengthMax, 
-        intervalMin, 
+        lengthMin,
+        lengthMax,
+        intervalMin,
         intervalMax,
-        fragmentPackets, 
+        fragmentPackets,
         warpEndpoints,
         warpFakeDNS,
         warpEnableIPv6,
@@ -36,7 +36,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
         bypassIran,
         bypassChina,
         bypassRussia,
-        blockAds, 
+        blockAds,
         blockPorn,
         blockUDP443,
         customBypassRules,
@@ -45,7 +45,8 @@ export async function renderHomePage (proxySettings, isPassSet) {
 
     const isWarpPlus = warpPlusLicense ? true : false;
     const activeProtocols = (vlessConfigs ? 1 : 0) + (trojanConfigs ? 1 : 0);
-    let httpPortsBlock = '', httpsPortsBlock = '';
+    let httpPortsBlock = '',
+        httpsPortsBlock = '';
     const allPorts = [...(globalThis.hostName.includes('workers.dev') ? globalThis.defaultHttpPorts : []), ...globalThis.defaultHttpsPorts];
 
     allPorts.forEach(port => {
@@ -64,7 +65,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             <span class="material-symbols-outlined symbol">verified</span>
             <span>${app}</span>
         </div>`).join('');
-        
+
     const subQR = (path, app, tag, title, sbType) => {
         const url = `${sbType ? 'sing-box://import-remote-profile?url=' : ''}https://${globalThis.hostName}/${path}/${globalThis.userID}${app ? `?app=${app}` : ''}#${tag}`;
         return `
@@ -72,7 +73,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
             </button>`;
     };
-    
+
     const subURL = (path, app, tag) => {
         const url = `https://${globalThis.hostName}/${path}/${globalThis.userID}${app ? `?app=${app}` : ''}#${tag}`;
         return `
