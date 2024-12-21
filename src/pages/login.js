@@ -157,7 +157,7 @@ export async function renderLoginPage() {
                 });
             
                 if (!response.ok) {
-                    passwordError.textContent = '❌ Wrong Password! ❌';
+                    passwordError.textContent = 'Wrong Password! ✋🏿';
                     const errorMessage = await response.text();
                     console.error('Login failed:', errorMessage);
                     return;
