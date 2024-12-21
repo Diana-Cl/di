@@ -106,9 +106,10 @@ export async function renderSecretsPage() {
             .container { width: 30%; }
         }
         .button {
-        background: linear-gradient(45deg,
-                #09639f, rgba(32, 195, 190, 0.67), 
-                #3498db 34.14%, #3498db, #00ffd5, #3498db 51.5%);
+            background: linear-gradient(147deg, transparent 0%, transparent 8%,rgba(9,99,159, 0.45) 8%, rgba(9,99,159, 0.45) 46%,transparent 46%, transparent 100%),
+              linear-gradient(107deg, transparent 0%, transparent 21%,rgba(9,99,159, 0.45) 21%, rgba(9,99,159, 0.45) 53%,transparent 53%, transparent 100%),
+              linear-gradient(288deg, transparent 0%, transparent 35%,rgba(9,99,159, 0.45) 35%, rgba(9,99,159, 0.45) 91%,transparent 91%, transparent 100%),
+              linear-gradient(90deg, rgba(52,152,219, 0.6),rgba(52,152,219, 0.6));
             background-size: 200%;
             color: white;
             font-weight: 600;
@@ -150,7 +151,7 @@ export async function renderSecretsPage() {
                         <span class="copy-icon" onclick="copyToClipboard('trojan-password')"><i class="fa-solid fa-copy"></i></span>
                     </div>
                 </div>
-                <button class="button" onclick="generateCredentials()">Generate Again <i class="fa-solid fa-dice-three"></i> </button>
+                <button class="button" onclick="generateCredentials()">Generate Again <i class="fa-solid fa-dice fa-shake"></i> </button>
             </div>
         </div>
         <script>
@@ -183,7 +184,7 @@ export async function renderSecretsPage() {
             function copyToClipboard(elementId) {
                 const textToCopy = document.getElementById(elementId).textContent;
                 navigator.clipboard.writeText(textToCopy)
-                    .then(() => alert('✔️ Copied to clipboard!'))
+                    .then(() => alert('Copied to clipboard! ✔️'))
                     .catch(err => console.error('Failed to copy text:', err));
             }
     
