@@ -129,32 +129,32 @@ export async function renderSecretsPage() {
             @keyframes textclip {
               0% { background-position: 200% center; }
               100% { background-position: -200% center; }
-            }
+              }
     </style>
     </head>
     <body>
         <div class="container">
             <h1><i class="fa-sharp fa-solid fa-beat-fade">BPB PANEL 👻 <span style="font-size:14px; position: fixed; right: 0px; margin-top: 43px;">${globalThis.panelVersion}</span></i></h1>
             <div class="form-container">
-                <h2>Secrets generator</h2>
-                <div>
-                    <strong>Random UUID</strong>
-                    <div class="output-container">
-                        <span id="uuid" class="output"></span>
-                        <span class="copy-icon" onclick="copyToClipboard('uuid')"><i class="fa-solid fa-copy"></i></span>
-                    </div>
+                <h2>GENERATOR</h2>
+            <div>
+                <strong>Random uuid</strong>
+                <div class="output-container">
+                    <span id="uuid" class="output"></span>
+                    <span class="copy-icon" onclick="copyToClipboard('uuid')"><i class="fa-solid fa-copy"></i></span>
                 </div>
-                <div>
-                    <strong>Random Trojan Password</strong>
-                    <div class="output-container">
-                        <span id="trojan-password" class="output"></span>
-                        <span class="copy-icon" onclick="copyToClipboard('trojan-password')"><i class="fa-solid fa-copy"></i></span>
-                    </div>
-                </div>
-                <button class="button" onclick="generateCredentials()">Generate Again <i class="fa-solid fa-dice fa-shake"></i> </button>
             </div>
-        </div>
-        <script>
+            <div>
+                <strong>Random trojan password</strong>
+                <div class="output-container">
+                    <span id="trojan-password" class="output"></span>
+                    <span class="copy-icon" onclick="copyToClipboard('trojan-password')"><i class="fa-solid fa-copy"></i></span>
+                </div>
+            </div>
+            <button class="button" onclick="generateCredentials()">Generate Again <i class="fa-solid fa-dice fa-shake"></i> </button>
+            </div>
+            </div>
+            <script>
             localStorage.getItem('darkMode') === 'enabled' && document.body.classList.add('dark-mode');
             function generateUUID() {
                 return crypto.randomUUID();
