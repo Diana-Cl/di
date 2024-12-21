@@ -141,6 +141,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 'GRAD' 0,
                 'opsz' 24
             }
+            }
             details { border-bottom: 1px solid var(--border-color); }
             summary {
                 font-weight: bold;
@@ -157,6 +158,13 @@ export async function renderHomePage (proxySettings, isPassSet) {
             h1 { font-size: 2.5em; text-align: center; color: var(--header-color); text-shadow: var(--header-shadow); }
             h2,h3 { margin: 30px 0; text-align: center; color: var(--hr-text-color); }
             hr { border: 1px solid var(--border-color); margin: 20px 0; }
+            .form-control {
+                margin-bottom: 10px;
+            }
+            .form-control label {
+                display: block;
+                margin-bottom: 5px;
+            }
             details summary::-webkit-details-marker {display: none; }   
             details[open] summary ~ * {animation: sweep 0.5s ease-in-out; overflow: hidden; }
             @keyframes sweep {
@@ -256,7 +264,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
                 transition: all 0.3s ease;
             }
-            input[type="checkbox"] { 
+             input[type="checkbox"] { 
                 background-color: var(--input-background-color);
                 style="margin: 0; 
                 grid-column: 2;"
@@ -274,6 +282,9 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 background-color: #2980b9;
                 box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
                 transform: translateY(-2px);
+            }
+            .header-container button:hover {
+                transform: scale(1.1);
             }
             button.button:hover { color: white; }
             .button:active,
@@ -300,7 +311,12 @@ export async function renderHomePage (proxySettings, isPassSet) {
             }
             th, td { padding: 10px; border-bottom: 1px solid var(--border-color); }
             td div { display: flex; align-items: center; }
-            th { background-color: var(--secondary-color); color: white; font-weight: bold; font-size: 1.1rem; width: 50%;}
+            th { background-image: linear-gradient(45deg, rgba(26, 26, 26, 0.01) 0%, rgba(26, 26, 26, 0.01) 20%,rgba(131, 131, 131, 0.01) 20%, rgba(131, 131, 131, 0.01) 40%,rgba(218, 218, 218, 0.01) 40%, rgba(218, 218, 218, 0.01) 60%,rgba(82, 82, 82, 0.01) 60%, rgba(82, 82, 82, 0.01) 80%,rgba(228, 228, 228, 0.01) 80%, rgba(228, 228, 228, 0.01) 100%),
+                linear-gradient(45deg, rgba(224, 224, 224, 0.03) 0%, rgba(224, 224, 224, 0.03) 12.5%,rgba(5, 5, 5, 0.03) 12.5%, rgba(5, 5, 5, 0.03) 25%,rgba(163, 163, 163, 0.03) 25%, rgba(163, 163, 163, 0.03) 37.5%,rgba(85, 85, 85, 0.03) 37.5%, rgba(85, 85, 85, 0.03) 50%,rgba(37, 37, 37, 0.03) 50%, rgba(37, 37, 37, 0.03) 62.5%,rgba(123, 123, 123, 0.03) 62.5%, rgba(123, 123, 123, 0.03) 75%,rgba(142, 142, 142, 0.03) 75%, rgba(142, 142, 142, 0.03) 87.5%,rgba(137, 137, 137, 0.03) 87.5%, rgba(137, 137, 137, 0.03) 100%),
+                linear-gradient(0deg, rgba(100, 100, 100, 0.1) 0%, rgba(100, 100, 100, 0.1) 20%,rgba(70, 70, 70, 0.1) 20%, rgba(70, 70, 70, 0.1) 40%,rgba(171, 171, 171, 0.1) 40%, rgba(171, 171, 171, 0.1) 60%,rgba(71, 71, 71, 0.1) 60%, rgba(71, 71, 71, 0.1) 80%,rgba(87, 87, 87, 0.1) 80%, rgba(87, 87, 87, 0.1) 100%),linear-gradient(90deg, rgba(37, 37, 37, 0.01) 0%, rgba(37, 37, 37, 0.01) 12.5%,rgba(56, 56, 56, 0.01) 12.5%, rgba(56, 56, 56, 0.01) 25%,rgba(55, 55, 55, 0.01) 25%, rgba(55, 55, 55, 0.01) 37.5%,rgba(38, 38, 38, 0.01) 37.5%, rgba(38, 38, 38, 0.01) 50%,rgba(38, 38, 38, 0.01) 50%, rgba(38, 38, 38, 0.01) 62.5%,rgba(251, 251, 251, 0.01) 62.5%, rgba(251, 251, 251, 0.01) 75%,rgba(190, 190, 190, 0.01) 75%, rgba(190, 190, 190, 0.01) 87.5%,rgba(253, 253, 253, 0.01) 87.5%, rgba(253, 253, 253, 0.01) 100%),
+                linear-gradient(45deg, rgba(162, 162, 162, 0.1) 0%, rgba(162, 162, 162, 0.1) 12.5%,rgba(109, 109, 109, 0.1) 12.5%, rgba(109, 109, 109, 0.1) 25%,rgba(152, 152, 152, 0.1) 25%, rgba(152, 152, 152, 0.1) 37.5%,rgba(82, 82, 82, 0.1) 37.5%, rgba(82, 82, 82, 0.1) 50%,rgba(239, 239, 239, 0.1) 50%, rgba(239, 239, 239, 0.1) 62.5%,rgba(252, 252, 252, 0.1) 62.5%, rgba(252, 252, 252, 0.1) 75%,rgba(246, 246, 246, 0.1) 75%, rgba(246, 246, 246, 0.1) 87.5%,rgba(16, 16, 16, 0.1) 87.5%, rgba(16, 16, 16, 0.1) 100%),
+                linear-gradient(90deg, rgb(25, 93, 249),rgb(143, 196, 218)); 
+            color: white; font-weight: bold; font-size: 1.1rem; width: 50%;}
             td:last-child { background-color: var(--table-active-color); }               
             tr:hover { background-color: var(--table-active-color); }
             .modal {
@@ -379,35 +395,6 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 overflow: auto;
                 background-color: rgba(0, 0, 0, 0.4);
             }
-            .routing { 
-                display: grid;
-                justify-content: flex-start;
-                grid-template-columns: 1fr 1fr 10fr 1fr;
-                margin-bottom: 15px;
-            }
-            .form-control .routing input { grid-column: 2 / 3; }
-            #routing-rules.form-control { display: grid; grid-template-columns: 1fr 1fr; }
-            .routing label {
-                text-align: left;
-                margin: 0 0 0 10px;
-                font-weight: 400;
-                font-size: 100%;
-                text-wrap: nowrap;
-            }
-            .form-control input[type="password"]:focus { border-color: var(--secondary-color); outline: none; }
-            #passwordError { color: red; margin-bottom: 10px; }
-            .symbol { margin-right: 8px; }
-            .modalQR {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.4);
-            }
             .floating-button {
                 position: fixed;
                 bottom: 20px;
@@ -429,15 +416,19 @@ export async function renderHomePage (proxySettings, isPassSet) {
             .input-with-select { width: 100%; }
             body.dark-mode .floating-button { background-color: var(--color); }
             body.dark-mode .floating-button:hover { transform: scale(1.1); }
+            #ips th { background-color: var(--hr-text-color); color: var(--background-color); width: unset; }
+            #ips td { background-color: unset; }
+            #ips td:first-child { background-color: var(--table-active-color); }
+            .header-container { display: flex; align-items: center; justify-content: center; }
             @media only screen and (min-width: 768px) {
-            .form-container { max-width: 70%; }
-            .form-control { 
-                 margin-bottom: 15px;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                align-items: baseline;
-                justify-content: flex-end;
-                font-family: Arial, sans-serif;
+                .form-container { max-width: 70%; }
+                .form-control { 
+                    margin-bottom: 15px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: baseline;
+                    justify-content: flex-end;
+                    font-family: Arial, sans-serif;
             }
             .animated.fast {
                 font-family: inherit;
@@ -482,10 +473,12 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 box-shadow: none;
             }
             .button {
-                background: linear-gradient(45deg,
-                #09639f, rgba(32, 195, 190, 0.67), 
-                #3498db 34.14%, #3498db, #00ffd5, #3498db 51.5%);
-                background-size: 200%;
+              background-image: linear-gradient(45deg, rgba(26, 26, 26, 0.01) 0%, rgba(26, 26, 26, 0.01) 20%,rgba(131, 131, 131, 0.01) 20%, rgba(131, 131, 131, 0.01) 40%,rgba(218, 218, 218, 0.01) 40%, rgba(218, 218, 218, 0.01) 60%,rgba(82, 82, 82, 0.01) 60%, rgba(82, 82, 82, 0.01) 80%,rgba(228, 228, 228, 0.01) 80%, rgba(228, 228, 228, 0.01) 100%),
+                linear-gradient(45deg, rgba(224, 224, 224, 0.03) 0%, rgba(224, 224, 224, 0.03) 12.5%,rgba(5, 5, 5, 0.03) 12.5%, rgba(5, 5, 5, 0.03) 25%,rgba(163, 163, 163, 0.03) 25%, rgba(163, 163, 163, 0.03) 37.5%,rgba(85, 85, 85, 0.03) 37.5%, rgba(85, 85, 85, 0.03) 50%,rgba(37, 37, 37, 0.03) 50%, rgba(37, 37, 37, 0.03) 62.5%,rgba(123, 123, 123, 0.03) 62.5%, rgba(123, 123, 123, 0.03) 75%,rgba(142, 142, 142, 0.03) 75%, rgba(142, 142, 142, 0.03) 87.5%,rgba(137, 137, 137, 0.03) 87.5%, rgba(137, 137, 137, 0.03) 100%),
+                linear-gradient(0deg, rgba(100, 100, 100, 0.1) 0%, rgba(100, 100, 100, 0.1) 20%,rgba(70, 70, 70, 0.1) 20%, rgba(70, 70, 70, 0.1) 40%,rgba(171, 171, 171, 0.1) 40%, rgba(171, 171, 171, 0.1) 60%,rgba(71, 71, 71, 0.1) 60%, rgba(71, 71, 71, 0.1) 80%,rgba(87, 87, 87, 0.1) 80%, rgba(87, 87, 87, 0.1) 100%),linear-gradient(90deg, rgba(37, 37, 37, 0.01) 0%, rgba(37, 37, 37, 0.01) 12.5%,rgba(56, 56, 56, 0.01) 12.5%, rgba(56, 56, 56, 0.01) 25%,rgba(55, 55, 55, 0.01) 25%, rgba(55, 55, 55, 0.01) 37.5%,rgba(38, 38, 38, 0.01) 37.5%, rgba(38, 38, 38, 0.01) 50%,rgba(38, 38, 38, 0.01) 50%, rgba(38, 38, 38, 0.01) 62.5%,rgba(251, 251, 251, 0.01) 62.5%, rgba(251, 251, 251, 0.01) 75%,rgba(190, 190, 190, 0.01) 75%, rgba(190, 190, 190, 0.01) 87.5%,rgba(253, 253, 253, 0.01) 87.5%, rgba(253, 253, 253, 0.01) 100%),
+                linear-gradient(45deg, rgba(162, 162, 162, 0.1) 0%, rgba(162, 162, 162, 0.1) 12.5%,rgba(109, 109, 109, 0.1) 12.5%, rgba(109, 109, 109, 0.1) 25%,rgba(152, 152, 152, 0.1) 25%, rgba(152, 152, 152, 0.1) 37.5%,rgba(82, 82, 82, 0.1) 37.5%, rgba(82, 82, 82, 0.1) 50%,rgba(239, 239, 239, 0.1) 50%, rgba(239, 239, 239, 0.1) 62.5%,rgba(252, 252, 252, 0.1) 62.5%, rgba(252, 252, 252, 0.1) 75%,rgba(246, 246, 246, 0.1) 75%, rgba(246, 246, 246, 0.1) 87.5%,rgba(16, 16, 16, 0.1) 87.5%, rgba(16, 16, 16, 0.1) 100%),
+                linear-gradient(90deg, rgb(25, 93, 249),rgb(143, 196, 218));
+              background-size: 200%;
                 color: white;
                 font-weight: 600;
                 animation: rainbow 20s linear infinite;
@@ -494,7 +487,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             .button:hover {
                 transform: translateY(-2px);
                 box-shadow: none;
-                animation: rainbow 5s linear infinite;
+                animation: rainbow 6s linear infinite;
             }
             .footer #openModalBtn {
                 background: linear-gradient(45deg,
@@ -535,7 +528,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             <form id="configForm">
         <details open>
           <summary>
-            <h2>VLESS - TROJAN </h2>
+            <h2>VLESS & TROJAN </h2>
               <i class="fa-solid fa-cog fa-spin fa-spin-reverse fa-xl"></i>
             <span class="sr-only">Loading...</span>
           </summary>
@@ -550,270 +543,329 @@ export async function renderHomePage (proxySettings, isPassSet) {
               <i class="fa-solid fa-house-chimney"></i> Local DNS
             </label>
             <input type="text" id="localDNS" name="localDNS" value="${localDNS}"
-              pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
-              title="Please enter a valid DNS IP Address or localhost!"  required>
+                   pattern="^(?:\\d{1,3}\\.){3}\\d{1,3}$"
+                    title="Please enter a valid DNS IP Address!"  required>
           </div>
           <div class="form-control">
             <label for="vlessTrojanFakeDNS">
               <i class="fa-solid fa-ghost"></i> Fake DNS
             </label>
             <div class="input-with-select">
-              <select id="vlessTrojanFakeDNS" name="vlessTrojanFakeDNS">
-              <option value="true" ${vlessTrojanFakeDNS ? "selected" : ""}>Enabled</option>
-              <option value="false" ${!vlessTrojanFakeDNS ? "selected" : ""}>Disabled</option>
+            <select id="vlessTrojanFakeDNS" name="vlessTrojanFakeDNS">
+              <option value="true" ${vlessTrojanFakeDNS ? 'selected' : ''}>Enabled</option>
+              <option value="false" ${!vlessTrojanFakeDNS ? 'selected' : ''}>Disabled</option>
+           </select>
+           </div>
+          </div>
+          <div class="form-control">
+            <label for="proxyIP">
+              <i class="fa-solid fa-fingerprint"></i> Proxy IP
+            </label>
+            <input type="text" id="proxyIP" name="proxyIP" value="${proxyIP.replaceAll(",", " , ")}">
+          </div>
+          <div class="form-control">
+           <label for="outProxy">
+              <i class="fa-solid fa-plane-departure"></i> Chain Proxy
+            </label>
+            <input type="text" id="outProxy" name="outProxy" value="${outProxy}">
+          </div>
+          <div class="form-control">
+            <label for="cleanIPs">
+              <i class="fa-solid fa-cannabis fa-bounce" style="color: #2aaa8a;"></i> Clean IP
+            </label>
+            <input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
+          </div>
+          <div class="form-control">
+            <label>
+              <i class="fa-brands fa-searchengin"></i> CF IP Scanner
+            </label>
+            <a href="${atob("aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hl")}/Cloudflare-Clean-IP-Scanner/releases/tag/v2.2.5" name="scanner" target="_blank" style="width: 100%;">
+               <button type="button" id="scanner" class="button">
+                 Download Scanner
+                 <span class="material-symbols-outlined">open_in_new</span>
+                </button>
+            </a>
+          </div>
+          <div class="form-control">
+            <label for="enableIPv6"> 
+              <i class="fa-brands fa-hive"></i> IPv6 Configs
+            </label>
+            <div class="input-with-select">
+            <select id="enableIPv6" name="enableIPv6">
+              <option value="true" ${enableIPv6 ? 'selected' : ''}>Enabled</option>
+              <option value="false" ${!enableIPv6 ? 'selected' : ''}>Disabled</option>
+           </select>
+           </div>
+          </div>
+          <div class="form-control">
+            <label for="customCdnAddrs"> 
+              <i class="fa fa-sort-numeric-desc"></i> Custom CDN IP
+            </label>
+            <input type="text" id="customCdnAddrs" name="customCdnAddrs" value="${customCdnAddrs.replaceAll(",", " , ")}">
+          </div>
+          <div class="form-control">
+            <label for="customCdnHost"> 
+              <i class="fa fa-sort-alpha-desc"></i> Custom Host
+            </label>
+            <input type="text" id="customCdnHost" name="customCdnHost" value="${customCdnHost}">
+          </div>
+          <div class="form-control">
+            <label for="customCdnSni"> 
+              <i class="fa-solid fa-sort-alpha-desc"></i> Custom SNI
+            </label>
+            <input type="text" id="customCdnSni" name="customCdnSni" value="${customCdnSni}">
+          </div>
+          <div class="form-control">
+            <label for="bestVLESSTrojanInterval"> 
+              <i class="fa-solid fa-splotch fa-spin" style="color: #d2042d;"> </i> Best Interval
+            </label>
+            <input type="number" id="bestVLESSTrojanInterval" name="bestVLESSTrojanInterval" min="10" max="90" value="${bestVLESSTrojanInterval}">
+          </div>
+          <div class="form-control" style="padding-top: 10px;">
+            <label> 
+              <i class="fa-solid fa-microchip"></i> Protocols
+            </label>
+            <div style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; margin-top: 10px;">
+              <div style = "display: flex; justify-content: center; align-items: center;">
+                <input type="checkbox" id="vlessConfigs" name="vlessConfigs" onchange="handleProtocolChange(event)" value="true" ${vlessConfigs ? 'checked' : ''}>
+                <label for="vlessConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">VLESS</label>
+              </div>
+              <div style = "display: flex; justify-content: center; align-items: center;">
+                <input type="checkbox" id="trojanConfigs" name="trojanConfigs" onchange="handleProtocolChange(event)" value="true" ${trojanConfigs ? 'checked' : ''}>
+                <label for="trojanConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">Trojan</label>
+              </div>
+            </div>
+          </div>
+          <div class="table-container">
+            <table id="ports-block">
+              <tr>
+                <th style="text-wrap: nowrap; background-color: gray;">Config type</th>
+                <th style="text-wrap: nowrap; background-color: gray;">Ports</th>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-size: larger;"><b>TLS</b></td>
+                <td>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">${httpsPortsBlock}</div>
+                </td>
+              </tr>
+              ${!httpPortsBlock ? '' : `
+              <tr>
+                <td style="text-align: center; font-size: larger;"><b>Non TLS</b></td>
+                <td>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">${httpPortsBlock}</div>
+                </td>
+              </tr>
+              `}        
+            </table>
+          </div>
+        </details>
+        <details>
+          <summary>
+            <h2>FRAGMENT </h2>
+              <i class="fa-solid fa-cog fa-spin fa-xl fa-spin-reverse" style="--fa-animation-duration: 8.5s;"></i>
+            <span class="sr-only">Loading...</span>
+          </summary>
+          <div class="form-control">
+            <label for="fragmentLengthMin">
+              <i class="fa-solid fa-border-none"></i> Length
+            </label>
+            <div class="min-max">
+              <input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
+              <span> - </span>
+              <input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="500" required>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="fragmentIntervalMin"> 
+              <i class="fa-solid fa-stopwatch-20 fa-shake"></i> Interval
+            </label>
+            <div class="min-max">
+              <input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin"
+                value="${intervalMin}" min="1" max="30" required>
+              <span> - </span>
+              <input type="number" id="fragmentIntervalMax" name="fragmentIntervalMax"
+                value="${intervalMax}" min="1" max="30" required>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="fragmentPackets"> 
+              <i class="fa-solid fa-cube"></i> Packets
+            </label>
+            <div class="input-with-select">
+              <select id="fragmentPackets" name="fragmentPackets">
+                <option value="tlshello" ${fragmentPackets === 'tlshello' ? 'selected' : ''}>tlshello</option>
+                <option value="1-1" ${fragmentPackets === '1-1' ? 'selected' : ''}>1-1</option>
+                <option value="1-2" ${fragmentPackets === '1-2' ? 'selected' : ''}>1-2</option>
+                <option value="1-3" ${fragmentPackets === '1-3' ? 'selected' : ''}>1-3</option>
+                <option value="1-5" ${fragmentPackets === '1-5' ? 'selected' : ''}>1-5</option>
+              </select>
+              </div>
+          </div>
+        </details>
+        <details>
+          <summary>
+            <h2>WARP GENERAL </h2>
+              <i class="fa-solid fa-cog fa-spin fa-xl"></i>
+            <span class="sr-only">Loading...</span>
+          </summary>
+          <div class="form-control">
+            <label for="warpEndpoints"> 
+              <i class="fa-solid fa-arrow-trend-up fa-spin"></i> Endpoints
+            </label>
+            <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
+          </div>
+          <div class="form-control">
+            <label style="line-height: 1.5;"> 
+              <i class="fa-brands fa-searchengin"></i> Endpoint Scanner
+            </label>
+            <button type="button" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL ${atob("aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JpYS1wYWluLWJhY2hl")}/warp-script/refs/heads/main/endip/install.sh)', false)">
+            COPY SCRIPT <span class="material-symbols-outlined">terminal</span>
+            </button>
+          </div>
+          <div class="form-control">
+            <label for="warpFakeDNS"> 
+              <i class="fa-solid fa-ghost"></i> Fake DNS
+            </label>
+            <div class="input-with-select">
+              <select id="warpFakeDNS" name="warpFakeDNS">
+              <option value="true" ${warpFakeDNS ? 'selected' : ''}>Enabled</option>
+              <option value="false" ${!warpFakeDNS ? 'selected' : ''}>Disabled</option>
               </select>
             </div>
           </div>
-                    <div class="form-control">
-                        <label for="proxyIP">📍 Proxy IPs / Domains</label>
-                        <input type="text" id="proxyIP" name="proxyIP" value="${proxyIP.replaceAll(",", " , ")}">
-                    </div>
-                    <div class="form-control">
-                        <label for="outProxy">✈️ Chain Proxy</label>
-                        <input type="text" id="outProxy" name="outProxy" value="${outProxy}">
-                    </div>
-                    <div class="form-control">
-                        <label for="cleanIPs">✨ Clean IPs / Domains</label>
-                        <input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
-                    </div>
-                    <div class="form-control">
-                        <label for="scanner">🔎 Clean IP Scanner</label>
-                        <a href="${atob("aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hl")}/Cloudflare-Clean-IP-Scanner/releases/tag/v2.2.5" name="scanner" target="_blank" style="width: 100%;">
-                            <button type="button" id="scanner" class="button">
-                                Download Scanner
-                                <span class="material-symbols-outlined">open_in_new</span>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="form-control">
-                        <label for="enableIPv6">🔛 IPv6</label>
-                        <div class="input-with-select">
-                            <select id="enableIPv6" name="enableIPv6">
-                                <option value="true" ${enableIPv6 ? 'selected' : ''}>Enabled</option>
-                                <option value="false" ${!enableIPv6 ? 'selected' : ''}>Disabled</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="customCdnAddrs">💀 Custom CDN Addrs</label>
-                        <input type="text" id="customCdnAddrs" name="customCdnAddrs" value="${customCdnAddrs.replaceAll(",", " , ")}">
-                    </div>
-                    <div class="form-control">
-                        <label for="customCdnHost">💀 Custom CDN Host</label> 
-                        <input type="text" id="customCdnHost" name="customCdnHost" value="${customCdnHost}">
-                    </div>
-                    <div class="form-control">
-                        <label for="customCdnSni">💀 Custom CDN SNI</label>
-                        <input type="text" id="customCdnSni" name="customCdnSni" value="${customCdnSni}">
-                    </div>
-                    <div class="form-control">
-                        <label for="bestVLESSTrojanInterval">🔄 Best Interval</label>
-                        <input type="number" id="bestVLESSTrojanInterval" name="bestVLESSTrojanInterval" min="10" max="90" value="${bestVLESSTrojanInterval}">
-                    </div>
-                    <div class="form-control" style="padding-top: 10px;">
-                        <label for="vlessConfigs">⚙️ Protocols</label>
-                        <div style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; margin-top: 10px;">
-                            <div style = "display: flex; justify-content: center; align-items: center;">
-                                <input type="checkbox" id="vlessConfigs" name="vlessConfigs" onchange="handleProtocolChange(event)" value="true" ${vlessConfigs ? 'checked' : ''}>
-                                <label for="vlessConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">VLESS</label>
-                            </div>
-                            <div style = "display: flex; justify-content: center; align-items: center;">
-                                <input type="checkbox" id="trojanConfigs" name="trojanConfigs" onchange="handleProtocolChange(event)" value="true" ${trojanConfigs ? 'checked' : ''}>
-                                <label for="trojanConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">Trojan</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-container">
-                        <table id="ports-block">
-                            <tr>
-                                <th style="text-wrap: nowrap; background-color: gray;">Config type</th>
-                                <th style="text-wrap: nowrap; background-color: gray;">Ports</th>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; font-size: larger;"><b>TLS</b></td>
-                                <td>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">${httpsPortsBlock}</div>
-                                </td>    
-                            </tr>
-                            ${!httpPortsBlock ? '' : `<tr>
-                                <td style="text-align: center; font-size: larger;"><b>Non TLS</b></td>
-                                <td>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">${httpPortsBlock}</div>
-                                </td>    
-                            </tr>`}        
-                        </table>
-                    </div>
-                </details>
-                <details>
-                    <summary><h2>FRAGMENT ⚙️</h2></summary>	
-                    <div class="form-control">
-                        <label for="fragmentLengthMin">📐 Length</label>
-                        <div class="min-max">
-                            <input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
-                            <span> - </span>
-                            <input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="500" required>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="fragmentIntervalMin">🕞 Interval</label>
-                        <div class="min-max">
-                            <input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin"
-                                value="${intervalMin}" min="1" max="30" required>
-                            <span> - </span>
-                            <input type="number" id="fragmentIntervalMax" name="fragmentIntervalMax"
-                                value="${intervalMax}" min="1" max="30" required>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="fragmentPackets">📦 Packets</label>
-                        <div class="input-with-select">
-                            <select id="fragmentPackets" name="fragmentPackets">
-                                <option value="tlshello" ${fragmentPackets === 'tlshello' ? 'selected' : ''}>tlshello</option>
-                                <option value="1-1" ${fragmentPackets === '1-1' ? 'selected' : ''}>1-1</option>
-                                <option value="1-2" ${fragmentPackets === '1-2' ? 'selected' : ''}>1-2</option>
-                                <option value="1-3" ${fragmentPackets === '1-3' ? 'selected' : ''}>1-3</option>
-                                <option value="1-5" ${fragmentPackets === '1-5' ? 'selected' : ''}>1-5</option>
-                            </select>
-                        </div>
-                    </div>
-                </details>
-                <details>
-                    <summary><h2>WARP GENERAL ⚙️</h2></summary>
-                    <div class="form-control">
-                        <label for="warpEndpoints">✨ Endpoints</label>
-                        <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
-                    </div>
-                    <div class="form-control">
-                        <label for="endpointScanner" style="line-height: 1.5;">🔎 Scan Endpoint</label>
-                        <button type="button" id="endpointScanner" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL ${atob("aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JpYS1wYWluLWJhY2hl")}/warp-script/refs/heads/main/endip/install.sh)', false)">
-                            Copy Script<span class="material-symbols-outlined">terminal</span>
-                        </button>
-                    </div>
-                    <div class="form-control">
-                        <label for="warpFakeDNS">🧢 Fake DNS</label>
-                        <div class="input-with-select">
-                            <select id="warpFakeDNS" name="warpFakeDNS">
-                                <option value="true" ${warpFakeDNS ? 'selected' : ''}>Enabled</option>
-                                <option value="false" ${!warpFakeDNS ? 'selected' : ''}>Disabled</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="warpEnableIPv6">🔛 IPv6</label>
-                        <div class="input-with-select">
-                            <select id="warpEnableIPv6" name="warpEnableIPv6">
-                                <option value="true" ${warpEnableIPv6 ? 'selected' : ''}>Enabled</option>
-                                <option value="false" ${!warpEnableIPv6 ? 'selected' : ''}>Disabled</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="warpPlusLicense">➕ Warp+ License</label>
-                        <input type="text" id="warpPlusLicense" name="warpPlusLicense" value="${warpPlusLicense}" 
-                            pattern="^[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}$" 
-                            title="Please enter a valid Warp Plus license in xxxxxxxx-xxxxxxxx-xxxxxxxx format">
-                    </div>
-                    <div class="form-control">
-                        <label for="refreshBtn">♻️ Warp Configs</label>
-                        <button id="refreshBtn" type="button" class="button" style="padding: 10px 0;" onclick="getWarpConfigs()">
-                            Update<span class="material-symbols-outlined">autorenew</span>
-                        </button>
-                    </div>
-                    <div class="form-control">
-                        <label for="bestWarpInterval">🔄 Best Interval</label>
-                        <input type="number" id="bestWarpInterval" name="bestWarpInterval" min="10" max="90" value="${bestWarpInterval}">
-                    </div>
-                </details>
-                <details>
-                    <summary><h2>WARP PRO ⚙️</h2></summary>
-                    <div class="form-control">
-                        <label for="hiddifyNoiseMode">😵‍💫 Hiddify Mode</label>
-                        <input type="text" id="hiddifyNoiseMode" name="hiddifyNoiseMode" 
-                            pattern="^(m[1-6]|h_[0-9A-Fa-f]{2}|g_([0-9A-Fa-f]{2}_){2}[0-9A-Fa-f]{2})$" 
-                            title="Enter 'm1-m6', 'h_HEX', 'g_HEX_HEX_HEX' which HEX can be between 00 to ff"
-                            value="${hiddifyNoiseMode}" required>
-                    </div>
-                    <div class="form-control">
-                        <label for="nikaNGNoiseMode">😵‍💫 NikaNG Mode</label>
-                        <input type="text" id="nikaNGNoiseMode" name="nikaNGNoiseMode" 
-                            pattern="^(none|quic|random|[0-9A-Fa-f]+)$" 
-                            title="Enter 'none', 'quic', 'random', or any HEX string like 'ee0000000108aaaa'"
-                            value="${nikaNGNoiseMode}" required>
-                    </div>
-                    <div class="form-control">
-                        <label for="noiseCountMin">🎚️ Noise Count</label>
-                        <div class="min-max">
-                            <input type="number" id="noiseCountMin" name="noiseCountMin"
-                                value="${noiseCountMin}" min="1" required>
-                            <span> - </span>
-                            <input type="number" id="noiseCountMax" name="noiseCountMax"
-                                value="${noiseCountMax}" min="1" required>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="noiseSizeMin">📏 Noise Size</label>
-                        <div class="min-max">
-                            <input type="number" id="noiseSizeMin" name="noiseSizeMin"
-                                value="${noiseSizeMin}" min="1" required>
-                            <span> - </span>
-                            <input type="number" id="noiseSizeMax" name="noiseSizeMax"
-                                value="${noiseSizeMax}" min="1" required>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="noiseDelayMin">🕞 Noise Delay</label>
-                        <div class="min-max">
-                            <input type="number" id="noiseDelayMin" name="noiseDelayMin"
-                                value="${noiseDelayMin}" min="1" required>
-                            <span> - </span>
-                            <input type="number" id="noiseDelayMax" name="noiseDelayMax"
-                                value="${noiseDelayMax}" min="1" required>
-                        </div>
-                    </div>
-                </details>
-                <details>
-                    <summary><h2>ROUTING RULES ⚙️</h2></summary>
-                    <div id="routing-rules" class="form-control" style="margin-bottom: 20px;">			
-                        <div class="routing">
-                            <input type="checkbox" id="bypass-lan" name="bypass-lan" value="true" ${bypassLAN ? 'checked' : ''}>
-                            <label for="bypass-lan">Bypass LAN</label>
-                        </div>
-                        <div class="routing">
-                            <input type="checkbox" id="block-ads" name="block-ads" value="true" ${blockAds ? 'checked' : ''}>
-                            <label for="block-ads">Block Ads.</label>
-                        </div>
-                        <div class="routing">
-                            <input type="checkbox" id="bypass-iran" name="bypass-iran" value="true" ${bypassIran ? 'checked' : ''}>
-                            <label for="bypass-iran">Bypass Iran</label>
-                        </div>
-                        <div class="routing">
-                            <input type="checkbox" id="block-porn" name="block-porn" value="true" ${blockPorn ? 'checked' : ''}>
-                            <label for="block-porn">Block Porn</label>
-                        </div>
-                        <div class="routing">
-                            <input type="checkbox" id="bypass-china" name="bypass-china" value="true" ${bypassChina ? 'checked' : ''}>
-                            <label for="bypass-china">Bypass China</label>
-                        </div>
-                        <div class="routing">
-                            <input type="checkbox" id="block-udp-443" name="block-udp-443" value="true" ${blockUDP443 ? 'checked' : ''}>
-                            <label for="block-udp-443">Block QUIC</label>
-                        </div>
-                        <div class="routing">
-                            <input type="checkbox" id="bypass-russia" name="bypass-russia" value="true" ${bypassRussia ? 'checked' : ''}>
-                            <label for="bypass-russia">Bypass Russia</label>
-                        </div>
-                    </div>
-                    <h3>CUSTOM RULES 🔧</h3>
-                    <div class="form-control">
-                        <label for="customBypassRules">🟩 Bypass IPs / Domains</label>
-                        <input type="text" id="customBypassRules" name="customBypassRules" value="${customBypassRules.replaceAll(",", " , ")}">
-                    </div>
-                    <div class="form-control">
-                        <label for="customBlockRules">🟥 Block IPs / Domains</label>
-                        <input type="text" id="customBlockRules" name="customBlockRules" value="${customBlockRules.replaceAll(",", " , ")}">
-                    </div>
-                </details>
-                <div id="apply" class="form-control">
+          <div class="form-control">
+            <label for="warpPlusLicense"> 
+              <i class="fa-solid fa-star-half"></i> License key
+            </label>
+            <input type="text" id="warpPlusLicense" name="warpPlusLicense" value="${warpPlusLicense}" 
+              pattern="^[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}$" 
+              title="Please enter a valid Warp Plus license in xxxxxxxx-xxxxxxxx-xxxxxxxx format">
+          </div>
+          <div class="form-control">
+            <label>
+              <i class="fa-solid fa-code-branch"></i> Warp Configs
+            </label>
+            <button id="refreshBtn" type="button" class="button" style="padding: 10px 0;" onclick="getWarpConfigs()">
+            Update<span class="material-symbols-outlined">autorenew</span>
+            </button>
+          </div>
+          <div class="form-control">
+            <label for="bestWarpInterval"> 
+              <i class="fa-solid fa-splotch fa-spin" style="color: #d2042d;"></i> Best Interval
+            </label>
+            <input type="number" id="bestWarpInterval" name="bestWarpInterval" min="10" max="90" value="${bestWarpInterval}">
+          </div>
+        </details>
+        <details>
+          <summary>
+            <h2>WARP PRO </h2>
+              <i class="fa-xl fa-solid fa-cog fa-spin" style="--fa-animation-duration: 8.5s;"></i>
+            <span class="sr-only">Loading...</span>
+          </summary>
+          <div class="form-control">
+            <label for="hiddifyNoiseMode"> 
+              <i class="fa-solid fa-bug fa-shake"></i> Hiddify Mode
+            </label>
+            <input type="text" id="hiddifyNoiseMode" name="hiddifyNoiseMode" 
+              pattern="^(m[1-6]|h_[0-9A-Fa-f]{2}|g_([0-9A-Fa-f]{2}_){2}[0-9A-Fa-f]{2})$" 
+              title="Enter 'm1-m6', 'h_HEX', 'g_HEX_HEX_HEX' which HEX can be between 00 to ff"
+              value="${hiddifyNoiseMode}" required>
+          </div>
+          <div class="form-control">
+            <label for="nikaNGNoiseMode"> 
+              <i class="fa-solid fa-heart-pulse fa-beat" style="color: #dc143c;"></i> NikaNG Mode
+            </label>
+            <input type="text" id="nikaNGNoiseMode" name="nikaNGNoiseMode" 
+              pattern="^(none|quic|random|[0-9A-Fa-f]+)$" 
+              title="Enter 'none', 'quic', 'random', or any HEX string like 'ee0000000108aaaa'"
+              value="${nikaNGNoiseMode}" required>
+          </div>
+          <div class="form-control">
+            <label for="noiseCountMin"> 
+              <i class="fa-solid fa-cubes-stacked"></i> Noise Count
+            </label>
+            <div class="min-max">
+              <input type="number" id="noiseCountMin" name="noiseCountMin"
+                value="${noiseCountMin}" min="1" required>
+              <span> - </span>
+              <input type="number" id="noiseCountMax" name="noiseCountMax"
+                value="${noiseCountMax}" min="1" required>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="noiseSizeMin">
+              <i class="fa-solid fa-ruler"></i> Noise Size
+            </label>
+            <div class="min-max">
+              <input type="number" id="noiseSizeMin" name="noiseSizeMin"
+                value="${noiseSizeMin}" min="1" required>
+              <span> - </span>
+              <input type="number" id="noiseSizeMax" name="noiseSizeMax"
+                value="${noiseSizeMax}" min="1" required>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="noiseDelayMin">
+              <i class="fa-solid fa-hourglass"></i> Noise Delay
+            </label>
+            <div class="min-max">
+              <input type="number" id="noiseDelayMin" name="noiseDelayMin"
+                value="${noiseDelayMin}" min="1" required>
+              <span> - </span>
+              <input type="number" id="noiseDelayMax" name="noiseDelayMax"
+                value="${noiseDelayMax}" min="1" required>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>
+            <h2>ROUTING RULES </h2>
+              <i class="fa-solid fa-cog fa-spin fa-spin-reverse fa-xl"></i>
+            <span class="sr-only">Loading...</span>
+          </summary>
+          <div id="routing-rules" class="form-control" style="margin-bottom: 20px;">
+            <div class="routing">
+              <input type="checkbox" id="bypass-lan" name="bypass-lan" value="true" ${bypassLAN ? "checked" : ""}>
+              <label for="bypass-lan">Bypass LAN</label>
+            </div>
+            <div class="routing">
+              <input type="checkbox" id="block-ads" name="block-ads" value="true" ${blockAds ? "checked" : ""}>
+              <label for="block-ads">Block Ads.</label>
+            </div>
+            <div class="routing">
+              <input type="checkbox" id="bypass-iran" name="bypass-iran" value="true" ${bypassIran ? "checked" : ""}>
+              <label for="bypass-iran">Bypass Iran</label>
+            </div>
+            <div class="routing">
+              <input type="checkbox" id="block-porn" name="block-porn" value="true" ${blockPorn ? "checked" : ""}>
+              <label for="block-porn">Block Porn</label>
+            </div>
+            <div class="routing">
+              <input type="checkbox" id="bypass-china" name="bypass-china" value="true" ${bypassChina ? "checked" : ""}>
+              <label for="bypass-china">Bypass China</label>
+            </div>
+            <div class="routing">
+              <input type="checkbox" id="block-udp-443" name="block-udp-443" value="true" ${blockUDP443 ? "checked" : ""}>
+              <label for="block-udp-443">Block QUIC</label>
+            </div>
+            <div class="routing">
+              <input type="checkbox" id="bypass-russia" name="bypass-russia" value="true" ${bypassRussia ? "checked" : ""}>
+              <label for="bypass-russia">Bypass Russia</label>
+            </div>
+          </div>
+            <h3>CUSTOM RULES<i class="fa-solid fa-cog fa-spin"></i></h3>
+          <div class="form-control">
+            <label for="customBypassRules">
+                <i class="fa-regular fa-circle-check"></i> Bypass IPs/Domains</label>
+            <input type="text" id="customBypassRules" name="customBypassRules" value="${customBypassRules.replaceAll(",", " , ")}">
+          </div>
+          <div class="form-control">
+            <label for="customBlockRules">
+              <i class="fa-regular fa-circle-xmark"></i> Block IPs/Domains</label>
+            <input type="text" id="customBlockRules" name="customBlockRules" value="${customBlockRules.replaceAll(",", " , ")}">
+          </div>
+        </details>
+          <div id="apply" class="form-control">
           <div style="grid-column: 2; width: 100%; display: grid; grid-template-columns: 5fr 1fr; gap: 10px;">
             <input type="submit" id="applyButton" class="button disabled" value="APPLY SETTINGS" form="configForm">
             <button type="button" id="resetSettings" class="reset-button">RESET</button>
@@ -821,7 +873,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
         </div>
       </form>
     <hr>       
-            <h2>NORMAL SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
+    <h2>NORMAL SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
     <div class="table-container">
       <table id="normal-configs-table">
         <tr>
@@ -847,7 +899,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                     </tr>
                 </table>
             </div>
-            <h2>🔗 FULL NORMAL SUB</h2>
+            <h2>FULL NORMAL SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
             <div class="table-container">
                 <table id="full-normal-configs-table">
                     <tr>
@@ -883,7 +935,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                     </tr>
                 </table>
             </div>
-            <h2>🔗 FRAGMENT SUB</h2>
+            <h2>FRAGMENT SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
             <div class="table-container">
                 <table id="frag-sub-table">
                     <tr>
@@ -910,7 +962,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                     </tr>
                 </table>
             </div>
-            <h2>🔗 WARP SUB</h2>
+            <h2>WARP SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
             <div class="table-container">
                 <table id="normal-configs-table">
                     <tr>
@@ -946,7 +998,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
                     </tr>
                 </table>
             </div>
-            <h2>🔗 WARP PRO SUB</h2>
+            <h2>WARP PRO SUB <i class="fa-solid fa-link fa-fade" aria-hidden="true"></i></h2>
             <div class="table-container">
                 <table id="warp-pro-configs-table">
                     <tr>
@@ -1002,9 +1054,9 @@ export async function renderHomePage (proxySettings, isPassSet) {
             </div>
             <hr>
             <div class="header-container">
-                <h2 style="margin: 0 5px;">💡 MY IP</h2>
+                <h2 style="margin: 0 5px;">IP</h2>
                 <button type="button" id="refresh-geo-location" onclick="fetchIPInfo()" style="background: none; margin: 0; border: none; cursor: pointer;">
-                    <i class="fa fa-refresh fa-2x" style="color: var(--button-color);" aria-hidden="true"></i>
+                    <i class="fa-solid fa-dice fa-shake fa-2x" style="color: var(--button-color);" aria-hidden="true"></i>
                 </button>       
             </div>
             <div class="table-container">
@@ -1035,7 +1087,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             <hr>
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
-                <a class="link" href="${atob('aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hlL0JQQi1Xb3JrZXItUGFuZWw=')}" style="color: var(--color); text-decoration: underline;" target="_blank">Github</a>
+                <a class="link" href="${atob('aHR0cHM6Ly9naXRodWIuY29tL05pUkV2aWwvYmlhLXBhaW4tYmFjaGU=')}" style="color: var(--color); text-decoration: underline;" target="_blank">Github</a>
                 <button id="openModalBtn" class="button">Change Password</button>
                 <button type="button" id="logout" style="background: none; color: var(--color); margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
@@ -1119,14 +1171,14 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 qrcodeContainer.lastElementChild.remove();
             });
             resetSettings.addEventListener('click', async () => {
-                const confirmReset = confirm('⚠️ This will reset all panel settings.\\nAre you sure?');
+                const confirmReset = confirm('🥸 Are you sure?? \\n   This will RESET ALL the panel settings');
                 if(!confirmReset) return;
                 const formData = new FormData();
                 formData.append('resetSettings', 'true');
                 try {
                     document.body.style.cursor = 'wait';
                     const refreshButtonVal = refreshBtn.innerHTML;
-                    refreshBtn.innerHTML = '⌛ Loading...';
+                    refreshBtn.innerHTML = 'Hold your horses ...';
 
                     const response = await fetch('/panel', {
                         method: 'POST',
@@ -1139,10 +1191,10 @@ export async function renderHomePage (proxySettings, isPassSet) {
                     if (!response.ok) {
                         const errorMessage = await response.text();
                         console.error(errorMessage, response.status);
-                        alert('⚠️ An error occured, Please try again!\\n⛔ ' + errorMessage);
+                        alert('⚠️ An error occured, Please try again!\\n ' + errorMessage);
                         return;
                     }       
-                    alert('✅ Panel settings reset to default successfully! 😎');
+                    alert('The panel settings have been successfully fucked up ✔ \\n Thanks for your hard work');
                     window.location.reload(true);
                 } catch (error) {
                     console.error('Error:', error);
@@ -1208,17 +1260,17 @@ export async function renderHomePage (proxySettings, isPassSet) {
         const getWarpConfigs = async () => {
             const license = document.getElementById('warpPlusLicense').value;
             if (license !== warpPlusLicense) {
-                alert('⚠️ First APPLY SETTINGS and then update Warp configs!');
+                alert('Dude, First APPLY SETTINGS and then update Warp configs! ✋🏿');
                 return false;
             }
-            const confirmReset = confirm('⚠️ Are you sure?');
+            const confirmReset = confirm(' Are you sure??');
             if(!confirmReset) return;
             const refreshBtn = document.getElementById('refreshBtn');
 
             try {
                 document.body.style.cursor = 'wait';
                 const refreshButtonVal = refreshBtn.innerHTML;
-                refreshBtn.innerHTML = '⌛ Loading...';
+                refreshBtn.innerHTML = 'Hold your horses ...';
 
                 const response = await fetch('/update-warp', {
                     method: 'POST',
@@ -1230,12 +1282,12 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 if (!response.ok) {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️ An error occured, Please try again!\\n⛔ ' + errorMessage);
+                    alert('⚠️ An error occured, Please try again!\\n ' + errorMessage);
                     return;
                 }          
                 ${isWarpPlus
-                    ? `alert('✅ Warp configs upgraded to PLUS successfully! 😎');` 
-                    : `alert('✅ Warp configs updated successfully! 😎');`
+                    ? `alert('Warp configs upgraded to PLUS successfully ✔');` 
+                    : `alert('Warp configs updated successfully ✔');`
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -1255,7 +1307,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             if (activePortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one port should be selected! 🫤");
+                alert("⛔ At least one port should be selected! ✋🏿");
                 activePortsNo = 1;
                 defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
                 return false;
@@ -1264,7 +1316,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             if (activeHttpsPortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one TLS(https) port should be selected! 🫤");
+                alert("⛔ At least one TLS(https) port should be selected! ✋🏿");
                 activeHttpsPortsNo = 1;
                 return false;
             }
@@ -1281,7 +1333,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             if (activeProtocols === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one Protocol should be selected! 🫤");
+                alert("⛔ At least one Protocol should be selected! ✋🏿");
                 activeProtocols = 1;
                 return false;
             }
@@ -1315,7 +1367,7 @@ export async function renderHomePage (proxySettings, isPassSet) {
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            alert('📋 Copied to clipboard:\\n\\n' +  text);
+            alert('  DONE ✔ \\n\\n📋 Copied to clipboard:\\n\\n' +  text);
         }
 
         const applySettings = async (event, configForm) => {
@@ -1377,39 +1429,39 @@ export async function renderHomePage (proxySettings, isPassSet) {
             });
 
             if (invalidIPs.length) {
-                alert('⛔ Invalid IPs or Domains 🫤\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
+                alert('⛔ Invalid IPs or Domains ✋🏿\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
                 return false;
             }
             
             if (invalidEndpoints.length) {
-                alert('⛔ Invalid endpoint 🫤\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
+                alert('⛔ Invalid endpoint ✋🏿\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
                 return false;
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax || noiseCountMin > noiseCountMax || noiseSizeMin > noiseSizeMax || noiseDelayMin > noiseDelayMax) {
-                alert('⛔ Minimum should be smaller or equal to Maximum! 🫤');               
+                alert('⛔ Minimum should be smaller or equal to Maximum! ✋🏿');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && !isSocksHttp && chainProxy) {
-                alert('⛔ Invalid Config! 🫤 \\n - The chain proxy should be VLESS, Socks or Http!\\n - VLESS transmission should be GRPC,WS or TCP\\n - VLESS security should be TLS,Reality or None\\n - socks or http should be like:\\n + (socks or http)://user:pass@host:port\\n + (socks or http)://host:port');               
+                alert('⛔ Invalid Config! ✋🏿\\n - The chain proxy should be VLESS, Socks or Http!\\n - VLESS transmission should be GRPC,WS or TCP\\n - VLESS security should be TLS,Reality or None\\n - socks or http should be like:\\n + (socks or http)://user:pass@host:port\\n + (socks or http)://host:port');               
                 return false;
             }
 
             if (isVless && securityType === 'tls' && vlessPort !== '443') {
-                alert('⛔ VLESS TLS port can be only 443 to be used as a proxy chain! 🫤');               
+                alert('⛔ VLESS TLS port can be only 443 to be used as a proxy chain! ✋🏿');               
                 return false;
             }
 
             if (isCustomCdn && !(customCdnAddrs.length && customCdnHost && customCdnSni)) {
-                alert('⛔ All "Custom" fields should be filled or deleted together! 🫤');               
+                alert('⛔ All "Custom" fields should be filled or deleted together! ✋🏿');               
                 return false;
             }
 
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = '⌛ Loading...';
+                applyButton.value = 'Hold your horses ...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -1423,11 +1475,11 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 if (!response.ok) {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️ Session expired! Please login again.');
+                    alert('⚠️ Session expired! Please login again ✋🏿.');
                     window.location.href = '/login';
                     return;
                 }                
-                alert('✅ Parameters applied successfully 😎');
+                alert('Parameters applied successfully ✔');
                 window.location.reload();
             } catch (error) {
                 console.error('Error:', error);
@@ -1489,13 +1541,13 @@ export async function renderHomePage (proxySettings, isPassSet) {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("✅ Password changed successfully! 👍");
+                    alert("Password changed successfully! ✔ ");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
                     passwordError.textContent = '⚠️ ' + errorMessage;
                     console.error(errorMessage, response.status);
-                    alert('⚠️ Session expired! Please login again.');
+                    alert('⚠️ Session expired! Please login again ✋🏿.');
                     window.location.href = '/login';
                 } else {
                     const errorMessage = await response.text();
