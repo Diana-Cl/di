@@ -1,21 +1,8 @@
-# Dependencies
-package.json
-package-lock.json
-
-# Build output
-dist
-build
-
-# Environment files
-.env
-.env.*
-.gitignore
-
 # Other files we don't want to format
 README.md
 README_fa.md
 _worker.js
-
+.gitignore
 
 # Specific directories
 .github/
