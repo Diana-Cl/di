@@ -1,5 +1,5 @@
-export async function renderErrorPage (error) {
-    const errorPage = `
+export async function renderErrorPage(error) {
+  const errorPage = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -43,7 +43,7 @@ export async function renderErrorPage (error) {
             <h1><i class="fa-sharp fa-solid fa-beat-fade">BPB PANEL 👻 <span style="font-size:12px; position: fixed; right: 0px; margin-top: 43px;">${globalThis.panelVersion}</span></i></h1>
             <div id="error-message">
                 <h2>Something went wrong! ✋🏿</h2>
-                <p><b>${error ? `⚠️ ${error.cause ? error.message.toString() : error.stack.toString()}` : ''}</b></p>
+                <p><b>${error ? `⚠️ ${error.cause ? error.message.toString() : error.stack.toString()}` : ""}</b></p>
             </div>
         </div>
     <script>
@@ -52,5 +52,8 @@ export async function renderErrorPage (error) {
     </body>
     </html>`;
 
-    return new Response(errorPage, { status: 200, headers: {'Content-Type': 'text/html'}});
+  return new Response(errorPage, {
+    status: 200,
+    headers: { "Content-Type": "text/html" },
+  });
 }

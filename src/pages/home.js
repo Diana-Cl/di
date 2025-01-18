@@ -1,88 +1,100 @@
 export async function renderHomePage(proxySettings, isPassSet) {
-    const {
-        remoteDNS,
-        localDNS,
-        vlessTrojanFakeDNS,
-        proxyIP,
-        outProxy,
-        cleanIPs,
-        enableIPv6,
-        customCdnAddrs,
-        customCdnHost,
-        customCdnSni,
-        bestVLESSTrojanInterval,
-        vlessConfigs,
-        trojanConfigs,
-        ports,
-        lengthMin,
-        lengthMax,
-        intervalMin,
-        intervalMax,
-        fragmentPackets,
-        warpEndpoints,
-        warpFakeDNS,
-        warpEnableIPv6,
-        warpPlusLicense,
-        bestWarpInterval,
-        hiddifyNoiseMode,
-        nikaNGNoiseMode,
-        noiseCountMin,
-        noiseCountMax,
-        noiseSizeMin,
-        noiseSizeMax,
-        noiseDelayMin,
-        noiseDelayMax,
-        bypassLAN,
-        bypassIran,
-        bypassChina,
-        bypassRussia,
-        blockAds,
-        blockPorn,
-        blockUDP443,
-        customBypassRules,
-        customBlockRules
-    } = proxySettings;
+  const {
+    remoteDNS,
+    localDNS,
+    vlessTrojanFakeDNS,
+    proxyIP,
+    outProxy,
+    cleanIPs,
+    enableIPv6,
+    customCdnAddrs,
+    customCdnHost,
+    customCdnSni,
+    bestVLESSTrojanInterval,
+    vlessConfigs,
+    trojanConfigs,
+    ports,
+    lengthMin,
+    lengthMax,
+    intervalMin,
+    intervalMax,
+    fragmentPackets,
+    warpEndpoints,
+    warpFakeDNS,
+    warpEnableIPv6,
+    warpPlusLicense,
+    bestWarpInterval,
+    hiddifyNoiseMode,
+    nikaNGNoiseMode,
+    noiseCountMin,
+    noiseCountMax,
+    noiseSizeMin,
+    noiseSizeMax,
+    noiseDelayMin,
+    noiseDelayMax,
+    bypassLAN,
+    bypassIran,
+    bypassChina,
+    bypassRussia,
+    blockAds,
+    blockPorn,
+    blockUDP443,
+    customBypassRules,
+    customBlockRules,
+  } = proxySettings;
 
-    const isWarpPlus = warpPlusLicense ? true : false;
-    const activeProtocols = (vlessConfigs ? 1 : 0) + (trojanConfigs ? 1 : 0);
-    let httpPortsBlock = '',
-        httpsPortsBlock = '';
-    const allPorts = [...(globalThis.hostName.includes('workers.dev') ? globalThis.defaultHttpPorts : []), ...globalThis.defaultHttpsPorts];
+  const isWarpPlus = warpPlusLicense ? true : false;
+  const activeProtocols = (vlessConfigs ? 1 : 0) + (trojanConfigs ? 1 : 0);
+  let httpPortsBlock = "",
+    httpsPortsBlock = "";
+  const allPorts = [
+    ...(globalThis.hostName.includes("workers.dev")
+      ? globalThis.defaultHttpPorts
+      : []),
+    ...globalThis.defaultHttpsPorts,
+  ];
 
-    allPorts.forEach(port => {
-        const id = `port-${port}`;
-        const isChecked = ports.includes(port) ? 'checked' : '';
-        const portBlock = `
+  allPorts.forEach((port) => {
+    const id = `port-${port}`;
+    const isChecked = ports.includes(port) ? "checked" : "";
+    const portBlock = `
             <div class="routing" style="grid-template-columns: 1fr 2fr; margin-right: 10px;">
                 <input type="checkbox" id=${id} name=${port} onchange="handlePortChange(event)" value="true" ${isChecked}>
                 <label style="margin-bottom: 3px;" for=${id}>${port}</label>
             </div>`;
-        globalThis.defaultHttpsPorts.includes(port) ? httpsPortsBlock += portBlock : httpPortsBlock += portBlock;
-    });
+    globalThis.defaultHttpsPorts.includes(port)
+      ? (httpsPortsBlock += portBlock)
+      : (httpPortsBlock += portBlock);
+  });
 
-    const supportedApps = apps => apps.map(app => `
+  const supportedApps = (apps) =>
+    apps
+      .map(
+        (app) => `
         <div>
             <span class="material-symbols-outlined symbol">verified</span>
             <span>${app}</span>
-        </div>`).join('');
+        </div>`,
+      )
+      .join("");
 
-    const subQR = (path, app, tag, title, sbType) => {
-        const url = `${sbType ? 'sing-box://import-remote-profile?url=' : ''}https://${globalThis.hostName}/${path}/${globalThis.userID}${app ? `?app=${app}` : ''}#${tag}`;
-        return `
+  const subQR = (path, app, tag, title, sbType) => {
+    const url = `${sbType ? "sing-box://import-remote-profile?url=" : ""}https://${globalThis.hostName}/${path}/${globalThis.userID}${app ? `?app=${app}` : ""}#${tag}`;
+    return `
             <button onclick="openQR('${url}', '${title}')" style="margin-bottom: 8px;">
                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
             </button>`;
-    };
+  };
 
-    const subURL = (path, app, tag) => {
-        const url = `https://${globalThis.hostName}/${path}/${globalThis.userID}${app ? `?app=${app}` : ''}#${tag}`;
-        return `
+  const subURL = (path, app, tag) => {
+    const url = `https://${globalThis.hostName}/${path}/${globalThis.userID}${app ? `?app=${app}` : ""}#${tag}`;
+    return `
             <button onclick="copyToClipboard('${url}')">
                 Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
             </button>`;
-    }
+  };
 
-    const homePage = `
+  const homePage = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -547,8 +559,8 @@ export async function renderHomePage(proxySettings, isPassSet) {
             </label>
             <div class="input-with-select">
             <select id="vlessTrojanFakeDNS" name="vlessTrojanFakeDNS">
-              <option value="true" ${vlessTrojanFakeDNS ? 'selected' : ''}>Enabled</option>
-              <option value="false" ${!vlessTrojanFakeDNS ? 'selected' : ''}>Disabled</option>
+              <option value="true" ${vlessTrojanFakeDNS ? "selected" : ""}>Enabled</option>
+              <option value="false" ${!vlessTrojanFakeDNS ? "selected" : ""}>Disabled</option>
            </select>
            </div>
           </div>
@@ -587,8 +599,8 @@ export async function renderHomePage(proxySettings, isPassSet) {
             </label>
             <div class="input-with-select">
             <select id="enableIPv6" name="enableIPv6">
-              <option value="true" ${enableIPv6 ? 'selected' : ''}>Enabled</option>
-              <option value="false" ${!enableIPv6 ? 'selected' : ''}>Disabled</option>
+              <option value="true" ${enableIPv6 ? "selected" : ""}>Enabled</option>
+              <option value="false" ${!enableIPv6 ? "selected" : ""}>Disabled</option>
            </select>
            </div>
           </div>
@@ -622,11 +634,11 @@ export async function renderHomePage(proxySettings, isPassSet) {
             </label>
             <div style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; margin-top: 10px;">
               <div style = "display: flex; justify-content: center; align-items: center;">
-                <input type="checkbox" id="vlessConfigs" name="vlessConfigs" onchange="handleProtocolChange(event)" value="true" ${vlessConfigs ? 'checked' : ''}>
+                <input type="checkbox" id="vlessConfigs" name="vlessConfigs" onchange="handleProtocolChange(event)" value="true" ${vlessConfigs ? "checked" : ""}>
                 <label for="vlessConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">VLESS</label>
               </div>
               <div style = "display: flex; justify-content: center; align-items: center;">
-                <input type="checkbox" id="trojanConfigs" name="trojanConfigs" onchange="handleProtocolChange(event)" value="true" ${trojanConfigs ? 'checked' : ''}>
+                <input type="checkbox" id="trojanConfigs" name="trojanConfigs" onchange="handleProtocolChange(event)" value="true" ${trojanConfigs ? "checked" : ""}>
                 <label for="trojanConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">Trojan</label>
               </div>
             </div>
@@ -643,14 +655,18 @@ export async function renderHomePage(proxySettings, isPassSet) {
                   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">${httpsPortsBlock}</div>
                 </td>
               </tr>
-              ${!httpPortsBlock ? '' : `
+              ${
+                !httpPortsBlock
+                  ? ""
+                  : `
               <tr>
                 <td style="text-align: center; font-size: larger;"><b>Non TLS</b></td>
                 <td>
                   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">${httpPortsBlock}</div>
                 </td>
               </tr>
-              `}        
+              `
+              }        
             </table>
           </div>
         </details>
@@ -688,11 +704,11 @@ export async function renderHomePage(proxySettings, isPassSet) {
             </label>
             <div class="input-with-select">
               <select id="fragmentPackets" name="fragmentPackets">
-                <option value="tlshello" ${fragmentPackets === 'tlshello' ? 'selected' : ''}>tlshello</option>
-                <option value="1-1" ${fragmentPackets === '1-1' ? 'selected' : ''}>1-1</option>
-                <option value="1-2" ${fragmentPackets === '1-2' ? 'selected' : ''}>1-2</option>
-                <option value="1-3" ${fragmentPackets === '1-3' ? 'selected' : ''}>1-3</option>
-                <option value="1-5" ${fragmentPackets === '1-5' ? 'selected' : ''}>1-5</option>
+                <option value="tlshello" ${fragmentPackets === "tlshello" ? "selected" : ""}>tlshello</option>
+                <option value="1-1" ${fragmentPackets === "1-1" ? "selected" : ""}>1-1</option>
+                <option value="1-2" ${fragmentPackets === "1-2" ? "selected" : ""}>1-2</option>
+                <option value="1-3" ${fragmentPackets === "1-3" ? "selected" : ""}>1-3</option>
+                <option value="1-5" ${fragmentPackets === "1-5" ? "selected" : ""}>1-5</option>
               </select>
               </div>
           </div>
@@ -723,8 +739,8 @@ export async function renderHomePage(proxySettings, isPassSet) {
             </label>
             <div class="input-with-select">
               <select id="warpFakeDNS" name="warpFakeDNS">
-              <option value="true" ${warpFakeDNS ? 'selected' : ''}>Enabled</option>
-              <option value="false" ${!warpFakeDNS ? 'selected' : ''}>Disabled</option>
+              <option value="true" ${warpFakeDNS ? "selected" : ""}>Enabled</option>
+              <option value="false" ${!warpFakeDNS ? "selected" : ""}>Disabled</option>
               </select>
             </div>
           </div>
@@ -877,19 +893,19 @@ export async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['v2rayNG', 'NikaNG', 'MahsaNG', 'v2rayN', 'v2rayN-PRO', 'Shadowrocket', 'Streisand', 'Hiddify', 'Nekoray (Xray)'])}
+                            ${supportedApps(["v2rayNG", "NikaNG", "MahsaNG", "v2rayN", "v2rayN-PRO", "Shadowrocket", "Streisand", "Hiddify", "Nekoray (Xray)"])}
                         </td>
                         <td>
-                            ${subQR('sub', '', 'BPB-Normal', 'Normal Subscription')}
-                            ${subURL('sub', '', 'BPB-Normal')}
+                            ${subQR("sub", "", "BPB-Normal", "Normal Subscription")}
+                            ${subURL("sub", "", "BPB-Normal")}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['husi', 'Nekobox', 'Nekoray (sing-Box)', 'Karing'])}
+                            ${supportedApps(["husi", "Nekobox", "Nekoray (sing-Box)", "Karing"])}
                         </td>
                         <td>
-                            ${subURL('sub', 'singbox', 'BPB-Normal')}
+                            ${subURL("sub", "singbox", "BPB-Normal")}
                         </td>
                     </tr>
                 </table>
@@ -903,29 +919,29 @@ export async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['v2rayNG', 'NikaNG', 'MahsaNG', 'v2rayN', 'v2rayN-PRO', 'Streisand'])}
+                            ${supportedApps(["v2rayNG", "NikaNG", "MahsaNG", "v2rayN", "v2rayN-PRO", "Streisand"])}
                         </td>
                         <td>
-                            ${subQR('sub', 'xray', 'BPB-Full-Normal', 'Full normal Subscription')}
-                            ${subURL('sub', 'xray', 'BPB-Full-Normal')}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            ${supportedApps(['sing-box', 'v2rayN (sing-box)'])}
-                        </td>
-                        <td>
-                            ${subQR('sub', 'sfa', 'BPB-Full-Normal', 'Full normal Subscription', true)}
-                            ${subURL('sub', 'sfa', 'BPB-Full-Normal')}
+                            ${subQR("sub", "xray", "BPB-Full-Normal", "Full normal Subscription")}
+                            ${subURL("sub", "xray", "BPB-Full-Normal")}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['Clash Meta', 'Clash Verge', 'FlClash', 'Stash', 'v2rayN (mihomo)'])}
+                            ${supportedApps(["sing-box", "v2rayN (sing-box)"])}
                         </td>
                         <td>
-                            ${subQR('sub', 'clash', 'BPB-Full-Normal', 'Full normal Subscription')}
-                            ${subURL('sub', 'clash', 'BPB-Full-Normal')}
+                            ${subQR("sub", "sfa", "BPB-Full-Normal", "Full normal Subscription", true)}
+                            ${subURL("sub", "sfa", "BPB-Full-Normal")}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ${supportedApps(["Clash Meta", "Clash Verge", "FlClash", "Stash", "v2rayN (mihomo)"])}
+                        </td>
+                        <td>
+                            ${subQR("sub", "clash", "BPB-Full-Normal", "Full normal Subscription")}
+                            ${subURL("sub", "clash", "BPB-Full-Normal")}
                         </td>
                     </tr>
                 </table>
@@ -939,20 +955,20 @@ export async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td style="text-wrap: nowrap;">
-                            ${supportedApps(['v2rayNG', 'NikaNG', 'MahsaNG', 'v2rayN', 'v2rayN-PRO', 'Streisand'])}
+                            ${supportedApps(["v2rayNG", "NikaNG", "MahsaNG", "v2rayN", "v2rayN-PRO", "Streisand"])}
                         </td>
                         <td>
-                            ${subQR('fragsub', '', 'BPB-Fragment', 'Fragment Subscription')}
-                            ${subURL('fragsub', '', 'BPB-Fragment')}
+                            ${subQR("fragsub", "", "BPB-Fragment", "Fragment Subscription")}
+                            ${subURL("fragsub", "", "BPB-Fragment")}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-wrap: nowrap;">
-                            ${supportedApps(['Hiddify'])}
+                            ${supportedApps(["Hiddify"])}
                         </td>
                         <td>
-                            ${subQR('fragsub', 'hiddify', 'BPB-Fragment', 'Fragment Subscription')}
-                            ${subURL('fragsub', 'hiddify', 'BPB-Fragment')}
+                            ${subQR("fragsub", "hiddify", "BPB-Fragment", "Fragment Subscription")}
+                            ${subURL("fragsub", "hiddify", "BPB-Fragment")}
                         </td>
                     </tr>
                 </table>
@@ -966,29 +982,29 @@ export async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['v2rayNG', 'v2rayN', 'Streisand'])}
+                            ${supportedApps(["v2rayNG", "v2rayN", "Streisand"])}
                         </td>
                         <td>
-                            ${subQR('warpsub', 'xray', 'BPB-Warp', 'Warp Subscription')}
-                            ${subURL('warpsub', 'xray', 'BPB-Warp')}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            ${supportedApps(['Hiddify', 'sing-box', 'v2rayN (sing-box)'])}
-                        </td>
-                        <td>
-                            ${subQR('sub', 'singbox', 'BPB-Warp', 'Warp Subscription', true)}
-                            ${subURL('warpsub', 'singbox', 'BPB-Warp')}
+                            ${subQR("warpsub", "xray", "BPB-Warp", "Warp Subscription")}
+                            ${subURL("warpsub", "xray", "BPB-Warp")}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['Clash Meta', 'Clash Verge', 'FlClash', 'Stash', 'v2rayN (mihomo)'])}
+                            ${supportedApps(["Hiddify", "sing-box", "v2rayN (sing-box)"])}
                         </td>
                         <td>
-                            ${subQR('warpsub', 'clash', 'BPB-Warp', 'Warp Subscription')}
-                            ${subURL('warpsub', 'clash', 'BPB-Warp')}
+                            ${subQR("sub", "singbox", "BPB-Warp", "Warp Subscription", true)}
+                            ${subURL("warpsub", "singbox", "BPB-Warp")}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ${supportedApps(["Clash Meta", "Clash Verge", "FlClash", "Stash", "v2rayN (mihomo)"])}
+                        </td>
+                        <td>
+                            ${subQR("warpsub", "clash", "BPB-Warp", "Warp Subscription")}
+                            ${subURL("warpsub", "clash", "BPB-Warp")}
                         </td>
                     </tr>
                 </table>
@@ -1002,20 +1018,20 @@ export async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['NikaNG', 'MahsaNG', 'v2rayN-PRO'])}
+                            ${supportedApps(["NikaNG", "MahsaNG", "v2rayN-PRO"])}
                         </td>
                         <td>
-                            ${subQR('warpsub', 'nikang', 'BPB-Warp-Pro', 'Warp Pro Subscription')}
-                            ${subURL('warpsub', 'nikang', 'BPB-Warp-Pro')}
+                            ${subQR("warpsub", "nikang", "BPB-Warp-Pro", "Warp Pro Subscription")}
+                            ${subURL("warpsub", "nikang", "BPB-Warp-Pro")}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(['Hiddify'])}
+                            ${supportedApps(["Hiddify"])}
                         </td>
                         <td>
-                            ${subQR('warpsub', 'hiddify', 'BPB-Warp-Pro', 'Warp Pro Subscription', true)}
-                            ${subURL('warpsub', 'hiddify', 'BPB-Warp-Pro')}
+                            ${subQR("warpsub", "hiddify", "BPB-Warp-Pro", "Warp Pro Subscription", true)}
+                            ${subURL("warpsub", "hiddify", "BPB-Warp-Pro")}
                         </td>
                     </tr>
                 </table>
@@ -1082,7 +1098,7 @@ export async function renderHomePage(proxySettings, isPassSet) {
             <hr>
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
-                <a class="link" href="${atob('aHR0cHM6Ly9naXRodWIuY29tL05pUkV2aWwvYmlhLXBhaW4tYmFjaGU=')}" style="color: var(--color); text-decoration: underline;" target="_blank">Github</a>
+                <a class="link" href="${atob("aHR0cHM6Ly9naXRodWIuY29tL05pUkV2aWwvYmlhLXBhaW4tYmFjaGU=")}" style="color: var(--color); text-decoration: underline;" target="_blank">Github</a>
                 <button id="openModalBtn" class="button">Change Password</button>
                 <button type="button" id="logout" style="background: none; color: var(--color); margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
@@ -1100,7 +1116,7 @@ export async function renderHomePage(proxySettings, isPassSet) {
     <script>
         const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
         let activePortsNo = ${ports.length};
-        let activeHttpsPortsNo = ${ports.filter(port => globalThis.defaultHttpsPorts.includes(port)).length};
+        let activeHttpsPortsNo = ${ports.filter((port) => globalThis.defaultHttpsPorts.includes(port)).length};
         let activeProtocols = ${activeProtocols};
         const warpPlusLicense = '${warpPlusLicense}';
         localStorage.getItem('darkMode') === 'enabled' && document.body.classList.add('dark-mode');
@@ -1280,8 +1296,9 @@ export async function renderHomePage(proxySettings, isPassSet) {
                     alert('⚠️ An error occured, Please try again!\\n ' + errorMessage);
                     return;
                 }          
-                ${isWarpPlus
-                    ? `alert('Warp configs upgraded to PLUS successfully ✔');` 
+                ${
+                  isWarpPlus
+                    ? `alert('Warp configs upgraded to PLUS successfully ✔');`
                     : `alert('Warp configs updated successfully ✔');`
                 }
             } catch (error) {
@@ -1558,18 +1575,19 @@ export async function renderHomePage(proxySettings, isPassSet) {
     </body>	
     </html>`;
 
-    return new Response(homePage, {
-        status: 200,
-        headers: {
-            'Content-Type': 'text/html;charset=utf-8',
-            'Access-Control-Allow-Origin': globalThis.urlOrigin,
-            'Access-Control-Allow-Methods': 'GET, POST',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-            'X-Content-Type-Options': 'nosniff',
-            'X-Frame-Options': 'DENY',
-            'Referrer-Policy': 'strict-origin-when-cross-origin',
-            'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, no-transform',
-            'CDN-Cache-Control': 'no-store'
-        }
-    });
+  return new Response(homePage, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/html;charset=utf-8",
+      "Access-Control-Allow-Origin": globalThis.urlOrigin,
+      "Access-Control-Allow-Methods": "GET, POST",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Cache-Control":
+        "no-store, no-cache, must-revalidate, proxy-revalidate, no-transform",
+      "CDN-Cache-Control": "no-store",
+    },
+  });
 }

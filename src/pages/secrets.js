@@ -1,5 +1,5 @@
 export async function renderSecretsPage() {
-    const secretsPage = `
+  const secretsPage = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -193,10 +193,10 @@ export async function renderSecretsPage() {
     </body>
     </html>`;
 
-    return new Response(secretsPage, {
-        status: 200,
-        headers: {
-            'Content-Type': 'text/html'
-        }
-    });
+  return new Response(secretsPage, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/html",
+    },
+  });
 }
