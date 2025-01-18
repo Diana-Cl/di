@@ -14,7 +14,7 @@ build
 # Other files we don't want to format
 README.md
 README_fa.md
-worker.js
+_worker.js
 di/src
 di/docs
 
