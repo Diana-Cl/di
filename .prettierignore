@@ -6,6 +6,4 @@ _worker.js
 
 # Specific directories
 .github/
-src/
 docs/
-
