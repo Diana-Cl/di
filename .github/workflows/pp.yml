@@ -1,4 +1,4 @@
-name: Format Code
+name: Code Formatting and Style
 
 on:
   push:
@@ -13,16 +13,17 @@ on:
 
 jobs:
   formatting:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Prettier Action
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write unobfuscated/**/*.js src/**/*.js
-          commit_message: "Apply code formatting"
+          commit_message: "style: apply code formatting standards"
