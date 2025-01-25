@@ -10,10 +10,10 @@ on:
       - "*.yml"
       - "*.md"
     branches:
-      - main
+      - Diana
   pull_request:
     branches:
-      - main
+      - Diana
   workflow_dispatch:
 
 jobs:
