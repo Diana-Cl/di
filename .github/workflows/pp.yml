@@ -57,6 +57,15 @@ jobs:
           cache: pip
           architecture: x64
 
+      # Cache Python dependencies
+      - name: Cache Python packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirementss.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       # Install Python formatting tools
       - name: Install Python formatting dependencies
         run: |
