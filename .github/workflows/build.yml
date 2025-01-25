@@ -2,8 +2,8 @@ name: Build and Deploy Worker
 
 on:
 #  push:
-#    branches:
- #     - Diana
+    branches:
+     - Diana
 
 permissions:
   contents: write
