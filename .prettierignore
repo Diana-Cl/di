@@ -1,9 +1,18 @@
-# Other files we don't want to format
+## Specific directories
+
+.github/
+*.lock
+*.log
+.env
+.env.*
+dist/
+build/
+docs/
+node_modules/
+
+## Specific files
 README.md
 README_fa.md
 _worker.js
-.gitignore
 
-# Specific directories
-.github/
-docs/
+
