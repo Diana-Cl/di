@@ -7,7 +7,9 @@
 .env.*
 dist/
 build/
+docs/
 node_modules/
+*.md
 
 ## Specific files
 _worker.js
