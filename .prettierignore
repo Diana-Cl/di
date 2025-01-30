@@ -7,12 +7,9 @@
 .env.*
 dist/
 build/
-docs/
 node_modules/
 
 ## Specific files
-README.md
-README_fa.md
 _worker.js
 
 
