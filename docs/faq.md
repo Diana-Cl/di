@@ -5,8 +5,7 @@
 - اگر `Routing` فعال کردید و VPN متصل نشد تنها دلیلش آپدیت نبودن Geo asset هست. از منوی برنامه‌ی v2rayNG وارد قسمت `Geo asset files` بشید و اون علامت ابر یا دانلود رو بزنید تا آپدیت بشن، اگر آپدیت ناموفق باشه وصل نمیشید. اگر هر کاری کردید آپدیت نشد دو تا فایل از دو تا لینک زیر دانلود کنید و بجای آپدیت زدن، دکمه اضافه کردن رو بزنید و این دوتا فایل رو وارد کنید:
   > [geoip.dat](https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat)
   >
-  > [geosite.dat](https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat)
-  > <br>
+  > [geosite.dat](https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat) > <br>
 
 2- چرا کانفیگ نرمال وصل نمیشه؟
 
@@ -16,16 +15,14 @@
 3- چرا برنامه‌های Nekobox یا Hiddify Next هیچ سایتی رو باز نمیکنن؟
 
 - باید داخل تنظیمات اپلیکیشن `remote DNS` رو اینجوری بذارید:
-  > `https://8.8.8.8/dns-query`
-  > <br>
+  > `https://8.8.8.8/dns-query` > <br>
 
 4- چرا کانفیگ فرگمنت روی اپراتور من سرعتش کمه؟
 
 - هر اپراتوری تنظیمات فرگمنت مخصوص خودش رو داره. اکثرا با پیشفرض پنل اوکی هستن ولی ممکنه روی اپراتور شما این مقادیر بهتر باشه، باید تست کنید:
   > `Length: 10-100`
   >
-  > `Length: 10-20`
-  > <br>
+  > `Length: 10-20` > <br>
 
 5- چرا Ping من انقدر بالاست؟
 
@@ -90,8 +87,7 @@
 16- چرا ChatGPT باز نمیشه؟
 
 - بخاطر اینکه Proxy IP های پیشفرض پنل عمومی هستن و ممکنه خیلیاشون برای ChatGPT مشکوک باشن. از لینک زیر باید بگردید تست کنید و یه IP مناسب برای خودتون بردارید:
-  > https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
-  > <br>
+  > https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/ > <br>
 
 17- پسورد پنل یادم نمیاد چیکار کنم؟
 
