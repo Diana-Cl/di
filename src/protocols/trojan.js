@@ -1,21 +1,17 @@
-import { connect } from "cloudflare:sockets";
-import sha256 from "js-sha256";
+import { connect } from 'cloudflare:sockets';
+import sha256 from 'js-sha256';
 
 export async function trojanOverWSHandler(request) {
   const webSocketPair = new WebSocketPair();
   const [client, webSocket] = Object.values(webSocketPair);
   webSocket.accept();
-  let address = "";
-  let portWithRandomLog = "";
+  let address = '';
+  let portWithRandomLog = '';
   const log = (info, event) => {
-    console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
+    console.log(`[${address}:${portWithRandomLog}] ${info}`, event || '');
   };
-  const earlyDataHeader = request.headers.get("sec-websocket-protocol") || "";
-  const readableWebSocketStream = makeReadableWebSocketStream(
-    webSocket,
-    earlyDataHeader,
-    log,
-  );
+  const earlyDataHeader = request.headers.get('sec-websocket-protocol') || '';
+  const readableWebSocketStream = makeReadableWebSocketStream(webSocket, earlyDataHeader, log);
   let remoteSocketWapper = {
     value: null,
   };
@@ -40,7 +36,7 @@ export async function trojanOverWSHandler(request) {
             hasError,
             message,
             portRemote = 443,
-            addressRemote = "",
+            addressRemote = '',
             rawClientData,
           } = await parseTrojanHeader(chunk);
 
@@ -69,8 +65,8 @@ export async function trojanOverWSHandler(request) {
         },
       }),
     )
-    .catch((err) => {
-      log("readableWebSocketStream pipeTo error", err);
+    .catch(err => {
+      log('readableWebSocketStream pipeTo error', err);
     });
 
   return new Response(null, {
@@ -84,7 +80,7 @@ async function parseTrojanHeader(buffer) {
   if (buffer.byteLength < 56) {
     return {
       hasError: true,
-      message: "invalid data",
+      message: 'invalid data',
     };
   }
 
@@ -95,7 +91,7 @@ async function parseTrojanHeader(buffer) {
   ) {
     return {
       hasError: true,
-      message: "invalid header format (missing CR LF)",
+      message: 'invalid header format (missing CR LF)',
     };
   }
 
@@ -103,7 +99,7 @@ async function parseTrojanHeader(buffer) {
   if (password !== sha256.sha224(globalThis.trojanPassword)) {
     return {
       hasError: true,
-      message: "invalid password",
+      message: 'invalid password',
     };
   }
 
@@ -111,7 +107,7 @@ async function parseTrojanHeader(buffer) {
   if (socks5DataBuffer.byteLength < 6) {
     return {
       hasError: true,
-      message: "invalid SOCKS5 request data",
+      message: 'invalid SOCKS5 request data',
     };
   }
 
@@ -120,7 +116,7 @@ async function parseTrojanHeader(buffer) {
   if (cmd !== 1) {
     return {
       hasError: true,
-      message: "unsupported command, only TCP (CONNECT) is allowed",
+      message: 'unsupported command, only TCP (CONNECT) is allowed',
     };
   }
 
@@ -130,18 +126,16 @@ async function parseTrojanHeader(buffer) {
   // 0x04: IPv6 address
   let addressLength = 0;
   let addressIndex = 2;
-  let address = "";
+  let address = '';
   switch (atype) {
     case 1:
       addressLength = 4;
       address = new Uint8Array(
         socks5DataBuffer.slice(addressIndex, addressIndex + addressLength),
-      ).join(".");
+      ).join('.');
       break;
     case 3:
-      addressLength = new Uint8Array(
-        socks5DataBuffer.slice(addressIndex, addressIndex + 1),
-      )[0];
+      addressLength = new Uint8Array(socks5DataBuffer.slice(addressIndex, addressIndex + 1))[0];
       addressIndex += 1;
       address = new TextDecoder().decode(
         socks5DataBuffer.slice(addressIndex, addressIndex + addressLength),
@@ -156,7 +150,7 @@ async function parseTrojanHeader(buffer) {
       for (let i = 0; i < 8; i++) {
         ipv6.push(dataView.getUint16(i * 2).toString(16));
       }
-      address = ipv6.join(":");
+      address = ipv6.join(':');
       break;
     default:
       return {
@@ -208,7 +202,7 @@ async function handleTCPOutBound(
         address,
       )
     )
-      address = `${atob("d3d3Lg==")}${address}${atob("LnNzbGlwLmlv")}`;
+      address = `${atob('d3d3Lg==')}${address}${atob('LnNzbGlwLmlv')}`;
     /** @type {import("@cloudflare/workers-types").Socket} */
     const tcpSocket = connect({
       hostname: address,
@@ -224,18 +218,16 @@ async function handleTCPOutBound(
 
   // if the cf connect tcp socket have no incoming data, we retry to redirect ip
   async function retry() {
-    const panelProxyIP = globalThis.pathName.split("/")[2];
-    const panelProxyIPs = panelProxyIP
-      ? atob(panelProxyIP).split(",")
-      : undefined;
+    const panelProxyIP = globalThis.pathName.split('/')[2];
+    const panelProxyIPs = panelProxyIP ? atob(panelProxyIP).split(',') : undefined;
     const finalProxyIP = panelProxyIPs
       ? panelProxyIPs[Math.floor(Math.random() * panelProxyIPs.length)]
       : globalThis.proxyIP || addressRemote;
     const tcpSocket = await connectAndWrite(finalProxyIP, portRemote);
     // no matter retry success or not, close websocket
     tcpSocket.closed
-      .catch((error) => {
-        console.log("retry tcpSocket closed error", error);
+      .catch(error => {
+        console.log('retry tcpSocket closed error', error);
       })
       .finally(() => {
         safeCloseWebSocket(webSocket);
@@ -262,7 +254,7 @@ function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
   let readableStreamCancel = false;
   const stream = new ReadableStream({
     start(controller) {
-      webSocketServer.addEventListener("message", (event) => {
+      webSocketServer.addEventListener('message', event => {
         if (readableStreamCancel) {
           return;
         }
@@ -273,7 +265,7 @@ function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
       // The event means that the client closed the client -> server stream.
       // However, the server -> client stream is still open until you call close() on the server side.
       // The WebSocket protocol says that a separate close message must be sent in each direction to fully close the socket.
-      webSocketServer.addEventListener("close", () => {
+      webSocketServer.addEventListener('close', () => {
         // client send close, need close server
         // if stream is cancel, skip controller.close
         safeCloseWebSocket(webSocketServer);
@@ -282,8 +274,8 @@ function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
         }
         controller.close();
       });
-      webSocketServer.addEventListener("error", (err) => {
-        log("webSocketServer has error");
+      webSocketServer.addEventListener('error', err => {
+        log('webSocketServer has error');
         controller.error(err);
       });
       // for ws 0rtt
@@ -328,21 +320,19 @@ async function trojanRemoteSocketToWS(remoteSocket, webSocket, retry, log) {
         async write(chunk, controller) {
           hasIncomingData = true;
           if (webSocket.readyState !== WS_READY_STATE_OPEN) {
-            controller.error("webSocket connection is not open");
+            controller.error('webSocket connection is not open');
           }
           webSocket.send(chunk);
         },
         close() {
-          log(
-            `remoteSocket.readable is closed, hasIncomingData: ${hasIncomingData}`,
-          );
+          log(`remoteSocket.readable is closed, hasIncomingData: ${hasIncomingData}`);
         },
         abort(reason) {
-          console.error("remoteSocket.readable abort", reason);
+          console.error('remoteSocket.readable abort', reason);
         },
       }),
     )
-    .catch((error) => {
+    .catch(error => {
       console.error(`trojanRemoteSocketToWS error:`, error.stack || error);
       safeCloseWebSocket(webSocket);
     });
@@ -364,9 +354,9 @@ function base64ToArrayBuffer(base64Str) {
   }
   try {
     // go use modified Base64 for URL rfc4648 which js atob not support
-    base64Str = base64Str.replace(/-/g, "+").replace(/_/g, "/");
+    base64Str = base64Str.replace(/-/g, '+').replace(/_/g, '/');
     const decode = atob(base64Str);
-    const arryBuffer = Uint8Array.from(decode, (c) => c.charCodeAt(0));
+    const arryBuffer = Uint8Array.from(decode, c => c.charCodeAt(0));
     return { earlyData: arryBuffer.buffer, error: null };
   } catch (error) {
     return { earlyData: null, error };
@@ -381,13 +371,10 @@ const WS_READY_STATE_CLOSING = 2;
  */
 function safeCloseWebSocket(socket) {
   try {
-    if (
-      socket.readyState === WS_READY_STATE_OPEN ||
-      socket.readyState === WS_READY_STATE_CLOSING
-    ) {
+    if (socket.readyState === WS_READY_STATE_OPEN || socket.readyState === WS_READY_STATE_CLOSING) {
       socket.close();
     }
   } catch (error) {
-    console.error("safeCloseWebSocket error", error);
+    console.error('safeCloseWebSocket error', error);
   }
 }

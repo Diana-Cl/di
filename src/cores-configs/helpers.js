@@ -1,14 +1,14 @@
-import { resolveDNS, isDomain } from "../helpers/helpers";
+import { resolveDNS, isDomain } from '../helpers/helpers';
 
 export async function getConfigAddresses(cleanIPs, enableIPv6) {
   const resolved = await resolveDNS(globalThis.hostName);
-  const defaultIPv6 = enableIPv6 ? resolved.ipv6.map((ip) => `[${ip}]`) : [];
+  const defaultIPv6 = enableIPv6 ? resolved.ipv6.map(ip => `[${ip}]`) : [];
   return [
     globalThis.hostName,
-    "www.speedtest.net",
+    'www.speedtest.net',
     ...resolved.ipv4,
     ...defaultIPv6,
-    ...(cleanIPs ? cleanIPs.split(",") : []),
+    ...(cleanIPs ? cleanIPs.split(',') : []),
   ];
 }
 
@@ -23,32 +23,25 @@ export function extractWireguardParams(warpConfigs, isWoW) {
   };
 }
 
-export function generateRemark(
-  index,
-  port,
-  address,
-  cleanIPs,
-  protocol,
-  configType,
-) {
+export function generateRemark(index, port, address, cleanIPs, protocol, configType) {
   let addressType;
-  const type = configType ? ` ${configType}` : "";
+  const type = configType ? ` ${configType}` : '';
 
   cleanIPs.includes(address)
-    ? (addressType = "CleanIP")
+    ? (addressType = 'CleanIP')
     : (addressType = isDomain(address)
-        ? "Domain"
+        ? 'Domain'
         : isIPv4(address)
-          ? "IPv4"
+          ? 'IPv4'
           : isIPv6(address)
-            ? "IPv6"
-            : "");
+            ? 'IPv6'
+            : '');
 
   return `💎 ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 
 export function randomUpperCase(str) {
-  let result = "";
+  let result = '';
   for (let i = 0; i < str.length; i++) {
     result += Math.random() < 0.5 ? str[i].toUpperCase() : str[i];
   }
@@ -56,9 +49,8 @@ export function randomUpperCase(str) {
 }
 
 export function getRandomPath(length) {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -69,9 +61,9 @@ export function getRandomPath(length) {
 export function base64ToDecimal(base64) {
   const binaryString = atob(base64);
   const hexString = Array.from(binaryString)
-    .map((char) => char.charCodeAt(0).toString(16).padStart(2, "0"))
-    .join("");
-  const decimalArray = hexString.match(/.{2}/g).map((hex) => parseInt(hex, 16));
+    .map(char => char.charCodeAt(0).toString(16).padStart(2, '0'))
+    .join('');
+  const decimalArray = hexString.match(/.{2}/g).map(hex => parseInt(hex, 16));
   return decimalArray;
 }
 

@@ -1,4 +1,4 @@
-import { resolveDNS, isDomain } from "../helpers/helpers";
+import { resolveDNS, isDomain } from '../helpers/helpers';
 import {
   getConfigAddresses,
   extractWireguardParams,
@@ -6,16 +6,10 @@ import {
   generateRemark,
   randomUpperCase,
   getRandomPath,
-} from "./helpers";
-import { getDataset } from "../kv/handlers";
+} from './helpers';
+import { getDataset } from '../kv/handlers';
 
-async function buildXrayDNS(
-  proxySettings,
-  outboundAddrs,
-  domainToStaticIPs,
-  isWorkerLess,
-  isWarp,
-) {
+async function buildXrayDNS(proxySettings, outboundAddrs, domainToStaticIPs, isWorkerLess, isWarp) {
   const {
     remoteDNS,
     resolvedRemoteDNS,
@@ -34,52 +28,47 @@ async function buildXrayDNS(
   } = proxySettings;
 
   const bypassRules = [
-    { rule: bypassIran, domain: "geosite:category-ir", ip: "geoip:ir" },
-    { rule: bypassChina, domain: "geosite:cn", ip: "geoip:cn" },
-    { rule: bypassRussia, domain: "geosite:category-ru", ip: "geoip:ru" },
+    { rule: bypassIran, domain: 'geosite:category-ir', ip: 'geoip:ir' },
+    { rule: bypassChina, domain: 'geosite:cn', ip: 'geoip:cn' },
+    { rule: bypassRussia, domain: 'geosite:category-ru', ip: 'geoip:ru' },
   ];
 
   const blockRules = [
-    { rule: blockAds, host: "geosite:category-ads-all" },
-    { rule: blockAds, host: "geosite:category-ads-ir" },
-    { rule: blockPorn, host: "geosite:category-porn" },
+    { rule: blockAds, host: 'geosite:category-ads-all' },
+    { rule: blockAds, host: 'geosite:category-ads-ir' },
+    { rule: blockPorn, host: 'geosite:category-porn' },
   ];
 
   const isFakeDNS = (vlessTrojanFakeDNS && !isWarp) || (warpFakeDNS && isWarp);
   const isIPv6 = (enableIPv6 && !isWarp) || (warpEnableIPv6 && isWarp);
-  const outboundDomains = outboundAddrs.filter((address) => isDomain(address));
+  const outboundDomains = outboundAddrs.filter(address => isDomain(address));
   const customBypassRulesDomains = customBypassRules
-    .split(",")
-    .filter((address) => isDomain(address));
-  const customBlockRulesDomains = customBlockRules
-    .split(",")
-    .filter((address) => isDomain(address));
+    .split(',')
+    .filter(address => isDomain(address));
+  const customBlockRulesDomains = customBlockRules.split(',').filter(address => isDomain(address));
   const uniqueOutboundDomains = [...new Set(outboundDomains)];
-  const isDomainRule =
-    [...uniqueOutboundDomains, ...customBypassRulesDomains].length > 0;
+  const isDomainRule = [...uniqueOutboundDomains, ...customBypassRulesDomains].length > 0;
   const isBypass = bypassIran || bypassChina || bypassRussia;
   const isBlock = blockAds || blockPorn || customBlockRulesDomains.length > 0;
   const finalRemoteDNS = isWorkerLess
-    ? ["https://cloudflare-dns.com/dns-query"]
+    ? ['https://cloudflare-dns.com/dns-query']
     : isWarp
       ? warpEnableIPv6
-        ? ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"]
-        : ["1.1.1.1", "1.0.0.1"]
+        ? ['1.1.1.1', '1.0.0.1', '2606:4700:4700::1111', '2606:4700:4700::1001']
+        : ['1.1.1.1', '1.0.0.1']
       : [remoteDNS];
 
   const dnsHost = {};
   if (isBlock) {
     blockRules.forEach(({ rule, host }) => {
-      if (rule) dnsHost[host] = ["127.0.0.1"];
+      if (rule) dnsHost[host] = ['127.0.0.1'];
     });
-    customBlockRulesDomains.forEach((domain) => {
-      dnsHost[`domain:${domain}`] = ["127.0.0.1"];
+    customBlockRulesDomains.forEach(domain => {
+      dnsHost[`domain:${domain}`] = ['127.0.0.1'];
     });
   }
 
-  const staticIPs = domainToStaticIPs
-    ? await resolveDNS(domainToStaticIPs)
-    : undefined;
+  const staticIPs = domainToStaticIPs ? await resolveDNS(domainToStaticIPs) : undefined;
   if (staticIPs)
     dnsHost[domainToStaticIPs] = enableIPv6
       ? [...staticIPs.ipv4, ...staticIPs.ipv6]
@@ -87,32 +76,24 @@ async function buildXrayDNS(
   if (resolvedRemoteDNS.server && !isWorkerLess && !isWarp)
     dnsHost[resolvedRemoteDNS.server] = resolvedRemoteDNS.staticIPs;
   if (isWorkerLess) {
-    const domains = [
-      "cloudflare-dns.com",
-      "cloudflare.com",
-      "dash.cloudflare.com",
-    ];
+    const domains = ['cloudflare-dns.com', 'cloudflare.com', 'dash.cloudflare.com'];
     const resolved = await Promise.all(domains.map(resolveDNS));
-    const hostIPv4 = resolved.flatMap((r) => r.ipv4);
-    const hostIPv6 = enableIPv6 ? resolved.flatMap((r) => r.ipv6) : [];
-    dnsHost["cloudflare-dns.com"] = [...hostIPv4, ...hostIPv6];
+    const hostIPv4 = resolved.flatMap(r => r.ipv4);
+    const hostIPv6 = enableIPv6 ? resolved.flatMap(r => r.ipv6) : [];
+    dnsHost['cloudflare-dns.com'] = [...hostIPv4, ...hostIPv6];
   }
 
   const hosts = Object.keys(dnsHost).length ? { hosts: dnsHost } : {};
   const dnsObject = {
     ...hosts,
     servers: finalRemoteDNS,
-    queryStrategy: isIPv6 ? "UseIP" : "UseIPv4",
-    tag: "dns",
+    queryStrategy: isIPv6 ? 'UseIP' : 'UseIPv4',
+    tag: 'dns',
   };
 
   if (isDomainRule) {
-    const outboundDomainRules = uniqueOutboundDomains.map(
-      (domain) => `full:${domain}`,
-    );
-    const bypassDomainRules = customBypassRulesDomains.map(
-      (domain) => `domain:${domain}`,
-    );
+    const outboundDomainRules = uniqueOutboundDomains.map(domain => `full:${domain}`);
+    const bypassDomainRules = customBypassRulesDomains.map(domain => `domain:${domain}`);
     dnsObject.servers.push({
       address: localDNS,
       domains: [...outboundDomainRules, ...bypassDomainRules],
@@ -141,8 +122,8 @@ async function buildXrayDNS(
   if (isFakeDNS) {
     const fakeDNSServer =
       isBypass && !isWorkerLess
-        ? { address: "fakedns", domains: localDNSServer.domains }
-        : "fakedns";
+        ? { address: 'fakedns', domains: localDNSServer.domains }
+        : 'fakedns';
     dnsObject.servers.unshift(fakeDNSServer);
   }
 
@@ -174,80 +155,69 @@ function buildXrayRoutingRules(
   const geoRules = [
     {
       rule: bypassLAN,
-      type: "direct",
-      domain: "geosite:private",
-      ip: "geoip:private",
+      type: 'direct',
+      domain: 'geosite:private',
+      ip: 'geoip:private',
     },
     {
       rule: bypassIran,
-      type: "direct",
-      domain: "geosite:category-ir",
-      ip: "geoip:ir",
+      type: 'direct',
+      domain: 'geosite:category-ir',
+      ip: 'geoip:ir',
     },
-    { rule: bypassChina, type: "direct", domain: "geosite:cn", ip: "geoip:cn" },
-    { rule: blockAds, type: "block", domain: "geosite:category-ads-all" },
-    { rule: blockAds, type: "block", domain: "geosite:category-ads-ir" },
-    { rule: blockPorn, type: "block", domain: "geosite:category-porn" },
+    { rule: bypassChina, type: 'direct', domain: 'geosite:cn', ip: 'geoip:cn' },
+    { rule: blockAds, type: 'block', domain: 'geosite:category-ads-all' },
+    { rule: blockAds, type: 'block', domain: 'geosite:category-ads-ir' },
+    { rule: blockPorn, type: 'block', domain: 'geosite:category-porn' },
   ];
-  const outboundDomains = outboundAddrs.filter((address) => isDomain(address));
-  const customBypassRulesTotal = customBypassRules
-    ? customBypassRules.split(",")
-    : [];
-  const customBlockRulesTotal = customBlockRules
-    ? customBlockRules.split(",")
-    : [];
-  const customBypassRulesDomains = customBypassRulesTotal.filter((address) =>
-    isDomain(address),
-  );
-  const isDomainRule =
-    [...outboundDomains, ...customBypassRulesDomains].length > 0;
+  const outboundDomains = outboundAddrs.filter(address => isDomain(address));
+  const customBypassRulesTotal = customBypassRules ? customBypassRules.split(',') : [];
+  const customBlockRulesTotal = customBlockRules ? customBlockRules.split(',') : [];
+  const customBypassRulesDomains = customBypassRulesTotal.filter(address => isDomain(address));
+  const isDomainRule = [...outboundDomains, ...customBypassRulesDomains].length > 0;
   const isBlock = blockAds || blockPorn || customBlockRulesTotal.length > 0;
-  const isBypass =
-    bypassIran ||
-    bypassChina ||
-    bypassRussia ||
-    customBypassRulesTotal.length > 0;
+  const isBypass = bypassIran || bypassChina || bypassRussia || customBypassRulesTotal.length > 0;
   const rules = [
     {
-      inboundTag: ["dns-in"],
-      outboundTag: "dns-out",
-      type: "field",
+      inboundTag: ['dns-in'],
+      outboundTag: 'dns-out',
+      type: 'field',
     },
     {
-      inboundTag: ["socks-in", "http-in"],
-      port: "53",
-      outboundTag: "dns-out",
-      type: "field",
+      inboundTag: ['socks-in', 'http-in'],
+      port: '53',
+      outboundTag: 'dns-out',
+      type: 'field',
     },
   ];
 
   if (!isWorkerLess && (isDomainRule || isBypass))
     rules.push({
       ip: [localDNS],
-      port: "53",
-      network: "udp",
-      outboundTag: "direct",
-      type: "field",
+      port: '53',
+      network: 'udp',
+      outboundTag: 'direct',
+      type: 'field',
     });
 
   if (isBypass || isBlock) {
     const createRule = (type, outbound) => ({
       [type]: [],
       outboundTag: outbound,
-      type: "field",
+      type: 'field',
     });
 
     let domainDirectRule, ipDirectRule;
     if (!isWorkerLess) {
-      domainDirectRule = createRule("domain", "direct");
-      ipDirectRule = createRule("ip", "direct");
+      domainDirectRule = createRule('domain', 'direct');
+      ipDirectRule = createRule('ip', 'direct');
     }
 
-    let domainBlockRule = createRule("domain", "block");
-    let ipBlockRule = createRule("ip", "block");
+    let domainBlockRule = createRule('domain', 'block');
+    let ipBlockRule = createRule('ip', 'block');
     geoRules.forEach(({ rule, type, domain, ip }) => {
       if (rule) {
-        if (type === "direct") {
+        if (type === 'direct') {
           domainDirectRule?.domain.push(domain);
           ipDirectRule?.ip?.push(ip);
         } else {
@@ -256,7 +226,7 @@ function buildXrayRoutingRules(
       }
     });
 
-    customBypassRulesTotal.forEach((address) => {
+    customBypassRulesTotal.forEach(address => {
       if (isDomain(address)) {
         domainDirectRule?.domain.push(`domain:${address}`);
       } else {
@@ -264,7 +234,7 @@ function buildXrayRoutingRules(
       }
     });
 
-    customBlockRulesTotal.forEach((address) => {
+    customBlockRulesTotal.forEach(address => {
       if (isDomain(address)) {
         domainBlockRule.domain.push(`domain:${address}`);
       } else {
@@ -283,32 +253,30 @@ function buildXrayRoutingRules(
 
   blockUDP443 &&
     rules.push({
-      network: "udp",
-      port: "443",
-      outboundTag: "block",
-      type: "field",
+      network: 'udp',
+      port: '443',
+      outboundTag: 'block',
+      type: 'field',
     });
 
   if (isChain) {
     const rule = {
-      [isBalancer ? "balancerTag" : "outboundTag"]: isBalancer
-        ? "all-proxy"
-        : "proxy",
-      type: "field",
+      [isBalancer ? 'balancerTag' : 'outboundTag']: isBalancer ? 'all-proxy' : 'proxy',
+      type: 'field',
     };
 
     if (!isWarp) {
       const url = new URL(remoteDNS);
       const remoteDNSServer = url.hostname;
       rules.push({
-        [isDomain(remoteDNSServer) ? "domain" : "ip"]: [remoteDNSServer],
-        network: "tcp",
+        [isDomain(remoteDNSServer) ? 'domain' : 'ip']: [remoteDNSServer],
+        network: 'tcp',
         ...rule,
       });
     } else {
       rules.push({
-        network: "udp",
-        port: "53",
+        network: 'udp',
+        port: '53',
         ...rule,
       });
     }
@@ -316,15 +284,15 @@ function buildXrayRoutingRules(
 
   if (isBalancer) {
     rules.push({
-      network: "tcp,udp",
-      balancerTag: "all",
-      type: "field",
+      network: 'tcp,udp',
+      balancerTag: 'all',
+      type: 'field',
     });
   } else {
     rules.push({
-      network: "tcp,udp",
-      outboundTag: isChain ? "chain" : isWorkerLess ? "fragment" : "proxy",
-      type: "field",
+      network: 'tcp,udp',
+      outboundTag: isChain ? 'chain' : isWorkerLess ? 'fragment' : 'proxy',
+      type: 'field',
     });
   }
 
@@ -343,7 +311,7 @@ function buildXrayVLESSOutbound(
   enableIPv6,
 ) {
   const outbound = {
-    protocol: "vless",
+    protocol: 'vless',
     settings: {
       vnext: [
         {
@@ -352,7 +320,7 @@ function buildXrayVLESSOutbound(
           users: [
             {
               id: globalThis.userID,
-              encryption: "none",
+              encryption: 'none',
               level: 8,
             },
           ],
@@ -360,38 +328,38 @@ function buildXrayVLESSOutbound(
       ],
     },
     streamSettings: {
-      network: "ws",
-      security: "none",
+      network: 'ws',
+      security: 'none',
       sockopt: {},
       wsSettings: {
         headers: {
           Host: host,
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
         },
-        path: `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}?ed=2560`,
+        path: `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}?ed=2560`,
       },
     },
     tag: tag,
   };
 
   if (globalThis.defaultHttpsPorts.includes(port)) {
-    outbound.streamSettings.security = "tls";
+    outbound.streamSettings.security = 'tls';
     outbound.streamSettings.tlsSettings = {
       allowInsecure: allowInsecure,
-      fingerprint: "randomized",
-      alpn: ["h2", "http/1.1"],
+      fingerprint: 'randomized',
+      alpn: ['h2', 'http/1.1'],
       serverName: sni,
     };
   }
 
   const sockopt = outbound.streamSettings.sockopt;
   if (isFragment) {
-    sockopt.dialerProxy = "fragment";
+    sockopt.dialerProxy = 'fragment';
   } else {
     sockopt.tcpKeepAliveIdle = 30;
     sockopt.tcpNoDelay = true;
-    sockopt.domainStrategy = enableIPv6 ? "UseIPv4v6" : "UseIPv4";
+    sockopt.domainStrategy = enableIPv6 ? 'UseIPv4v6' : 'UseIPv4';
   }
 
   return outbound;
@@ -409,7 +377,7 @@ function buildXrayTrojanOutbound(
   enableIPv6,
 ) {
   const outbound = {
-    protocol: "trojan",
+    protocol: 'trojan',
     settings: {
       servers: [
         {
@@ -421,48 +389,42 @@ function buildXrayTrojanOutbound(
       ],
     },
     streamSettings: {
-      network: "ws",
-      security: "none",
+      network: 'ws',
+      security: 'none',
       sockopt: {},
       wsSettings: {
         headers: {
           Host: host,
         },
-        path: `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}?ed=2560`,
+        path: `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}?ed=2560`,
       },
     },
     tag: tag,
   };
 
   if (globalThis.defaultHttpsPorts.includes(port)) {
-    outbound.streamSettings.security = "tls";
+    outbound.streamSettings.security = 'tls';
     outbound.streamSettings.tlsSettings = {
       allowInsecure: allowInsecure,
-      fingerprint: "randomized",
-      alpn: ["h2", "http/1.1"],
+      fingerprint: 'randomized',
+      alpn: ['h2', 'http/1.1'],
       serverName: sni,
     };
   }
 
   const sockopt = outbound.streamSettings.sockopt;
   if (isFragment) {
-    sockopt.dialerProxy = "fragment";
+    sockopt.dialerProxy = 'fragment';
   } else {
     sockopt.tcpKeepAliveIdle = 30;
     sockopt.tcpNoDelay = true;
-    sockopt.domainStrategy = enableIPv6 ? "UseIPv4v6" : "UseIPv4";
+    sockopt.domainStrategy = enableIPv6 ? 'UseIPv4v6' : 'UseIPv4';
   }
 
   return outbound;
 }
 
-function buildXrayWarpOutbound(
-  proxySettings,
-  warpConfigs,
-  endpoint,
-  isChain,
-  client,
-) {
+function buildXrayWarpOutbound(proxySettings, warpConfigs, endpoint, isChain, client) {
   const {
     warpEnableIPv6,
     nikaNGNoiseMode,
@@ -480,9 +442,9 @@ function buildXrayWarpOutbound(
   );
 
   const outbound = {
-    protocol: "wireguard",
+    protocol: 'wireguard',
     settings: {
-      address: ["172.16.0.2/32", warpIPv6],
+      address: ['172.16.0.2/32', warpIPv6],
       mtu: 1280,
       peers: [
         {
@@ -496,37 +458,31 @@ function buildXrayWarpOutbound(
     },
     streamSettings: {
       sockopt: {
-        dialerProxy: "proxy",
-        domainStrategy: warpEnableIPv6 ? "UseIPv4v6" : "UseIPv4",
+        dialerProxy: 'proxy',
+        domainStrategy: warpEnableIPv6 ? 'UseIPv4v6' : 'UseIPv4',
       },
     },
-    tag: isChain ? "chain" : "proxy",
+    tag: isChain ? 'chain' : 'proxy',
   };
 
   !isChain && delete outbound.streamSettings;
-  client === "nikang" &&
+  client === 'nikang' &&
     !isChain &&
     Object.assign(outbound.settings, {
       wnoise: nikaNGNoiseMode,
       wnoisecount:
-        noiseCountMin === noiseCountMax
-          ? noiseCountMin
-          : `${noiseCountMin}-${noiseCountMax}`,
+        noiseCountMin === noiseCountMax ? noiseCountMin : `${noiseCountMin}-${noiseCountMax}`,
       wpayloadsize:
-        noiseSizeMin === noiseSizeMax
-          ? noiseSizeMin
-          : `${noiseSizeMin}-${noiseSizeMax}`,
+        noiseSizeMin === noiseSizeMax ? noiseSizeMin : `${noiseSizeMin}-${noiseSizeMax}`,
       wnoisedelay:
-        noiseDelayMin === noiseDelayMax
-          ? noiseDelayMin
-          : `${noiseDelayMin}-${noiseDelayMax}`,
+        noiseDelayMin === noiseDelayMax ? noiseDelayMin : `${noiseDelayMin}-${noiseDelayMax}`,
     });
 
   return outbound;
 }
 
 function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
-  if (["socks", "http"].includes(chainProxyParams.protocol)) {
+  if (['socks', 'http'].includes(chainProxyParams.protocol)) {
     const { protocol, server, port, user, pass } = chainProxyParams;
     return {
       protocol: protocol,
@@ -546,10 +502,10 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
         ],
       },
       streamSettings: {
-        network: "tcp",
+        network: 'tcp',
         sockopt: {
-          dialerProxy: "proxy",
-          domainStrategy: enableIPv6 ? "UseIPv4v6" : "UseIPv4",
+          dialerProxy: 'proxy',
+          domainStrategy: enableIPv6 ? 'UseIPv4v6' : 'UseIPv4',
           tcpNoDelay: true,
         },
       },
@@ -557,9 +513,9 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
         enabled: true,
         concurrency: 8,
         xudpConcurrency: 16,
-        xudpProxyUDP443: "reject",
+        xudpProxyUDP443: 'reject',
       },
-      tag: "chain",
+      tag: 'chain',
     };
   }
 
@@ -589,9 +545,9 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
       concurrency: 8,
       enabled: true,
       xudpConcurrency: 16,
-      xudpProxyUDP443: "reject",
+      xudpProxyUDP443: 'reject',
     },
-    protocol: "vless",
+    protocol: 'vless',
     settings: {
       vnext: [
         {
@@ -599,11 +555,11 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
           port: +port,
           users: [
             {
-              encryption: "none",
+              encryption: 'none',
               flow: flow,
               id: uuid,
               level: 8,
-              security: "auto",
+              security: 'auto',
             },
           ],
         },
@@ -613,16 +569,16 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
       network: type,
       security: security,
       sockopt: {
-        dialerProxy: "proxy",
-        domainStrategy: enableIPv6 ? "UseIPv4v6" : "UseIPv4",
+        dialerProxy: 'proxy',
+        domainStrategy: enableIPv6 ? 'UseIPv4v6' : 'UseIPv4',
         tcpNoDelay: true,
       },
     },
-    tag: "chain",
+    tag: 'chain',
   };
 
-  if (security === "tls") {
-    const tlsAlpns = alpn ? alpn?.split(",") : [];
+  if (security === 'tls') {
+    const tlsAlpns = alpn ? alpn?.split(',') : [];
     proxyOutbound.streamSettings.tlsSettings = {
       allowInsecure: false,
       fingerprint: fp,
@@ -631,7 +587,7 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
     };
   }
 
-  if (security === "reality") {
+  if (security === 'reality') {
     delete proxyOutbound.mux;
     proxyOutbound.streamSettings.realitySettings = {
       fingerprint: fp,
@@ -642,46 +598,46 @@ function buildXrayChainOutbound(chainProxyParams, enableIPv6) {
     };
   }
 
-  if (headerType === "http") {
-    const httpPaths = path?.split(",");
-    const httpHosts = host?.split(",");
+  if (headerType === 'http') {
+    const httpPaths = path?.split(',');
+    const httpHosts = host?.split(',');
     proxyOutbound.streamSettings.tcpSettings = {
       header: {
         request: {
           headers: { Host: httpHosts },
-          method: "GET",
+          method: 'GET',
           path: httpPaths,
-          version: "1.1",
+          version: '1.1',
         },
         response: {
-          headers: { "Content-Type": ["application/octet-stream"] },
-          reason: "OK",
-          status: "200",
-          version: "1.1",
+          headers: { 'Content-Type': ['application/octet-stream'] },
+          reason: 'OK',
+          status: '200',
+          version: '1.1',
         },
-        type: "http",
+        type: 'http',
       },
     };
   }
 
-  if (type === "tcp" && security !== "reality" && !headerType)
+  if (type === 'tcp' && security !== 'reality' && !headerType)
     proxyOutbound.streamSettings.tcpSettings = {
       header: {
-        type: "none",
+        type: 'none',
       },
     };
 
-  if (type === "ws")
+  if (type === 'ws')
     proxyOutbound.streamSettings.wsSettings = {
       headers: { Host: host },
       path: path,
     };
 
-  if (type === "grpc") {
+  if (type === 'grpc') {
     delete proxyOutbound.mux;
     proxyOutbound.streamSettings.grpcSettings = {
       authority: authority,
-      multiMode: mode === "multi",
+      multiMode: mode === 'multi',
       serviceName: serviceName,
     };
   }
@@ -715,8 +671,8 @@ function buildXrayConfig(
   const config = structuredClone(xrayConfigTemp);
   config.remarks = remark;
   if (isFakeDNS) {
-    config.inbounds[0].sniffing.destOverride.push("fakedns");
-    config.inbounds[1].sniffing.destOverride.push("fakedns");
+    config.inbounds[0].sniffing.destOverride.push('fakedns');
+    config.inbounds[1].sniffing.destOverride.push('fakedns');
   }
 
   if (isFragment) {
@@ -724,9 +680,7 @@ function buildXrayConfig(
     fragment.length = `${lengthMin}-${lengthMax}`;
     fragment.interval = `${intervalMin}-${intervalMax}`;
     fragment.packets = fragmentPackets;
-    config.outbounds[0].settings.domainStrategy = enableIPv6
-      ? "UseIPv4v6"
-      : "UseIPv4";
+    config.outbounds[0].settings.domainStrategy = enableIPv6 ? 'UseIPv4v6' : 'UseIPv4';
   } else {
     config.outbounds.shift();
   }
@@ -734,13 +688,13 @@ function buildXrayConfig(
   if (isBalancer) {
     const interval = isWarp ? bestWarpInterval : bestVLESSTrojanInterval;
     config.observatory.probeInterval = `${interval}s`;
-    if (balancerFallback) config.routing.balancers[0].fallbackTag = "prox-2";
+    if (balancerFallback) config.routing.balancers[0].fallbackTag = 'prox-2';
     if (isChain) {
-      config.observatory.subjectSelector.push("chain");
+      config.observatory.subjectSelector.push('chain');
       const chainBalancer = structuredClone(config.routing.balancers[0]);
-      if (balancerFallback) chainBalancer.fallbackTag = "chain-2";
-      config.routing.balancers.push({ ...chainBalancer, selector: ["chain"] });
-      config.routing.balancers[0].tag = "all-proxy";
+      if (balancerFallback) chainBalancer.fallbackTag = 'chain-2';
+      config.routing.balancers.push({ ...chainBalancer, selector: ['chain'] });
+      config.routing.balancers[0].tag = 'all-proxy';
     }
   } else {
     delete config.observatory;
@@ -757,22 +711,9 @@ async function buildXrayBestPingConfig(
   outbounds,
   isFragment,
 ) {
-  const remark = isFragment ? "🔴 BPB F - Best Ping" : "🔴 BPB - Best Ping";
-  const config = buildXrayConfig(
-    proxySettings,
-    remark,
-    isFragment,
-    true,
-    chainProxy,
-    true,
-  );
-  config.dns = await buildXrayDNS(
-    proxySettings,
-    totalAddresses,
-    undefined,
-    false,
-    false,
-  );
+  const remark = isFragment ? '🔴 BPB F - Best Ping' : '🔴 BPB - Best Ping';
+  const config = buildXrayConfig(proxySettings, remark, isFragment, true, chainProxy, true);
+  config.dns = await buildXrayDNS(proxySettings, totalAddresses, undefined, false, false);
   config.routing.rules = buildXrayRoutingRules(
     proxySettings,
     totalAddresses,
@@ -786,36 +727,31 @@ async function buildXrayBestPingConfig(
   return config;
 }
 
-async function buildXrayBestFragmentConfig(
-  proxySettings,
-  hostName,
-  chainProxy,
-  outbounds,
-) {
+async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, outbounds) {
   const bestFragValues = [
-    "10-20",
-    "20-30",
-    "30-40",
-    "40-50",
-    "50-60",
-    "60-70",
-    "70-80",
-    "80-90",
-    "90-100",
-    "10-30",
-    "20-40",
-    "30-50",
-    "40-60",
-    "50-70",
-    "60-80",
-    "70-90",
-    "80-100",
-    "100-200",
+    '10-20',
+    '20-30',
+    '30-40',
+    '40-50',
+    '50-60',
+    '60-70',
+    '70-80',
+    '80-90',
+    '90-100',
+    '10-30',
+    '20-40',
+    '30-50',
+    '40-60',
+    '50-70',
+    '60-80',
+    '70-90',
+    '80-100',
+    '100-200',
   ];
 
   const config = buildXrayConfig(
     proxySettings,
-    "☆ Fragment Best Ping",
+    '☆ Fragment Best Ping',
     true,
     true,
     chainProxy,
@@ -823,14 +759,7 @@ async function buildXrayBestFragmentConfig(
     false,
   );
   config.dns = await buildXrayDNS(proxySettings, [], hostName, false, false);
-  config.routing.rules = buildXrayRoutingRules(
-    proxySettings,
-    [],
-    chainProxy,
-    true,
-    false,
-    false,
-  );
+  config.routing.rules = buildXrayRoutingRules(proxySettings, [], chainProxy, true, false, false);
   const fragment = config.outbounds.shift();
   const bestFragOutbounds = [];
 
@@ -848,7 +777,7 @@ async function buildXrayBestFragmentConfig(
     const fragmentOutbound = structuredClone(fragment);
     fragmentOutbound.tag = `frag-${index + 1}`;
     fragmentOutbound.settings.fragment.length = fragLength;
-    fragmentOutbound.settings.fragment.interval = "1-1";
+    fragmentOutbound.settings.fragment.interval = '1-1';
     bestFragOutbounds.push(proxyOutbound, fragmentOutbound);
   });
 
@@ -859,7 +788,7 @@ async function buildXrayBestFragmentConfig(
 async function buildXrayWorkerLessConfig(proxySettings) {
   const config = buildXrayConfig(
     proxySettings,
-    "🐓 WorkerLess Config",
+    '🐓 WorkerLess Config',
     true,
     false,
     false,
@@ -867,27 +796,20 @@ async function buildXrayWorkerLessConfig(proxySettings) {
     false,
   );
   config.dns = await buildXrayDNS(proxySettings, [], undefined, true);
-  config.routing.rules = buildXrayRoutingRules(
-    proxySettings,
-    [],
-    false,
-    false,
-    true,
-    false,
-  );
+  config.routing.rules = buildXrayRoutingRules(proxySettings, [], false, false, true, false);
   const fakeOutbound = buildXrayVLESSOutbound(
-    "fake-outbound",
-    "google.com",
-    "443",
+    'fake-outbound',
+    'google.com',
+    '443',
     globalThis.userID,
-    "google.com",
-    "google.com",
-    "",
+    'google.com',
+    'google.com',
+    '',
     true,
     false,
   );
   delete fakeOutbound.streamSettings.sockopt;
-  fakeOutbound.streamSettings.wsSettings.path = "/";
+  fakeOutbound.streamSettings.wsSettings.path = '/';
   config.outbounds.push(fakeOutbound);
   return config;
 }
@@ -917,13 +839,13 @@ export async function getXrayCustomConfigs(request, env, isFragment) {
     try {
       chainProxy = buildXrayChainOutbound(proxyParams, enableIPv6);
     } catch (error) {
-      console.log("An error occured while parsing chain proxy: ", error);
+      console.log('An error occured while parsing chain proxy: ', error);
       chainProxy = undefined;
       await env.bpb.put(
-        "proxySettings",
+        'proxySettings',
         JSON.stringify({
           ...proxySettings,
-          outProxy: "",
+          outProxy: '',
           outProxyParams: {},
         }),
       );
@@ -931,15 +853,13 @@ export async function getXrayCustomConfigs(request, env, isFragment) {
   }
 
   const Addresses = await getConfigAddresses(cleanIPs, enableIPv6);
-  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
-  const totalAddresses = isFragment
-    ? [...Addresses]
-    : [...Addresses, ...customCdnAddresses];
-  const totalPorts = ports.filter((port) =>
+  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
+  const totalAddresses = isFragment ? [...Addresses] : [...Addresses, ...customCdnAddresses];
+  const totalPorts = ports.filter(port =>
     isFragment ? globalThis.defaultHttpsPorts.includes(port) : true,
   );
-  vlessConfigs && protocols.push("VLESS");
-  trojanConfigs && protocols.push("Trojan");
+  vlessConfigs && protocols.push('VLESS');
+  trojanConfigs && protocols.push('Trojan');
   let proxyIndex = 1;
 
   for (const protocol of protocols) {
@@ -947,19 +867,10 @@ export async function getXrayCustomConfigs(request, env, isFragment) {
     for (const port of totalPorts) {
       for (const addr of totalAddresses) {
         const isCustomAddr = customCdnAddresses.includes(addr);
-        const configType = isCustomAddr ? "C" : isFragment ? "F" : "";
-        const sni = isCustomAddr
-          ? customCdnSni
-          : randomUpperCase(globalThis.hostName);
+        const configType = isCustomAddr ? 'C' : isFragment ? 'F' : '';
+        const sni = isCustomAddr ? customCdnSni : randomUpperCase(globalThis.hostName);
         const host = isCustomAddr ? customCdnHost : globalThis.hostName;
-        const remark = generateRemark(
-          protocolIndex,
-          port,
-          addr,
-          cleanIPs,
-          protocol,
-          configType,
-        );
+        const remark = generateRemark(protocolIndex, port, addr, cleanIPs, protocol, configType);
         const customConfig = buildXrayConfig(
           proxySettings,
           remark,
@@ -979,9 +890,9 @@ export async function getXrayCustomConfigs(request, env, isFragment) {
           false,
         );
         const outbound =
-          protocol === "VLESS"
+          protocol === 'VLESS'
             ? buildXrayVLESSOutbound(
-                "proxy",
+                'proxy',
                 addr,
                 port,
                 host,
@@ -992,7 +903,7 @@ export async function getXrayCustomConfigs(request, env, isFragment) {
                 enableIPv6,
               )
             : buildXrayTrojanOutbound(
-                "proxy",
+                'proxy',
                 addr,
                 port,
                 host,
@@ -1043,9 +954,9 @@ export async function getXrayCustomConfigs(request, env, isFragment) {
   return new Response(JSON.stringify(finalConfigs, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
@@ -1058,13 +969,13 @@ export async function getXrayWarpConfigs(request, env, client) {
   const xrayWoWOutbounds = [];
   const { warpEndpoints } = proxySettings;
   const outboundDomains = warpEndpoints
-    .split(",")
-    .map((endpoint) => endpoint.split(":")[0])
-    .filter((address) => isDomain(address));
-  const proIndicator = client === "nikang" ? " Pro " : " ";
+    .split(',')
+    .map(endpoint => endpoint.split(':')[0])
+    .filter(address => isDomain(address));
+  const proIndicator = client === 'nikang' ? ' Pro ' : ' ';
 
-  for (const [index, endpoint] of warpEndpoints.split(",").entries()) {
-    const endpointHost = endpoint.split(":")[0];
+  for (const [index, endpoint] of warpEndpoints.split(',').entries()) {
+    const endpointHost = endpoint.split(':')[0];
     const warpConfig = buildXrayConfig(
       proxySettings,
       `⚫️ ${index + 1} - Warp${proIndicator}`,
@@ -1106,20 +1017,8 @@ export async function getXrayWarpConfigs(request, env, client) {
       false,
       true,
     );
-    const warpOutbound = buildXrayWarpOutbound(
-      proxySettings,
-      warpConfigs,
-      endpoint,
-      false,
-      client,
-    );
-    const WoWOutbound = buildXrayWarpOutbound(
-      proxySettings,
-      warpConfigs,
-      endpoint,
-      true,
-      client,
-    );
+    const warpOutbound = buildXrayWarpOutbound(proxySettings, warpConfigs, endpoint, false, client);
+    const WoWOutbound = buildXrayWarpOutbound(proxySettings, warpConfigs, endpoint, true, client);
     warpConfig.outbounds.unshift(warpOutbound);
     WoWConfig.outbounds.unshift(WoWOutbound, warpOutbound);
     xrayWarpConfigs.push(warpConfig);
@@ -1133,13 +1032,7 @@ export async function getXrayWarpConfigs(request, env, client) {
     xrayWoWOutbounds.push(chainOutbound);
   }
 
-  const dnsObject = await buildXrayDNS(
-    proxySettings,
-    outboundDomains,
-    undefined,
-    false,
-    true,
-  );
+  const dnsObject = await buildXrayDNS(proxySettings, outboundDomains, undefined, false, true);
   const xrayWarpBestPing = buildXrayConfig(
     proxySettings,
     `🔴 Warp${proIndicator}- Best Ping`,
@@ -1178,82 +1071,77 @@ export async function getXrayWarpConfigs(request, env, client) {
     true,
   );
   xrayWoWBestPing.outbounds.unshift(...xrayWoWOutbounds, ...xrayWarpOutbounds);
-  const configs = [
-    ...xrayWarpConfigs,
-    ...xrayWoWConfigs,
-    xrayWarpBestPing,
-    xrayWoWBestPing,
-  ];
+  const configs = [...xrayWarpConfigs, ...xrayWoWConfigs, xrayWarpBestPing, xrayWoWBestPing];
   return new Response(JSON.stringify(configs, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
 
 const xrayConfigTemp = {
-  remarks: "",
+  remarks: '',
   log: {
-    loglevel: "warning",
+    loglevel: 'warning',
   },
   dns: {},
   inbounds: [
     {
       port: 10808,
-      protocol: "socks",
+      protocol: 'socks',
       settings: {
-        auth: "noauth",
+        auth: 'noauth',
         udp: true,
         userLevel: 8,
       },
       sniffing: {
-        destOverride: ["http", "tls"],
+        destOverride: ['http', 'tls'],
         enabled: true,
         routeOnly: true,
       },
-      tag: "socks-in",
+      tag: 'socks-in',
     },
     {
       port: 10809,
-      protocol: "http",
+      protocol: 'http',
       settings: {
-        auth: "noauth",
+        auth: 'noauth',
         udp: true,
         userLevel: 8,
       },
       sniffing: {
-        destOverride: ["http", "tls"],
+        destOverride: ['http', 'tls'],
         enabled: true,
         routeOnly: true,
       },
-      tag: "http-in",
+      tag: 'http-in',
     },
     {
-      listen: "127.0.0.1",
+      listen: '127.0.0.1',
       port: 10853,
-      protocol: "dokodemo-door",
+      protocol: 'dokodemo-door',
       settings: {
-        address: "1.1.1.1",
-        network: "tcp,udp",
+        address: '1.1.1.1',
+        network: 'tcp,udp',
         port: 53,
       },
-      tag: "dns-in",
+      tag: 'dns-in',
     },
   ],
   outbounds: [
     {
-      tag: "fragment",
-      protocol: "freedom",
+      tag: 'fragment',
+      protocol: 'freedom',
       settings: {
         fragment: {
-          packets: "tlshello",
-          length: "",
-          interval: "",
+          packets: 'tlshello',
+          length: '',
+          interval: '',
         },
-        domainStrategy: "UseIP",
+        domainStrategy: 'UseIP',
       },
       streamSettings: {
         sockopt: {
@@ -1263,22 +1151,22 @@ const xrayConfigTemp = {
       },
     },
     {
-      protocol: "dns",
-      tag: "dns-out",
+      protocol: 'dns',
+      tag: 'dns-out',
     },
     {
-      protocol: "freedom",
+      protocol: 'freedom',
       settings: {},
-      tag: "direct",
+      tag: 'direct',
     },
     {
-      protocol: "blackhole",
+      protocol: 'blackhole',
       settings: {
         response: {
-          type: "http",
+          type: 'http',
         },
       },
-      tag: "block",
+      tag: 'block',
     },
   ],
   policy: {
@@ -1296,22 +1184,22 @@ const xrayConfigTemp = {
     },
   },
   routing: {
-    domainStrategy: "IPIfNonMatch",
+    domainStrategy: 'IPIfNonMatch',
     rules: [],
     balancers: [
       {
-        tag: "all",
-        selector: ["prox"],
+        tag: 'all',
+        selector: ['prox'],
         strategy: {
-          type: "leastPing",
+          type: 'leastPing',
         },
       },
     ],
   },
   observatory: {
-    probeInterval: "30s",
-    probeURL: "https://clients3.google.com/generate_204",
-    subjectSelector: ["prox"],
+    probeInterval: '30s',
+    probeURL: 'https://clients3.google.com/generate_204',
+    subjectSelector: ['prox'],
     EnableConcurrency: true,
   },
   stats: {},

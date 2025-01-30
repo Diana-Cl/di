@@ -196,7 +196,7 @@ export async function renderSecretsPage() {
   return new Response(secretsPage, {
     status: 200,
     headers: {
-      "Content-Type": "text/html",
+      'Content-Type': 'text/html',
     },
   });
 }

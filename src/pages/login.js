@@ -176,16 +176,15 @@ export async function renderLoginPage() {
   return new Response(loginPage, {
     status: 200,
     headers: {
-      "Content-Type": "text/html;charset=utf-8",
-      "Access-Control-Allow-Origin": globalThis.urlOrigin,
-      "Access-Control-Allow-Methods": "GET, POST",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      "X-Content-Type-Options": "nosniff",
-      "X-Frame-Options": "DENY",
-      "Referrer-Policy": "strict-origin-when-cross-origin",
-      "Cache-Control":
-        "no-store, no-cache, must-revalidate, proxy-revalidate, no-transform",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/html;charset=utf-8',
+      'Access-Control-Allow-Origin': globalThis.urlOrigin,
+      'Access-Control-Allow-Methods': 'GET, POST',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, no-transform',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }

@@ -4,29 +4,26 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __name = (target, value) =>
-  __defProp(target, "name", { value, configurable: true });
-var __require = /* @__PURE__ */ ((x) =>
-  typeof require !== "undefined"
+var __name = (target, value) => __defProp(target, 'name', { value, configurable: true });
+var __require = /* @__PURE__ */ (x =>
+  typeof require !== 'undefined'
     ? require
-    : typeof Proxy !== "undefined"
+    : typeof Proxy !== 'undefined'
       ? new Proxy(x, {
-          get: (a, b) => (typeof require !== "undefined" ? require : a)[b],
+          get: (a, b) => (typeof require !== 'undefined' ? require : a)[b],
         })
       : x)(function (x) {
-  if (typeof require !== "undefined") return require.apply(this, arguments);
+  if (typeof require !== 'undefined') return require.apply(this, arguments);
   throw new Error('Dynamic require of "' + x + '" is not supported');
 });
 var __commonJS = (cb, mod) =>
   function __require2() {
     return (
-      mod ||
-        (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod),
-      mod.exports
+      mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports
     );
   };
 var __copyProps = (to, from, except, desc) => {
-  if ((from && typeof from === "object") || typeof from === "function") {
+  if ((from && typeof from === 'object') || typeof from === 'function') {
     for (let key of __getOwnPropNames(from))
       if (!__hasOwnProp.call(to, key) && key !== except)
         __defProp(to, key, {
@@ -44,7 +41,7 @@ var __toESM = (mod, isNodeMode, target) => (
     // compatible transform (i.e. "__esModule" has not been set), then set
     // "default" to the CommonJS "module.exports" for node compatibility.
     isNodeMode || !mod || !mod.__esModule
-      ? __defProp(target, "default", { value: mod, enumerable: true })
+      ? __defProp(target, 'default', { value: mod, enumerable: true })
       : target,
     mod,
   )
@@ -52,23 +49,23 @@ var __toESM = (mod, isNodeMode, target) => (
 
 // (disabled):crypto
 var require_crypto = __commonJS({
-  "(disabled):crypto"() {},
+  '(disabled):crypto'() {},
 });
 
 // node_modules/tweetnacl/nacl-fast.js
 var require_nacl_fast = __commonJS({
-  "node_modules/tweetnacl/nacl-fast.js"(exports, module) {
+  'node_modules/tweetnacl/nacl-fast.js'(exports, module) {
     (function (nacl3) {
-      "use strict";
+      'use strict';
       var gf = /* @__PURE__ */ __name(function (init) {
         var i,
           r = new Float64Array(16);
         if (init) for (i = 0; i < init.length; i++) r[i] = init[i];
         return r;
-      }, "gf");
+      }, 'gf');
       var randombytes = /* @__PURE__ */ __name(function () {
-        throw new Error("no PRNG");
-      }, "randombytes");
+        throw new Error('no PRNG');
+      }, 'randombytes');
       var _0 = new Uint8Array(16);
       var _9 = new Uint8Array(32);
       _9[0] = 9;
@@ -76,24 +73,24 @@ var require_nacl_fast = __commonJS({
         gf1 = gf([1]),
         _121665 = gf([56129, 1]),
         D = gf([
-          30883, 4953, 19914, 30187, 55467, 16705, 2637, 112, 59544, 30585,
-          16505, 36039, 65139, 11119, 27886, 20995,
+          30883, 4953, 19914, 30187, 55467, 16705, 2637, 112, 59544, 30585, 16505, 36039, 65139,
+          11119, 27886, 20995,
         ]),
         D2 = gf([
-          61785, 9906, 39828, 60374, 45398, 33411, 5274, 224, 53552, 61171,
-          33010, 6542, 64743, 22239, 55772, 9222,
+          61785, 9906, 39828, 60374, 45398, 33411, 5274, 224, 53552, 61171, 33010, 6542, 64743,
+          22239, 55772, 9222,
         ]),
         X = gf([
-          54554, 36645, 11616, 51542, 42930, 38181, 51040, 26924, 56412, 64982,
-          57905, 49316, 21502, 52590, 14035, 8553,
+          54554, 36645, 11616, 51542, 42930, 38181, 51040, 26924, 56412, 64982, 57905, 49316, 21502,
+          52590, 14035, 8553,
         ]),
         Y = gf([
-          26200, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214,
-          26214, 26214, 26214, 26214, 26214, 26214,
+          26200, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214,
+          26214, 26214, 26214,
         ]),
         I = gf([
-          41136, 18958, 6951, 50414, 58488, 44335, 6150, 12099, 55207, 15867,
-          153, 11085, 57099, 20417, 9344, 11139,
+          41136, 18958, 6951, 50414, 58488, 44335, 6150, 12099, 55207, 15867, 153, 11085, 57099,
+          20417, 9344, 11139,
         ]);
       function ts64(x, i, h, l) {
         x[i] = (h >> 24) & 255;
@@ -105,103 +102,44 @@ var require_nacl_fast = __commonJS({
         x[i + 6] = (l >> 8) & 255;
         x[i + 7] = l & 255;
       }
-      __name(ts64, "ts64");
+      __name(ts64, 'ts64');
       function vn(x, xi, y, yi, n) {
         var i,
           d = 0;
         for (i = 0; i < n; i++) d |= x[xi + i] ^ y[yi + i];
         return (1 & ((d - 1) >>> 8)) - 1;
       }
-      __name(vn, "vn");
+      __name(vn, 'vn');
       function crypto_verify_16(x, xi, y, yi) {
         return vn(x, xi, y, yi, 16);
       }
-      __name(crypto_verify_16, "crypto_verify_16");
+      __name(crypto_verify_16, 'crypto_verify_16');
       function crypto_verify_32(x, xi, y, yi) {
         return vn(x, xi, y, yi, 32);
       }
-      __name(crypto_verify_32, "crypto_verify_32");
+      __name(crypto_verify_32, 'crypto_verify_32');
       function core_salsa20(o, p, k, c) {
-        var j0 =
-            (c[0] & 255) |
-            ((c[1] & 255) << 8) |
-            ((c[2] & 255) << 16) |
-            ((c[3] & 255) << 24),
-          j1 =
-            (k[0] & 255) |
-            ((k[1] & 255) << 8) |
-            ((k[2] & 255) << 16) |
-            ((k[3] & 255) << 24),
-          j2 =
-            (k[4] & 255) |
-            ((k[5] & 255) << 8) |
-            ((k[6] & 255) << 16) |
-            ((k[7] & 255) << 24),
-          j3 =
-            (k[8] & 255) |
-            ((k[9] & 255) << 8) |
-            ((k[10] & 255) << 16) |
-            ((k[11] & 255) << 24),
-          j4 =
-            (k[12] & 255) |
-            ((k[13] & 255) << 8) |
-            ((k[14] & 255) << 16) |
-            ((k[15] & 255) << 24),
-          j5 =
-            (c[4] & 255) |
-            ((c[5] & 255) << 8) |
-            ((c[6] & 255) << 16) |
-            ((c[7] & 255) << 24),
-          j6 =
-            (p[0] & 255) |
-            ((p[1] & 255) << 8) |
-            ((p[2] & 255) << 16) |
-            ((p[3] & 255) << 24),
-          j7 =
-            (p[4] & 255) |
-            ((p[5] & 255) << 8) |
-            ((p[6] & 255) << 16) |
-            ((p[7] & 255) << 24),
-          j8 =
-            (p[8] & 255) |
-            ((p[9] & 255) << 8) |
-            ((p[10] & 255) << 16) |
-            ((p[11] & 255) << 24),
-          j9 =
-            (p[12] & 255) |
-            ((p[13] & 255) << 8) |
-            ((p[14] & 255) << 16) |
-            ((p[15] & 255) << 24),
-          j10 =
-            (c[8] & 255) |
-            ((c[9] & 255) << 8) |
-            ((c[10] & 255) << 16) |
-            ((c[11] & 255) << 24),
+        var j0 = (c[0] & 255) | ((c[1] & 255) << 8) | ((c[2] & 255) << 16) | ((c[3] & 255) << 24),
+          j1 = (k[0] & 255) | ((k[1] & 255) << 8) | ((k[2] & 255) << 16) | ((k[3] & 255) << 24),
+          j2 = (k[4] & 255) | ((k[5] & 255) << 8) | ((k[6] & 255) << 16) | ((k[7] & 255) << 24),
+          j3 = (k[8] & 255) | ((k[9] & 255) << 8) | ((k[10] & 255) << 16) | ((k[11] & 255) << 24),
+          j4 = (k[12] & 255) | ((k[13] & 255) << 8) | ((k[14] & 255) << 16) | ((k[15] & 255) << 24),
+          j5 = (c[4] & 255) | ((c[5] & 255) << 8) | ((c[6] & 255) << 16) | ((c[7] & 255) << 24),
+          j6 = (p[0] & 255) | ((p[1] & 255) << 8) | ((p[2] & 255) << 16) | ((p[3] & 255) << 24),
+          j7 = (p[4] & 255) | ((p[5] & 255) << 8) | ((p[6] & 255) << 16) | ((p[7] & 255) << 24),
+          j8 = (p[8] & 255) | ((p[9] & 255) << 8) | ((p[10] & 255) << 16) | ((p[11] & 255) << 24),
+          j9 = (p[12] & 255) | ((p[13] & 255) << 8) | ((p[14] & 255) << 16) | ((p[15] & 255) << 24),
+          j10 = (c[8] & 255) | ((c[9] & 255) << 8) | ((c[10] & 255) << 16) | ((c[11] & 255) << 24),
           j11 =
-            (k[16] & 255) |
-            ((k[17] & 255) << 8) |
-            ((k[18] & 255) << 16) |
-            ((k[19] & 255) << 24),
+            (k[16] & 255) | ((k[17] & 255) << 8) | ((k[18] & 255) << 16) | ((k[19] & 255) << 24),
           j12 =
-            (k[20] & 255) |
-            ((k[21] & 255) << 8) |
-            ((k[22] & 255) << 16) |
-            ((k[23] & 255) << 24),
+            (k[20] & 255) | ((k[21] & 255) << 8) | ((k[22] & 255) << 16) | ((k[23] & 255) << 24),
           j13 =
-            (k[24] & 255) |
-            ((k[25] & 255) << 8) |
-            ((k[26] & 255) << 16) |
-            ((k[27] & 255) << 24),
+            (k[24] & 255) | ((k[25] & 255) << 8) | ((k[26] & 255) << 16) | ((k[27] & 255) << 24),
           j14 =
-            (k[28] & 255) |
-            ((k[29] & 255) << 8) |
-            ((k[30] & 255) << 16) |
-            ((k[31] & 255) << 24),
+            (k[28] & 255) | ((k[29] & 255) << 8) | ((k[30] & 255) << 16) | ((k[31] & 255) << 24),
           j15 =
-            (c[12] & 255) |
-            ((c[13] & 255) << 8) |
-            ((c[14] & 255) << 16) |
-            ((c[15] & 255) << 24);
+            (c[12] & 255) | ((c[13] & 255) << 8) | ((c[14] & 255) << 16) | ((c[15] & 255) << 24);
         var x0 = j0,
           x1 = j1,
           x2 = j2,
@@ -366,88 +304,29 @@ var require_nacl_fast = __commonJS({
         o[62] = (x15 >>> 16) & 255;
         o[63] = (x15 >>> 24) & 255;
       }
-      __name(core_salsa20, "core_salsa20");
+      __name(core_salsa20, 'core_salsa20');
       function core_hsalsa20(o, p, k, c) {
-        var j0 =
-            (c[0] & 255) |
-            ((c[1] & 255) << 8) |
-            ((c[2] & 255) << 16) |
-            ((c[3] & 255) << 24),
-          j1 =
-            (k[0] & 255) |
-            ((k[1] & 255) << 8) |
-            ((k[2] & 255) << 16) |
-            ((k[3] & 255) << 24),
-          j2 =
-            (k[4] & 255) |
-            ((k[5] & 255) << 8) |
-            ((k[6] & 255) << 16) |
-            ((k[7] & 255) << 24),
-          j3 =
-            (k[8] & 255) |
-            ((k[9] & 255) << 8) |
-            ((k[10] & 255) << 16) |
-            ((k[11] & 255) << 24),
-          j4 =
-            (k[12] & 255) |
-            ((k[13] & 255) << 8) |
-            ((k[14] & 255) << 16) |
-            ((k[15] & 255) << 24),
-          j5 =
-            (c[4] & 255) |
-            ((c[5] & 255) << 8) |
-            ((c[6] & 255) << 16) |
-            ((c[7] & 255) << 24),
-          j6 =
-            (p[0] & 255) |
-            ((p[1] & 255) << 8) |
-            ((p[2] & 255) << 16) |
-            ((p[3] & 255) << 24),
-          j7 =
-            (p[4] & 255) |
-            ((p[5] & 255) << 8) |
-            ((p[6] & 255) << 16) |
-            ((p[7] & 255) << 24),
-          j8 =
-            (p[8] & 255) |
-            ((p[9] & 255) << 8) |
-            ((p[10] & 255) << 16) |
-            ((p[11] & 255) << 24),
-          j9 =
-            (p[12] & 255) |
-            ((p[13] & 255) << 8) |
-            ((p[14] & 255) << 16) |
-            ((p[15] & 255) << 24),
-          j10 =
-            (c[8] & 255) |
-            ((c[9] & 255) << 8) |
-            ((c[10] & 255) << 16) |
-            ((c[11] & 255) << 24),
+        var j0 = (c[0] & 255) | ((c[1] & 255) << 8) | ((c[2] & 255) << 16) | ((c[3] & 255) << 24),
+          j1 = (k[0] & 255) | ((k[1] & 255) << 8) | ((k[2] & 255) << 16) | ((k[3] & 255) << 24),
+          j2 = (k[4] & 255) | ((k[5] & 255) << 8) | ((k[6] & 255) << 16) | ((k[7] & 255) << 24),
+          j3 = (k[8] & 255) | ((k[9] & 255) << 8) | ((k[10] & 255) << 16) | ((k[11] & 255) << 24),
+          j4 = (k[12] & 255) | ((k[13] & 255) << 8) | ((k[14] & 255) << 16) | ((k[15] & 255) << 24),
+          j5 = (c[4] & 255) | ((c[5] & 255) << 8) | ((c[6] & 255) << 16) | ((c[7] & 255) << 24),
+          j6 = (p[0] & 255) | ((p[1] & 255) << 8) | ((p[2] & 255) << 16) | ((p[3] & 255) << 24),
+          j7 = (p[4] & 255) | ((p[5] & 255) << 8) | ((p[6] & 255) << 16) | ((p[7] & 255) << 24),
+          j8 = (p[8] & 255) | ((p[9] & 255) << 8) | ((p[10] & 255) << 16) | ((p[11] & 255) << 24),
+          j9 = (p[12] & 255) | ((p[13] & 255) << 8) | ((p[14] & 255) << 16) | ((p[15] & 255) << 24),
+          j10 = (c[8] & 255) | ((c[9] & 255) << 8) | ((c[10] & 255) << 16) | ((c[11] & 255) << 24),
           j11 =
-            (k[16] & 255) |
-            ((k[17] & 255) << 8) |
-            ((k[18] & 255) << 16) |
-            ((k[19] & 255) << 24),
+            (k[16] & 255) | ((k[17] & 255) << 8) | ((k[18] & 255) << 16) | ((k[19] & 255) << 24),
           j12 =
-            (k[20] & 255) |
-            ((k[21] & 255) << 8) |
-            ((k[22] & 255) << 16) |
-            ((k[23] & 255) << 24),
+            (k[20] & 255) | ((k[21] & 255) << 8) | ((k[22] & 255) << 16) | ((k[23] & 255) << 24),
           j13 =
-            (k[24] & 255) |
-            ((k[25] & 255) << 8) |
-            ((k[26] & 255) << 16) |
-            ((k[27] & 255) << 24),
+            (k[24] & 255) | ((k[25] & 255) << 8) | ((k[26] & 255) << 16) | ((k[27] & 255) << 24),
           j14 =
-            (k[28] & 255) |
-            ((k[29] & 255) << 8) |
-            ((k[30] & 255) << 16) |
-            ((k[31] & 255) << 24),
+            (k[28] & 255) | ((k[29] & 255) << 8) | ((k[30] & 255) << 16) | ((k[31] & 255) << 24),
           j15 =
-            (c[12] & 255) |
-            ((c[13] & 255) << 8) |
-            ((c[14] & 255) << 16) |
-            ((c[15] & 255) << 24);
+            (c[12] & 255) | ((c[13] & 255) << 8) | ((c[14] & 255) << 16) | ((c[15] & 255) << 24);
         var x0 = j0,
           x1 = j1,
           x2 = j2,
@@ -564,15 +443,15 @@ var require_nacl_fast = __commonJS({
         o[30] = (x9 >>> 16) & 255;
         o[31] = (x9 >>> 24) & 255;
       }
-      __name(core_hsalsa20, "core_hsalsa20");
+      __name(core_hsalsa20, 'core_hsalsa20');
       function crypto_core_salsa20(out, inp, k, c) {
         core_salsa20(out, inp, k, c);
       }
-      __name(crypto_core_salsa20, "crypto_core_salsa20");
+      __name(crypto_core_salsa20, 'crypto_core_salsa20');
       function crypto_core_hsalsa20(out, inp, k, c) {
         core_hsalsa20(out, inp, k, c);
       }
-      __name(crypto_core_hsalsa20, "crypto_core_hsalsa20");
+      __name(crypto_core_hsalsa20, 'crypto_core_hsalsa20');
       var sigma = new Uint8Array([
         101, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, 101, 32, 107,
       ]);
@@ -601,7 +480,7 @@ var require_nacl_fast = __commonJS({
         }
         return 0;
       }
-      __name(crypto_stream_salsa20_xor, "crypto_stream_salsa20_xor");
+      __name(crypto_stream_salsa20_xor, 'crypto_stream_salsa20_xor');
       function crypto_stream_salsa20(c, cpos, b, n, k) {
         var z = new Uint8Array(16),
           x = new Uint8Array(64);
@@ -626,7 +505,7 @@ var require_nacl_fast = __commonJS({
         }
         return 0;
       }
-      __name(crypto_stream_salsa20, "crypto_stream_salsa20");
+      __name(crypto_stream_salsa20, 'crypto_stream_salsa20');
       function crypto_stream(c, cpos, d, n, k) {
         var s = new Uint8Array(32);
         crypto_core_hsalsa20(s, n, k, sigma);
@@ -634,7 +513,7 @@ var require_nacl_fast = __commonJS({
         for (var i = 0; i < 8; i++) sn[i] = n[i + 16];
         return crypto_stream_salsa20(c, cpos, d, sn, s);
       }
-      __name(crypto_stream, "crypto_stream");
+      __name(crypto_stream, 'crypto_stream');
       function crypto_stream_xor(c, cpos, m, mpos, d, n, k) {
         var s = new Uint8Array(32);
         crypto_core_hsalsa20(s, n, k, sigma);
@@ -642,7 +521,7 @@ var require_nacl_fast = __commonJS({
         for (var i = 0; i < 8; i++) sn[i] = n[i + 16];
         return crypto_stream_salsa20_xor(c, cpos, m, mpos, d, sn, s);
       }
-      __name(crypto_stream_xor, "crypto_stream_xor");
+      __name(crypto_stream_xor, 'crypto_stream_xor');
       var poly1305 = /* @__PURE__ */ __name(function (key) {
         this.buffer = new Uint8Array(16);
         this.r = new Uint16Array(10);
@@ -677,7 +556,7 @@ var require_nacl_fast = __commonJS({
         this.pad[5] = (key[26] & 255) | ((key[27] & 255) << 8);
         this.pad[6] = (key[28] & 255) | ((key[29] & 255) << 8);
         this.pad[7] = (key[30] & 255) | ((key[31] & 255) << 8);
-      }, "poly1305");
+      }, 'poly1305');
       poly1305.prototype.blocks = function (m, mpos, bytes) {
         var hibit = this.fin ? 0 : 1 << 11;
         var t0, t1, t2, t3, t4, t5, t6, t7, c;
@@ -942,8 +821,7 @@ var require_nacl_fast = __commonJS({
         this.h[1] = ((this.h[1] >>> 3) | (this.h[2] << 10)) & 65535;
         this.h[2] = ((this.h[2] >>> 6) | (this.h[3] << 7)) & 65535;
         this.h[3] = ((this.h[3] >>> 9) | (this.h[4] << 4)) & 65535;
-        this.h[4] =
-          ((this.h[4] >>> 12) | (this.h[5] << 1) | (this.h[6] << 14)) & 65535;
+        this.h[4] = ((this.h[4] >>> 12) | (this.h[5] << 1) | (this.h[6] << 14)) & 65535;
         this.h[5] = ((this.h[6] >>> 2) | (this.h[7] << 11)) & 65535;
         this.h[6] = ((this.h[7] >>> 5) | (this.h[8] << 8)) & 65535;
         this.h[7] = ((this.h[8] >>> 8) | (this.h[9] << 5)) & 65535;
@@ -975,8 +853,7 @@ var require_nacl_fast = __commonJS({
         if (this.leftover) {
           want = 16 - this.leftover;
           if (want > bytes) want = bytes;
-          for (i = 0; i < want; i++)
-            this.buffer[this.leftover + i] = m[mpos + i];
+          for (i = 0; i < want; i++) this.buffer[this.leftover + i] = m[mpos + i];
           bytes -= want;
           mpos += want;
           this.leftover += want;
@@ -991,8 +868,7 @@ var require_nacl_fast = __commonJS({
           bytes -= want;
         }
         if (bytes) {
-          for (i = 0; i < bytes; i++)
-            this.buffer[this.leftover + i] = m[mpos + i];
+          for (i = 0; i < bytes; i++) this.buffer[this.leftover + i] = m[mpos + i];
           this.leftover += bytes;
         }
       };
@@ -1002,13 +878,13 @@ var require_nacl_fast = __commonJS({
         s.finish(out, outpos);
         return 0;
       }
-      __name(crypto_onetimeauth, "crypto_onetimeauth");
+      __name(crypto_onetimeauth, 'crypto_onetimeauth');
       function crypto_onetimeauth_verify(h, hpos, m, mpos, n, k) {
         var x = new Uint8Array(16);
         crypto_onetimeauth(x, 0, m, mpos, n, k);
         return crypto_verify_16(h, hpos, x, 0);
       }
-      __name(crypto_onetimeauth_verify, "crypto_onetimeauth_verify");
+      __name(crypto_onetimeauth_verify, 'crypto_onetimeauth_verify');
       function crypto_secretbox(c, m, d, n, k) {
         var i;
         if (d < 32) return -1;
@@ -1017,7 +893,7 @@ var require_nacl_fast = __commonJS({
         for (i = 0; i < 16; i++) c[i] = 0;
         return 0;
       }
-      __name(crypto_secretbox, "crypto_secretbox");
+      __name(crypto_secretbox, 'crypto_secretbox');
       function crypto_secretbox_open(m, c, d, n, k) {
         var i;
         var x = new Uint8Array(32);
@@ -1028,12 +904,12 @@ var require_nacl_fast = __commonJS({
         for (i = 0; i < 32; i++) m[i] = 0;
         return 0;
       }
-      __name(crypto_secretbox_open, "crypto_secretbox_open");
+      __name(crypto_secretbox_open, 'crypto_secretbox_open');
       function set25519(r, a) {
         var i;
         for (i = 0; i < 16; i++) r[i] = a[i] | 0;
       }
-      __name(set25519, "set25519");
+      __name(set25519, 'set25519');
       function car25519(o) {
         var i,
           v,
@@ -1045,7 +921,7 @@ var require_nacl_fast = __commonJS({
         }
         o[0] += c - 1 + 37 * (c - 1);
       }
-      __name(car25519, "car25519");
+      __name(car25519, 'car25519');
       function sel25519(p, q, b) {
         var t,
           c = ~(b - 1);
@@ -1055,7 +931,7 @@ var require_nacl_fast = __commonJS({
           q[i] ^= t;
         }
       }
-      __name(sel25519, "sel25519");
+      __name(sel25519, 'sel25519');
       function pack25519(o, n) {
         var i, j, b;
         var m = gf(),
@@ -1080,7 +956,7 @@ var require_nacl_fast = __commonJS({
           o[2 * i + 1] = t[i] >> 8;
         }
       }
-      __name(pack25519, "pack25519");
+      __name(pack25519, 'pack25519');
       function neq25519(a, b) {
         var c = new Uint8Array(32),
           d = new Uint8Array(32);
@@ -1088,27 +964,27 @@ var require_nacl_fast = __commonJS({
         pack25519(d, b);
         return crypto_verify_32(c, 0, d, 0);
       }
-      __name(neq25519, "neq25519");
+      __name(neq25519, 'neq25519');
       function par25519(a) {
         var d = new Uint8Array(32);
         pack25519(d, a);
         return d[0] & 1;
       }
-      __name(par25519, "par25519");
+      __name(par25519, 'par25519');
       function unpack25519(o, n) {
         var i;
         for (i = 0; i < 16; i++) o[i] = n[2 * i] + (n[2 * i + 1] << 8);
         o[15] &= 32767;
       }
-      __name(unpack25519, "unpack25519");
+      __name(unpack25519, 'unpack25519');
       function A(o, a, b) {
         for (var i = 0; i < 16; i++) o[i] = a[i] + b[i];
       }
-      __name(A, "A");
+      __name(A, 'A');
       function Z(o, a, b) {
         for (var i = 0; i < 16; i++) o[i] = a[i] - b[i];
       }
-      __name(Z, "Z");
+      __name(Z, 'Z');
       function M(o, a, b) {
         var v,
           c,
@@ -1563,11 +1439,11 @@ var require_nacl_fast = __commonJS({
         o[14] = t14;
         o[15] = t15;
       }
-      __name(M, "M");
+      __name(M, 'M');
       function S(o, a) {
         M(o, a, a);
       }
-      __name(S, "S");
+      __name(S, 'S');
       function inv25519(o, i) {
         var c = gf();
         var a;
@@ -1578,7 +1454,7 @@ var require_nacl_fast = __commonJS({
         }
         for (a = 0; a < 16; a++) o[a] = c[a];
       }
-      __name(inv25519, "inv25519");
+      __name(inv25519, 'inv25519');
       function pow2523(o, i) {
         var c = gf();
         var a;
@@ -1589,7 +1465,7 @@ var require_nacl_fast = __commonJS({
         }
         for (a = 0; a < 16; a++) o[a] = c[a];
       }
-      __name(pow2523, "pow2523");
+      __name(pow2523, 'pow2523');
       function crypto_scalarmult(q, n, p) {
         var z = new Uint8Array(32);
         var x = new Float64Array(80),
@@ -1648,22 +1524,22 @@ var require_nacl_fast = __commonJS({
         pack25519(q, x16);
         return 0;
       }
-      __name(crypto_scalarmult, "crypto_scalarmult");
+      __name(crypto_scalarmult, 'crypto_scalarmult');
       function crypto_scalarmult_base(q, n) {
         return crypto_scalarmult(q, n, _9);
       }
-      __name(crypto_scalarmult_base, "crypto_scalarmult_base");
+      __name(crypto_scalarmult_base, 'crypto_scalarmult_base');
       function crypto_box_keypair(y, x) {
         randombytes(x, 32);
         return crypto_scalarmult_base(y, x);
       }
-      __name(crypto_box_keypair, "crypto_box_keypair");
+      __name(crypto_box_keypair, 'crypto_box_keypair');
       function crypto_box_beforenm(k, y, x) {
         var s = new Uint8Array(32);
         crypto_scalarmult(s, x, y);
         return crypto_core_hsalsa20(k, _0, s, sigma);
       }
-      __name(crypto_box_beforenm, "crypto_box_beforenm");
+      __name(crypto_box_beforenm, 'crypto_box_beforenm');
       var crypto_box_afternm = crypto_secretbox;
       var crypto_box_open_afternm = crypto_secretbox_open;
       function crypto_box(c, m, d, n, y, x) {
@@ -1671,41 +1547,37 @@ var require_nacl_fast = __commonJS({
         crypto_box_beforenm(k, y, x);
         return crypto_box_afternm(c, m, d, n, k);
       }
-      __name(crypto_box, "crypto_box");
+      __name(crypto_box, 'crypto_box');
       function crypto_box_open(m, c, d, n, y, x) {
         var k = new Uint8Array(32);
         crypto_box_beforenm(k, y, x);
         return crypto_box_open_afternm(m, c, d, n, k);
       }
-      __name(crypto_box_open, "crypto_box_open");
+      __name(crypto_box_open, 'crypto_box_open');
       var K = [
-        1116352408, 3609767458, 1899447441, 602891725, 3049323471, 3964484399,
-        3921009573, 2173295548, 961987163, 4081628472, 1508970993, 3053834265,
-        2453635748, 2937671579, 2870763221, 3664609560, 3624381080, 2734883394,
-        310598401, 1164996542, 607225278, 1323610764, 1426881987, 3590304994,
-        1925078388, 4068182383, 2162078206, 991336113, 2614888103, 633803317,
-        3248222580, 3479774868, 3835390401, 2666613458, 4022224774, 944711139,
-        264347078, 2341262773, 604807628, 2007800933, 770255983, 1495990901,
-        1249150122, 1856431235, 1555081692, 3175218132, 1996064986, 2198950837,
-        2554220882, 3999719339, 2821834349, 766784016, 2952996808, 2566594879,
-        3210313671, 3203337956, 3336571891, 1034457026, 3584528711, 2466948901,
-        113926993, 3758326383, 338241895, 168717936, 666307205, 1188179964,
-        773529912, 1546045734, 1294757372, 1522805485, 1396182291, 2643833823,
-        1695183700, 2343527390, 1986661051, 1014477480, 2177026350, 1206759142,
-        2456956037, 344077627, 2730485921, 1290863460, 2820302411, 3158454273,
-        3259730800, 3505952657, 3345764771, 106217008, 3516065817, 3606008344,
-        3600352804, 1432725776, 4094571909, 1467031594, 275423344, 851169720,
-        430227734, 3100823752, 506948616, 1363258195, 659060556, 3750685593,
-        883997877, 3785050280, 958139571, 3318307427, 1322822218, 3812723403,
-        1537002063, 2003034995, 1747873779, 3602036899, 1955562222, 1575990012,
-        2024104815, 1125592928, 2227730452, 2716904306, 2361852424, 442776044,
-        2428436474, 593698344, 2756734187, 3733110249, 3204031479, 2999351573,
-        3329325298, 3815920427, 3391569614, 3928383900, 3515267271, 566280711,
-        3940187606, 3454069534, 4118630271, 4000239992, 116418474, 1914138554,
-        174292421, 2731055270, 289380356, 3203993006, 460393269, 320620315,
-        685471733, 587496836, 852142971, 1086792851, 1017036298, 365543100,
-        1126000580, 2618297676, 1288033470, 3409855158, 1501505948, 4234509866,
-        1607167915, 987167468, 1816402316, 1246189591,
+        1116352408, 3609767458, 1899447441, 602891725, 3049323471, 3964484399, 3921009573,
+        2173295548, 961987163, 4081628472, 1508970993, 3053834265, 2453635748, 2937671579,
+        2870763221, 3664609560, 3624381080, 2734883394, 310598401, 1164996542, 607225278,
+        1323610764, 1426881987, 3590304994, 1925078388, 4068182383, 2162078206, 991336113,
+        2614888103, 633803317, 3248222580, 3479774868, 3835390401, 2666613458, 4022224774,
+        944711139, 264347078, 2341262773, 604807628, 2007800933, 770255983, 1495990901, 1249150122,
+        1856431235, 1555081692, 3175218132, 1996064986, 2198950837, 2554220882, 3999719339,
+        2821834349, 766784016, 2952996808, 2566594879, 3210313671, 3203337956, 3336571891,
+        1034457026, 3584528711, 2466948901, 113926993, 3758326383, 338241895, 168717936, 666307205,
+        1188179964, 773529912, 1546045734, 1294757372, 1522805485, 1396182291, 2643833823,
+        1695183700, 2343527390, 1986661051, 1014477480, 2177026350, 1206759142, 2456956037,
+        344077627, 2730485921, 1290863460, 2820302411, 3158454273, 3259730800, 3505952657,
+        3345764771, 106217008, 3516065817, 3606008344, 3600352804, 1432725776, 4094571909,
+        1467031594, 275423344, 851169720, 430227734, 3100823752, 506948616, 1363258195, 659060556,
+        3750685593, 883997877, 3785050280, 958139571, 3318307427, 1322822218, 3812723403,
+        1537002063, 2003034995, 1747873779, 3602036899, 1955562222, 1575990012, 2024104815,
+        1125592928, 2227730452, 2716904306, 2361852424, 442776044, 2428436474, 593698344,
+        2756734187, 3733110249, 3204031479, 2999351573, 3329325298, 3815920427, 3391569614,
+        3928383900, 3515267271, 566280711, 3940187606, 3454069534, 4118630271, 4000239992,
+        116418474, 1914138554, 174292421, 2731055270, 289380356, 3203993006, 460393269, 320620315,
+        685471733, 587496836, 852142971, 1086792851, 1017036298, 365543100, 1126000580, 2618297676,
+        1288033470, 3409855158, 1501505948, 4234509866, 1607167915, 987167468, 1816402316,
+        1246189591,
       ];
       function crypto_hashblocks_hl(hh, hl, m, n) {
         var wh = new Int32Array(16),
@@ -1756,10 +1628,8 @@ var require_nacl_fast = __commonJS({
         while (n >= 128) {
           for (i = 0; i < 16; i++) {
             j = 8 * i + pos;
-            wh[i] =
-              (m[j + 0] << 24) | (m[j + 1] << 16) | (m[j + 2] << 8) | m[j + 3];
-            wl[i] =
-              (m[j + 4] << 24) | (m[j + 5] << 16) | (m[j + 6] << 8) | m[j + 7];
+            wh[i] = (m[j + 0] << 24) | (m[j + 1] << 16) | (m[j + 2] << 8) | m[j + 3];
+            wl[i] = (m[j + 4] << 24) | (m[j + 5] << 16) | (m[j + 6] << 8) | m[j + 7];
           }
           for (i = 0; i < 80; i++) {
             bh0 = ah0;
@@ -1897,10 +1767,7 @@ var require_nacl_fast = __commonJS({
                 d += h >>> 16;
                 th = wh[(j + 1) % 16];
                 tl = wl[(j + 1) % 16];
-                h =
-                  ((th >>> 1) | (tl << (32 - 1))) ^
-                  ((th >>> 8) | (tl << (32 - 8))) ^
-                  (th >>> 7);
+                h = ((th >>> 1) | (tl << (32 - 1))) ^ ((th >>> 8) | (tl << (32 - 8))) ^ (th >>> 7);
                 l =
                   ((tl >>> 1) | (th << (32 - 1))) ^
                   ((tl >>> 8) | (th << (32 - 8))) ^
@@ -2072,7 +1939,7 @@ var require_nacl_fast = __commonJS({
         }
         return n;
       }
-      __name(crypto_hashblocks_hl, "crypto_hashblocks_hl");
+      __name(crypto_hashblocks_hl, 'crypto_hashblocks_hl');
       function crypto_hash(out, m, n) {
         var hh = new Int32Array(8),
           hl = new Int32Array(8),
@@ -2106,7 +1973,7 @@ var require_nacl_fast = __commonJS({
         for (i = 0; i < 8; i++) ts64(out, 8 * i, hh[i], hl[i]);
         return 0;
       }
-      __name(crypto_hash, "crypto_hash");
+      __name(crypto_hash, 'crypto_hash');
       function add(p, q) {
         var a = gf(),
           b = gf(),
@@ -2136,14 +2003,14 @@ var require_nacl_fast = __commonJS({
         M(p[2], g, f);
         M(p[3], e, h);
       }
-      __name(add, "add");
+      __name(add, 'add');
       function cswap(p, q, b) {
         var i;
         for (i = 0; i < 4; i++) {
           sel25519(p[i], q[i], b);
         }
       }
-      __name(cswap, "cswap");
+      __name(cswap, 'cswap');
       function pack(r, p) {
         var tx = gf(),
           ty = gf(),
@@ -2154,7 +2021,7 @@ var require_nacl_fast = __commonJS({
         pack25519(r, ty);
         r[31] ^= par25519(tx) << 7;
       }
-      __name(pack, "pack");
+      __name(pack, 'pack');
       function scalarmult(p, q, s) {
         var b, i;
         set25519(p[0], gf0);
@@ -2169,7 +2036,7 @@ var require_nacl_fast = __commonJS({
           cswap(p, q, b);
         }
       }
-      __name(scalarmult, "scalarmult");
+      __name(scalarmult, 'scalarmult');
       function scalarbase(p, s) {
         var q = [gf(), gf(), gf(), gf()];
         set25519(q[0], X);
@@ -2178,7 +2045,7 @@ var require_nacl_fast = __commonJS({
         M(q[3], X, Y);
         scalarmult(p, q, s);
       }
-      __name(scalarbase, "scalarbase");
+      __name(scalarbase, 'scalarbase');
       function crypto_sign_keypair(pk, sk, seeded) {
         var d = new Uint8Array(64);
         var p = [gf(), gf(), gf(), gf()];
@@ -2193,10 +2060,10 @@ var require_nacl_fast = __commonJS({
         for (i = 0; i < 32; i++) sk[i + 32] = pk[i];
         return 0;
       }
-      __name(crypto_sign_keypair, "crypto_sign_keypair");
+      __name(crypto_sign_keypair, 'crypto_sign_keypair');
       var L = new Float64Array([
-        237, 211, 245, 92, 26, 99, 18, 88, 214, 156, 247, 162, 222, 249, 222,
-        20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16,
+        237, 211, 245, 92, 26, 99, 18, 88, 214, 156, 247, 162, 222, 249, 222, 20, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 16,
       ]);
       function modL(r, x) {
         var carry, i, j, k;
@@ -2222,7 +2089,7 @@ var require_nacl_fast = __commonJS({
           r[i] = x[i] & 255;
         }
       }
-      __name(modL, "modL");
+      __name(modL, 'modL');
       function reduce(r) {
         var x = new Float64Array(64),
           i;
@@ -2230,7 +2097,7 @@ var require_nacl_fast = __commonJS({
         for (i = 0; i < 64; i++) r[i] = 0;
         modL(r, x);
       }
-      __name(reduce, "reduce");
+      __name(reduce, 'reduce');
       function crypto_sign(sm, m, n, sk) {
         var d = new Uint8Array(64),
           h = new Uint8Array(64),
@@ -2263,7 +2130,7 @@ var require_nacl_fast = __commonJS({
         modL(sm.subarray(32), x);
         return smlen;
       }
-      __name(crypto_sign, "crypto_sign");
+      __name(crypto_sign, 'crypto_sign');
       function unpackneg(r, p) {
         var t = gf(),
           chk = gf(),
@@ -2298,7 +2165,7 @@ var require_nacl_fast = __commonJS({
         M(r[3], r[0], r[1]);
         return 0;
       }
-      __name(unpackneg, "unpackneg");
+      __name(unpackneg, 'unpackneg');
       function crypto_sign_open(m, sm, n, pk) {
         var i;
         var t = new Uint8Array(32),
@@ -2323,7 +2190,7 @@ var require_nacl_fast = __commonJS({
         for (i = 0; i < n; i++) m[i] = sm[i + 64];
         return n;
       }
-      __name(crypto_sign_open, "crypto_sign_open");
+      __name(crypto_sign_open, 'crypto_sign_open');
       var crypto_secretbox_KEYBYTES = 32,
         crypto_secretbox_NONCEBYTES = 24,
         crypto_secretbox_ZEROBYTES = 32,
@@ -2398,30 +2265,26 @@ var require_nacl_fast = __commonJS({
         scalarbase,
       };
       function checkLengths(k, n) {
-        if (k.length !== crypto_secretbox_KEYBYTES)
-          throw new Error("bad key size");
-        if (n.length !== crypto_secretbox_NONCEBYTES)
-          throw new Error("bad nonce size");
+        if (k.length !== crypto_secretbox_KEYBYTES) throw new Error('bad key size');
+        if (n.length !== crypto_secretbox_NONCEBYTES) throw new Error('bad nonce size');
       }
-      __name(checkLengths, "checkLengths");
+      __name(checkLengths, 'checkLengths');
       function checkBoxLengths(pk, sk) {
-        if (pk.length !== crypto_box_PUBLICKEYBYTES)
-          throw new Error("bad public key size");
-        if (sk.length !== crypto_box_SECRETKEYBYTES)
-          throw new Error("bad secret key size");
+        if (pk.length !== crypto_box_PUBLICKEYBYTES) throw new Error('bad public key size');
+        if (sk.length !== crypto_box_SECRETKEYBYTES) throw new Error('bad secret key size');
       }
-      __name(checkBoxLengths, "checkBoxLengths");
+      __name(checkBoxLengths, 'checkBoxLengths');
       function checkArrayTypes() {
         for (var i = 0; i < arguments.length; i++) {
           if (!(arguments[i] instanceof Uint8Array))
-            throw new TypeError("unexpected type, use Uint8Array");
+            throw new TypeError('unexpected type, use Uint8Array');
         }
       }
-      __name(checkArrayTypes, "checkArrayTypes");
+      __name(checkArrayTypes, 'checkArrayTypes');
       function cleanup(arr) {
         for (var i = 0; i < arr.length; i++) arr[i] = 0;
       }
-      __name(cleanup, "cleanup");
+      __name(cleanup, 'cleanup');
       nacl3.randomBytes = function (n) {
         var b = new Uint8Array(n);
         randombytes(b, n);
@@ -2432,8 +2295,7 @@ var require_nacl_fast = __commonJS({
         checkLengths(key, nonce);
         var m = new Uint8Array(crypto_secretbox_ZEROBYTES + msg.length);
         var c = new Uint8Array(m.length);
-        for (var i = 0; i < msg.length; i++)
-          m[i + crypto_secretbox_ZEROBYTES] = msg[i];
+        for (var i = 0; i < msg.length; i++) m[i + crypto_secretbox_ZEROBYTES] = msg[i];
         crypto_secretbox(c, m, m.length, nonce, key);
         return c.subarray(crypto_secretbox_BOXZEROBYTES);
       };
@@ -2442,11 +2304,9 @@ var require_nacl_fast = __commonJS({
         checkLengths(key, nonce);
         var c = new Uint8Array(crypto_secretbox_BOXZEROBYTES + box.length);
         var m = new Uint8Array(c.length);
-        for (var i = 0; i < box.length; i++)
-          c[i + crypto_secretbox_BOXZEROBYTES] = box[i];
+        for (var i = 0; i < box.length; i++) c[i + crypto_secretbox_BOXZEROBYTES] = box[i];
         if (c.length < 32) return null;
-        if (crypto_secretbox_open(m, c, c.length, nonce, key) !== 0)
-          return null;
+        if (crypto_secretbox_open(m, c, c.length, nonce, key) !== 0) return null;
         return m.subarray(crypto_secretbox_ZEROBYTES);
       };
       nacl3.secretbox.keyLength = crypto_secretbox_KEYBYTES;
@@ -2454,17 +2314,15 @@ var require_nacl_fast = __commonJS({
       nacl3.secretbox.overheadLength = crypto_secretbox_BOXZEROBYTES;
       nacl3.scalarMult = function (n, p) {
         checkArrayTypes(n, p);
-        if (n.length !== crypto_scalarmult_SCALARBYTES)
-          throw new Error("bad n size");
-        if (p.length !== crypto_scalarmult_BYTES) throw new Error("bad p size");
+        if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error('bad n size');
+        if (p.length !== crypto_scalarmult_BYTES) throw new Error('bad p size');
         var q = new Uint8Array(crypto_scalarmult_BYTES);
         crypto_scalarmult(q, n, p);
         return q;
       };
       nacl3.scalarMult.base = function (n) {
         checkArrayTypes(n);
-        if (n.length !== crypto_scalarmult_SCALARBYTES)
-          throw new Error("bad n size");
+        if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error('bad n size');
         var q = new Uint8Array(crypto_scalarmult_BYTES);
         crypto_scalarmult_base(q, n);
         return q;
@@ -2496,8 +2354,7 @@ var require_nacl_fast = __commonJS({
       };
       nacl3.box.keyPair.fromSecretKey = function (secretKey) {
         checkArrayTypes(secretKey);
-        if (secretKey.length !== crypto_box_SECRETKEYBYTES)
-          throw new Error("bad secret key size");
+        if (secretKey.length !== crypto_box_SECRETKEYBYTES) throw new Error('bad secret key size');
         var pk = new Uint8Array(crypto_box_PUBLICKEYBYTES);
         crypto_scalarmult_base(pk, secretKey);
         return { publicKey: pk, secretKey: new Uint8Array(secretKey) };
@@ -2509,23 +2366,16 @@ var require_nacl_fast = __commonJS({
       nacl3.box.overheadLength = nacl3.secretbox.overheadLength;
       nacl3.sign = function (msg, secretKey) {
         checkArrayTypes(msg, secretKey);
-        if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
-          throw new Error("bad secret key size");
+        if (secretKey.length !== crypto_sign_SECRETKEYBYTES) throw new Error('bad secret key size');
         var signedMsg = new Uint8Array(crypto_sign_BYTES + msg.length);
         crypto_sign(signedMsg, msg, msg.length, secretKey);
         return signedMsg;
       };
       nacl3.sign.open = function (signedMsg, publicKey) {
         checkArrayTypes(signedMsg, publicKey);
-        if (publicKey.length !== crypto_sign_PUBLICKEYBYTES)
-          throw new Error("bad public key size");
+        if (publicKey.length !== crypto_sign_PUBLICKEYBYTES) throw new Error('bad public key size');
         var tmp = new Uint8Array(signedMsg.length);
-        var mlen = crypto_sign_open(
-          tmp,
-          signedMsg,
-          signedMsg.length,
-          publicKey,
-        );
+        var mlen = crypto_sign_open(tmp, signedMsg, signedMsg.length, publicKey);
         if (mlen < 0) return null;
         var m = new Uint8Array(mlen);
         for (var i = 0; i < m.length; i++) m[i] = tmp[i];
@@ -2539,10 +2389,8 @@ var require_nacl_fast = __commonJS({
       };
       nacl3.sign.detached.verify = function (msg, sig, publicKey) {
         checkArrayTypes(msg, sig, publicKey);
-        if (sig.length !== crypto_sign_BYTES)
-          throw new Error("bad signature size");
-        if (publicKey.length !== crypto_sign_PUBLICKEYBYTES)
-          throw new Error("bad public key size");
+        if (sig.length !== crypto_sign_BYTES) throw new Error('bad signature size');
+        if (publicKey.length !== crypto_sign_PUBLICKEYBYTES) throw new Error('bad public key size');
         var sm = new Uint8Array(crypto_sign_BYTES + msg.length);
         var m = new Uint8Array(crypto_sign_BYTES + msg.length);
         var i;
@@ -2558,16 +2406,14 @@ var require_nacl_fast = __commonJS({
       };
       nacl3.sign.keyPair.fromSecretKey = function (secretKey) {
         checkArrayTypes(secretKey);
-        if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
-          throw new Error("bad secret key size");
+        if (secretKey.length !== crypto_sign_SECRETKEYBYTES) throw new Error('bad secret key size');
         var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
         for (var i = 0; i < pk.length; i++) pk[i] = secretKey[32 + i];
         return { publicKey: pk, secretKey: new Uint8Array(secretKey) };
       };
       nacl3.sign.keyPair.fromSeed = function (seed) {
         checkArrayTypes(seed);
-        if (seed.length !== crypto_sign_SEEDBYTES)
-          throw new Error("bad seed size");
+        if (seed.length !== crypto_sign_SEEDBYTES) throw new Error('bad seed size');
         var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
         var sk = new Uint8Array(crypto_sign_SECRETKEYBYTES);
         for (var i = 0; i < 32; i++) sk[i] = seed[i];
@@ -2595,22 +2441,19 @@ var require_nacl_fast = __commonJS({
         randombytes = fn;
       };
       (function () {
-        var crypto2 =
-          typeof self !== "undefined" ? self.crypto || self.msCrypto : null;
+        var crypto2 = typeof self !== 'undefined' ? self.crypto || self.msCrypto : null;
         if (crypto2 && crypto2.getRandomValues) {
           var QUOTA = 65536;
           nacl3.setPRNG(function (x, n) {
             var i,
               v = new Uint8Array(n);
             for (i = 0; i < n; i += QUOTA) {
-              crypto2.getRandomValues(
-                v.subarray(i, i + Math.min(n - i, QUOTA)),
-              );
+              crypto2.getRandomValues(v.subarray(i, i + Math.min(n - i, QUOTA)));
             }
             for (i = 0; i < n; i++) x[i] = v[i];
             cleanup(v);
           });
-        } else if (typeof __require !== "undefined") {
+        } else if (typeof __require !== 'undefined') {
           crypto2 = require_crypto();
           if (crypto2 && crypto2.randomBytes) {
             nacl3.setPRNG(function (x, n) {
@@ -2623,7 +2466,7 @@ var require_nacl_fast = __commonJS({
         }
       })();
     })(
-      typeof module !== "undefined" && module.exports
+      typeof module !== 'undefined' && module.exports
         ? module.exports
         : (self.nacl = self.nacl || {}),
     );
@@ -2632,24 +2475,24 @@ var require_nacl_fast = __commonJS({
 
 // (disabled):buffer
 var require_buffer = __commonJS({
-  "(disabled):buffer"() {},
+  '(disabled):buffer'() {},
 });
 
 // node_modules/js-sha256/src/sha256.js
 var require_sha256 = __commonJS({
-  "node_modules/js-sha256/src/sha256.js"(exports, module) {
+  'node_modules/js-sha256/src/sha256.js'(exports, module) {
     (function () {
-      "use strict";
-      var ERROR = "input is invalid type";
-      var WINDOW = typeof window === "object";
+      'use strict';
+      var ERROR = 'input is invalid type';
+      var WINDOW = typeof window === 'object';
       var root = WINDOW ? window : {};
       if (root.JS_SHA256_NO_WINDOW) {
         WINDOW = false;
       }
-      var WEB_WORKER = !WINDOW && typeof self === "object";
+      var WEB_WORKER = !WINDOW && typeof self === 'object';
       var NODE_JS =
         !root.JS_SHA256_NO_NODE_JS &&
-        typeof process === "object" &&
+        typeof process === 'object' &&
         process.versions &&
         process.versions.node;
       if (NODE_JS) {
@@ -2657,58 +2500,42 @@ var require_sha256 = __commonJS({
       } else if (WEB_WORKER) {
         root = self;
       }
-      var COMMON_JS =
-        !root.JS_SHA256_NO_COMMON_JS &&
-        typeof module === "object" &&
-        module.exports;
-      var AMD = typeof define === "function" && define.amd;
-      var ARRAY_BUFFER =
-        !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== "undefined";
-      var HEX_CHARS = "0123456789abcdef".split("");
+      var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module === 'object' && module.exports;
+      var AMD = typeof define === 'function' && define.amd;
+      var ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== 'undefined';
+      var HEX_CHARS = '0123456789abcdef'.split('');
       var EXTRA = [-2147483648, 8388608, 32768, 128];
       var SHIFT = [24, 16, 8, 0];
       var K = [
-        1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993,
-        2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987,
-        1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774,
-        264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986,
-        2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711,
-        113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291,
-        1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411,
-        3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344,
-        430227734, 506948616, 659060556, 883997877, 958139571, 1322822218,
-        1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424,
-        2428436474, 2756734187, 3204031479, 3329325298,
+        1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748,
+        2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206,
+        2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122,
+        1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891,
+        3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700,
+        1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771,
+        3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877,
+        958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452,
+        2361852424, 2428436474, 2756734187, 3204031479, 3329325298,
       ];
-      var OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"];
+      var OUTPUT_TYPES = ['hex', 'array', 'digest', 'arrayBuffer'];
       var blocks = [];
       if (root.JS_SHA256_NO_NODE_JS || !Array.isArray) {
         Array.isArray = function (obj) {
-          return Object.prototype.toString.call(obj) === "[object Array]";
+          return Object.prototype.toString.call(obj) === '[object Array]';
         };
       }
-      if (
-        ARRAY_BUFFER &&
-        (root.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW || !ArrayBuffer.isView)
-      ) {
+      if (ARRAY_BUFFER && (root.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW || !ArrayBuffer.isView)) {
         ArrayBuffer.isView = function (obj) {
-          return (
-            typeof obj === "object" &&
-            obj.buffer &&
-            obj.buffer.constructor === ArrayBuffer
-          );
+          return typeof obj === 'object' && obj.buffer && obj.buffer.constructor === ArrayBuffer;
         };
       }
-      var createOutputMethod = /* @__PURE__ */ __name(function (
-        outputType,
-        is224,
-      ) {
+      var createOutputMethod = /* @__PURE__ */ __name(function (outputType, is224) {
         return function (message2) {
           return new Sha256(is224, true).update(message2)[outputType]();
         };
-      }, "createOutputMethod");
+      }, 'createOutputMethod');
       var createMethod = /* @__PURE__ */ __name(function (is224) {
-        var method = createOutputMethod("hex", is224);
+        var method = createOutputMethod('hex', is224);
         if (NODE_JS) {
           method = nodeWrap(method, is224);
         }
@@ -2723,25 +2550,22 @@ var require_sha256 = __commonJS({
           method[type] = createOutputMethod(type, is224);
         }
         return method;
-      }, "createMethod");
+      }, 'createMethod');
       var nodeWrap = /* @__PURE__ */ __name(function (method, is224) {
         var crypto2 = require_crypto();
         var Buffer2 = require_buffer().Buffer;
-        var algorithm = is224 ? "sha224" : "sha256";
+        var algorithm = is224 ? 'sha224' : 'sha256';
         var bufferFrom;
         if (Buffer2.from && !root.JS_SHA256_NO_BUFFER_FROM) {
           bufferFrom = Buffer2.from;
         } else {
           bufferFrom = /* @__PURE__ */ __name(function (message2) {
             return new Buffer2(message2);
-          }, "bufferFrom");
+          }, 'bufferFrom');
         }
         var nodeMethod = /* @__PURE__ */ __name(function (message2) {
-          if (typeof message2 === "string") {
-            return crypto2
-              .createHash(algorithm)
-              .update(message2, "utf8")
-              .digest("hex");
+          if (typeof message2 === 'string') {
+            return crypto2.createHash(algorithm).update(message2, 'utf8').digest('hex');
           } else {
             if (message2 === null || message2 === void 0) {
               throw new Error(ERROR);
@@ -2754,28 +2578,20 @@ var require_sha256 = __commonJS({
             ArrayBuffer.isView(message2) ||
             message2.constructor === Buffer2
           ) {
-            return crypto2
-              .createHash(algorithm)
-              .update(bufferFrom(message2))
-              .digest("hex");
+            return crypto2.createHash(algorithm).update(bufferFrom(message2)).digest('hex');
           } else {
             return method(message2);
           }
-        }, "nodeMethod");
+        }, 'nodeMethod');
         return nodeMethod;
-      }, "nodeWrap");
-      var createHmacOutputMethod = /* @__PURE__ */ __name(function (
-        outputType,
-        is224,
-      ) {
+      }, 'nodeWrap');
+      var createHmacOutputMethod = /* @__PURE__ */ __name(function (outputType, is224) {
         return function (key, message2) {
-          return new HmacSha256(key, is224, true)
-            .update(message2)
-            [outputType]();
+          return new HmacSha256(key, is224, true).update(message2)[outputType]();
         };
-      }, "createHmacOutputMethod");
+      }, 'createHmacOutputMethod');
       var createHmacMethod = /* @__PURE__ */ __name(function (is224) {
-        var method = createHmacOutputMethod("hex", is224);
+        var method = createHmacOutputMethod('hex', is224);
         method.create = function (key) {
           return new HmacSha256(key, is224);
         };
@@ -2787,7 +2603,7 @@ var require_sha256 = __commonJS({
           method[type] = createHmacOutputMethod(type, is224);
         }
         return method;
-      }, "createHmacMethod");
+      }, 'createHmacMethod');
       function Sha256(is224, sharedMemory) {
         if (sharedMemory) {
           blocks[0] =
@@ -2836,15 +2652,15 @@ var require_sha256 = __commonJS({
         this.first = true;
         this.is224 = is224;
       }
-      __name(Sha256, "Sha256");
+      __name(Sha256, 'Sha256');
       Sha256.prototype.update = function (message2) {
         if (this.finalized) {
           return;
         }
         var notString,
           type = typeof message2;
-        if (type !== "string") {
-          if (type === "object") {
+        if (type !== 'string') {
+          if (type === 'object') {
             if (message2 === null) {
               throw new Error(ERROR);
             } else if (ARRAY_BUFFER && message2.constructor === ArrayBuffer) {
@@ -2901,19 +2717,13 @@ var require_sha256 = __commonJS({
                 blocks2[i >>> 2] |= (128 | (code & 63)) << SHIFT[i++ & 3];
               } else if (code < 55296 || code >= 57344) {
                 blocks2[i >>> 2] |= (224 | (code >>> 12)) << SHIFT[i++ & 3];
-                blocks2[i >>> 2] |=
-                  (128 | ((code >>> 6) & 63)) << SHIFT[i++ & 3];
+                blocks2[i >>> 2] |= (128 | ((code >>> 6) & 63)) << SHIFT[i++ & 3];
                 blocks2[i >>> 2] |= (128 | (code & 63)) << SHIFT[i++ & 3];
               } else {
-                code =
-                  65536 +
-                  (((code & 1023) << 10) |
-                    (message2.charCodeAt(++index) & 1023));
+                code = 65536 + (((code & 1023) << 10) | (message2.charCodeAt(++index) & 1023));
                 blocks2[i >>> 2] |= (240 | (code >>> 18)) << SHIFT[i++ & 3];
-                blocks2[i >>> 2] |=
-                  (128 | ((code >>> 12) & 63)) << SHIFT[i++ & 3];
-                blocks2[i >>> 2] |=
-                  (128 | ((code >>> 6) & 63)) << SHIFT[i++ & 3];
+                blocks2[i >>> 2] |= (128 | ((code >>> 12) & 63)) << SHIFT[i++ & 3];
+                blocks2[i >>> 2] |= (128 | ((code >>> 6) & 63)) << SHIFT[i++ & 3];
                 blocks2[i >>> 2] |= (128 | (code & 63)) << SHIFT[i++ & 3];
               }
             }
@@ -2995,13 +2805,9 @@ var require_sha256 = __commonJS({
           bc;
         for (j = 16; j < 64; ++j) {
           t1 = blocks2[j - 15];
-          s0 =
-            ((t1 >>> 7) | (t1 << 25)) ^ ((t1 >>> 18) | (t1 << 14)) ^ (t1 >>> 3);
+          s0 = ((t1 >>> 7) | (t1 << 25)) ^ ((t1 >>> 18) | (t1 << 14)) ^ (t1 >>> 3);
           t1 = blocks2[j - 2];
-          s1 =
-            ((t1 >>> 17) | (t1 << 15)) ^
-            ((t1 >>> 19) | (t1 << 13)) ^
-            (t1 >>> 10);
+          s1 = ((t1 >>> 17) | (t1 << 15)) ^ ((t1 >>> 19) | (t1 << 13)) ^ (t1 >>> 10);
           blocks2[j] = (blocks2[j - 16] + s0 + blocks2[j - 7] + s1) << 0;
         }
         bc = b & c;
@@ -3020,14 +2826,8 @@ var require_sha256 = __commonJS({
             }
             this.first = false;
           } else {
-            s0 =
-              ((a >>> 2) | (a << 30)) ^
-              ((a >>> 13) | (a << 19)) ^
-              ((a >>> 22) | (a << 10));
-            s1 =
-              ((e >>> 6) | (e << 26)) ^
-              ((e >>> 11) | (e << 21)) ^
-              ((e >>> 25) | (e << 7));
+            s0 = ((a >>> 2) | (a << 30)) ^ ((a >>> 13) | (a << 19)) ^ ((a >>> 22) | (a << 10));
+            s1 = ((e >>> 6) | (e << 26)) ^ ((e >>> 11) | (e << 21)) ^ ((e >>> 25) | (e << 7));
             ab = a & b;
             maj = ab ^ (a & c) ^ bc;
             ch = (e & f) ^ (~e & g);
@@ -3036,14 +2836,8 @@ var require_sha256 = __commonJS({
             h = (d + t1) << 0;
             d = (t1 + t2) << 0;
           }
-          s0 =
-            ((d >>> 2) | (d << 30)) ^
-            ((d >>> 13) | (d << 19)) ^
-            ((d >>> 22) | (d << 10));
-          s1 =
-            ((h >>> 6) | (h << 26)) ^
-            ((h >>> 11) | (h << 21)) ^
-            ((h >>> 25) | (h << 7));
+          s0 = ((d >>> 2) | (d << 30)) ^ ((d >>> 13) | (d << 19)) ^ ((d >>> 22) | (d << 10));
+          s1 = ((h >>> 6) | (h << 26)) ^ ((h >>> 11) | (h << 21)) ^ ((h >>> 25) | (h << 7));
           da = d & a;
           maj = da ^ (d & b) ^ ab;
           ch = (h & e) ^ (~h & f);
@@ -3051,14 +2845,8 @@ var require_sha256 = __commonJS({
           t2 = s0 + maj;
           g = (c + t1) << 0;
           c = (t1 + t2) << 0;
-          s0 =
-            ((c >>> 2) | (c << 30)) ^
-            ((c >>> 13) | (c << 19)) ^
-            ((c >>> 22) | (c << 10));
-          s1 =
-            ((g >>> 6) | (g << 26)) ^
-            ((g >>> 11) | (g << 21)) ^
-            ((g >>> 25) | (g << 7));
+          s0 = ((c >>> 2) | (c << 30)) ^ ((c >>> 13) | (c << 19)) ^ ((c >>> 22) | (c << 10));
+          s1 = ((g >>> 6) | (g << 26)) ^ ((g >>> 11) | (g << 21)) ^ ((g >>> 25) | (g << 7));
           cd = c & d;
           maj = cd ^ (c & a) ^ da;
           ch = (g & h) ^ (~g & e);
@@ -3066,14 +2854,8 @@ var require_sha256 = __commonJS({
           t2 = s0 + maj;
           f = (b + t1) << 0;
           b = (t1 + t2) << 0;
-          s0 =
-            ((b >>> 2) | (b << 30)) ^
-            ((b >>> 13) | (b << 19)) ^
-            ((b >>> 22) | (b << 10));
-          s1 =
-            ((f >>> 6) | (f << 26)) ^
-            ((f >>> 11) | (f << 21)) ^
-            ((f >>> 25) | (f << 7));
+          s0 = ((b >>> 2) | (b << 30)) ^ ((b >>> 13) | (b << 19)) ^ ((b >>> 22) | (b << 10));
+          s1 = ((f >>> 6) | (f << 26)) ^ ((f >>> 11) | (f << 21)) ^ ((f >>> 25) | (f << 7));
           bc = b & c;
           maj = bc ^ (b & d) ^ cd;
           ch = (f & g) ^ (~f & h);
@@ -3214,12 +2996,7 @@ var require_sha256 = __commonJS({
           h6 & 255,
         ];
         if (!this.is224) {
-          arr.push(
-            (h7 >>> 24) & 255,
-            (h7 >>> 16) & 255,
-            (h7 >>> 8) & 255,
-            h7 & 255,
-          );
+          arr.push((h7 >>> 24) & 255, (h7 >>> 16) & 255, (h7 >>> 8) & 255, h7 & 255);
         }
         return arr;
       };
@@ -3243,7 +3020,7 @@ var require_sha256 = __commonJS({
       function HmacSha256(key, is224, sharedMemory) {
         var i,
           type = typeof key;
-        if (type === "string") {
+        if (type === 'string') {
           var bytes = [],
             length = key.length,
             index = 0,
@@ -3260,8 +3037,7 @@ var require_sha256 = __commonJS({
               bytes[index++] = 128 | ((code >>> 6) & 63);
               bytes[index++] = 128 | (code & 63);
             } else {
-              code =
-                65536 + (((code & 1023) << 10) | (key.charCodeAt(++i) & 1023));
+              code = 65536 + (((code & 1023) << 10) | (key.charCodeAt(++i) & 1023));
               bytes[index++] = 240 | (code >>> 18);
               bytes[index++] = 128 | ((code >>> 12) & 63);
               bytes[index++] = 128 | ((code >>> 6) & 63);
@@ -3270,7 +3046,7 @@ var require_sha256 = __commonJS({
           }
           key = bytes;
         } else {
-          if (type === "object") {
+          if (type === 'object') {
             if (key === null) {
               throw new Error(ERROR);
             } else if (ARRAY_BUFFER && key.constructor === ArrayBuffer) {
@@ -3300,7 +3076,7 @@ var require_sha256 = __commonJS({
         this.inner = true;
         this.sharedMemory = sharedMemory;
       }
-      __name(HmacSha256, "HmacSha256");
+      __name(HmacSha256, 'HmacSha256');
       HmacSha256.prototype = new Sha256();
       HmacSha256.prototype.finalize = function () {
         Sha256.prototype.finalize.call(this);
@@ -3335,10 +3111,7 @@ var require_sha256 = __commonJS({
 
 // node_modules/jose/dist/browser/runtime/webcrypto.js
 var webcrypto_default = crypto;
-var isCryptoKey = /* @__PURE__ */ __name(
-  (key) => key instanceof CryptoKey,
-  "isCryptoKey",
-);
+var isCryptoKey = /* @__PURE__ */ __name(key => key instanceof CryptoKey, 'isCryptoKey');
 
 // node_modules/jose/dist/browser/lib/buffer_utils.js
 var encoder = new TextEncoder();
@@ -3354,234 +3127,207 @@ function concat(...buffers) {
   }
   return buf;
 }
-__name(concat, "concat");
+__name(concat, 'concat');
 
 // node_modules/jose/dist/browser/runtime/base64url.js
-var encodeBase64 = /* @__PURE__ */ __name((input) => {
+var encodeBase64 = /* @__PURE__ */ __name(input => {
   let unencoded = input;
-  if (typeof unencoded === "string") {
+  if (typeof unencoded === 'string') {
     unencoded = encoder.encode(unencoded);
   }
   const CHUNK_SIZE = 32768;
   const arr = [];
   for (let i = 0; i < unencoded.length; i += CHUNK_SIZE) {
-    arr.push(
-      String.fromCharCode.apply(null, unencoded.subarray(i, i + CHUNK_SIZE)),
-    );
+    arr.push(String.fromCharCode.apply(null, unencoded.subarray(i, i + CHUNK_SIZE)));
   }
-  return btoa(arr.join(""));
-}, "encodeBase64");
-var encode = /* @__PURE__ */ __name((input) => {
-  return encodeBase64(input)
-    .replace(/=/g, "")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_");
-}, "encode");
-var decodeBase64 = /* @__PURE__ */ __name((encoded) => {
+  return btoa(arr.join(''));
+}, 'encodeBase64');
+var encode = /* @__PURE__ */ __name(input => {
+  return encodeBase64(input).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+}, 'encode');
+var decodeBase64 = /* @__PURE__ */ __name(encoded => {
   const binary = atob(encoded);
   const bytes = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) {
     bytes[i] = binary.charCodeAt(i);
   }
   return bytes;
-}, "decodeBase64");
-var decode = /* @__PURE__ */ __name((input) => {
+}, 'decodeBase64');
+var decode = /* @__PURE__ */ __name(input => {
   let encoded = input;
   if (encoded instanceof Uint8Array) {
     encoded = decoder.decode(encoded);
   }
-  encoded = encoded.replace(/-/g, "+").replace(/_/g, "/").replace(/\s/g, "");
+  encoded = encoded.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
   try {
     return decodeBase64(encoded);
   } catch {
-    throw new TypeError("The input to be decoded is not correctly encoded.");
+    throw new TypeError('The input to be decoded is not correctly encoded.');
   }
-}, "decode");
+}, 'decode');
 
 // node_modules/jose/dist/browser/util/errors.js
 var JOSEError = class extends Error {
   constructor(message2, options) {
     super(message2, options);
-    this.code = "ERR_JOSE_GENERIC";
+    this.code = 'ERR_JOSE_GENERIC';
     this.name = this.constructor.name;
     Error.captureStackTrace?.(this, this.constructor);
   }
 };
-__name(JOSEError, "JOSEError");
-JOSEError.code = "ERR_JOSE_GENERIC";
+__name(JOSEError, 'JOSEError');
+JOSEError.code = 'ERR_JOSE_GENERIC';
 var JWTClaimValidationFailed = class extends JOSEError {
-  constructor(
-    message2,
-    payload,
-    claim = "unspecified",
-    reason = "unspecified",
-  ) {
+  constructor(message2, payload, claim = 'unspecified', reason = 'unspecified') {
     super(message2, { cause: { claim, reason, payload } });
-    this.code = "ERR_JWT_CLAIM_VALIDATION_FAILED";
+    this.code = 'ERR_JWT_CLAIM_VALIDATION_FAILED';
     this.claim = claim;
     this.reason = reason;
     this.payload = payload;
   }
 };
-__name(JWTClaimValidationFailed, "JWTClaimValidationFailed");
-JWTClaimValidationFailed.code = "ERR_JWT_CLAIM_VALIDATION_FAILED";
+__name(JWTClaimValidationFailed, 'JWTClaimValidationFailed');
+JWTClaimValidationFailed.code = 'ERR_JWT_CLAIM_VALIDATION_FAILED';
 var JWTExpired = class extends JOSEError {
-  constructor(
-    message2,
-    payload,
-    claim = "unspecified",
-    reason = "unspecified",
-  ) {
+  constructor(message2, payload, claim = 'unspecified', reason = 'unspecified') {
     super(message2, { cause: { claim, reason, payload } });
-    this.code = "ERR_JWT_EXPIRED";
+    this.code = 'ERR_JWT_EXPIRED';
     this.claim = claim;
     this.reason = reason;
     this.payload = payload;
   }
 };
-__name(JWTExpired, "JWTExpired");
-JWTExpired.code = "ERR_JWT_EXPIRED";
+__name(JWTExpired, 'JWTExpired');
+JWTExpired.code = 'ERR_JWT_EXPIRED';
 var JOSEAlgNotAllowed = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JOSE_ALG_NOT_ALLOWED";
+    this.code = 'ERR_JOSE_ALG_NOT_ALLOWED';
   }
 };
-__name(JOSEAlgNotAllowed, "JOSEAlgNotAllowed");
-JOSEAlgNotAllowed.code = "ERR_JOSE_ALG_NOT_ALLOWED";
+__name(JOSEAlgNotAllowed, 'JOSEAlgNotAllowed');
+JOSEAlgNotAllowed.code = 'ERR_JOSE_ALG_NOT_ALLOWED';
 var JOSENotSupported = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JOSE_NOT_SUPPORTED";
+    this.code = 'ERR_JOSE_NOT_SUPPORTED';
   }
 };
-__name(JOSENotSupported, "JOSENotSupported");
-JOSENotSupported.code = "ERR_JOSE_NOT_SUPPORTED";
+__name(JOSENotSupported, 'JOSENotSupported');
+JOSENotSupported.code = 'ERR_JOSE_NOT_SUPPORTED';
 var JWEDecryptionFailed = class extends JOSEError {
-  constructor(message2 = "decryption operation failed", options) {
+  constructor(message2 = 'decryption operation failed', options) {
     super(message2, options);
-    this.code = "ERR_JWE_DECRYPTION_FAILED";
+    this.code = 'ERR_JWE_DECRYPTION_FAILED';
   }
 };
-__name(JWEDecryptionFailed, "JWEDecryptionFailed");
-JWEDecryptionFailed.code = "ERR_JWE_DECRYPTION_FAILED";
+__name(JWEDecryptionFailed, 'JWEDecryptionFailed');
+JWEDecryptionFailed.code = 'ERR_JWE_DECRYPTION_FAILED';
 var JWEInvalid = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JWE_INVALID";
+    this.code = 'ERR_JWE_INVALID';
   }
 };
-__name(JWEInvalid, "JWEInvalid");
-JWEInvalid.code = "ERR_JWE_INVALID";
+__name(JWEInvalid, 'JWEInvalid');
+JWEInvalid.code = 'ERR_JWE_INVALID';
 var JWSInvalid = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JWS_INVALID";
+    this.code = 'ERR_JWS_INVALID';
   }
 };
-__name(JWSInvalid, "JWSInvalid");
-JWSInvalid.code = "ERR_JWS_INVALID";
+__name(JWSInvalid, 'JWSInvalid');
+JWSInvalid.code = 'ERR_JWS_INVALID';
 var JWTInvalid = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JWT_INVALID";
+    this.code = 'ERR_JWT_INVALID';
   }
 };
-__name(JWTInvalid, "JWTInvalid");
-JWTInvalid.code = "ERR_JWT_INVALID";
+__name(JWTInvalid, 'JWTInvalid');
+JWTInvalid.code = 'ERR_JWT_INVALID';
 var JWKInvalid = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JWK_INVALID";
+    this.code = 'ERR_JWK_INVALID';
   }
 };
-__name(JWKInvalid, "JWKInvalid");
-JWKInvalid.code = "ERR_JWK_INVALID";
+__name(JWKInvalid, 'JWKInvalid');
+JWKInvalid.code = 'ERR_JWK_INVALID';
 var JWKSInvalid = class extends JOSEError {
   constructor() {
     super(...arguments);
-    this.code = "ERR_JWKS_INVALID";
+    this.code = 'ERR_JWKS_INVALID';
   }
 };
-__name(JWKSInvalid, "JWKSInvalid");
-JWKSInvalid.code = "ERR_JWKS_INVALID";
+__name(JWKSInvalid, 'JWKSInvalid');
+JWKSInvalid.code = 'ERR_JWKS_INVALID';
 var JWKSNoMatchingKey = class extends JOSEError {
-  constructor(
-    message2 = "no applicable key found in the JSON Web Key Set",
-    options,
-  ) {
+  constructor(message2 = 'no applicable key found in the JSON Web Key Set', options) {
     super(message2, options);
-    this.code = "ERR_JWKS_NO_MATCHING_KEY";
+    this.code = 'ERR_JWKS_NO_MATCHING_KEY';
   }
 };
-__name(JWKSNoMatchingKey, "JWKSNoMatchingKey");
-JWKSNoMatchingKey.code = "ERR_JWKS_NO_MATCHING_KEY";
+__name(JWKSNoMatchingKey, 'JWKSNoMatchingKey');
+JWKSNoMatchingKey.code = 'ERR_JWKS_NO_MATCHING_KEY';
 var JWKSMultipleMatchingKeys = class extends JOSEError {
-  constructor(
-    message2 = "multiple matching keys found in the JSON Web Key Set",
-    options,
-  ) {
+  constructor(message2 = 'multiple matching keys found in the JSON Web Key Set', options) {
     super(message2, options);
-    this.code = "ERR_JWKS_MULTIPLE_MATCHING_KEYS";
+    this.code = 'ERR_JWKS_MULTIPLE_MATCHING_KEYS';
   }
 };
-__name(JWKSMultipleMatchingKeys, "JWKSMultipleMatchingKeys");
-JWKSMultipleMatchingKeys.code = "ERR_JWKS_MULTIPLE_MATCHING_KEYS";
+__name(JWKSMultipleMatchingKeys, 'JWKSMultipleMatchingKeys');
+JWKSMultipleMatchingKeys.code = 'ERR_JWKS_MULTIPLE_MATCHING_KEYS';
 var JWKSTimeout = class extends JOSEError {
-  constructor(message2 = "request timed out", options) {
+  constructor(message2 = 'request timed out', options) {
     super(message2, options);
-    this.code = "ERR_JWKS_TIMEOUT";
+    this.code = 'ERR_JWKS_TIMEOUT';
   }
 };
-__name(JWKSTimeout, "JWKSTimeout");
-JWKSTimeout.code = "ERR_JWKS_TIMEOUT";
+__name(JWKSTimeout, 'JWKSTimeout');
+JWKSTimeout.code = 'ERR_JWKS_TIMEOUT';
 var JWSSignatureVerificationFailed = class extends JOSEError {
-  constructor(message2 = "signature verification failed", options) {
+  constructor(message2 = 'signature verification failed', options) {
     super(message2, options);
-    this.code = "ERR_JWS_SIGNATURE_VERIFICATION_FAILED";
+    this.code = 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED';
   }
 };
-__name(JWSSignatureVerificationFailed, "JWSSignatureVerificationFailed");
-JWSSignatureVerificationFailed.code = "ERR_JWS_SIGNATURE_VERIFICATION_FAILED";
+__name(JWSSignatureVerificationFailed, 'JWSSignatureVerificationFailed');
+JWSSignatureVerificationFailed.code = 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED';
 
 // node_modules/jose/dist/browser/lib/crypto_key.js
-function unusable(name, prop = "algorithm.name") {
-  return new TypeError(
-    `CryptoKey does not support this operation, its ${prop} must be ${name}`,
-  );
+function unusable(name, prop = 'algorithm.name') {
+  return new TypeError(`CryptoKey does not support this operation, its ${prop} must be ${name}`);
 }
-__name(unusable, "unusable");
+__name(unusable, 'unusable');
 function isAlgorithm(algorithm, name) {
   return algorithm.name === name;
 }
-__name(isAlgorithm, "isAlgorithm");
+__name(isAlgorithm, 'isAlgorithm');
 function getHashLength(hash) {
   return parseInt(hash.name.slice(4), 10);
 }
-__name(getHashLength, "getHashLength");
+__name(getHashLength, 'getHashLength');
 function getNamedCurve(alg) {
   switch (alg) {
-    case "ES256":
-      return "P-256";
-    case "ES384":
-      return "P-384";
-    case "ES512":
-      return "P-521";
+    case 'ES256':
+      return 'P-256';
+    case 'ES384':
+      return 'P-384';
+    case 'ES512':
+      return 'P-521';
     default:
-      throw new Error("unreachable");
+      throw new Error('unreachable');
   }
 }
-__name(getNamedCurve, "getNamedCurve");
+__name(getNamedCurve, 'getNamedCurve');
 function checkUsage(key, usages) {
-  if (
-    usages.length &&
-    !usages.some((expected) => key.usages.includes(expected))
-  ) {
-    let msg =
-      "CryptoKey does not support this operation, its usages must include ";
+  if (usages.length && !usages.some(expected => key.usages.includes(expected))) {
+    let msg = 'CryptoKey does not support this operation, its usages must include ';
     if (usages.length > 2) {
       const last = usages.pop();
-      msg += `one of ${usages.join(", ")}, or ${last}.`;
+      msg += `one of ${usages.join(', ')}, or ${last}.`;
     } else if (usages.length === 2) {
       msg += `one of ${usages[0]} or ${usages[1]}.`;
     } else {
@@ -3590,68 +3336,64 @@ function checkUsage(key, usages) {
     throw new TypeError(msg);
   }
 }
-__name(checkUsage, "checkUsage");
+__name(checkUsage, 'checkUsage');
 function checkSigCryptoKey(key, alg, ...usages) {
   switch (alg) {
-    case "HS256":
-    case "HS384":
-    case "HS512": {
-      if (!isAlgorithm(key.algorithm, "HMAC")) throw unusable("HMAC");
+    case 'HS256':
+    case 'HS384':
+    case 'HS512': {
+      if (!isAlgorithm(key.algorithm, 'HMAC')) throw unusable('HMAC');
       const expected = parseInt(alg.slice(2), 10);
       const actual = getHashLength(key.algorithm.hash);
-      if (actual !== expected)
-        throw unusable(`SHA-${expected}`, "algorithm.hash");
+      if (actual !== expected) throw unusable(`SHA-${expected}`, 'algorithm.hash');
       break;
     }
-    case "RS256":
-    case "RS384":
-    case "RS512": {
-      if (!isAlgorithm(key.algorithm, "RSASSA-PKCS1-v1_5"))
-        throw unusable("RSASSA-PKCS1-v1_5");
+    case 'RS256':
+    case 'RS384':
+    case 'RS512': {
+      if (!isAlgorithm(key.algorithm, 'RSASSA-PKCS1-v1_5')) throw unusable('RSASSA-PKCS1-v1_5');
       const expected = parseInt(alg.slice(2), 10);
       const actual = getHashLength(key.algorithm.hash);
-      if (actual !== expected)
-        throw unusable(`SHA-${expected}`, "algorithm.hash");
+      if (actual !== expected) throw unusable(`SHA-${expected}`, 'algorithm.hash');
       break;
     }
-    case "PS256":
-    case "PS384":
-    case "PS512": {
-      if (!isAlgorithm(key.algorithm, "RSA-PSS")) throw unusable("RSA-PSS");
+    case 'PS256':
+    case 'PS384':
+    case 'PS512': {
+      if (!isAlgorithm(key.algorithm, 'RSA-PSS')) throw unusable('RSA-PSS');
       const expected = parseInt(alg.slice(2), 10);
       const actual = getHashLength(key.algorithm.hash);
-      if (actual !== expected)
-        throw unusable(`SHA-${expected}`, "algorithm.hash");
+      if (actual !== expected) throw unusable(`SHA-${expected}`, 'algorithm.hash');
       break;
     }
-    case "EdDSA": {
-      if (key.algorithm.name !== "Ed25519" && key.algorithm.name !== "Ed448") {
-        throw unusable("Ed25519 or Ed448");
+    case 'EdDSA': {
+      if (key.algorithm.name !== 'Ed25519' && key.algorithm.name !== 'Ed448') {
+        throw unusable('Ed25519 or Ed448');
       }
       break;
     }
-    case "ES256":
-    case "ES384":
-    case "ES512": {
-      if (!isAlgorithm(key.algorithm, "ECDSA")) throw unusable("ECDSA");
+    case 'ES256':
+    case 'ES384':
+    case 'ES512': {
+      if (!isAlgorithm(key.algorithm, 'ECDSA')) throw unusable('ECDSA');
       const expected = getNamedCurve(alg);
       const actual = key.algorithm.namedCurve;
-      if (actual !== expected) throw unusable(expected, "algorithm.namedCurve");
+      if (actual !== expected) throw unusable(expected, 'algorithm.namedCurve');
       break;
     }
     default:
-      throw new TypeError("CryptoKey does not support this operation");
+      throw new TypeError('CryptoKey does not support this operation');
   }
   checkUsage(key, usages);
 }
-__name(checkSigCryptoKey, "checkSigCryptoKey");
+__name(checkSigCryptoKey, 'checkSigCryptoKey');
 
 // node_modules/jose/dist/browser/lib/invalid_key_input.js
 function message(msg, actual, ...types2) {
   types2 = types2.filter(Boolean);
   if (types2.length > 2) {
     const last = types2.pop();
-    msg += `one of type ${types2.join(", ")}, or ${last}.`;
+    msg += `one of type ${types2.join(', ')}, or ${last}.`;
   } else if (types2.length === 2) {
     msg += `one of type ${types2[0]} or ${types2[1]}.`;
   } else {
@@ -3659,32 +3401,32 @@ function message(msg, actual, ...types2) {
   }
   if (actual == null) {
     msg += ` Received ${actual}`;
-  } else if (typeof actual === "function" && actual.name) {
+  } else if (typeof actual === 'function' && actual.name) {
     msg += ` Received function ${actual.name}`;
-  } else if (typeof actual === "object" && actual != null) {
+  } else if (typeof actual === 'object' && actual != null) {
     if (actual.constructor?.name) {
       msg += ` Received an instance of ${actual.constructor.name}`;
     }
   }
   return msg;
 }
-__name(message, "message");
+__name(message, 'message');
 var invalid_key_input_default = /* @__PURE__ */ __name((actual, ...types2) => {
-  return message("Key must be ", actual, ...types2);
-}, "default");
+  return message('Key must be ', actual, ...types2);
+}, 'default');
 function withAlg(alg, actual, ...types2) {
   return message(`Key for the ${alg} algorithm must be `, actual, ...types2);
 }
-__name(withAlg, "withAlg");
+__name(withAlg, 'withAlg');
 
 // node_modules/jose/dist/browser/runtime/is_key_like.js
-var is_key_like_default = /* @__PURE__ */ __name((key) => {
+var is_key_like_default = /* @__PURE__ */ __name(key => {
   if (isCryptoKey(key)) {
     return true;
   }
-  return key?.[Symbol.toStringTag] === "KeyObject";
-}, "default");
-var types = ["CryptoKey"];
+  return key?.[Symbol.toStringTag] === 'KeyObject';
+}, 'default');
+var types = ['CryptoKey'];
 
 // node_modules/jose/dist/browser/lib/is_disjoint.js
 var isDisjoint = /* @__PURE__ */ __name((...headers) => {
@@ -3707,19 +3449,16 @@ var isDisjoint = /* @__PURE__ */ __name((...headers) => {
     }
   }
   return true;
-}, "isDisjoint");
+}, 'isDisjoint');
 var is_disjoint_default = isDisjoint;
 
 // node_modules/jose/dist/browser/lib/is_object.js
 function isObjectLike(value) {
-  return typeof value === "object" && value !== null;
+  return typeof value === 'object' && value !== null;
 }
-__name(isObjectLike, "isObjectLike");
+__name(isObjectLike, 'isObjectLike');
 function isObject(input) {
-  if (
-    !isObjectLike(input) ||
-    Object.prototype.toString.call(input) !== "[object Object]"
-  ) {
+  if (!isObjectLike(input) || Object.prototype.toString.call(input) !== '[object Object]') {
     return false;
   }
   if (Object.getPrototypeOf(input) === null) {
@@ -3731,69 +3470,67 @@ function isObject(input) {
   }
   return Object.getPrototypeOf(input) === proto;
 }
-__name(isObject, "isObject");
+__name(isObject, 'isObject');
 
 // node_modules/jose/dist/browser/runtime/check_key_length.js
 var check_key_length_default = /* @__PURE__ */ __name((alg, key) => {
-  if (alg.startsWith("RS") || alg.startsWith("PS")) {
+  if (alg.startsWith('RS') || alg.startsWith('PS')) {
     const { modulusLength } = key.algorithm;
-    if (typeof modulusLength !== "number" || modulusLength < 2048) {
-      throw new TypeError(
-        `${alg} requires key modulusLength to be 2048 bits or larger`,
-      );
+    if (typeof modulusLength !== 'number' || modulusLength < 2048) {
+      throw new TypeError(`${alg} requires key modulusLength to be 2048 bits or larger`);
     }
   }
-}, "default");
+}, 'default');
 
 // node_modules/jose/dist/browser/lib/is_jwk.js
 function isJWK(key) {
-  return isObject(key) && typeof key.kty === "string";
+  return isObject(key) && typeof key.kty === 'string';
 }
-__name(isJWK, "isJWK");
+__name(isJWK, 'isJWK');
 function isPrivateJWK(key) {
-  return key.kty !== "oct" && typeof key.d === "string";
+  return key.kty !== 'oct' && typeof key.d === 'string';
 }
-__name(isPrivateJWK, "isPrivateJWK");
+__name(isPrivateJWK, 'isPrivateJWK');
 function isPublicJWK(key) {
-  return key.kty !== "oct" && typeof key.d === "undefined";
+  return key.kty !== 'oct' && typeof key.d === 'undefined';
 }
-__name(isPublicJWK, "isPublicJWK");
+__name(isPublicJWK, 'isPublicJWK');
 function isSecretJWK(key) {
-  return isJWK(key) && key.kty === "oct" && typeof key.k === "string";
+  return isJWK(key) && key.kty === 'oct' && typeof key.k === 'string';
 }
-__name(isSecretJWK, "isSecretJWK");
+__name(isSecretJWK, 'isSecretJWK');
 
 // node_modules/jose/dist/browser/runtime/jwk_to_key.js
 function subtleMapping(jwk) {
   let algorithm;
   let keyUsages;
   switch (jwk.kty) {
-    case "RSA": {
+    case 'RSA': {
       switch (jwk.alg) {
-        case "PS256":
-        case "PS384":
-        case "PS512":
-          algorithm = { name: "RSA-PSS", hash: `SHA-${jwk.alg.slice(-3)}` };
-          keyUsages = jwk.d ? ["sign"] : ["verify"];
+        case 'PS256':
+        case 'PS384':
+        case 'PS512':
+          algorithm = { name: 'RSA-PSS', hash: `SHA-${jwk.alg.slice(-3)}` };
+          keyUsages = jwk.d ? ['sign'] : ['verify'];
           break;
-        case "RS256":
-        case "RS384":
-        case "RS512":
+        case 'RS256':
+        case 'RS384':
+        case 'RS512':
           algorithm = {
-            name: "RSASSA-PKCS1-v1_5",
+            name: 'RSASSA-PKCS1-v1_5',
             hash: `SHA-${jwk.alg.slice(-3)}`,
           };
-          keyUsages = jwk.d ? ["sign"] : ["verify"];
+          keyUsages = jwk.d ? ['sign'] : ['verify'];
           break;
-        case "RSA-OAEP":
-        case "RSA-OAEP-256":
-        case "RSA-OAEP-384":
-        case "RSA-OAEP-512":
+        case 'RSA-OAEP':
+        case 'RSA-OAEP-256':
+        case 'RSA-OAEP-384':
+        case 'RSA-OAEP-512':
           algorithm = {
-            name: "RSA-OAEP",
+            name: 'RSA-OAEP',
             hash: `SHA-${parseInt(jwk.alg.slice(-3), 10) || 1}`,
           };
-          keyUsages = jwk.d ? ["decrypt", "unwrapKey"] : ["encrypt", "wrapKey"];
+          keyUsages = jwk.d ? ['decrypt', 'unwrapKey'] : ['encrypt', 'wrapKey'];
           break;
         default:
           throw new JOSENotSupported(
@@ -3802,26 +3539,26 @@ function subtleMapping(jwk) {
       }
       break;
     }
-    case "EC": {
+    case 'EC': {
       switch (jwk.alg) {
-        case "ES256":
-          algorithm = { name: "ECDSA", namedCurve: "P-256" };
-          keyUsages = jwk.d ? ["sign"] : ["verify"];
+        case 'ES256':
+          algorithm = { name: 'ECDSA', namedCurve: 'P-256' };
+          keyUsages = jwk.d ? ['sign'] : ['verify'];
           break;
-        case "ES384":
-          algorithm = { name: "ECDSA", namedCurve: "P-384" };
-          keyUsages = jwk.d ? ["sign"] : ["verify"];
+        case 'ES384':
+          algorithm = { name: 'ECDSA', namedCurve: 'P-384' };
+          keyUsages = jwk.d ? ['sign'] : ['verify'];
           break;
-        case "ES512":
-          algorithm = { name: "ECDSA", namedCurve: "P-521" };
-          keyUsages = jwk.d ? ["sign"] : ["verify"];
+        case 'ES512':
+          algorithm = { name: 'ECDSA', namedCurve: 'P-521' };
+          keyUsages = jwk.d ? ['sign'] : ['verify'];
           break;
-        case "ECDH-ES":
-        case "ECDH-ES+A128KW":
-        case "ECDH-ES+A192KW":
-        case "ECDH-ES+A256KW":
-          algorithm = { name: "ECDH", namedCurve: jwk.crv };
-          keyUsages = jwk.d ? ["deriveBits"] : [];
+        case 'ECDH-ES':
+        case 'ECDH-ES+A128KW':
+        case 'ECDH-ES+A192KW':
+        case 'ECDH-ES+A256KW':
+          algorithm = { name: 'ECDH', namedCurve: jwk.crv };
+          keyUsages = jwk.d ? ['deriveBits'] : [];
           break;
         default:
           throw new JOSENotSupported(
@@ -3830,18 +3567,18 @@ function subtleMapping(jwk) {
       }
       break;
     }
-    case "OKP": {
+    case 'OKP': {
       switch (jwk.alg) {
-        case "EdDSA":
+        case 'EdDSA':
           algorithm = { name: jwk.crv };
-          keyUsages = jwk.d ? ["sign"] : ["verify"];
+          keyUsages = jwk.d ? ['sign'] : ['verify'];
           break;
-        case "ECDH-ES":
-        case "ECDH-ES+A128KW":
-        case "ECDH-ES+A192KW":
-        case "ECDH-ES+A256KW":
+        case 'ECDH-ES':
+        case 'ECDH-ES+A128KW':
+        case 'ECDH-ES+A192KW':
+        case 'ECDH-ES+A256KW':
           algorithm = { name: jwk.crv };
-          keyUsages = jwk.d ? ["deriveBits"] : [];
+          keyUsages = jwk.d ? ['deriveBits'] : [];
           break;
         default:
           throw new JOSENotSupported(
@@ -3851,55 +3588,48 @@ function subtleMapping(jwk) {
       break;
     }
     default:
-      throw new JOSENotSupported(
-        'Invalid or unsupported JWK "kty" (Key Type) Parameter value',
-      );
+      throw new JOSENotSupported('Invalid or unsupported JWK "kty" (Key Type) Parameter value');
   }
   return { algorithm, keyUsages };
 }
-__name(subtleMapping, "subtleMapping");
-var parse = /* @__PURE__ */ __name(async (jwk) => {
+__name(subtleMapping, 'subtleMapping');
+var parse = /* @__PURE__ */ __name(async jwk => {
   if (!jwk.alg) {
-    throw new TypeError(
-      '"alg" argument is required when "jwk.alg" is not present',
-    );
+    throw new TypeError('"alg" argument is required when "jwk.alg" is not present');
   }
   const { algorithm, keyUsages } = subtleMapping(jwk);
   const rest = [algorithm, jwk.ext ?? false, jwk.key_ops ?? keyUsages];
   const keyData = { ...jwk };
   delete keyData.alg;
   delete keyData.use;
-  return webcrypto_default.subtle.importKey("jwk", keyData, ...rest);
-}, "parse");
+  return webcrypto_default.subtle.importKey('jwk', keyData, ...rest);
+}, 'parse');
 var jwk_to_key_default = parse;
 
 // node_modules/jose/dist/browser/runtime/normalize_key.js
-var exportKeyValue = /* @__PURE__ */ __name((k) => decode(k), "exportKeyValue");
+var exportKeyValue = /* @__PURE__ */ __name(k => decode(k), 'exportKeyValue');
 var privCache;
 var pubCache;
-var isKeyObject = /* @__PURE__ */ __name((key) => {
-  return key?.[Symbol.toStringTag] === "KeyObject";
-}, "isKeyObject");
-var importAndCache = /* @__PURE__ */ __name(
-  async (cache, key, jwk, alg, freeze = false) => {
-    let cached = cache.get(key);
-    if (cached?.[alg]) {
-      return cached[alg];
-    }
-    const cryptoKey = await jwk_to_key_default({ ...jwk, alg });
-    if (freeze) Object.freeze(key);
-    if (!cached) {
-      cache.set(key, { [alg]: cryptoKey });
-    } else {
-      cached[alg] = cryptoKey;
-    }
-    return cryptoKey;
-  },
-  "importAndCache",
-);
+var isKeyObject = /* @__PURE__ */ __name(key => {
+  return key?.[Symbol.toStringTag] === 'KeyObject';
+}, 'isKeyObject');
+var importAndCache = /* @__PURE__ */ __name(async (cache, key, jwk, alg, freeze = false) => {
+  let cached = cache.get(key);
+  if (cached?.[alg]) {
+    return cached[alg];
+  }
+  const cryptoKey = await jwk_to_key_default({ ...jwk, alg });
+  if (freeze) Object.freeze(key);
+  if (!cached) {
+    cache.set(key, { [alg]: cryptoKey });
+  } else {
+    cached[alg] = cryptoKey;
+  }
+  return cryptoKey;
+}, 'importAndCache');
 var normalizePublicKey = /* @__PURE__ */ __name((key, alg) => {
   if (isKeyObject(key)) {
-    let jwk = key.export({ format: "jwk" });
+    let jwk = key.export({ format: 'jwk' });
     delete jwk.d;
     delete jwk.dp;
     delete jwk.dq;
@@ -3919,10 +3649,10 @@ var normalizePublicKey = /* @__PURE__ */ __name((key, alg) => {
     return cryptoKey;
   }
   return key;
-}, "normalizePublicKey");
+}, 'normalizePublicKey');
 var normalizePrivateKey = /* @__PURE__ */ __name((key, alg) => {
   if (isKeyObject(key)) {
-    let jwk = key.export({ format: "jwk" });
+    let jwk = key.export({ format: 'jwk' });
     if (jwk.k) {
       return exportKeyValue(jwk.k);
     }
@@ -3936,45 +3666,41 @@ var normalizePrivateKey = /* @__PURE__ */ __name((key, alg) => {
     return cryptoKey;
   }
   return key;
-}, "normalizePrivateKey");
+}, 'normalizePrivateKey');
 var normalize_key_default = { normalizePublicKey, normalizePrivateKey };
 
 // node_modules/jose/dist/browser/key/import.js
 async function importJWK(jwk, alg) {
   if (!isObject(jwk)) {
-    throw new TypeError("JWK must be an object");
+    throw new TypeError('JWK must be an object');
   }
   alg || (alg = jwk.alg);
   switch (jwk.kty) {
-    case "oct":
-      if (typeof jwk.k !== "string" || !jwk.k) {
+    case 'oct':
+      if (typeof jwk.k !== 'string' || !jwk.k) {
         throw new TypeError('missing "k" (Key Value) Parameter value');
       }
       return decode(jwk.k);
-    case "RSA":
+    case 'RSA':
       if (jwk.oth !== void 0) {
         throw new JOSENotSupported(
           'RSA JWK "oth" (Other Primes Info) Parameter value is not supported',
         );
       }
-    case "EC":
-    case "OKP":
+    case 'EC':
+    case 'OKP':
       return jwk_to_key_default({ ...jwk, alg });
     default:
-      throw new JOSENotSupported(
-        'Unsupported "kty" (Key Type) Parameter value',
-      );
+      throw new JOSENotSupported('Unsupported "kty" (Key Type) Parameter value');
   }
 }
-__name(importJWK, "importJWK");
+__name(importJWK, 'importJWK');
 
 // node_modules/jose/dist/browser/lib/check_key_type.js
-var tag = /* @__PURE__ */ __name((key) => key?.[Symbol.toStringTag], "tag");
+var tag = /* @__PURE__ */ __name(key => key?.[Symbol.toStringTag], 'tag');
 var jwkMatchesOp = /* @__PURE__ */ __name((alg, key, usage) => {
-  if (key.use !== void 0 && key.use !== "sig") {
-    throw new TypeError(
-      "Invalid key for this operation, when present its use must be sig",
-    );
+  if (key.use !== void 0 && key.use !== 'sig') {
+    throw new TypeError('Invalid key for this operation, when present its use must be sig');
   }
   if (key.key_ops !== void 0 && key.key_ops.includes?.(usage) !== true) {
     throw new TypeError(
@@ -3982,12 +3708,10 @@ var jwkMatchesOp = /* @__PURE__ */ __name((alg, key, usage) => {
     );
   }
   if (key.alg !== void 0 && key.alg !== alg) {
-    throw new TypeError(
-      `Invalid key for this operation, when present its alg must be ${alg}`,
-    );
+    throw new TypeError(`Invalid key for this operation, when present its alg must be ${alg}`);
   }
   return true;
-}, "jwkMatchesOp");
+}, 'jwkMatchesOp');
 var symmetricTypeCheck = /* @__PURE__ */ __name((alg, key, usage, allowJwk) => {
   if (key instanceof Uint8Array) return;
   if (allowJwk && isJWK(key)) {
@@ -3998,75 +3722,58 @@ var symmetricTypeCheck = /* @__PURE__ */ __name((alg, key, usage, allowJwk) => {
   }
   if (!is_key_like_default(key)) {
     throw new TypeError(
-      withAlg(
-        alg,
-        key,
-        ...types,
-        "Uint8Array",
-        allowJwk ? "JSON Web Key" : null,
-      ),
+      withAlg(alg, key, ...types, 'Uint8Array', allowJwk ? 'JSON Web Key' : null),
     );
   }
-  if (key.type !== "secret") {
+  if (key.type !== 'secret') {
+    throw new TypeError(`${tag(key)} instances for symmetric algorithms must be of type "secret"`);
+  }
+}, 'symmetricTypeCheck');
+var asymmetricTypeCheck = /* @__PURE__ */ __name((alg, key, usage, allowJwk) => {
+  if (allowJwk && isJWK(key)) {
+    switch (usage) {
+      case 'sign':
+        if (isPrivateJWK(key) && jwkMatchesOp(alg, key, usage)) return;
+        throw new TypeError(`JSON Web Key for this operation be a private JWK`);
+      case 'verify':
+        if (isPublicJWK(key) && jwkMatchesOp(alg, key, usage)) return;
+        throw new TypeError(`JSON Web Key for this operation be a public JWK`);
+    }
+  }
+  if (!is_key_like_default(key)) {
+    throw new TypeError(withAlg(alg, key, ...types, allowJwk ? 'JSON Web Key' : null));
+  }
+  if (key.type === 'secret') {
     throw new TypeError(
-      `${tag(key)} instances for symmetric algorithms must be of type "secret"`,
+      `${tag(key)} instances for asymmetric algorithms must not be of type "secret"`,
     );
   }
-}, "symmetricTypeCheck");
-var asymmetricTypeCheck = /* @__PURE__ */ __name(
-  (alg, key, usage, allowJwk) => {
-    if (allowJwk && isJWK(key)) {
-      switch (usage) {
-        case "sign":
-          if (isPrivateJWK(key) && jwkMatchesOp(alg, key, usage)) return;
-          throw new TypeError(
-            `JSON Web Key for this operation be a private JWK`,
-          );
-        case "verify":
-          if (isPublicJWK(key) && jwkMatchesOp(alg, key, usage)) return;
-          throw new TypeError(
-            `JSON Web Key for this operation be a public JWK`,
-          );
-      }
-    }
-    if (!is_key_like_default(key)) {
-      throw new TypeError(
-        withAlg(alg, key, ...types, allowJwk ? "JSON Web Key" : null),
-      );
-    }
-    if (key.type === "secret") {
-      throw new TypeError(
-        `${tag(key)} instances for asymmetric algorithms must not be of type "secret"`,
-      );
-    }
-    if (usage === "sign" && key.type === "public") {
-      throw new TypeError(
-        `${tag(key)} instances for asymmetric algorithm signing must be of type "private"`,
-      );
-    }
-    if (usage === "decrypt" && key.type === "public") {
-      throw new TypeError(
-        `${tag(key)} instances for asymmetric algorithm decryption must be of type "private"`,
-      );
-    }
-    if (key.algorithm && usage === "verify" && key.type === "private") {
-      throw new TypeError(
-        `${tag(key)} instances for asymmetric algorithm verifying must be of type "public"`,
-      );
-    }
-    if (key.algorithm && usage === "encrypt" && key.type === "private") {
-      throw new TypeError(
-        `${tag(key)} instances for asymmetric algorithm encryption must be of type "public"`,
-      );
-    }
-  },
-  "asymmetricTypeCheck",
-);
+  if (usage === 'sign' && key.type === 'public') {
+    throw new TypeError(
+      `${tag(key)} instances for asymmetric algorithm signing must be of type "private"`,
+    );
+  }
+  if (usage === 'decrypt' && key.type === 'public') {
+    throw new TypeError(
+      `${tag(key)} instances for asymmetric algorithm decryption must be of type "private"`,
+    );
+  }
+  if (key.algorithm && usage === 'verify' && key.type === 'private') {
+    throw new TypeError(
+      `${tag(key)} instances for asymmetric algorithm verifying must be of type "public"`,
+    );
+  }
+  if (key.algorithm && usage === 'encrypt' && key.type === 'private') {
+    throw new TypeError(
+      `${tag(key)} instances for asymmetric algorithm encryption must be of type "public"`,
+    );
+  }
+}, 'asymmetricTypeCheck');
 function checkKeyType(allowJwk, alg, key, usage) {
   const symmetric =
-    alg.startsWith("HS") ||
-    alg === "dir" ||
-    alg.startsWith("PBES2") ||
+    alg.startsWith('HS') ||
+    alg === 'dir' ||
+    alg.startsWith('PBES2') ||
     /^A\d{3}(?:GCM)?KW$/.test(alg);
   if (symmetric) {
     symmetricTypeCheck(alg, key, usage, allowJwk);
@@ -4074,22 +3781,14 @@ function checkKeyType(allowJwk, alg, key, usage) {
     asymmetricTypeCheck(alg, key, usage, allowJwk);
   }
 }
-__name(checkKeyType, "checkKeyType");
+__name(checkKeyType, 'checkKeyType');
 var check_key_type_default = checkKeyType.bind(void 0, false);
 var checkKeyTypeWithJwk = checkKeyType.bind(void 0, true);
 
 // node_modules/jose/dist/browser/lib/validate_crit.js
-function validateCrit(
-  Err,
-  recognizedDefault,
-  recognizedOption,
-  protectedHeader,
-  joseHeader,
-) {
+function validateCrit(Err, recognizedDefault, recognizedOption, protectedHeader, joseHeader) {
   if (joseHeader.crit !== void 0 && protectedHeader?.crit === void 0) {
-    throw new Err(
-      '"crit" (Critical) Header Parameter MUST be integrity protected',
-    );
+    throw new Err('"crit" (Critical) Header Parameter MUST be integrity protected');
   }
   if (!protectedHeader || protectedHeader.crit === void 0) {
     return /* @__PURE__ */ new Set();
@@ -4097,9 +3796,7 @@ function validateCrit(
   if (
     !Array.isArray(protectedHeader.crit) ||
     protectedHeader.crit.length === 0 ||
-    protectedHeader.crit.some(
-      (input) => typeof input !== "string" || input.length === 0,
-    )
+    protectedHeader.crit.some(input => typeof input !== 'string' || input.length === 0)
   ) {
     throw new Err(
       '"crit" (Critical) Header Parameter MUST be an array of non-empty strings when present',
@@ -4107,39 +3804,31 @@ function validateCrit(
   }
   let recognized;
   if (recognizedOption !== void 0) {
-    recognized = new Map([
-      ...Object.entries(recognizedOption),
-      ...recognizedDefault.entries(),
-    ]);
+    recognized = new Map([...Object.entries(recognizedOption), ...recognizedDefault.entries()]);
   } else {
     recognized = recognizedDefault;
   }
   for (const parameter of protectedHeader.crit) {
     if (!recognized.has(parameter)) {
-      throw new JOSENotSupported(
-        `Extension Header Parameter "${parameter}" is not recognized`,
-      );
+      throw new JOSENotSupported(`Extension Header Parameter "${parameter}" is not recognized`);
     }
     if (joseHeader[parameter] === void 0) {
       throw new Err(`Extension Header Parameter "${parameter}" is missing`);
     }
     if (recognized.get(parameter) && protectedHeader[parameter] === void 0) {
-      throw new Err(
-        `Extension Header Parameter "${parameter}" MUST be integrity protected`,
-      );
+      throw new Err(`Extension Header Parameter "${parameter}" MUST be integrity protected`);
     }
   }
   return new Set(protectedHeader.crit);
 }
-__name(validateCrit, "validateCrit");
+__name(validateCrit, 'validateCrit');
 var validate_crit_default = validateCrit;
 
 // node_modules/jose/dist/browser/lib/validate_algorithms.js
 var validateAlgorithms = /* @__PURE__ */ __name((option, algorithms) => {
   if (
     algorithms !== void 0 &&
-    (!Array.isArray(algorithms) ||
-      algorithms.some((s) => typeof s !== "string"))
+    (!Array.isArray(algorithms) || algorithms.some(s => typeof s !== 'string'))
   ) {
     throw new TypeError(`"${option}" option must be an array of strings`);
   }
@@ -4147,30 +3836,30 @@ var validateAlgorithms = /* @__PURE__ */ __name((option, algorithms) => {
     return void 0;
   }
   return new Set(algorithms);
-}, "validateAlgorithms");
+}, 'validateAlgorithms');
 var validate_algorithms_default = validateAlgorithms;
 
 // node_modules/jose/dist/browser/runtime/subtle_dsa.js
 function subtleDsa(alg, algorithm) {
   const hash = `SHA-${alg.slice(-3)}`;
   switch (alg) {
-    case "HS256":
-    case "HS384":
-    case "HS512":
-      return { hash, name: "HMAC" };
-    case "PS256":
-    case "PS384":
-    case "PS512":
-      return { hash, name: "RSA-PSS", saltLength: alg.slice(-3) >> 3 };
-    case "RS256":
-    case "RS384":
-    case "RS512":
-      return { hash, name: "RSASSA-PKCS1-v1_5" };
-    case "ES256":
-    case "ES384":
-    case "ES512":
-      return { hash, name: "ECDSA", namedCurve: algorithm.namedCurve };
-    case "EdDSA":
+    case 'HS256':
+    case 'HS384':
+    case 'HS512':
+      return { hash, name: 'HMAC' };
+    case 'PS256':
+    case 'PS384':
+    case 'PS512':
+      return { hash, name: 'RSA-PSS', saltLength: alg.slice(-3) >> 3 };
+    case 'RS256':
+    case 'RS384':
+    case 'RS512':
+      return { hash, name: 'RSASSA-PKCS1-v1_5' };
+    case 'ES256':
+    case 'ES384':
+    case 'ES512':
+      return { hash, name: 'ECDSA', namedCurve: algorithm.namedCurve };
+    case 'EdDSA':
       return { name: algorithm.name };
     default:
       throw new JOSENotSupported(
@@ -4178,14 +3867,14 @@ function subtleDsa(alg, algorithm) {
       );
   }
 }
-__name(subtleDsa, "subtleDsa");
+__name(subtleDsa, 'subtleDsa');
 
 // node_modules/jose/dist/browser/runtime/get_sign_verify_key.js
 async function getCryptoKey(alg, key, usage) {
-  if (usage === "sign") {
+  if (usage === 'sign') {
     key = await normalize_key_default.normalizePrivateKey(key, alg);
   }
-  if (usage === "verify") {
+  if (usage === 'verify') {
     key = await normalize_key_default.normalizePublicKey(key, alg);
   }
   if (isCryptoKey(key)) {
@@ -4193,62 +3882,53 @@ async function getCryptoKey(alg, key, usage) {
     return key;
   }
   if (key instanceof Uint8Array) {
-    if (!alg.startsWith("HS")) {
+    if (!alg.startsWith('HS')) {
       throw new TypeError(invalid_key_input_default(key, ...types));
     }
     return webcrypto_default.subtle.importKey(
-      "raw",
+      'raw',
       key,
-      { hash: `SHA-${alg.slice(-3)}`, name: "HMAC" },
+      { hash: `SHA-${alg.slice(-3)}`, name: 'HMAC' },
       false,
       [usage],
     );
   }
-  throw new TypeError(
-    invalid_key_input_default(key, ...types, "Uint8Array", "JSON Web Key"),
-  );
+  throw new TypeError(invalid_key_input_default(key, ...types, 'Uint8Array', 'JSON Web Key'));
 }
-__name(getCryptoKey, "getCryptoKey");
+__name(getCryptoKey, 'getCryptoKey');
 
 // node_modules/jose/dist/browser/runtime/verify.js
 var verify = /* @__PURE__ */ __name(async (alg, key, signature, data) => {
-  const cryptoKey = await getCryptoKey(alg, key, "verify");
+  const cryptoKey = await getCryptoKey(alg, key, 'verify');
   check_key_length_default(alg, cryptoKey);
   const algorithm = subtleDsa(alg, cryptoKey.algorithm);
   try {
-    return await webcrypto_default.subtle.verify(
-      algorithm,
-      cryptoKey,
-      signature,
-      data,
-    );
+    return await webcrypto_default.subtle.verify(algorithm, cryptoKey, signature, data);
   } catch {
     return false;
   }
-}, "verify");
+}, 'verify');
 var verify_default = verify;
 
 // node_modules/jose/dist/browser/jws/flattened/verify.js
 async function flattenedVerify(jws, key, options) {
   if (!isObject(jws)) {
-    throw new JWSInvalid("Flattened JWS must be an object");
+    throw new JWSInvalid('Flattened JWS must be an object');
   }
   if (jws.protected === void 0 && jws.header === void 0) {
-    throw new JWSInvalid(
-      'Flattened JWS must have either of the "protected" or "header" members',
-    );
+    throw new JWSInvalid('Flattened JWS must have either of the "protected" or "header" members');
   }
-  if (jws.protected !== void 0 && typeof jws.protected !== "string") {
-    throw new JWSInvalid("JWS Protected Header incorrect type");
+  if (jws.protected !== void 0 && typeof jws.protected !== 'string') {
+    throw new JWSInvalid('JWS Protected Header incorrect type');
   }
   if (jws.payload === void 0) {
-    throw new JWSInvalid("JWS Payload missing");
+    throw new JWSInvalid('JWS Payload missing');
   }
-  if (typeof jws.signature !== "string") {
-    throw new JWSInvalid("JWS Signature missing or incorrect type");
+  if (typeof jws.signature !== 'string') {
+    throw new JWSInvalid('JWS Signature missing or incorrect type');
   }
   if (jws.header !== void 0 && !isObject(jws.header)) {
-    throw new JWSInvalid("JWS Unprotected Header incorrect type");
+    throw new JWSInvalid('JWS Unprotected Header incorrect type');
   }
   let parsedProt = {};
   if (jws.protected) {
@@ -4256,12 +3936,12 @@ async function flattenedVerify(jws, key, options) {
       const protectedHeader = decode(jws.protected);
       parsedProt = JSON.parse(decoder.decode(protectedHeader));
     } catch {
-      throw new JWSInvalid("JWS Protected Header is invalid");
+      throw new JWSInvalid('JWS Protected Header is invalid');
     }
   }
   if (!is_disjoint_default(parsedProt, jws.header)) {
     throw new JWSInvalid(
-      "JWS Protected and JWS Unprotected Header Parameter names must be disjoint",
+      'JWS Protected and JWS Unprotected Header Parameter names must be disjoint',
     );
   }
   const joseHeader = {
@@ -4270,66 +3950,56 @@ async function flattenedVerify(jws, key, options) {
   };
   const extensions = validate_crit_default(
     JWSInvalid,
-    /* @__PURE__ */ new Map([["b64", true]]),
+    /* @__PURE__ */ new Map([['b64', true]]),
     options?.crit,
     parsedProt,
     joseHeader,
   );
   let b64 = true;
-  if (extensions.has("b64")) {
+  if (extensions.has('b64')) {
     b64 = parsedProt.b64;
-    if (typeof b64 !== "boolean") {
+    if (typeof b64 !== 'boolean') {
       throw new JWSInvalid(
         'The "b64" (base64url-encode payload) Header Parameter must be a boolean',
       );
     }
   }
   const { alg } = joseHeader;
-  if (typeof alg !== "string" || !alg) {
-    throw new JWSInvalid(
-      'JWS "alg" (Algorithm) Header Parameter missing or invalid',
-    );
+  if (typeof alg !== 'string' || !alg) {
+    throw new JWSInvalid('JWS "alg" (Algorithm) Header Parameter missing or invalid');
   }
-  const algorithms =
-    options && validate_algorithms_default("algorithms", options.algorithms);
+  const algorithms = options && validate_algorithms_default('algorithms', options.algorithms);
   if (algorithms && !algorithms.has(alg)) {
-    throw new JOSEAlgNotAllowed(
-      '"alg" (Algorithm) Header Parameter value not allowed',
-    );
+    throw new JOSEAlgNotAllowed('"alg" (Algorithm) Header Parameter value not allowed');
   }
   if (b64) {
-    if (typeof jws.payload !== "string") {
-      throw new JWSInvalid("JWS Payload must be a string");
+    if (typeof jws.payload !== 'string') {
+      throw new JWSInvalid('JWS Payload must be a string');
     }
-  } else if (
-    typeof jws.payload !== "string" &&
-    !(jws.payload instanceof Uint8Array)
-  ) {
-    throw new JWSInvalid(
-      "JWS Payload must be a string or an Uint8Array instance",
-    );
+  } else if (typeof jws.payload !== 'string' && !(jws.payload instanceof Uint8Array)) {
+    throw new JWSInvalid('JWS Payload must be a string or an Uint8Array instance');
   }
   let resolvedKey = false;
-  if (typeof key === "function") {
+  if (typeof key === 'function') {
     key = await key(parsedProt, jws);
     resolvedKey = true;
-    checkKeyTypeWithJwk(alg, key, "verify");
+    checkKeyTypeWithJwk(alg, key, 'verify');
     if (isJWK(key)) {
       key = await importJWK(key, alg);
     }
   } else {
-    checkKeyTypeWithJwk(alg, key, "verify");
+    checkKeyTypeWithJwk(alg, key, 'verify');
   }
   const data = concat(
-    encoder.encode(jws.protected ?? ""),
-    encoder.encode("."),
-    typeof jws.payload === "string" ? encoder.encode(jws.payload) : jws.payload,
+    encoder.encode(jws.protected ?? ''),
+    encoder.encode('.'),
+    typeof jws.payload === 'string' ? encoder.encode(jws.payload) : jws.payload,
   );
   let signature;
   try {
     signature = decode(jws.signature);
   } catch {
-    throw new JWSInvalid("Failed to base64url decode the signature");
+    throw new JWSInvalid('Failed to base64url decode the signature');
   }
   const verified = await verify_default(alg, key, signature, data);
   if (!verified) {
@@ -4340,9 +4010,9 @@ async function flattenedVerify(jws, key, options) {
     try {
       payload = decode(jws.payload);
     } catch {
-      throw new JWSInvalid("Failed to base64url decode the payload");
+      throw new JWSInvalid('Failed to base64url decode the payload');
     }
-  } else if (typeof jws.payload === "string") {
+  } else if (typeof jws.payload === 'string') {
     payload = encoder.encode(jws.payload);
   } else {
     payload = jws.payload;
@@ -4359,24 +4029,19 @@ async function flattenedVerify(jws, key, options) {
   }
   return result;
 }
-__name(flattenedVerify, "flattenedVerify");
+__name(flattenedVerify, 'flattenedVerify');
 
 // node_modules/jose/dist/browser/jws/compact/verify.js
 async function compactVerify(jws, key, options) {
   if (jws instanceof Uint8Array) {
     jws = decoder.decode(jws);
   }
-  if (typeof jws !== "string") {
-    throw new JWSInvalid("Compact JWS must be a string or Uint8Array");
+  if (typeof jws !== 'string') {
+    throw new JWSInvalid('Compact JWS must be a string or Uint8Array');
   }
-  const {
-    0: protectedHeader,
-    1: payload,
-    2: signature,
-    length,
-  } = jws.split(".");
+  const { 0: protectedHeader, 1: payload, 2: signature, length } = jws.split('.');
   if (length !== 3) {
-    throw new JWSInvalid("Invalid Compact JWS");
+    throw new JWSInvalid('Invalid Compact JWS');
   }
   const verified = await flattenedVerify(
     { payload, protected: protectedHeader, signature },
@@ -4387,18 +4052,15 @@ async function compactVerify(jws, key, options) {
     payload: verified.payload,
     protectedHeader: verified.protectedHeader,
   };
-  if (typeof key === "function") {
+  if (typeof key === 'function') {
     return { ...result, key: verified.key };
   }
   return result;
 }
-__name(compactVerify, "compactVerify");
+__name(compactVerify, 'compactVerify');
 
 // node_modules/jose/dist/browser/lib/epoch.js
-var epoch_default = /* @__PURE__ */ __name(
-  (date) => Math.floor(date.getTime() / 1e3),
-  "default",
-);
+var epoch_default = /* @__PURE__ */ __name(date => Math.floor(date.getTime() / 1e3), 'default');
 
 // node_modules/jose/dist/browser/lib/secs.js
 var minute = 60;
@@ -4408,70 +4070,70 @@ var week = day * 7;
 var year = day * 365.25;
 var REGEX =
   /^(\+|\-)? ?(\d+|\d+\.\d+) ?(seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)(?: (ago|from now))?$/i;
-var secs_default = /* @__PURE__ */ __name((str) => {
+var secs_default = /* @__PURE__ */ __name(str => {
   const matched = REGEX.exec(str);
   if (!matched || (matched[4] && matched[1])) {
-    throw new TypeError("Invalid time period format");
+    throw new TypeError('Invalid time period format');
   }
   const value = parseFloat(matched[2]);
   const unit = matched[3].toLowerCase();
   let numericDate;
   switch (unit) {
-    case "sec":
-    case "secs":
-    case "second":
-    case "seconds":
-    case "s":
+    case 'sec':
+    case 'secs':
+    case 'second':
+    case 'seconds':
+    case 's':
       numericDate = Math.round(value);
       break;
-    case "minute":
-    case "minutes":
-    case "min":
-    case "mins":
-    case "m":
+    case 'minute':
+    case 'minutes':
+    case 'min':
+    case 'mins':
+    case 'm':
       numericDate = Math.round(value * minute);
       break;
-    case "hour":
-    case "hours":
-    case "hr":
-    case "hrs":
-    case "h":
+    case 'hour':
+    case 'hours':
+    case 'hr':
+    case 'hrs':
+    case 'h':
       numericDate = Math.round(value * hour);
       break;
-    case "day":
-    case "days":
-    case "d":
+    case 'day':
+    case 'days':
+    case 'd':
       numericDate = Math.round(value * day);
       break;
-    case "week":
-    case "weeks":
-    case "w":
+    case 'week':
+    case 'weeks':
+    case 'w':
       numericDate = Math.round(value * week);
       break;
     default:
       numericDate = Math.round(value * year);
       break;
   }
-  if (matched[1] === "-" || matched[4] === "ago") {
+  if (matched[1] === '-' || matched[4] === 'ago') {
     return -numericDate;
   }
   return numericDate;
-}, "default");
+}, 'default');
 
 // node_modules/jose/dist/browser/lib/jwt_claims_set.js
 var normalizeTyp = /* @__PURE__ */ __name(
-  (value) => value.toLowerCase().replace(/^application\//, ""),
-  "normalizeTyp",
+  value => value.toLowerCase().replace(/^application\//, ''),
+  'normalizeTyp',
 );
 var checkAudiencePresence = /* @__PURE__ */ __name((audPayload, audOption) => {
-  if (typeof audPayload === "string") {
+  if (typeof audPayload === 'string') {
     return audOption.includes(audPayload);
   }
   if (Array.isArray(audPayload)) {
     return audOption.some(Set.prototype.has.bind(new Set(audPayload)));
   }
   return false;
-}, "checkAudiencePresence");
+}, 'checkAudiencePresence');
 var jwt_claims_set_default = /* @__PURE__ */ __name(
   (protectedHeader, encodedPayload, options = {}) => {
     let payload;
@@ -4479,192 +4141,157 @@ var jwt_claims_set_default = /* @__PURE__ */ __name(
       payload = JSON.parse(decoder.decode(encodedPayload));
     } catch {}
     if (!isObject(payload)) {
-      throw new JWTInvalid("JWT Claims Set must be a top-level JSON object");
+      throw new JWTInvalid('JWT Claims Set must be a top-level JSON object');
     }
     const { typ } = options;
     if (
       typ &&
-      (typeof protectedHeader.typ !== "string" ||
+      (typeof protectedHeader.typ !== 'string' ||
         normalizeTyp(protectedHeader.typ) !== normalizeTyp(typ))
     ) {
       throw new JWTClaimValidationFailed(
         'unexpected "typ" JWT header value',
         payload,
-        "typ",
-        "check_failed",
+        'typ',
+        'check_failed',
       );
     }
-    const {
-      requiredClaims = [],
-      issuer,
-      subject,
-      audience,
-      maxTokenAge,
-    } = options;
+    const { requiredClaims = [], issuer, subject, audience, maxTokenAge } = options;
     const presenceCheck = [...requiredClaims];
-    if (maxTokenAge !== void 0) presenceCheck.push("iat");
-    if (audience !== void 0) presenceCheck.push("aud");
-    if (subject !== void 0) presenceCheck.push("sub");
-    if (issuer !== void 0) presenceCheck.push("iss");
+    if (maxTokenAge !== void 0) presenceCheck.push('iat');
+    if (audience !== void 0) presenceCheck.push('aud');
+    if (subject !== void 0) presenceCheck.push('sub');
+    if (issuer !== void 0) presenceCheck.push('iss');
     for (const claim of new Set(presenceCheck.reverse())) {
       if (!(claim in payload)) {
         throw new JWTClaimValidationFailed(
           `missing required "${claim}" claim`,
           payload,
           claim,
-          "missing",
+          'missing',
         );
       }
     }
-    if (
-      issuer &&
-      !(Array.isArray(issuer) ? issuer : [issuer]).includes(payload.iss)
-    ) {
+    if (issuer && !(Array.isArray(issuer) ? issuer : [issuer]).includes(payload.iss)) {
       throw new JWTClaimValidationFailed(
         'unexpected "iss" claim value',
         payload,
-        "iss",
-        "check_failed",
+        'iss',
+        'check_failed',
       );
     }
     if (subject && payload.sub !== subject) {
       throw new JWTClaimValidationFailed(
         'unexpected "sub" claim value',
         payload,
-        "sub",
-        "check_failed",
+        'sub',
+        'check_failed',
       );
     }
     if (
       audience &&
-      !checkAudiencePresence(
-        payload.aud,
-        typeof audience === "string" ? [audience] : audience,
-      )
+      !checkAudiencePresence(payload.aud, typeof audience === 'string' ? [audience] : audience)
     ) {
       throw new JWTClaimValidationFailed(
         'unexpected "aud" claim value',
         payload,
-        "aud",
-        "check_failed",
+        'aud',
+        'check_failed',
       );
     }
     let tolerance;
     switch (typeof options.clockTolerance) {
-      case "string":
+      case 'string':
         tolerance = secs_default(options.clockTolerance);
         break;
-      case "number":
+      case 'number':
         tolerance = options.clockTolerance;
         break;
-      case "undefined":
+      case 'undefined':
         tolerance = 0;
         break;
       default:
-        throw new TypeError("Invalid clockTolerance option type");
+        throw new TypeError('Invalid clockTolerance option type');
     }
     const { currentDate } = options;
     const now = epoch_default(currentDate || /* @__PURE__ */ new Date());
-    if (
-      (payload.iat !== void 0 || maxTokenAge) &&
-      typeof payload.iat !== "number"
-    ) {
-      throw new JWTClaimValidationFailed(
-        '"iat" claim must be a number',
-        payload,
-        "iat",
-        "invalid",
-      );
+    if ((payload.iat !== void 0 || maxTokenAge) && typeof payload.iat !== 'number') {
+      throw new JWTClaimValidationFailed('"iat" claim must be a number', payload, 'iat', 'invalid');
     }
     if (payload.nbf !== void 0) {
-      if (typeof payload.nbf !== "number") {
+      if (typeof payload.nbf !== 'number') {
         throw new JWTClaimValidationFailed(
           '"nbf" claim must be a number',
           payload,
-          "nbf",
-          "invalid",
+          'nbf',
+          'invalid',
         );
       }
       if (payload.nbf > now + tolerance) {
         throw new JWTClaimValidationFailed(
           '"nbf" claim timestamp check failed',
           payload,
-          "nbf",
-          "check_failed",
+          'nbf',
+          'check_failed',
         );
       }
     }
     if (payload.exp !== void 0) {
-      if (typeof payload.exp !== "number") {
+      if (typeof payload.exp !== 'number') {
         throw new JWTClaimValidationFailed(
           '"exp" claim must be a number',
           payload,
-          "exp",
-          "invalid",
+          'exp',
+          'invalid',
         );
       }
       if (payload.exp <= now - tolerance) {
-        throw new JWTExpired(
-          '"exp" claim timestamp check failed',
-          payload,
-          "exp",
-          "check_failed",
-        );
+        throw new JWTExpired('"exp" claim timestamp check failed', payload, 'exp', 'check_failed');
       }
     }
     if (maxTokenAge) {
       const age = now - payload.iat;
-      const max =
-        typeof maxTokenAge === "number"
-          ? maxTokenAge
-          : secs_default(maxTokenAge);
+      const max = typeof maxTokenAge === 'number' ? maxTokenAge : secs_default(maxTokenAge);
       if (age - tolerance > max) {
         throw new JWTExpired(
           '"iat" claim timestamp check failed (too far in the past)',
           payload,
-          "iat",
-          "check_failed",
+          'iat',
+          'check_failed',
         );
       }
       if (age < 0 - tolerance) {
         throw new JWTClaimValidationFailed(
           '"iat" claim timestamp check failed (it should be in the past)',
           payload,
-          "iat",
-          "check_failed",
+          'iat',
+          'check_failed',
         );
       }
     }
     return payload;
   },
-  "default",
+  'default',
 );
 
 // node_modules/jose/dist/browser/jwt/verify.js
 async function jwtVerify(jwt, key, options) {
   const verified = await compactVerify(jwt, key, options);
-  if (
-    verified.protectedHeader.crit?.includes("b64") &&
-    verified.protectedHeader.b64 === false
-  ) {
-    throw new JWTInvalid("JWTs MUST NOT use unencoded payload");
+  if (verified.protectedHeader.crit?.includes('b64') && verified.protectedHeader.b64 === false) {
+    throw new JWTInvalid('JWTs MUST NOT use unencoded payload');
   }
-  const payload = jwt_claims_set_default(
-    verified.protectedHeader,
-    verified.payload,
-    options,
-  );
+  const payload = jwt_claims_set_default(verified.protectedHeader, verified.payload, options);
   const result = { payload, protectedHeader: verified.protectedHeader };
-  if (typeof key === "function") {
+  if (typeof key === 'function') {
     return { ...result, key: verified.key };
   }
   return result;
 }
-__name(jwtVerify, "jwtVerify");
+__name(jwtVerify, 'jwtVerify');
 
 // node_modules/jose/dist/browser/runtime/sign.js
 var sign = /* @__PURE__ */ __name(async (alg, key, data) => {
-  const cryptoKey = await getCryptoKey(alg, key, "sign");
+  const cryptoKey = await getCryptoKey(alg, key, 'sign');
   check_key_length_default(alg, cryptoKey);
   const signature = await webcrypto_default.subtle.sign(
     subtleDsa(alg, cryptoKey.algorithm),
@@ -4672,27 +4299,27 @@ var sign = /* @__PURE__ */ __name(async (alg, key, data) => {
     data,
   );
   return new Uint8Array(signature);
-}, "sign");
+}, 'sign');
 var sign_default = sign;
 
 // node_modules/jose/dist/browser/jws/flattened/sign.js
 var FlattenedSign = class {
   constructor(payload) {
     if (!(payload instanceof Uint8Array)) {
-      throw new TypeError("payload must be an instance of Uint8Array");
+      throw new TypeError('payload must be an instance of Uint8Array');
     }
     this._payload = payload;
   }
   setProtectedHeader(protectedHeader) {
     if (this._protectedHeader) {
-      throw new TypeError("setProtectedHeader can only be called once");
+      throw new TypeError('setProtectedHeader can only be called once');
     }
     this._protectedHeader = protectedHeader;
     return this;
   }
   setUnprotectedHeader(unprotectedHeader) {
     if (this._unprotectedHeader) {
-      throw new TypeError("setUnprotectedHeader can only be called once");
+      throw new TypeError('setUnprotectedHeader can only be called once');
     }
     this._unprotectedHeader = unprotectedHeader;
     return this;
@@ -4700,12 +4327,12 @@ var FlattenedSign = class {
   async sign(key, options) {
     if (!this._protectedHeader && !this._unprotectedHeader) {
       throw new JWSInvalid(
-        "either setProtectedHeader or setUnprotectedHeader must be called before #sign()",
+        'either setProtectedHeader or setUnprotectedHeader must be called before #sign()',
       );
     }
     if (!is_disjoint_default(this._protectedHeader, this._unprotectedHeader)) {
       throw new JWSInvalid(
-        "JWS Protected and JWS Unprotected Header Parameter names must be disjoint",
+        'JWS Protected and JWS Unprotected Header Parameter names must be disjoint',
       );
     }
     const joseHeader = {
@@ -4714,44 +4341,40 @@ var FlattenedSign = class {
     };
     const extensions = validate_crit_default(
       JWSInvalid,
-      /* @__PURE__ */ new Map([["b64", true]]),
+      /* @__PURE__ */ new Map([['b64', true]]),
       options?.crit,
       this._protectedHeader,
       joseHeader,
     );
     let b64 = true;
-    if (extensions.has("b64")) {
+    if (extensions.has('b64')) {
       b64 = this._protectedHeader.b64;
-      if (typeof b64 !== "boolean") {
+      if (typeof b64 !== 'boolean') {
         throw new JWSInvalid(
           'The "b64" (base64url-encode payload) Header Parameter must be a boolean',
         );
       }
     }
     const { alg } = joseHeader;
-    if (typeof alg !== "string" || !alg) {
-      throw new JWSInvalid(
-        'JWS "alg" (Algorithm) Header Parameter missing or invalid',
-      );
+    if (typeof alg !== 'string' || !alg) {
+      throw new JWSInvalid('JWS "alg" (Algorithm) Header Parameter missing or invalid');
     }
-    checkKeyTypeWithJwk(alg, key, "sign");
+    checkKeyTypeWithJwk(alg, key, 'sign');
     let payload = this._payload;
     if (b64) {
       payload = encoder.encode(encode(payload));
     }
     let protectedHeader;
     if (this._protectedHeader) {
-      protectedHeader = encoder.encode(
-        encode(JSON.stringify(this._protectedHeader)),
-      );
+      protectedHeader = encoder.encode(encode(JSON.stringify(this._protectedHeader)));
     } else {
-      protectedHeader = encoder.encode("");
+      protectedHeader = encoder.encode('');
     }
-    const data = concat(protectedHeader, encoder.encode("."), payload);
+    const data = concat(protectedHeader, encoder.encode('.'), payload);
     const signature = await sign_default(alg, key, data);
     const jws = {
       signature: encode(signature),
-      payload: "",
+      payload: '',
     };
     if (b64) {
       jws.payload = decoder.decode(payload);
@@ -4765,7 +4388,7 @@ var FlattenedSign = class {
     return jws;
   }
 };
-__name(FlattenedSign, "FlattenedSign");
+__name(FlattenedSign, 'FlattenedSign');
 
 // node_modules/jose/dist/browser/jws/compact/sign.js
 var CompactSign = class {
@@ -4779,14 +4402,12 @@ var CompactSign = class {
   async sign(key, options) {
     const jws = await this._flattened.sign(key, options);
     if (jws.payload === void 0) {
-      throw new TypeError(
-        "use the flattened module for creating JWS with b64: false",
-      );
+      throw new TypeError('use the flattened module for creating JWS with b64: false');
     }
     return `${jws.protected}.${jws.payload}.${jws.signature}`;
   }
 };
-__name(CompactSign, "CompactSign");
+__name(CompactSign, 'CompactSign');
 
 // node_modules/jose/dist/browser/jwt/produce.js
 function validateInput(label, input) {
@@ -4795,11 +4416,11 @@ function validateInput(label, input) {
   }
   return input;
 }
-__name(validateInput, "validateInput");
+__name(validateInput, 'validateInput');
 var ProduceJWT = class {
   constructor(payload = {}) {
     if (!isObject(payload)) {
-      throw new TypeError("JWT Claims Set MUST be an object");
+      throw new TypeError('JWT Claims Set MUST be an object');
     }
     this._payload = payload;
   }
@@ -4820,15 +4441,15 @@ var ProduceJWT = class {
     return this;
   }
   setNotBefore(input) {
-    if (typeof input === "number") {
+    if (typeof input === 'number') {
       this._payload = {
         ...this._payload,
-        nbf: validateInput("setNotBefore", input),
+        nbf: validateInput('setNotBefore', input),
       };
     } else if (input instanceof Date) {
       this._payload = {
         ...this._payload,
-        nbf: validateInput("setNotBefore", epoch_default(input)),
+        nbf: validateInput('setNotBefore', epoch_default(input)),
       };
     } else {
       this._payload = {
@@ -4839,15 +4460,15 @@ var ProduceJWT = class {
     return this;
   }
   setExpirationTime(input) {
-    if (typeof input === "number") {
+    if (typeof input === 'number') {
       this._payload = {
         ...this._payload,
-        exp: validateInput("setExpirationTime", input),
+        exp: validateInput('setExpirationTime', input),
       };
     } else if (input instanceof Date) {
       this._payload = {
         ...this._payload,
-        exp: validateInput("setExpirationTime", epoch_default(input)),
+        exp: validateInput('setExpirationTime', epoch_default(input)),
       };
     } else {
       this._payload = {
@@ -4858,7 +4479,7 @@ var ProduceJWT = class {
     return this;
   }
   setIssuedAt(input) {
-    if (typeof input === "undefined") {
+    if (typeof input === 'undefined') {
       this._payload = {
         ...this._payload,
         iat: epoch_default(/* @__PURE__ */ new Date()),
@@ -4866,26 +4487,26 @@ var ProduceJWT = class {
     } else if (input instanceof Date) {
       this._payload = {
         ...this._payload,
-        iat: validateInput("setIssuedAt", epoch_default(input)),
+        iat: validateInput('setIssuedAt', epoch_default(input)),
       };
-    } else if (typeof input === "string") {
+    } else if (typeof input === 'string') {
       this._payload = {
         ...this._payload,
         iat: validateInput(
-          "setIssuedAt",
+          'setIssuedAt',
           epoch_default(/* @__PURE__ */ new Date()) + secs_default(input),
         ),
       };
     } else {
       this._payload = {
         ...this._payload,
-        iat: validateInput("setIssuedAt", input),
+        iat: validateInput('setIssuedAt', input),
       };
     }
     return this;
   }
 };
-__name(ProduceJWT, "ProduceJWT");
+__name(ProduceJWT, 'ProduceJWT');
 
 // node_modules/jose/dist/browser/jwt/sign.js
 var SignJWT = class extends ProduceJWT {
@@ -4898,15 +4519,15 @@ var SignJWT = class extends ProduceJWT {
     sig.setProtectedHeader(this._protectedHeader);
     if (
       Array.isArray(this._protectedHeader?.crit) &&
-      this._protectedHeader.crit.includes("b64") &&
+      this._protectedHeader.crit.includes('b64') &&
       this._protectedHeader.b64 === false
     ) {
-      throw new JWTInvalid("JWTs MUST NOT use unencoded payload");
+      throw new JWTInvalid('JWTs MUST NOT use unencoded payload');
     }
     return sig.sign(key, options);
   }
 };
-__name(SignJWT, "SignJWT");
+__name(SignJWT, 'SignJWT');
 
 // src/authentication/auth.js
 var import_tweetnacl = __toESM(require_nacl_fast());
@@ -4919,7 +4540,7 @@ async function renderLoginPage() {
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${atob("QlBC")} Login</title>
+    <title>${atob('QlBC')} Login</title>
     <style>
         :root {
             --color: black;
@@ -5015,7 +4636,7 @@ async function renderLoginPage() {
     </head>
     <body>
         <div class="container">
-            <h1>${atob("QlBCIFBhbmVsIA==")}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
+            <h1>${atob('QlBCIFBhbmVsIA==')}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -5060,62 +4681,58 @@ async function renderLoginPage() {
   return new Response(loginPage, {
     status: 200,
     headers: {
-      "Content-Type": "text/html;charset=utf-8",
-      "Access-Control-Allow-Origin": globalThis.urlOrigin,
-      "Access-Control-Allow-Methods": "GET, POST",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      "X-Content-Type-Options": "nosniff",
-      "X-Frame-Options": "DENY",
-      "Referrer-Policy": "strict-origin-when-cross-origin",
-      "Cache-Control":
-        "no-store, no-cache, must-revalidate, proxy-revalidate, no-transform",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/html;charset=utf-8',
+      'Access-Control-Allow-Origin': globalThis.urlOrigin,
+      'Access-Control-Allow-Methods': 'GET, POST',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, no-transform',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(renderLoginPage, "renderLoginPage");
+__name(renderLoginPage, 'renderLoginPage');
 
 // src/authentication/auth.js
 async function generateJWTToken(request, env) {
   const password = await request.text();
-  const savedPass = await env.diana.get("pwd");
-  if (password !== savedPass)
-    return new Response("Method Not Allowed", { status: 405 });
-  let secretKey = await env.diana.get("secretKey");
+  const savedPass = await env.diana.get('pwd');
+  if (password !== savedPass) return new Response('Method Not Allowed', { status: 405 });
+  let secretKey = await env.diana.get('secretKey');
   if (!secretKey) {
     secretKey = generateSecretKey();
-    await env.diana.put("secretKey", secretKey);
+    await env.diana.put('secretKey', secretKey);
   }
   const secret = new TextEncoder().encode(secretKey);
   const jwtToken = await new SignJWT({ userID: globalThis.userID })
-    .setProtectedHeader({ alg: "HS256" })
+    .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
-    .setExpirationTime("24h")
+    .setExpirationTime('24h')
     .sign(secret);
-  return new Response("Success", {
+  return new Response('Success', {
     status: 200,
     headers: {
-      "Set-Cookie": `jwtToken=${jwtToken}; HttpOnly; Secure; Max-Age=${7 * 24 * 60 * 60}; Path=/; SameSite=Strict`,
-      "Content-Type": "text/plain",
+      'Set-Cookie': `jwtToken=${jwtToken}; HttpOnly; Secure; Max-Age=${7 * 24 * 60 * 60}; Path=/; SameSite=Strict`,
+      'Content-Type': 'text/plain',
     },
   });
 }
-__name(generateJWTToken, "generateJWTToken");
+__name(generateJWTToken, 'generateJWTToken');
 function generateSecretKey() {
   const key = import_tweetnacl.default.randomBytes(32);
-  return Array.from(key, (byte) => byte.toString(16).padStart(2, "0")).join("");
+  return Array.from(key, byte => byte.toString(16).padStart(2, '0')).join('');
 }
-__name(generateSecretKey, "generateSecretKey");
+__name(generateSecretKey, 'generateSecretKey');
 async function Authenticate(request, env) {
   try {
-    const secretKey = await env.diana.get("secretKey");
+    const secretKey = await env.diana.get('secretKey');
     const secret = new TextEncoder().encode(secretKey);
-    const cookie = request.headers
-      .get("Cookie")
-      ?.match(/(^|;\s*)jwtToken=([^;]*)/);
+    const cookie = request.headers.get('Cookie')?.match(/(^|;\s*)jwtToken=([^;]*)/);
     const token = cookie ? cookie[2] : null;
     if (!token) {
-      console.log("Unauthorized: Token not available!");
+      console.log('Unauthorized: Token not available!');
       return false;
     }
     const { payload } = await jwtVerify(token, secret);
@@ -5126,77 +4743,75 @@ async function Authenticate(request, env) {
     return false;
   }
 }
-__name(Authenticate, "Authenticate");
+__name(Authenticate, 'Authenticate');
 function logout() {
-  return new Response("Success", {
+  return new Response('Success', {
     status: 200,
     headers: {
-      "Set-Cookie":
-        "jwtToken=; Secure; SameSite=None; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
-      "Content-Type": "text/plain",
+      'Set-Cookie': 'jwtToken=; Secure; SameSite=None; Expires=Thu, 01 Jan 1970 00:00:00 GMT',
+      'Content-Type': 'text/plain',
     },
   });
 }
-__name(logout, "logout");
+__name(logout, 'logout');
 async function resetPassword(request, env) {
   let auth = await Authenticate(request, env);
-  const oldPwd = await env.diana.get("pwd");
-  if (oldPwd && !auth) return new Response("Unauthorized!", { status: 401 });
+  const oldPwd = await env.diana.get('pwd');
+  if (oldPwd && !auth) return new Response('Unauthorized!', { status: 401 });
   const newPwd = await request.text();
-  if (newPwd === oldPwd)
-    return new Response("Please enter a new Password!", { status: 400 });
-  await env.diana.put("pwd", newPwd);
-  return new Response("Success", {
+  if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
+  await env.diana.put('pwd', newPwd);
+  return new Response('Success', {
     status: 200,
     headers: {
-      "Set-Cookie":
-        "jwtToken=; Path=/; Secure; SameSite=None; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
-      "Content-Type": "text/plain",
+      'Set-Cookie':
+        'jwtToken=; Path=/; Secure; SameSite=None; Expires=Thu, 01 Jan 1970 00:00:00 GMT',
+      'Content-Type': 'text/plain',
     },
   });
 }
-__name(resetPassword, "resetPassword");
+__name(resetPassword, 'resetPassword');
 async function login(request, env) {
   const auth = await Authenticate(request, env);
   if (auth) return Response.redirect(`${globalThis.urlOrigin}/panel`, 302);
-  if (request.method === "POST") return await generateJWTToken(request, env);
+  if (request.method === 'POST') return await generateJWTToken(request, env);
   return await renderLoginPage();
 }
-__name(login, "login");
+__name(login, 'login');
 
 // src/protocols/warp.js
 var import_tweetnacl2 = __toESM(require_nacl_fast());
 async function fetchWarpConfigs(env, proxySettings) {
   let warpConfigs = [];
-  const apiBaseUrl = "https://api.cloudflareclient.com/v0a4005/reg";
+  const apiBaseUrl = 'https://api.cloudflareclient.com/v0a4005/reg';
   const { warpPlusLicense } = proxySettings;
   const warpKeys = [generateKeyPair(), generateKeyPair()];
   const commonPayload = {
-    install_id: "",
-    fcm_token: "",
+    install_id: '',
+    fcm_token: '',
     tos: /* @__PURE__ */ new Date().toISOString(),
-    type: "Android",
-    model: "PC",
-    locale: "en_US",
+    type: 'Android',
+    model: 'PC',
+    locale: 'en_US',
     warp_enabled: true,
   };
-  const fetchAccount = /* @__PURE__ */ __name(async (key) => {
+  const fetchAccount = /* @__PURE__ */ __name(async key => {
     const response = await fetch(apiBaseUrl, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "User-Agent": "insomnia/8.6.1",
-        "Content-Type": "application/json",
+        'User-Agent': 'insomnia/8.6.1',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...commonPayload, key: key.publicKey }),
     });
     return await response.json();
-  }, "fetchAccount");
+  }, 'fetchAccount');
   const updateAccount = /* @__PURE__ */ __name(async (accountData, key) => {
     const response = await fetch(`${apiBaseUrl}/${accountData.id}/account`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "User-Agent": "insomnia/8.6.1",
-        "Content-Type": "application/json",
+        'User-Agent': 'insomnia/8.6.1',
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${accountData.token}`,
       },
       body: JSON.stringify({
@@ -5209,7 +4824,7 @@ async function fetchWarpConfigs(env, proxySettings) {
       status: response.status,
       data: await response.json(),
     };
-  }, "updateAccount");
+  }, 'updateAccount');
   for (const key of warpKeys) {
     const accountData = await fetchAccount(key);
     warpConfigs.push({
@@ -5217,24 +4832,21 @@ async function fetchWarpConfigs(env, proxySettings) {
       account: accountData,
     });
     if (warpPlusLicense) {
-      const { status, data: responseData } = await updateAccount(
-        accountData,
-        key,
-      );
+      const { status, data: responseData } = await updateAccount(accountData, key);
       if (status !== 200 && !responseData.success) {
         return { error: responseData.errors[0]?.message, configs: null };
       }
     }
   }
   const configs = JSON.stringify(warpConfigs);
-  await env.diana.put("warpConfigs", configs);
+  await env.diana.put('warpConfigs', configs);
   return { error: null, configs };
 }
-__name(fetchWarpConfigs, "fetchWarpConfigs");
+__name(fetchWarpConfigs, 'fetchWarpConfigs');
 var generateKeyPair = /* @__PURE__ */ __name(() => {
   const base64Encode = /* @__PURE__ */ __name(
-    (array) => btoa(String.fromCharCode.apply(null, array)),
-    "base64Encode",
+    array => btoa(String.fromCharCode.apply(null, array)),
+    'base64Encode',
   );
   let privateKey = import_tweetnacl2.default.randomBytes(32);
   privateKey[0] &= 248;
@@ -5244,14 +4856,14 @@ var generateKeyPair = /* @__PURE__ */ __name(() => {
   const publicKeyBase64 = base64Encode(publicKey);
   const privateKeyBase64 = base64Encode(privateKey);
   return { publicKey: publicKeyBase64, privateKey: privateKeyBase64 };
-}, "generateKeyPair");
+}, 'generateKeyPair');
 
 // src/kv/handlers.js
 async function getDataset(request, env) {
   let proxySettings, warpConfigs;
   try {
-    proxySettings = await env.diana.get("proxySettings", { type: "json" });
-    warpConfigs = await env.diana.get("warpConfigs", { type: "json" });
+    proxySettings = await env.diana.get('proxySettings', { type: 'json' });
+    warpConfigs = await env.diana.get('warpConfigs', { type: 'json' });
   } catch (error) {
     console.log(error);
     throw new Error(`An error occurred while getting KV - ${error}`);
@@ -5259,164 +4871,98 @@ async function getDataset(request, env) {
   if (!proxySettings) {
     proxySettings = await updateDataset(request, env);
     const { error, configs } = await fetchWarpConfigs(env, proxySettings);
-    if (error)
-      throw new Error(
-        `An error occurred while getting Warp configs - ${error}`,
-      );
+    if (error) throw new Error(`An error occurred while getting Warp configs - ${error}`);
     warpConfigs = configs;
   }
   if (globalThis.panelVersion !== proxySettings.panelVersion)
     proxySettings = await updateDataset(request, env);
   return { proxySettings, warpConfigs };
 }
-__name(getDataset, "getDataset");
+__name(getDataset, 'getDataset');
 async function updateDataset(request, env) {
-  let newSettings = request.method === "POST" ? await request.formData() : null;
-  const isReset = newSettings?.get("resetSettings") === "true";
+  let newSettings = request.method === 'POST' ? await request.formData() : null;
+  const isReset = newSettings?.get('resetSettings') === 'true';
   let currentSettings;
   if (!isReset) {
     try {
-      currentSettings = await env.diana.get("proxySettings", { type: "json" });
+      currentSettings = await env.diana.get('proxySettings', { type: 'json' });
     } catch (error) {
       console.log(error);
-      throw new Error(
-        `An error occurred while getting current KV settings - ${error}`,
-      );
+      throw new Error(`An error occurred while getting current KV settings - ${error}`);
     }
   } else {
     newSettings = null;
   }
-  const validateField = /* @__PURE__ */ __name((field) => {
+  const validateField = /* @__PURE__ */ __name(field => {
     const fieldValue = newSettings?.get(field);
     if (fieldValue === void 0) return null;
-    if (fieldValue === "true") return true;
-    if (fieldValue === "false") return false;
+    if (fieldValue === 'true') return true;
+    if (fieldValue === 'false') return false;
     return fieldValue;
-  }, "validateField");
+  }, 'validateField');
   const proxySettings = {
     remoteDNS:
-      validateField("remoteDNS") ??
-      currentSettings?.remoteDNS ??
-      "https://8.8.8.8/dns-query",
-    localDNS:
-      validateField("localDNS") ?? currentSettings?.localDNS ?? "8.8.8.8",
-    VLTRFakeDNS:
-      validateField("VLTRFakeDNS") ?? currentSettings?.VLTRFakeDNS ?? false,
-    proxyIP:
-      validateField("proxyIP")?.replaceAll(" ", "") ??
-      currentSettings?.proxyIP ??
-      "",
-    outProxy: validateField("outProxy") ?? currentSettings?.outProxy ?? "",
+      validateField('remoteDNS') ?? currentSettings?.remoteDNS ?? 'https://8.8.8.8/dns-query',
+    localDNS: validateField('localDNS') ?? currentSettings?.localDNS ?? '8.8.8.8',
+    VLTRFakeDNS: validateField('VLTRFakeDNS') ?? currentSettings?.VLTRFakeDNS ?? false,
+    proxyIP: validateField('proxyIP')?.replaceAll(' ', '') ?? currentSettings?.proxyIP ?? '',
+    outProxy: validateField('outProxy') ?? currentSettings?.outProxy ?? '',
     outProxyParams:
-      extractChainProxyParams(validateField("outProxy")) ??
-      currentSettings?.outProxyParams ??
-      {},
-    cleanIPs:
-      validateField("cleanIPs")?.replaceAll(" ", "") ??
-      currentSettings?.cleanIPs ??
-      "",
-    enableIPv6:
-      validateField("enableIPv6") ?? currentSettings?.enableIPv6 ?? true,
+      extractChainProxyParams(validateField('outProxy')) ?? currentSettings?.outProxyParams ?? {},
+    cleanIPs: validateField('cleanIPs')?.replaceAll(' ', '') ?? currentSettings?.cleanIPs ?? '',
+    enableIPv6: validateField('enableIPv6') ?? currentSettings?.enableIPv6 ?? true,
     customCdnAddrs:
-      validateField("customCdnAddrs")?.replaceAll(" ", "") ??
-      currentSettings?.customCdnAddrs ??
-      "",
-    customCdnHost:
-      validateField("customCdnHost")?.trim() ??
-      currentSettings?.customCdnHost ??
-      "",
-    customCdnSni:
-      validateField("customCdnSni")?.trim() ??
-      currentSettings?.customCdnSni ??
-      "",
+      validateField('customCdnAddrs')?.replaceAll(' ', '') ?? currentSettings?.customCdnAddrs ?? '',
+    customCdnHost: validateField('customCdnHost')?.trim() ?? currentSettings?.customCdnHost ?? '',
+    customCdnSni: validateField('customCdnSni')?.trim() ?? currentSettings?.customCdnSni ?? '',
     bestVLTRInterval:
-      validateField("bestVLTRInterval") ??
-      currentSettings?.bestVLTRInterval ??
-      "30",
-    VLConfigs: validateField("VLConfigs") ?? currentSettings?.VLConfigs ?? true,
-    TRConfigs:
-      validateField("TRConfigs") ?? currentSettings?.TRConfigs ?? false,
-    ports: validateField("ports")?.split(",") ??
-      currentSettings?.ports ?? ["443"],
-    lengthMin:
-      validateField("fragmentLengthMin") ?? currentSettings?.lengthMin ?? "100",
-    lengthMax:
-      validateField("fragmentLengthMax") ?? currentSettings?.lengthMax ?? "200",
-    intervalMin:
-      validateField("fragmentIntervalMin") ??
-      currentSettings?.intervalMin ??
-      "1",
-    intervalMax:
-      validateField("fragmentIntervalMax") ??
-      currentSettings?.intervalMax ??
-      "1",
+      validateField('bestVLTRInterval') ?? currentSettings?.bestVLTRInterval ?? '30',
+    VLConfigs: validateField('VLConfigs') ?? currentSettings?.VLConfigs ?? true,
+    TRConfigs: validateField('TRConfigs') ?? currentSettings?.TRConfigs ?? false,
+    ports: validateField('ports')?.split(',') ?? currentSettings?.ports ?? ['443'],
+    lengthMin: validateField('fragmentLengthMin') ?? currentSettings?.lengthMin ?? '100',
+    lengthMax: validateField('fragmentLengthMax') ?? currentSettings?.lengthMax ?? '200',
+    intervalMin: validateField('fragmentIntervalMin') ?? currentSettings?.intervalMin ?? '1',
+    intervalMax: validateField('fragmentIntervalMax') ?? currentSettings?.intervalMax ?? '1',
     fragmentPackets:
-      validateField("fragmentPackets") ??
-      currentSettings?.fragmentPackets ??
-      "tlshello",
-    bypassLAN:
-      validateField("bypass-lan") ?? currentSettings?.bypassLAN ?? false,
-    bypassIran:
-      validateField("bypass-iran") ?? currentSettings?.bypassIran ?? false,
-    bypassChina:
-      validateField("bypass-china") ?? currentSettings?.bypassChina ?? false,
-    bypassRussia:
-      validateField("bypass-russia") ?? currentSettings?.bypassRussia ?? false,
-    blockAds: validateField("block-ads") ?? currentSettings?.blockAds ?? false,
-    blockPorn:
-      validateField("block-porn") ?? currentSettings?.blockPorn ?? false,
-    blockUDP443:
-      validateField("block-udp-443") ?? currentSettings?.blockUDP443 ?? false,
+      validateField('fragmentPackets') ?? currentSettings?.fragmentPackets ?? 'tlshello',
+    bypassLAN: validateField('bypass-lan') ?? currentSettings?.bypassLAN ?? false,
+    bypassIran: validateField('bypass-iran') ?? currentSettings?.bypassIran ?? false,
+    bypassChina: validateField('bypass-china') ?? currentSettings?.bypassChina ?? false,
+    bypassRussia: validateField('bypass-russia') ?? currentSettings?.bypassRussia ?? false,
+    blockAds: validateField('block-ads') ?? currentSettings?.blockAds ?? false,
+    blockPorn: validateField('block-porn') ?? currentSettings?.blockPorn ?? false,
+    blockUDP443: validateField('block-udp-443') ?? currentSettings?.blockUDP443 ?? false,
     customBypassRules:
-      validateField("customBypassRules")?.replaceAll(" ", "") ??
+      validateField('customBypassRules')?.replaceAll(' ', '') ??
       currentSettings?.customBypassRules ??
-      "",
+      '',
     customBlockRules:
-      validateField("customBlockRules")?.replaceAll(" ", "") ??
+      validateField('customBlockRules')?.replaceAll(' ', '') ??
       currentSettings?.customBlockRules ??
-      "",
+      '',
     warpEndpoints:
-      validateField("warpEndpoints")?.replaceAll(" ", "") ??
+      validateField('warpEndpoints')?.replaceAll(' ', '') ??
       currentSettings?.warpEndpoints ??
-      "engage.cloudflareclient.com:2408",
-    warpFakeDNS:
-      validateField("warpFakeDNS") ?? currentSettings?.warpFakeDNS ?? false,
-    warpEnableIPv6:
-      validateField("warpEnableIPv6") ??
-      currentSettings?.warpEnableIPv6 ??
-      true,
-    warpPlusLicense:
-      validateField("warpPlusLicense") ??
-      currentSettings?.warpPlusLicense ??
-      "",
+      'engage.cloudflareclient.com:2408',
+    warpFakeDNS: validateField('warpFakeDNS') ?? currentSettings?.warpFakeDNS ?? false,
+    warpEnableIPv6: validateField('warpEnableIPv6') ?? currentSettings?.warpEnableIPv6 ?? true,
+    warpPlusLicense: validateField('warpPlusLicense') ?? currentSettings?.warpPlusLicense ?? '',
     bestWarpInterval:
-      validateField("bestWarpInterval") ??
-      currentSettings?.bestWarpInterval ??
-      "30",
+      validateField('bestWarpInterval') ?? currentSettings?.bestWarpInterval ?? '30',
     hiddifyNoiseMode:
-      validateField("hiddifyNoiseMode") ??
-      currentSettings?.hiddifyNoiseMode ??
-      "m4",
-    nikaNGNoiseMode:
-      validateField("nikaNGNoiseMode") ??
-      currentSettings?.nikaNGNoiseMode ??
-      "quic",
-    noiseCountMin:
-      validateField("noiseCountMin") ?? currentSettings?.noiseCountMin ?? "10",
-    noiseCountMax:
-      validateField("noiseCountMax") ?? currentSettings?.noiseCountMax ?? "15",
-    noiseSizeMin:
-      validateField("noiseSizeMin") ?? currentSettings?.noiseSizeMin ?? "5",
-    noiseSizeMax:
-      validateField("noiseSizeMax") ?? currentSettings?.noiseSizeMax ?? "10",
-    noiseDelayMin:
-      validateField("noiseDelayMin") ?? currentSettings?.noiseDelayMin ?? "1",
-    noiseDelayMax:
-      validateField("noiseDelayMax") ?? currentSettings?.noiseDelayMax ?? "1",
+      validateField('hiddifyNoiseMode') ?? currentSettings?.hiddifyNoiseMode ?? 'm4',
+    nikaNGNoiseMode: validateField('nikaNGNoiseMode') ?? currentSettings?.nikaNGNoiseMode ?? 'quic',
+    noiseCountMin: validateField('noiseCountMin') ?? currentSettings?.noiseCountMin ?? '10',
+    noiseCountMax: validateField('noiseCountMax') ?? currentSettings?.noiseCountMax ?? '15',
+    noiseSizeMin: validateField('noiseSizeMin') ?? currentSettings?.noiseSizeMin ?? '5',
+    noiseSizeMax: validateField('noiseSizeMax') ?? currentSettings?.noiseSizeMax ?? '10',
+    noiseDelayMin: validateField('noiseDelayMin') ?? currentSettings?.noiseDelayMin ?? '1',
+    noiseDelayMax: validateField('noiseDelayMax') ?? currentSettings?.noiseDelayMax ?? '1',
     panelVersion: globalThis.panelVersion,
   };
   try {
-    await env.diana.put("proxySettings", JSON.stringify(proxySettings));
+    await env.diana.put('proxySettings', JSON.stringify(proxySettings));
     if (isReset) await updateWarpConfigs(request, env);
   } catch (error) {
     console.log(error);
@@ -5424,13 +4970,13 @@ async function updateDataset(request, env) {
   }
   return proxySettings;
 }
-__name(updateDataset, "updateDataset");
+__name(updateDataset, 'updateDataset');
 function extractChainProxyParams(chainProxy) {
   let configParams = {};
   if (!chainProxy) return {};
   const url = new URL(chainProxy);
   const protocol = url.protocol.slice(0, -1);
-  if (protocol === atob("dmxlc3M=")) {
+  if (protocol === atob('dmxlc3M=')) {
     const params = new URLSearchParams(url.search);
     configParams = {
       protocol,
@@ -5452,31 +4998,27 @@ function extractChainProxyParams(chainProxy) {
   }
   return JSON.stringify(configParams);
 }
-__name(extractChainProxyParams, "extractChainProxyParams");
+__name(extractChainProxyParams, 'extractChainProxyParams');
 async function updateWarpConfigs(request, env) {
   const auth = await Authenticate(request, env);
-  if (!auth) return new Response("Unauthorized", { status: 401 });
-  if (request.method === "POST") {
+  if (!auth) return new Response('Unauthorized', { status: 401 });
+  if (request.method === 'POST') {
     try {
       const { proxySettings } = await getDataset(request, env);
-      const { error: warpPlusError } = await fetchWarpConfigs(
-        env,
-        proxySettings,
-      );
+      const { error: warpPlusError } = await fetchWarpConfigs(env, proxySettings);
       if (warpPlusError) return new Response(warpPlusError, { status: 400 });
-      return new Response("Warp configs updated successfully", { status: 200 });
+      return new Response('Warp configs updated successfully', { status: 200 });
     } catch (error) {
       console.log(error);
-      return new Response(
-        `An error occurred while updating Warp configs! - ${error}`,
-        { status: 500 },
-      );
+      return new Response(`An error occurred while updating Warp configs! - ${error}`, {
+        status: 500,
+      });
     }
   } else {
-    return new Response("Unsupported request", { status: 405 });
+    return new Response('Unsupported request', { status: 405 });
   }
 }
-__name(updateWarpConfigs, "updateWarpConfigs");
+__name(updateWarpConfigs, 'updateWarpConfigs');
 
 // src/pages/home.js
 async function renderHomePage(proxySettings, isPassSet) {
@@ -5525,17 +5067,15 @@ async function renderHomePage(proxySettings, isPassSet) {
   } = proxySettings;
   const isWarpPlus = warpPlusLicense ? true : false;
   const activeProtocols = (VLConfigs ? 1 : 0) + (TRConfigs ? 1 : 0);
-  let httpPortsBlock = "",
-    httpsPortsBlock = "";
+  let httpPortsBlock = '',
+    httpsPortsBlock = '';
   const allPorts = [
-    ...(globalThis.hostName.includes("workers.dev")
-      ? globalThis.defaultHttpPorts
-      : []),
+    ...(globalThis.hostName.includes('workers.dev') ? globalThis.defaultHttpPorts : []),
     ...globalThis.defaultHttpsPorts,
   ];
-  allPorts.forEach((port) => {
+  allPorts.forEach(port => {
     const id = `port-${port}`;
-    const isChecked = ports.includes(port) ? "checked" : "";
+    const isChecked = ports.includes(port) ? 'checked' : '';
     const portBlock = `
             <div class="routing" style="grid-template-columns: 1fr 2fr; margin-right: 10px;">
                 <input type="checkbox" id=${id} name=${port} onchange="handlePortChange(event)" value="true" ${isChecked}>
@@ -5546,32 +5086,32 @@ async function renderHomePage(proxySettings, isPassSet) {
       : (httpPortsBlock += portBlock);
   });
   const supportedApps = /* @__PURE__ */ __name(
-    (apps) =>
+    apps =>
       apps
         .map(
-          (app) => `
+          app => `
         <div>
             <span class="material-symbols-outlined symbol">verified</span>
             <span>${app}</span>
         </div>`,
         )
-        .join(""),
-    "supportedApps",
+        .join(''),
+    'supportedApps',
   );
   const subQR = /* @__PURE__ */ __name((path, app, tag2, title, sbType) => {
-    const url = `${sbType ? "sing-box://import-remote-profile?url=" : ""}https://${globalThis.hostName}/${path}/${globalThis.subPath}${app ? `?app=${app}` : ""}#${tag2}`;
+    const url = `${sbType ? 'sing-box://import-remote-profile?url=' : ''}https://${globalThis.hostName}/${path}/${globalThis.subPath}${app ? `?app=${app}` : ''}#${tag2}`;
     return `
             <button onclick="openQR('${url}', '${title}')" style="margin-bottom: 8px;">
                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
             </button>`;
-  }, "subQR");
+  }, 'subQR');
   const subURL = /* @__PURE__ */ __name((path, app, tag2) => {
-    const url = `https://${globalThis.hostName}/${path}/${globalThis.subPath}${app ? `?app=${app}` : ""}#${tag2}`;
+    const url = `https://${globalThis.hostName}/${path}/${globalThis.subPath}${app ? `?app=${app}` : ''}#${tag2}`;
     return `
             <button onclick="copyToClipboard('${url}')">
                 Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
             </button>`;
-  }, "subURL");
+  }, 'subURL');
   const homePage = `
     <!DOCTYPE html>
     <html lang="en">
@@ -5579,7 +5119,7 @@ async function renderHomePage(proxySettings, isPassSet) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="timestamp" content=${Date.now()}>
-        <title>${atob("QlBCIFBhbmVsIA==")}${globalThis.panelVersion}</title>
+        <title>${atob('QlBCIFBhbmVsIA==')}${globalThis.panelVersion}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <title>Collapsible Sections</title>
@@ -5877,11 +5417,11 @@ async function renderHomePage(proxySettings, isPassSet) {
         </style>
     </head>
     <body>
-        <h1>${atob("QlBCIFBhbmVsIA==")}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
+        <h1>${atob('QlBCIFBhbmVsIA==')}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
         <div class="form-container">
             <form id="configForm">
                 <details open>
-                    <summary><h2>${atob("VkxFU1M=")} - ${atob("VFJPSkFO")} \u2699\uFE0F</h2></summary>
+                    <summary><h2>${atob('VkxFU1M=')} - ${atob('VFJPSkFO')} \u2699\uFE0F</h2></summary>
                     <div class="form-control">
                         <label for="remoteDNS">\u{1F30F} Remote DNS</label>
                         <input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
@@ -5896,14 +5436,14 @@ async function renderHomePage(proxySettings, isPassSet) {
                         <label for="VLTRFakeDNS">\u{1F9E2} Fake DNS</label>
                         <div class="input-with-select">
                             <select id="VLTRFakeDNS" name="VLTRFakeDNS">
-                                <option value="true" ${VLTRFakeDNS ? "selected" : ""}>Enabled</option>
-                                <option value="false" ${!VLTRFakeDNS ? "selected" : ""}>Disabled</option>
+                                <option value="true" ${VLTRFakeDNS ? 'selected' : ''}>Enabled</option>
+                                <option value="false" ${!VLTRFakeDNS ? 'selected' : ''}>Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-control">
                         <label for="proxyIP">\u{1F4CD} Proxy IPs / Domains</label>
-                        <input type="text" id="proxyIP" name="proxyIP" value="${proxyIP.replaceAll(",", " , ")}">
+                        <input type="text" id="proxyIP" name="proxyIP" value="${proxyIP.replaceAll(',', ' , ')}">
                     </div>
                     <div class="form-control">
                         <label for="outProxy">\u2708\uFE0F Chain Proxy</label>
@@ -5911,11 +5451,11 @@ async function renderHomePage(proxySettings, isPassSet) {
                     </div>
                     <div class="form-control">
                         <label for="cleanIPs">\u2728 Clean IPs / Domains</label>
-                        <input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
+                        <input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(',', ' , ')}">
                     </div>
                     <div class="form-control">
                         <label for="scanner">\u{1F50E} Clean IP Scanner</label>
-                        <a href="${atob("aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hlLw==")}Cloudflare-Clean-IP-Scanner/releases/tag/v2.2.5" name="scanner" target="_blank" style="width: 100%;">
+                        <a href="${atob('aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hlLw==')}Cloudflare-Clean-IP-Scanner/releases/tag/v2.2.5" name="scanner" target="_blank" style="width: 100%;">
                             <button type="button" id="scanner" class="button">
                                 Download Scanner
                                 <span class="material-symbols-outlined">open_in_new</span>
@@ -5926,14 +5466,14 @@ async function renderHomePage(proxySettings, isPassSet) {
                         <label for="enableIPv6">\u{1F51B} IPv6</label>
                         <div class="input-with-select">
                             <select id="enableIPv6" name="enableIPv6">
-                                <option value="true" ${enableIPv6 ? "selected" : ""}>Enabled</option>
-                                <option value="false" ${!enableIPv6 ? "selected" : ""}>Disabled</option>
+                                <option value="true" ${enableIPv6 ? 'selected' : ''}>Enabled</option>
+                                <option value="false" ${!enableIPv6 ? 'selected' : ''}>Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-control">
                         <label for="customCdnAddrs">\u{1F480} Custom CDN Addrs</label>
-                        <input type="text" id="customCdnAddrs" name="customCdnAddrs" value="${customCdnAddrs.replaceAll(",", " , ")}">
+                        <input type="text" id="customCdnAddrs" name="customCdnAddrs" value="${customCdnAddrs.replaceAll(',', ' , ')}">
                     </div>
                     <div class="form-control">
                         <label for="customCdnHost">\u{1F480} Custom CDN Host</label> 
@@ -5951,12 +5491,12 @@ async function renderHomePage(proxySettings, isPassSet) {
                         <label for="VLConfigs">\u2699\uFE0F Protocols</label>
                         <div style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; margin-top: 10px;">
                             <div style = "display: flex; justify-content: center; align-items: center;">
-                                <input type="checkbox" id="VLConfigs" name="VLConfigs" onchange="handleProtocolChange(event)" value="true" ${VLConfigs ? "checked" : ""}>
-                                <label for="VLConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">${atob("VkxFU1M=")}</label>
+                                <input type="checkbox" id="VLConfigs" name="VLConfigs" onchange="handleProtocolChange(event)" value="true" ${VLConfigs ? 'checked' : ''}>
+                                <label for="VLConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">${atob('VkxFU1M=')}</label>
                             </div>
                             <div style = "display: flex; justify-content: center; align-items: center;">
-                                <input type="checkbox" id="TRConfigs" name="TRConfigs" onchange="handleProtocolChange(event)" value="true" ${TRConfigs ? "checked" : ""}>
-                                <label for="TRConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">${atob("VHJvamFu")}</label>
+                                <input type="checkbox" id="TRConfigs" name="TRConfigs" onchange="handleProtocolChange(event)" value="true" ${TRConfigs ? 'checked' : ''}>
+                                <label for="TRConfigs" style="margin: 0 5px; font-weight: normal; font-size: unset;">${atob('VHJvamFu')}</label>
                             </div>
                         </div>
                     </div>
@@ -5974,7 +5514,7 @@ async function renderHomePage(proxySettings, isPassSet) {
                             </tr>
                             ${
                               !httpPortsBlock
-                                ? ""
+                                ? ''
                                 : `<tr>
                                 <td style="text-align: center; font-size: larger;"><b>Non TLS</b></td>
                                 <td>
@@ -6009,11 +5549,11 @@ async function renderHomePage(proxySettings, isPassSet) {
                         <label for="fragmentPackets">\u{1F4E6} Packets</label>
                         <div class="input-with-select">
                             <select id="fragmentPackets" name="fragmentPackets">
-                                <option value="tlshello" ${fragmentPackets === "tlshello" ? "selected" : ""}>tlshello</option>
-                                <option value="1-1" ${fragmentPackets === "1-1" ? "selected" : ""}>1-1</option>
-                                <option value="1-2" ${fragmentPackets === "1-2" ? "selected" : ""}>1-2</option>
-                                <option value="1-3" ${fragmentPackets === "1-3" ? "selected" : ""}>1-3</option>
-                                <option value="1-5" ${fragmentPackets === "1-5" ? "selected" : ""}>1-5</option>
+                                <option value="tlshello" ${fragmentPackets === 'tlshello' ? 'selected' : ''}>tlshello</option>
+                                <option value="1-1" ${fragmentPackets === '1-1' ? 'selected' : ''}>1-1</option>
+                                <option value="1-2" ${fragmentPackets === '1-2' ? 'selected' : ''}>1-2</option>
+                                <option value="1-3" ${fragmentPackets === '1-3' ? 'selected' : ''}>1-3</option>
+                                <option value="1-5" ${fragmentPackets === '1-5' ? 'selected' : ''}>1-5</option>
                             </select>
                         </div>
                     </div>
@@ -6022,11 +5562,11 @@ async function renderHomePage(proxySettings, isPassSet) {
                     <summary><h2>WARP GENERAL \u2699\uFE0F</h2></summary>
                     <div class="form-control">
                         <label for="warpEndpoints">\u2728 Endpoints</label>
-                        <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
+                        <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(',', ' , ')}" required>
                     </div>
                     <div class="form-control">
                         <label for="endpointScanner" style="line-height: 1.5;">\u{1F50E} Scan Endpoint</label>
-                        <button type="button" id="endpointScanner" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL ${atob("aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JpYS1wYWluLWJhY2hl")}/warp-script/refs/heads/main/endip/install.sh)', false)">
+                        <button type="button" id="endpointScanner" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL ${atob('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JpYS1wYWluLWJhY2hl')}/warp-script/refs/heads/main/endip/install.sh)', false)">
                             Copy Script<span class="material-symbols-outlined">terminal</span>
                         </button>
                     </div>
@@ -6034,8 +5574,8 @@ async function renderHomePage(proxySettings, isPassSet) {
                         <label for="warpFakeDNS">\u{1F9E2} Fake DNS</label>
                         <div class="input-with-select">
                             <select id="warpFakeDNS" name="warpFakeDNS">
-                                <option value="true" ${warpFakeDNS ? "selected" : ""}>Enabled</option>
-                                <option value="false" ${!warpFakeDNS ? "selected" : ""}>Disabled</option>
+                                <option value="true" ${warpFakeDNS ? 'selected' : ''}>Enabled</option>
+                                <option value="false" ${!warpFakeDNS ? 'selected' : ''}>Disabled</option>
                             </select>
                         </div>
                     </div>
@@ -6043,8 +5583,8 @@ async function renderHomePage(proxySettings, isPassSet) {
                         <label for="warpEnableIPv6">\u{1F51B} IPv6</label>
                         <div class="input-with-select">
                             <select id="warpEnableIPv6" name="warpEnableIPv6">
-                                <option value="true" ${warpEnableIPv6 ? "selected" : ""}>Enabled</option>
-                                <option value="false" ${!warpEnableIPv6 ? "selected" : ""}>Disabled</option>
+                                <option value="true" ${warpEnableIPv6 ? 'selected' : ''}>Enabled</option>
+                                <option value="false" ${!warpEnableIPv6 ? 'selected' : ''}>Disabled</option>
                             </select>
                         </div>
                     </div>
@@ -6116,42 +5656,42 @@ async function renderHomePage(proxySettings, isPassSet) {
                     <summary><h2>ROUTING RULES \u2699\uFE0F</h2></summary>
                     <div id="routing-rules" class="form-control" style="margin-bottom: 20px;">      
                         <div class="routing">
-                            <input type="checkbox" id="bypass-lan" name="bypass-lan" value="true" ${bypassLAN ? "checked" : ""}>
+                            <input type="checkbox" id="bypass-lan" name="bypass-lan" value="true" ${bypassLAN ? 'checked' : ''}>
                             <label for="bypass-lan">Bypass LAN</label>
                         </div>
                         <div class="routing">
-                            <input type="checkbox" id="block-ads" name="block-ads" value="true" ${blockAds ? "checked" : ""}>
+                            <input type="checkbox" id="block-ads" name="block-ads" value="true" ${blockAds ? 'checked' : ''}>
                             <label for="block-ads">Block Ads.</label>
                         </div>
                         <div class="routing">
-                            <input type="checkbox" id="bypass-iran" name="bypass-iran" value="true" ${bypassIran ? "checked" : ""}>
+                            <input type="checkbox" id="bypass-iran" name="bypass-iran" value="true" ${bypassIran ? 'checked' : ''}>
                             <label for="bypass-iran">Bypass Iran</label>
                         </div>
                         <div class="routing">
-                            <input type="checkbox" id="block-porn" name="block-porn" value="true" ${blockPorn ? "checked" : ""}>
+                            <input type="checkbox" id="block-porn" name="block-porn" value="true" ${blockPorn ? 'checked' : ''}>
                             <label for="block-porn">Block Porn</label>
                         </div>
                         <div class="routing">
-                            <input type="checkbox" id="bypass-china" name="bypass-china" value="true" ${bypassChina ? "checked" : ""}>
+                            <input type="checkbox" id="bypass-china" name="bypass-china" value="true" ${bypassChina ? 'checked' : ''}>
                             <label for="bypass-china">Bypass China</label>
                         </div>
                         <div class="routing">
-                            <input type="checkbox" id="block-udp-443" name="block-udp-443" value="true" ${blockUDP443 ? "checked" : ""}>
+                            <input type="checkbox" id="block-udp-443" name="block-udp-443" value="true" ${blockUDP443 ? 'checked' : ''}>
                             <label for="block-udp-443">Block QUIC</label>
                         </div>
                         <div class="routing">
-                            <input type="checkbox" id="bypass-russia" name="bypass-russia" value="true" ${bypassRussia ? "checked" : ""}>
+                            <input type="checkbox" id="bypass-russia" name="bypass-russia" value="true" ${bypassRussia ? 'checked' : ''}>
                             <label for="bypass-russia">Bypass Russia</label>
                         </div>
                     </div>
                     <h3>CUSTOM RULES \u{1F527}</h3>
                     <div class="form-control">
                         <label for="customBypassRules">\u{1F7E9} Bypass IPs / Domains</label>
-                        <input type="text" id="customBypassRules" name="customBypassRules" value="${customBypassRules.replaceAll(",", " , ")}">
+                        <input type="text" id="customBypassRules" name="customBypassRules" value="${customBypassRules.replaceAll(',', ' , ')}">
                     </div>
                     <div class="form-control">
                         <label for="customBlockRules">\u{1F7E5} Block IPs / Domains</label>
-                        <input type="text" id="customBlockRules" name="customBlockRules" value="${customBlockRules.replaceAll(",", " , ")}">
+                        <input type="text" id="customBlockRules" name="customBlockRules" value="${customBlockRules.replaceAll(',', ' , ')}">
                     </div>
                 </details>
                 <div id="apply" class="form-control">
@@ -6173,19 +5713,19 @@ async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["v2rayNG", "NikaNG", "MahsaNG", "v2rayN", "v2rayN-PRO", "Shadowrocket", "Streisand", "Hiddify", "Nekoray (Xray)"])}
+                            ${supportedApps(['v2rayNG', 'NikaNG', 'MahsaNG', 'v2rayN', 'v2rayN-PRO', 'Shadowrocket', 'Streisand', 'Hiddify', 'Nekoray (Xray)'])}
                         </td>
                         <td>
-                            ${subQR("sub", "", `${atob("QlBC")}-Normal`, "Normal Subscription")}
-                            ${subURL("sub", "", `${atob("QlBC")}-Normal`)}
+                            ${subQR('sub', '', `${atob('QlBC')}-Normal`, 'Normal Subscription')}
+                            ${subURL('sub', '', `${atob('QlBC')}-Normal`)}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["husi", "Nekobox", "Nekoray (sing-Box)", "Karing"])}
+                            ${supportedApps(['husi', 'Nekobox', 'Nekoray (sing-Box)', 'Karing'])}
                         </td>
                         <td>
-                            ${subURL("sub", "singbox", `${atob("QlBC")}-Normal`)}
+                            ${subURL('sub', 'singbox', `${atob('QlBC')}-Normal`)}
                         </td>
                     </tr>
                 </table>
@@ -6199,29 +5739,29 @@ async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["v2rayNG", "NikaNG", "MahsaNG", "v2rayN", "v2rayN-PRO", "Streisand"])}
+                            ${supportedApps(['v2rayNG', 'NikaNG', 'MahsaNG', 'v2rayN', 'v2rayN-PRO', 'Streisand'])}
                         </td>
                         <td>
-                            ${subQR("sub", "xray", `${atob("QlBC")}-Full-Normal`, "Full normal Subscription")}
-                            ${subURL("sub", "xray", `${atob("QlBC")}-Full-Normal`)}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            ${supportedApps(["sing-box", "v2rayN (sing-box)"])}
-                        </td>
-                        <td>
-                            ${subQR("sub", "sfa", `${atob("QlBC")}-Full-Normal`, "Full normal Subscription", true)}
-                            ${subURL("sub", "sfa", `${atob("QlBC")}-Full-Normal`)}
+                            ${subQR('sub', 'xray', `${atob('QlBC')}-Full-Normal`, 'Full normal Subscription')}
+                            ${subURL('sub', 'xray', `${atob('QlBC')}-Full-Normal`)}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["Clash Meta", "Clash Verge", "FlClash", "Stash", "v2rayN (mihomo)"])}
+                            ${supportedApps(['sing-box', 'v2rayN (sing-box)'])}
                         </td>
                         <td>
-                            ${subQR("sub", "clash", `${atob("QlBC")}-Full-Normal`, "Full normal Subscription")}
-                            ${subURL("sub", "clash", `${atob("QlBC")}-Full-Normal`)}
+                            ${subQR('sub', 'sfa', `${atob('QlBC')}-Full-Normal`, 'Full normal Subscription', true)}
+                            ${subURL('sub', 'sfa', `${atob('QlBC')}-Full-Normal`)}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ${supportedApps(['Clash Meta', 'Clash Verge', 'FlClash', 'Stash', 'v2rayN (mihomo)'])}
+                        </td>
+                        <td>
+                            ${subQR('sub', 'clash', `${atob('QlBC')}-Full-Normal`, 'Full normal Subscription')}
+                            ${subURL('sub', 'clash', `${atob('QlBC')}-Full-Normal`)}
                         </td>
                     </tr>
                 </table>
@@ -6235,20 +5775,20 @@ async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td style="text-wrap: nowrap;">
-                            ${supportedApps(["v2rayNG", "NikaNG", "MahsaNG", "v2rayN", "v2rayN-PRO", "Streisand"])}
+                            ${supportedApps(['v2rayNG', 'NikaNG', 'MahsaNG', 'v2rayN', 'v2rayN-PRO', 'Streisand'])}
                         </td>
                         <td>
-                            ${subQR("fragsub", "", `${atob("QlBC")}-Fragment`, "Fragment Subscription")}
-                            ${subURL("fragsub", "", `${atob("QlBC")}-Fragment`)}
+                            ${subQR('fragsub', '', `${atob('QlBC')}-Fragment`, 'Fragment Subscription')}
+                            ${subURL('fragsub', '', `${atob('QlBC')}-Fragment`)}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-wrap: nowrap;">
-                            ${supportedApps(["Hiddify"])}
+                            ${supportedApps(['Hiddify'])}
                         </td>
                         <td>
-                            ${subQR("fragsub", "hiddify", `${atob("QlBC")}-Fragment`, "Fragment Subscription")}
-                            ${subURL("fragsub", "hiddify", `${atob("QlBC")}-Fragment`)}
+                            ${subQR('fragsub', 'hiddify', `${atob('QlBC')}-Fragment`, 'Fragment Subscription')}
+                            ${subURL('fragsub', 'hiddify', `${atob('QlBC')}-Fragment`)}
                         </td>
                     </tr>
                 </table>
@@ -6262,29 +5802,29 @@ async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["v2rayNG", "v2rayN", "Streisand"])}
+                            ${supportedApps(['v2rayNG', 'v2rayN', 'Streisand'])}
                         </td>
                         <td>
-                            ${subQR("warpsub", "xray", `${atob("QlBC")}-Warp`, "Warp Subscription")}
-                            ${subURL("warpsub", "xray", `${atob("QlBC")}-Warp`)}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            ${supportedApps(["Hiddify", "sing-box", "v2rayN (sing-box)"])}
-                        </td>
-                        <td>
-                            ${subQR("sub", "singbox", `${atob("QlBC")}-Warp`, "Warp Subscription", true)}
-                            ${subURL("warpsub", "singbox", `${atob("QlBC")}-Warp`)}
+                            ${subQR('warpsub', 'xray', `${atob('QlBC')}-Warp`, 'Warp Subscription')}
+                            ${subURL('warpsub', 'xray', `${atob('QlBC')}-Warp`)}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["Clash Meta", "Clash Verge", "FlClash", "Stash", "v2rayN (mihomo)"])}
+                            ${supportedApps(['Hiddify', 'sing-box', 'v2rayN (sing-box)'])}
                         </td>
                         <td>
-                            ${subQR("warpsub", "clash", `${atob("QlBC")}-Warp`, "Warp Subscription")}
-                            ${subURL("warpsub", "clash", `${atob("QlBC")}-Warp`)}
+                            ${subQR('sub', 'singbox', `${atob('QlBC')}-Warp`, 'Warp Subscription', true)}
+                            ${subURL('warpsub', 'singbox', `${atob('QlBC')}-Warp`)}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ${supportedApps(['Clash Meta', 'Clash Verge', 'FlClash', 'Stash', 'v2rayN (mihomo)'])}
+                        </td>
+                        <td>
+                            ${subQR('warpsub', 'clash', `${atob('QlBC')}-Warp`, 'Warp Subscription')}
+                            ${subURL('warpsub', 'clash', `${atob('QlBC')}-Warp`)}
                         </td>
                     </tr>
                 </table>
@@ -6298,20 +5838,20 @@ async function renderHomePage(proxySettings, isPassSet) {
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["NikaNG", "MahsaNG", "v2rayN-PRO"])}
+                            ${supportedApps(['NikaNG', 'MahsaNG', 'v2rayN-PRO'])}
                         </td>
                         <td>
-                            ${subQR("warpsub", "nikang", `${atob("QlBC")}-Warp-Pro`, "Warp Pro Subscription")}
-                            ${subURL("warpsub", "nikang", `${atob("QlBC")}-Warp-Pro`)}
+                            ${subQR('warpsub', 'nikang', `${atob('QlBC')}-Warp-Pro`, 'Warp Pro Subscription')}
+                            ${subURL('warpsub', 'nikang', `${atob('QlBC')}-Warp-Pro`)}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${supportedApps(["Hiddify"])}
+                            ${supportedApps(['Hiddify'])}
                         </td>
                         <td>
-                            ${subQR("warpsub", "hiddify", `${atob("QlBC")}-Warp-Pro`, "Warp Pro Subscription", true)}
-                            ${subURL("warpsub", "hiddify", `${atob("QlBC")}-Warp-Pro`)}
+                            ${subQR('warpsub', 'hiddify', `${atob('QlBC')}-Warp-Pro`, 'Warp Pro Subscription', true)}
+                            ${subURL('warpsub', 'hiddify', `${atob('QlBC')}-Warp-Pro`)}
                         </td>
                     </tr>
                 </table>
@@ -6378,7 +5918,7 @@ async function renderHomePage(proxySettings, isPassSet) {
             <hr>
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
-                <a class="link" href="${atob("aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hlL0JQQi1Xb3JrZXItUGFuZWw=")}" style="color: var(--color); text-decoration: underline;" target="_blank">Github</a>
+                <a class="link" href="${atob('aHR0cHM6Ly9naXRodWIuY29tL2JpYS1wYWluLWJhY2hlL0JQQi1Xb3JrZXItUGFuZWw=')}" style="color: var(--color); text-decoration: underline;" target="_blank">Github</a>
                 <button id="openModalBtn" class="button">Change Password</button>
                 <button type="button" id="logout" style="background: none; color: var(--color); margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
@@ -6396,7 +5936,7 @@ async function renderHomePage(proxySettings, isPassSet) {
     <script>
         const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
         let activePortsNo = ${ports.length};
-        let activeHttpsPortsNo = ${ports.filter((port) => globalThis.defaultHttpsPorts.includes(port)).length};
+        let activeHttpsPortsNo = ${ports.filter(port => globalThis.defaultHttpsPorts.includes(port)).length};
         let activeProtocols = ${activeProtocols};
         const warpPlusLicense = '${warpPlusLicense}';
         localStorage.getItem('darkMode') === 'enabled' && document.body.classList.add('dark-mode');
@@ -6684,7 +6224,7 @@ async function renderHomePage(proxySettings, isPassSet) {
             const customBypassRules = document.getElementById('customBypassRules').value?.split(',');                    
             const customBlockRules = document.getElementById('customBlockRules').value?.split(',');                    
             const formData = new FormData(configForm);
-            const is${atob("Vmxlc3M=")} = /${atob("dmxlc3M=")}:\\/\\/[^s@]+@[^\\s:]+:[^\\s]+/.test(chainProxy);
+            const is${atob('Vmxlc3M=')} = /${atob('dmxlc3M=')}:\\/\\/[^s@]+@[^\\s:]+:[^\\s]+/.test(chainProxy);
             const isSocksHttp = /^(http|socks):\\/\\/(?:([^:@]+):([^:@]+)@)?([^:@]+):(\\d+)$/.test(chainProxy);
             const hasSecurity = /security=/.test(chainProxy);
             const securityRegex = /security=(tls|none|reality)/;
@@ -6692,7 +6232,7 @@ async function renderHomePage(proxySettings, isPassSet) {
             let match = chainProxy.match(securityRegex);
             const securityType = match ? match[1] : null;
             match = chainProxy.match(/:(\\d+)\\?/);
-            const ${atob("dmxlc3M=")}Port = match ? match[1] : null;
+            const ${atob('dmxlc3M=')}Port = match ? match[1] : null;
             const validTransmission = /type=(tcp|grpc|ws)/.test(chainProxy);
             const validIPDomain = /^((?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,})|(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)(?:\\/(?:\\d|[12]\\d|3[0-2]))?|\\[(?:(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,7}:|(?:[a-fA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}|(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}|(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}|(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}|[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6}|:(?::[a-fA-F0-9]{1,4}){1,7})\\](?:\\/(?:12[0-8]|1[0-1]\\d|[0-9]?\\d))?)$/i;
             const validEndpoint = /^(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|\\[(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}\\]|\\[(?:[a-fA-F0-9]{1,4}:){1,7}:\\]|\\[(?:[a-fA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}\\]|\\[(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}\\]|\\[(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}\\]|\\[(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}\\]|\\[(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}\\]|\\[[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6}\\]|\\[:(?::[a-fA-F0-9]{1,4}){1,7}\\]|\\[::(?::[a-fA-F0-9]{1,4}){0,7}\\]):(?:[0-9]{1,5})$/;
@@ -6731,13 +6271,13 @@ async function renderHomePage(proxySettings, isPassSet) {
                 return false;
             }
 
-            if (!(is${atob("Vmxlc3M=")} && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && !isSocksHttp && chainProxy) {
-                alert('\u26D4 Invalid Config! \u{1FAE4} \\n - The chain proxy should be ${atob("VkxFU1M=")}, Socks or Http!\\n - ${atob("VkxFU1M=")} transmission should be GRPC,WS or TCP\\n - ${atob("VkxFU1M=")} security should be TLS,Reality or None\\n - socks or http should be like:\\n + (socks or http)://user:pass@host:port\\n + (socks or http)://host:port');               
+            if (!(is${atob('Vmxlc3M=')} && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && !isSocksHttp && chainProxy) {
+                alert('\u26D4 Invalid Config! \u{1FAE4} \\n - The chain proxy should be ${atob('VkxFU1M=')}, Socks or Http!\\n - ${atob('VkxFU1M=')} transmission should be GRPC,WS or TCP\\n - ${atob('VkxFU1M=')} security should be TLS,Reality or None\\n - socks or http should be like:\\n + (socks or http)://user:pass@host:port\\n + (socks or http)://host:port');               
                 return false;
             }
 
-            if (is${atob("Vmxlc3M=")} && securityType === 'tls' && ${atob("dmxlc3M=")}Port !== '443') {
-                alert('\u26D4 ${atob("VkxFU1M=")} TLS port can be only 443 to be used as a proxy chain! \u{1FAE4}');               
+            if (is${atob('Vmxlc3M=')} && securityType === 'tls' && ${atob('dmxlc3M=')}Port !== '443') {
+                alert('\u26D4 ${atob('VkxFU1M=')} TLS port can be only 443 to be used as a proxy chain! \u{1FAE4}');               
                 return false;
             }
 
@@ -6853,169 +6393,139 @@ async function renderHomePage(proxySettings, isPassSet) {
   return new Response(homePage, {
     status: 200,
     headers: {
-      "Content-Type": "text/html;charset=utf-8",
-      "Access-Control-Allow-Origin": globalThis.urlOrigin,
-      "Access-Control-Allow-Methods": "GET, POST",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      "X-Content-Type-Options": "nosniff",
-      "X-Frame-Options": "DENY",
-      "Referrer-Policy": "strict-origin-when-cross-origin",
-      "Cache-Control":
-        "no-store, no-cache, must-revalidate, proxy-revalidate, no-transform",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/html;charset=utf-8',
+      'Access-Control-Allow-Origin': globalThis.urlOrigin,
+      'Access-Control-Allow-Methods': 'GET, POST',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, no-transform',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(renderHomePage, "renderHomePage");
+__name(renderHomePage, 'renderHomePage');
 
 // src/helpers/helpers.js
 function isValidUUID(uuid) {
-  const uuidRegex =
-    /^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   return uuidRegex.test(uuid);
 }
-__name(isValidUUID, "isValidUUID");
+__name(isValidUUID, 'isValidUUID');
 async function resolveDNS(domain) {
-  const dohURL = "https://cloudflare-dns.com/dns-query";
+  const dohURL = 'https://cloudflare-dns.com/dns-query';
   const dohURLv4 = `${dohURL}?name=${encodeURIComponent(domain)}&type=A`;
   const dohURLv6 = `${dohURL}?name=${encodeURIComponent(domain)}&type=AAAA`;
   try {
     const [ipv4Response, ipv6Response] = await Promise.all([
-      fetch(dohURLv4, { headers: { accept: "application/dns-json" } }),
-      fetch(dohURLv6, { headers: { accept: "application/dns-json" } }),
+      fetch(dohURLv4, { headers: { accept: 'application/dns-json' } }),
+      fetch(dohURLv6, { headers: { accept: 'application/dns-json' } }),
     ]);
     const ipv4Addresses = await ipv4Response.json();
     const ipv6Addresses = await ipv6Response.json();
-    const ipv4 = ipv4Addresses.Answer
-      ? ipv4Addresses.Answer.map((record) => record.data)
-      : [];
-    const ipv6 = ipv6Addresses.Answer
-      ? ipv6Addresses.Answer.map((record) => record.data)
-      : [];
+    const ipv4 = ipv4Addresses.Answer ? ipv4Addresses.Answer.map(record => record.data) : [];
+    const ipv6 = ipv6Addresses.Answer ? ipv6Addresses.Answer.map(record => record.data) : [];
     return { ipv4, ipv6 };
   } catch (error) {
-    console.error("Error resolving DNS:", error);
+    console.error('Error resolving DNS:', error);
     throw new Error(`An error occurred while resolving DNS - ${error}`);
   }
 }
-__name(resolveDNS, "resolveDNS");
+__name(resolveDNS, 'resolveDNS');
 function isDomain(address) {
   const domainPattern = /^(?!\-)(?:[A-Za-z0-9\-]{1,63}\.)+[A-Za-z]{2,}$/;
   return domainPattern.test(address);
 }
-__name(isDomain, "isDomain");
+__name(isDomain, 'isDomain');
 async function handlePanel(request, env) {
   const auth = await Authenticate(request, env);
-  if (request.method === "POST") {
-    if (!auth)
-      return new Response("Unauthorized or expired session!", { status: 401 });
+  if (request.method === 'POST') {
+    if (!auth) return new Response('Unauthorized or expired session!', { status: 401 });
     await updateDataset(request, env);
-    return new Response("Success", { status: 200 });
+    return new Response('Success', { status: 200 });
   }
   const { proxySettings } = await getDataset(request, env);
-  const pwd = await env.diana.get("pwd");
-  if (pwd && !auth)
-    return Response.redirect(`${globalThis.urlOrigin}/signin`, 302);
+  const pwd = await env.diana.get('pwd');
+  if (pwd && !auth) return Response.redirect(`${globalThis.urlOrigin}/signin`, 302);
   const isPassSet = pwd?.length >= 8;
   return await renderHomePage(proxySettings, isPassSet);
 }
-__name(handlePanel, "handlePanel");
+__name(handlePanel, 'handlePanel');
 async function fallback(request) {
   const url = new URL(request.url);
   url.hostname = globalThis.fallbackDomain;
-  url.protocol = "https:";
+  url.protocol = 'https:';
   request = new Request(url, request);
   return await fetch(request);
 }
-__name(fallback, "fallback");
+__name(fallback, 'fallback');
 async function getMyIP(request) {
   const ip = await request.text();
   try {
-    const response = await fetch(
-      `http://ip-api.com/json/${ip}?nocache=${Date.now()}`,
-    );
+    const response = await fetch(`http://ip-api.com/json/${ip}?nocache=${Date.now()}`);
     const geoLocation = await response.json();
     return new Response(JSON.stringify(geoLocation), {
       status: 200,
       headers: {
-        "Content-Type": "text/plain;charset=utf-8",
+        'Content-Type': 'text/plain;charset=utf-8',
       },
     });
   } catch (error) {
-    console.error("Error fetching IP address:", error);
+    console.error('Error fetching IP address:', error);
   }
 }
-__name(getMyIP, "getMyIP");
+__name(getMyIP, 'getMyIP');
 
 // src/helpers/init.js
 function initializeParams(request, env) {
-  const proxyIPs = env.PRP?.split(",").map((proxyIP) => proxyIP.trim());
+  const proxyIPs = env.PRP?.split(',').map(proxyIP => proxyIP.trim());
   const url = new URL(request.url);
   const searchParams = new URLSearchParams(url.search);
-  globalThis.panelVersion = "3.0.4";
-  globalThis.defaultHttpPorts = [
-    "80",
-    "8080",
-    "2052",
-    "2082",
-    "2086",
-    "2095",
-    "8880",
-  ];
-  globalThis.defaultHttpsPorts = [
-    "443",
-    "8443",
-    "2053",
-    "2083",
-    "2087",
-    "2096",
-  ];
+  globalThis.panelVersion = '3.0.4';
+  globalThis.defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
+  globalThis.defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
   globalThis.userID = env.DIID;
   globalThis.TRPassword = env.DEvil;
   globalThis.proxyIP = proxyIPs
     ? proxyIPs[Math.floor(Math.random() * proxyIPs.length)]
-    : atob("YnBiLnlvdXNlZi5pc2VnYXJvLmNvbQ==");
-  globalThis.hostName = request.headers.get("Host");
+    : atob('YnBiLnlvdXNlZi5pc2VnYXJvLmNvbQ==');
+  globalThis.hostName = request.headers.get('Host');
   globalThis.pathName = url.pathname;
-  globalThis.client = searchParams.get("app");
+  globalThis.client = searchParams.get('app');
   globalThis.urlOrigin = url.origin;
-  globalThis.dohURL = env.DOH_URL || "https://cloudflare-dns.com/dns-query";
-  globalThis.fallbackDomain = env.FALLBACK || "speed.cloudflare.com";
+  globalThis.dohURL = env.DOH_URL || 'https://cloudflare-dns.com/dns-query';
+  globalThis.fallbackDomain = env.FALLBACK || 'speed.cloudflare.com';
   globalThis.subPath = env.SUB_PATH || userID;
-  if (pathName !== "/autogen") {
+  if (pathName !== '/autogen') {
     if (!userID || !globalThis.TRPassword)
       throw new Error(
-        `Please set UUID and ${atob("VHJvamFu")} password first. Please visit <a href="https://${hostName}/autogen" target="_blank">here</a> to generate them.`,
-        { cause: "init" },
+        `Please set UUID and ${atob('VHJvamFu')} password first. Please visit <a href="https://${hostName}/autogen" target="_blank">here</a> to generate them.`,
+        { cause: 'init' },
       );
     if (userID && !isValidUUID(userID))
-      throw new Error(`Invalid UUID: ${userID}`, { cause: "init" });
-    if (typeof env.diana !== "object")
-      throw new Error(
-        "KV Dataset is not properly set! Please refer to tutorials.",
-        { cause: "init" },
-      );
+      throw new Error(`Invalid UUID: ${userID}`, { cause: 'init' });
+    if (typeof env.diana !== 'object')
+      throw new Error('KV Dataset is not properly set! Please refer to tutorials.', {
+        cause: 'init',
+      });
   }
 }
-__name(initializeParams, "initializeParams");
+__name(initializeParams, 'initializeParams');
 
 // src/protocols/vless.js
-import { connect } from "cloudflare:sockets";
+import { connect } from 'cloudflare:sockets';
 async function vlOverDiHandler(request) {
   const webSocketPair = new WebSocketPair();
   const [client, webSocket] = Object.values(webSocketPair);
   webSocket.accept();
-  let address = "";
-  let portWithRandomLog = "";
+  let address = '';
+  let portWithRandomLog = '';
   const log = /* @__PURE__ */ __name((info, event) => {
-    console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
-  }, "log");
-  const earlyDataHeader = request.headers.get("sec-websocket-protocol") || "";
-  const readableWebSocketStream = makeReadableDianaStream(
-    webSocket,
-    earlyDataHeader,
-    log,
-  );
+    console.log(`[${address}:${portWithRandomLog}] ${info}`, event || '');
+  }, 'log');
+  const earlyDataHeader = request.headers.get('sec-websocket-protocol') || '';
+  const readableWebSocketStream = makeReadableDianaStream(webSocket, earlyDataHeader, log);
   let remoteSocketWapper = {
     value: null,
   };
@@ -7038,13 +6548,13 @@ async function vlOverDiHandler(request) {
             hasError,
             message: message2,
             portRemote = 443,
-            addressRemote = "",
+            addressRemote = '',
             rawDataIndex,
             VLVersion = new Uint8Array([0, 0]),
             isUDP,
           } = await processVlHeader(chunk, globalThis.userID);
           address = addressRemote;
-          portWithRandomLog = `${portRemote}--${Math.random()} ${isUDP ? "udp " : "tcp "} `;
+          portWithRandomLog = `${portRemote}--${Math.random()} ${isUDP ? 'udp ' : 'tcp '} `;
           if (hasError) {
             throw new Error(message2);
             return;
@@ -7053,18 +6563,14 @@ async function vlOverDiHandler(request) {
             if (portRemote === 53) {
               isDns = true;
             } else {
-              throw new Error("UDP proxy only enable for DNS which is port 53");
+              throw new Error('UDP proxy only enable for DNS which is port 53');
               return;
             }
           }
           const VLResponseHeader = new Uint8Array([VLVersion[0], 0]);
           const rawClientData = chunk.slice(rawDataIndex);
           if (isDns) {
-            const { write } = await handleUDPOutBound(
-              webSocket,
-              VLResponseHeader,
-              log,
-            );
+            const { write } = await handleUDPOutBound(webSocket, VLResponseHeader, log);
             udpStreamWrite = write;
             udpStreamWrite(rawClientData);
             return;
@@ -7087,8 +6593,8 @@ async function vlOverDiHandler(request) {
         },
       }),
     )
-    .catch((err) => {
-      log("readableWebSocketStream pipeTo error", err);
+    .catch(err => {
+      log('readableWebSocketStream pipeTo error', err);
     });
   return new Response(null, {
     status: 101,
@@ -7096,23 +6602,21 @@ async function vlOverDiHandler(request) {
     webSocket: client,
   });
 }
-__name(vlOverDiHandler, "vlOverDiHandler");
+__name(vlOverDiHandler, 'vlOverDiHandler');
 async function checkUuidInApiResponse(targetUuid) {
   try {
     const apiResponse = await getApiResponse();
     if (!apiResponse) {
       return false;
     }
-    const isUuidInResponse = apiResponse.users.some(
-      (user) => user.uuid === targetUuid,
-    );
+    const isUuidInResponse = apiResponse.users.some(user => user.uuid === targetUuid);
     return isUuidInResponse;
   } catch (error) {
-    console.error("Error:", error);
+    console.error('Error:', error);
     return false;
   }
 }
-__name(checkUuidInApiResponse, "checkUuidInApiResponse");
+__name(checkUuidInApiResponse, 'checkUuidInApiResponse');
 async function handleTCPOBD(
   remoteSocket,
   addressRemote,
@@ -7128,7 +6632,7 @@ async function handleTCPOBD(
         address,
       )
     )
-      address = `${atob("d3d3Lg==")}${address}${atob("LnNzbGlwLmlv")}`;
+      address = `${atob('d3d3Lg==')}${address}${atob('LnNzbGlwLmlv')}`;
     const tcpSocket2 = connect({
       hostname: address,
       port,
@@ -7140,48 +6644,48 @@ async function handleTCPOBD(
     writer.releaseLock();
     return tcpSocket2;
   }
-  __name(connectAndWrite, "connectAndWrite");
+  __name(connectAndWrite, 'connectAndWrite');
   async function retry() {
-    const panelProxyIP = globalThis.pathName.split("/")[2];
-    const panelProxyIPs = panelProxyIP ? atob(panelProxyIP).split(",") : void 0;
+    const panelProxyIP = globalThis.pathName.split('/')[2];
+    const panelProxyIPs = panelProxyIP ? atob(panelProxyIP).split(',') : void 0;
     const finalProxyIP = panelProxyIPs
       ? panelProxyIPs[Math.floor(Math.random() * panelProxyIPs.length)]
       : globalThis.proxyIP || addressRemote;
     const tcpSocket2 = await connectAndWrite(finalProxyIP, portRemote);
     tcpSocket2.closed
-      .catch((error) => {
-        console.log("retry tcpSocket closed error", error);
+      .catch(error => {
+        console.log('retry tcpSocket closed error', error);
       })
       .finally(() => {
         safeCloseWebSocket(webSocket);
       });
     vlRemoteSToDi(tcpSocket2, webSocket, VLResponseHeader, null, log);
   }
-  __name(retry, "retry");
+  __name(retry, 'retry');
   const tcpSocket = await connectAndWrite(addressRemote, portRemote);
   vlRemoteSToDi(tcpSocket, webSocket, VLResponseHeader, retry, log);
 }
-__name(handleTCPOBD, "handleTCPOBD");
+__name(handleTCPOBD, 'handleTCPOBD');
 function makeReadableDianaStream(webSocketServer, earlyDataHeader, log) {
   let readableStreamCancel = false;
   const stream = new ReadableStream({
     start(controller) {
-      webSocketServer.addEventListener("message", (event) => {
+      webSocketServer.addEventListener('message', event => {
         if (readableStreamCancel) {
           return;
         }
         const message2 = event.data;
         controller.enqueue(message2);
       });
-      webSocketServer.addEventListener("close", () => {
+      webSocketServer.addEventListener('close', () => {
         safeCloseWebSocket(webSocketServer);
         if (readableStreamCancel) {
           return;
         }
         controller.close();
       });
-      webSocketServer.addEventListener("error", (err) => {
-        log("webSocketServer has error");
+      webSocketServer.addEventListener('error', err => {
+        log('webSocketServer has error');
         controller.error(err);
       });
       const { earlyData, error } = base64ToArrayBuffer(earlyDataHeader);
@@ -7203,12 +6707,12 @@ function makeReadableDianaStream(webSocketServer, earlyDataHeader, log) {
   });
   return stream;
 }
-__name(makeReadableDianaStream, "makeReadableDianaStream");
+__name(makeReadableDianaStream, 'makeReadableDianaStream');
 async function processVlHeader(VLBuffer, userID2) {
   if (VLBuffer.byteLength < 24) {
     return {
       hasError: true,
-      message: "invalid data",
+      message: 'invalid data',
     };
   }
   const version = new Uint8Array(VLBuffer.slice(0, 1));
@@ -7216,24 +6720,20 @@ async function processVlHeader(VLBuffer, userID2) {
   let isUDP = false;
   const slicedBuffer = new Uint8Array(VLBuffer.slice(1, 17));
   const slicedBufferString = stringify(slicedBuffer);
-  const uuids = userID2.includes(",") ? userID2.split(",") : [userID2];
+  const uuids = userID2.includes(',') ? userID2.split(',') : [userID2];
   const checkUuidInApi = await checkUuidInApiResponse(slicedBufferString);
-  isValidUser = uuids.some(
-    (userUuid) => checkUuidInApi || slicedBufferString === userUuid.trim(),
-  );
+  isValidUser = uuids.some(userUuid => checkUuidInApi || slicedBufferString === userUuid.trim());
   console.log(
     `checkUuidInApi: ${await checkUuidInApiResponse(slicedBufferString)}, userID: ${slicedBufferString}`,
   );
   if (!isValidUser) {
     return {
       hasError: true,
-      message: "invalid user",
+      message: 'invalid user',
     };
   }
   const optLength = new Uint8Array(VLBuffer.slice(17, 18))[0];
-  const command = new Uint8Array(
-    VLBuffer.slice(18 + optLength, 18 + optLength + 1),
-  )[0];
+  const command = new Uint8Array(VLBuffer.slice(18 + optLength, 18 + optLength + 1))[0];
   if (command === 1) {
   } else if (command === 2) {
     isUDP = true;
@@ -7247,24 +6747,20 @@ async function processVlHeader(VLBuffer, userID2) {
   const portBuffer = VLBuffer.slice(portIndex, portIndex + 2);
   const portRemote = new DataView(portBuffer).getUint16(0);
   let addressIndex = portIndex + 2;
-  const addressBuffer = new Uint8Array(
-    VLBuffer.slice(addressIndex, addressIndex + 1),
-  );
+  const addressBuffer = new Uint8Array(VLBuffer.slice(addressIndex, addressIndex + 1));
   const addressType = addressBuffer[0];
   let addressLength = 0;
   let addressValueIndex = addressIndex + 1;
-  let addressValue = "";
+  let addressValue = '';
   switch (addressType) {
     case 1:
       addressLength = 4;
       addressValue = new Uint8Array(
         VLBuffer.slice(addressValueIndex, addressValueIndex + addressLength),
-      ).join(".");
+      ).join('.');
       break;
     case 2:
-      addressLength = new Uint8Array(
-        VLBuffer.slice(addressValueIndex, addressValueIndex + 1),
-      )[0];
+      addressLength = new Uint8Array(VLBuffer.slice(addressValueIndex, addressValueIndex + 1))[0];
       addressValueIndex += 1;
       addressValue = new TextDecoder().decode(
         VLBuffer.slice(addressValueIndex, addressValueIndex + addressLength),
@@ -7279,7 +6775,7 @@ async function processVlHeader(VLBuffer, userID2) {
       for (let i = 0; i < 8; i++) {
         ipv6.push(dataView.getUint16(i * 2).toString(16));
       }
-      addressValue = ipv6.join(":");
+      addressValue = ipv6.join(':');
       break;
     default:
       return {
@@ -7303,14 +6799,8 @@ async function processVlHeader(VLBuffer, userID2) {
     isUDP,
   };
 }
-__name(processVlHeader, "processVlHeader");
-async function vlRemoteSToDi(
-  remoteSocket,
-  webSocket,
-  VLResponseHeader,
-  retry,
-  log,
-) {
+__name(processVlHeader, 'processVlHeader');
+async function vlRemoteSToDi(remoteSocket, webSocket, VLResponseHeader, retry, log) {
   let remoteChunkCount = 0;
   let chunks = [];
   let VLHeader = VLResponseHeader;
@@ -7327,7 +6817,7 @@ async function vlRemoteSToDi(
         async write(chunk, controller) {
           hasIncomingData = true;
           if (webSocket.readyState !== WS_READY_STATE_OPEN) {
-            controller.error("webSocket.readyState is not open, maybe close");
+            controller.error('webSocket.readyState is not open, maybe close');
           }
           if (VLHeader) {
             webSocket.send(await new Blob([VLHeader, chunk]).arrayBuffer());
@@ -7337,20 +6827,15 @@ async function vlRemoteSToDi(
           }
         },
         close() {
-          log(
-            `remoteConnection!.readable is close with hasIncomingData is ${hasIncomingData}`,
-          );
+          log(`remoteConnection!.readable is close with hasIncomingData is ${hasIncomingData}`);
         },
         abort(reason) {
           console.error(`remoteConnection!.readable abort`, reason);
         },
       }),
     )
-    .catch((error) => {
-      console.error(
-        `${atob("dmxlc3M=")}RemoteSocketToWS has exception `,
-        error.stack || error,
-      );
+    .catch(error => {
+      console.error(`${atob('dmxlc3M=')}RemoteSocketToWS has exception `, error.stack || error);
       safeCloseWebSocket(webSocket);
     });
   if (hasIncomingData === false && retry) {
@@ -7358,36 +6843,33 @@ async function vlRemoteSToDi(
     retry();
   }
 }
-__name(vlRemoteSToDi, "vlRemoteSToDi");
+__name(vlRemoteSToDi, 'vlRemoteSToDi');
 function base64ToArrayBuffer(base64Str) {
   if (!base64Str) {
     return { earlyData: null, error: null };
   }
   try {
-    base64Str = base64Str.replace(/-/g, "+").replace(/_/g, "/");
+    base64Str = base64Str.replace(/-/g, '+').replace(/_/g, '/');
     const decode2 = atob(base64Str);
-    const arryBuffer = Uint8Array.from(decode2, (c) => c.charCodeAt(0));
+    const arryBuffer = Uint8Array.from(decode2, c => c.charCodeAt(0));
     return { earlyData: arryBuffer.buffer, error: null };
   } catch (error) {
     return { earlyData: null, error };
   }
 }
-__name(base64ToArrayBuffer, "base64ToArrayBuffer");
+__name(base64ToArrayBuffer, 'base64ToArrayBuffer');
 var WS_READY_STATE_OPEN = 1;
 var WS_READY_STATE_CLOSING = 2;
 function safeCloseWebSocket(socket) {
   try {
-    if (
-      socket.readyState === WS_READY_STATE_OPEN ||
-      socket.readyState === WS_READY_STATE_CLOSING
-    ) {
+    if (socket.readyState === WS_READY_STATE_OPEN || socket.readyState === WS_READY_STATE_CLOSING) {
       socket.close();
     }
   } catch (error) {
-    console.error("safeCloseWebSocket error", error);
+    console.error('safeCloseWebSocket error', error);
   }
 }
-__name(safeCloseWebSocket, "safeCloseWebSocket");
+__name(safeCloseWebSocket, 'safeCloseWebSocket');
 var byteToHex = [];
 for (let i = 0; i < 256; ++i) {
   byteToHex.push((i + 256).toString(16).slice(1));
@@ -7398,16 +6880,16 @@ function unsafeStringify(arr, offset = 0) {
     byteToHex[arr[offset + 1]] +
     byteToHex[arr[offset + 2]] +
     byteToHex[arr[offset + 3]] +
-    "-" +
+    '-' +
     byteToHex[arr[offset + 4]] +
     byteToHex[arr[offset + 5]] +
-    "-" +
+    '-' +
     byteToHex[arr[offset + 6]] +
     byteToHex[arr[offset + 7]] +
-    "-" +
+    '-' +
     byteToHex[arr[offset + 8]] +
     byteToHex[arr[offset + 9]] +
-    "-" +
+    '-' +
     byteToHex[arr[offset + 10]] +
     byteToHex[arr[offset + 11]] +
     byteToHex[arr[offset + 12]] +
@@ -7416,15 +6898,15 @@ function unsafeStringify(arr, offset = 0) {
     byteToHex[arr[offset + 15]]
   ).toLowerCase();
 }
-__name(unsafeStringify, "unsafeStringify");
+__name(unsafeStringify, 'unsafeStringify');
 function stringify(arr, offset = 0) {
   const uuid = unsafeStringify(arr, offset);
   if (!isValidUUID(uuid)) {
-    throw TypeError("Stringified UUID is invalid");
+    throw TypeError('Stringified UUID is invalid');
   }
   return uuid;
 }
-__name(stringify, "stringify");
+__name(stringify, 'stringify');
 async function handleUDPOutBound(webSocket, VLResponseHeader, log) {
   let isVLHeaderSent = false;
   const transformStream = new TransformStream({
@@ -7433,9 +6915,7 @@ async function handleUDPOutBound(webSocket, VLResponseHeader, log) {
       for (let index = 0; index < chunk.byteLength; ) {
         const lengthBuffer = chunk.slice(index, index + 2);
         const udpPakcetLength = new DataView(lengthBuffer).getUint16(0);
-        const udpData = new Uint8Array(
-          chunk.slice(index + 2, index + 2 + udpPakcetLength),
-        );
+        const udpData = new Uint8Array(chunk.slice(index + 2, index + 2 + udpPakcetLength));
         index = index + 2 + udpPakcetLength;
         controller.enqueue(udpData);
       }
@@ -7450,32 +6930,23 @@ async function handleUDPOutBound(webSocket, VLResponseHeader, log) {
             globalThis.dohURL,
             // dns server url
             {
-              method: "POST",
+              method: 'POST',
               headers: {
-                "content-type": "application/dns-message",
+                'content-type': 'application/dns-message',
               },
               body: chunk,
             },
           );
           const dnsQueryResult = await resp.arrayBuffer();
           const udpSize = dnsQueryResult.byteLength;
-          const udpSizeBuffer = new Uint8Array([
-            (udpSize >> 8) & 255,
-            udpSize & 255,
-          ]);
+          const udpSizeBuffer = new Uint8Array([(udpSize >> 8) & 255, udpSize & 255]);
           if (webSocket.readyState === WS_READY_STATE_OPEN) {
             log(`doh success and dns message length is ${udpSize}`);
             if (isVLHeaderSent) {
-              webSocket.send(
-                await new Blob([udpSizeBuffer, dnsQueryResult]).arrayBuffer(),
-              );
+              webSocket.send(await new Blob([udpSizeBuffer, dnsQueryResult]).arrayBuffer());
             } else {
               webSocket.send(
-                await new Blob([
-                  VLResponseHeader,
-                  udpSizeBuffer,
-                  dnsQueryResult,
-                ]).arrayBuffer(),
+                await new Blob([VLResponseHeader, udpSizeBuffer, dnsQueryResult]).arrayBuffer(),
               );
               isVLHeaderSent = true;
             }
@@ -7483,8 +6954,8 @@ async function handleUDPOutBound(webSocket, VLResponseHeader, log) {
         },
       }),
     )
-    .catch((error) => {
-      log("dns udp has error" + error);
+    .catch(error => {
+      log('dns udp has error' + error);
     });
   const writer = transformStream.writable.getWriter();
   return {
@@ -7497,26 +6968,22 @@ async function handleUDPOutBound(webSocket, VLResponseHeader, log) {
     },
   };
 }
-__name(handleUDPOutBound, "handleUDPOutBound");
+__name(handleUDPOutBound, 'handleUDPOutBound');
 
 // src/protocols/trojan.js
 var import_js_sha256 = __toESM(require_sha256());
-import { connect as connect2 } from "cloudflare:sockets";
+import { connect as connect2 } from 'cloudflare:sockets';
 async function trojanOverDiHandler(request) {
   const webSocketPair = new WebSocketPair();
   const [client, webSocket] = Object.values(webSocketPair);
   webSocket.accept();
-  let address = "";
-  let portWithRandomLog = "";
+  let address = '';
+  let portWithRandomLog = '';
   const log = /* @__PURE__ */ __name((info, event) => {
-    console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
-  }, "log");
-  const earlyDataHeader = request.headers.get("sec-websocket-protocol") || "";
-  const readableWebSocketStream = makeReadableDianaStream2(
-    webSocket,
-    earlyDataHeader,
-    log,
-  );
+    console.log(`[${address}:${portWithRandomLog}] ${info}`, event || '');
+  }, 'log');
+  const earlyDataHeader = request.headers.get('sec-websocket-protocol') || '';
+  const readableWebSocketStream = makeReadableDianaStream2(webSocket, earlyDataHeader, log);
   let remoteSocketWapper = {
     value: null,
   };
@@ -7538,7 +7005,7 @@ async function trojanOverDiHandler(request) {
             hasError,
             message: message2,
             portRemote = 443,
-            addressRemote = "",
+            addressRemote = '',
             rawClientData,
           } = await parseTrojanHeader(chunk);
           address = addressRemote;
@@ -7564,8 +7031,8 @@ async function trojanOverDiHandler(request) {
         },
       }),
     )
-    .catch((err) => {
-      log("readableWebSocketStream pipeTo error", err);
+    .catch(err => {
+      log('readableWebSocketStream pipeTo error', err);
     });
   return new Response(null, {
     status: 101,
@@ -7573,12 +7040,12 @@ async function trojanOverDiHandler(request) {
     webSocket: client,
   });
 }
-__name(trojanOverDiHandler, "trojanOverDiHandler");
+__name(trojanOverDiHandler, 'trojanOverDiHandler');
 async function parseTrojanHeader(buffer) {
   if (buffer.byteLength < 56) {
     return {
       hasError: true,
-      message: "invalid data",
+      message: 'invalid data',
     };
   }
   let crLfIndex = 56;
@@ -7588,21 +7055,21 @@ async function parseTrojanHeader(buffer) {
   ) {
     return {
       hasError: true,
-      message: "invalid header format (missing CR LF)",
+      message: 'invalid header format (missing CR LF)',
     };
   }
   const password = new TextDecoder().decode(buffer.slice(0, crLfIndex));
   if (password !== import_js_sha256.default.sha224(globalThis.TRPassword)) {
     return {
       hasError: true,
-      message: "invalid password",
+      message: 'invalid password',
     };
   }
   const socks5DataBuffer = buffer.slice(crLfIndex + 2);
   if (socks5DataBuffer.byteLength < 6) {
     return {
       hasError: true,
-      message: "invalid SOCKS5 request data",
+      message: 'invalid SOCKS5 request data',
     };
   }
   const view = new DataView(socks5DataBuffer);
@@ -7610,24 +7077,22 @@ async function parseTrojanHeader(buffer) {
   if (cmd !== 1) {
     return {
       hasError: true,
-      message: "unsupported command, only TCP (CONNECT) is allowed",
+      message: 'unsupported command, only TCP (CONNECT) is allowed',
     };
   }
   const atype = view.getUint8(1);
   let addressLength = 0;
   let addressIndex = 2;
-  let address = "";
+  let address = '';
   switch (atype) {
     case 1:
       addressLength = 4;
       address = new Uint8Array(
         socks5DataBuffer.slice(addressIndex, addressIndex + addressLength),
-      ).join(".");
+      ).join('.');
       break;
     case 3:
-      addressLength = new Uint8Array(
-        socks5DataBuffer.slice(addressIndex, addressIndex + 1),
-      )[0];
+      addressLength = new Uint8Array(socks5DataBuffer.slice(addressIndex, addressIndex + 1))[0];
       addressIndex += 1;
       address = new TextDecoder().decode(
         socks5DataBuffer.slice(addressIndex, addressIndex + addressLength),
@@ -7642,7 +7107,7 @@ async function parseTrojanHeader(buffer) {
       for (let i = 0; i < 8; i++) {
         ipv6.push(dataView.getUint16(i * 2).toString(16));
       }
-      address = ipv6.join(":");
+      address = ipv6.join(':');
       break;
     default:
       return {
@@ -7666,7 +7131,7 @@ async function parseTrojanHeader(buffer) {
     rawClientData: socks5DataBuffer.slice(portIndex + 4),
   };
 }
-__name(parseTrojanHeader, "parseTrojanHeader");
+__name(parseTrojanHeader, 'parseTrojanHeader');
 async function handleTCPOBD2(
   remoteSocket,
   addressRemote,
@@ -7681,7 +7146,7 @@ async function handleTCPOBD2(
         address,
       )
     )
-      address = `${atob("d3d3Lg==")}${address}${atob("LnNzbGlwLmlv")}`;
+      address = `${atob('d3d3Lg==')}${address}${atob('LnNzbGlwLmlv')}`;
     const tcpSocket2 = connect2({
       hostname: address,
       port,
@@ -7693,48 +7158,48 @@ async function handleTCPOBD2(
     writer.releaseLock();
     return tcpSocket2;
   }
-  __name(connectAndWrite, "connectAndWrite");
+  __name(connectAndWrite, 'connectAndWrite');
   async function retry() {
-    const panelProxyIP = globalThis.pathName.split("/")[2];
-    const panelProxyIPs = panelProxyIP ? atob(panelProxyIP).split(",") : void 0;
+    const panelProxyIP = globalThis.pathName.split('/')[2];
+    const panelProxyIPs = panelProxyIP ? atob(panelProxyIP).split(',') : void 0;
     const finalProxyIP = panelProxyIPs
       ? panelProxyIPs[Math.floor(Math.random() * panelProxyIPs.length)]
       : globalThis.proxyIP || addressRemote;
     const tcpSocket2 = await connectAndWrite(finalProxyIP, portRemote);
     tcpSocket2.closed
-      .catch((error) => {
-        console.log("retry tcpSocket closed error", error);
+      .catch(error => {
+        console.log('retry tcpSocket closed error', error);
       })
       .finally(() => {
         safeCloseWebSocket2(webSocket);
       });
     trRemoteSToDi(tcpSocket2, webSocket, null, log);
   }
-  __name(retry, "retry");
+  __name(retry, 'retry');
   const tcpSocket = await connectAndWrite(addressRemote, portRemote);
   trRemoteSToDi(tcpSocket, webSocket, retry, log);
 }
-__name(handleTCPOBD2, "handleTCPOBD");
+__name(handleTCPOBD2, 'handleTCPOBD');
 function makeReadableDianaStream2(webSocketServer, earlyDataHeader, log) {
   let readableStreamCancel = false;
   const stream = new ReadableStream({
     start(controller) {
-      webSocketServer.addEventListener("message", (event) => {
+      webSocketServer.addEventListener('message', event => {
         if (readableStreamCancel) {
           return;
         }
         const message2 = event.data;
         controller.enqueue(message2);
       });
-      webSocketServer.addEventListener("close", () => {
+      webSocketServer.addEventListener('close', () => {
         safeCloseWebSocket2(webSocketServer);
         if (readableStreamCancel) {
           return;
         }
         controller.close();
       });
-      webSocketServer.addEventListener("error", (err) => {
-        log("webSocketServer has error");
+      webSocketServer.addEventListener('error', err => {
+        log('webSocketServer has error');
         controller.error(err);
       });
       const { earlyData, error } = base64ToArrayBuffer2(earlyDataHeader);
@@ -7756,7 +7221,7 @@ function makeReadableDianaStream2(webSocketServer, earlyDataHeader, log) {
   });
   return stream;
 }
-__name(makeReadableDianaStream2, "makeReadableDianaStream");
+__name(makeReadableDianaStream2, 'makeReadableDianaStream');
 async function trRemoteSToDi(remoteSocket, webSocket, retry, log) {
   let hasIncomingData = false;
   await remoteSocket.readable
@@ -7771,25 +7236,20 @@ async function trRemoteSToDi(remoteSocket, webSocket, retry, log) {
         async write(chunk, controller) {
           hasIncomingData = true;
           if (webSocket.readyState !== WS_READY_STATE_OPEN2) {
-            controller.error("webSocket connection is not open");
+            controller.error('webSocket connection is not open');
           }
           webSocket.send(chunk);
         },
         close() {
-          log(
-            `remoteSocket.readable is closed, hasIncomingData: ${hasIncomingData}`,
-          );
+          log(`remoteSocket.readable is closed, hasIncomingData: ${hasIncomingData}`);
         },
         abort(reason) {
-          console.error("remoteSocket.readable abort", reason);
+          console.error('remoteSocket.readable abort', reason);
         },
       }),
     )
-    .catch((error) => {
-      console.error(
-        `${atob("dHJvamFu")}RemoteSocketToWS error:`,
-        error.stack || error,
-      );
+    .catch(error => {
+      console.error(`${atob('dHJvamFu')}RemoteSocketToWS error:`, error.stack || error);
       safeCloseWebSocket2(webSocket);
     });
   if (hasIncomingData === false && retry) {
@@ -7797,21 +7257,21 @@ async function trRemoteSToDi(remoteSocket, webSocket, retry, log) {
     retry();
   }
 }
-__name(trRemoteSToDi, "trRemoteSToDi");
+__name(trRemoteSToDi, 'trRemoteSToDi');
 function base64ToArrayBuffer2(base64Str) {
   if (!base64Str) {
     return { earlyData: null, error: null };
   }
   try {
-    base64Str = base64Str.replace(/-/g, "+").replace(/_/g, "/");
+    base64Str = base64Str.replace(/-/g, '+').replace(/_/g, '/');
     const decode2 = atob(base64Str);
-    const arryBuffer = Uint8Array.from(decode2, (c) => c.charCodeAt(0));
+    const arryBuffer = Uint8Array.from(decode2, c => c.charCodeAt(0));
     return { earlyData: arryBuffer.buffer, error: null };
   } catch (error) {
     return { earlyData: null, error };
   }
 }
-__name(base64ToArrayBuffer2, "base64ToArrayBuffer");
+__name(base64ToArrayBuffer2, 'base64ToArrayBuffer');
 var WS_READY_STATE_OPEN2 = 1;
 var WS_READY_STATE_CLOSING2 = 2;
 function safeCloseWebSocket2(socket) {
@@ -7823,10 +7283,10 @@ function safeCloseWebSocket2(socket) {
       socket.close();
     }
   } catch (error) {
-    console.error("safeCloseWebSocket error", error);
+    console.error('safeCloseWebSocket error', error);
   }
 }
-__name(safeCloseWebSocket2, "safeCloseWebSocket");
+__name(safeCloseWebSocket2, 'safeCloseWebSocket');
 
 // src/pages/error.js
 async function renderErrorPage(error) {
@@ -7836,7 +7296,7 @@ async function renderErrorPage(error) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${atob("QlBC")} Error</title>
+        <title>${atob('QlBC')} Error</title>
         <style>
             :root {
                 --color: black;
@@ -7868,10 +7328,10 @@ async function renderErrorPage(error) {
     </head>
     <body>
         <div id="error-container">
-            <h1>${atob("QlBCIFBhbmVsIA==")}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
+            <h1>${atob('QlBCIFBhbmVsIA==')}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
             <div id="error-message">
                 <h2>\u274C Something went wrong!</h2>
-                <p><b>${error ? `\u26A0\uFE0F ${error.cause ? error.message.toString() : error.stack.toString()}` : ""}</b></p>
+                <p><b>${error ? `\u26A0\uFE0F ${error.cause ? error.message.toString() : error.stack.toString()}` : ''}</b></p>
             </div>
         </div>
     <script>
@@ -7881,24 +7341,24 @@ async function renderErrorPage(error) {
     </html>`;
   return new Response(errorPage, {
     status: 200,
-    headers: { "Content-Type": "text/html" },
+    headers: { 'Content-Type': 'text/html' },
   });
 }
-__name(renderErrorPage, "renderErrorPage");
+__name(renderErrorPage, 'renderErrorPage');
 
 // src/cores-configs/helpers.js
 async function getConfigAddresses(cleanIPs, enableIPv6) {
   const resolved = await resolveDNS(globalThis.hostName);
-  const defaultIPv6 = enableIPv6 ? resolved.ipv6.map((ip) => `[${ip}]`) : [];
+  const defaultIPv6 = enableIPv6 ? resolved.ipv6.map(ip => `[${ip}]`) : [];
   return [
     globalThis.hostName,
-    "www.speedtest.net",
+    'www.speedtest.net',
     ...resolved.ipv4,
     ...defaultIPv6,
-    ...(cleanIPs ? cleanIPs.split(",") : []),
+    ...(cleanIPs ? cleanIPs.split(',') : []),
   ];
 }
-__name(getConfigAddresses, "getConfigAddresses");
+__name(getConfigAddresses, 'getConfigAddresses');
 function extractWireguardParams(warpConfigs, isWoW) {
   const index = isWoW ? 1 : 0;
   const warpConfig = warpConfigs[index].account.config;
@@ -7909,78 +7369,71 @@ function extractWireguardParams(warpConfigs, isWoW) {
     privateKey: warpConfigs[index].privateKey,
   };
 }
-__name(extractWireguardParams, "extractWireguardParams");
+__name(extractWireguardParams, 'extractWireguardParams');
 function generateRemark(index, port, address, cleanIPs, protocol, configType) {
   let addressType;
-  const type = configType ? ` ${configType}` : "";
+  const type = configType ? ` ${configType}` : '';
   cleanIPs.includes(address)
-    ? (addressType = "Clean IP")
+    ? (addressType = 'Clean IP')
     : (addressType = isDomain(address)
-        ? "Domain"
+        ? 'Domain'
         : isIPv4(address)
-          ? "IPv4"
+          ? 'IPv4'
           : isIPv6(address)
-            ? "IPv6"
-            : "");
+            ? 'IPv6'
+            : '');
   return `\u{1F4A6} ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
-__name(generateRemark, "generateRemark");
+__name(generateRemark, 'generateRemark');
 function randomUpperCase(str) {
-  let result = "";
+  let result = '';
   for (let i = 0; i < str.length; i++) {
     result += Math.random() < 0.5 ? str[i].toUpperCase() : str[i];
   }
   return result;
 }
-__name(randomUpperCase, "randomUpperCase");
+__name(randomUpperCase, 'randomUpperCase');
 function getRandomPath(length) {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
-__name(getRandomPath, "getRandomPath");
+__name(getRandomPath, 'getRandomPath');
 function base64ToDecimal(base64) {
   const binaryString = atob(base64);
   const hexString = Array.from(binaryString)
-    .map((char) => char.charCodeAt(0).toString(16).padStart(2, "0"))
-    .join("");
-  const decimalArray = hexString.match(/.{2}/g).map((hex) => parseInt(hex, 16));
+    .map(char => char.charCodeAt(0).toString(16).padStart(2, '0'))
+    .join('');
+  const decimalArray = hexString.match(/.{2}/g).map(hex => parseInt(hex, 16));
   return decimalArray;
 }
-__name(base64ToDecimal, "base64ToDecimal");
+__name(base64ToDecimal, 'base64ToDecimal');
 function isIPv4(address) {
   const ipv4Pattern =
     /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?:\/([0-9]|[1-2][0-9]|3[0-2]))?$/;
   return ipv4Pattern.test(address);
 }
-__name(isIPv4, "isIPv4");
+__name(isIPv4, 'isIPv4');
 function isIPv6(address) {
   const ipv6Pattern =
     /^\[(?:(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,7}:|::(?:[a-fA-F0-9]{1,4}:){0,7}|(?:[a-fA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}|(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}|(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}|(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}|[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6})\](?:\/(1[0-1][0-9]|12[0-8]|[0-9]?[0-9]))?$/;
   return ipv6Pattern.test(address);
 }
-__name(isIPv6, "isIPv6");
+__name(isIPv6, 'isIPv6');
 function getDomain(url) {
   const newUrl = new URL(url);
   const host = newUrl.hostname;
   const isHostDomain = isDomain(host);
   return { host, isHostDomain };
 }
-__name(getDomain, "getDomain");
+__name(getDomain, 'getDomain');
 
 // src/cores-configs/xray.js
-async function buildXrayDNS(
-  proxySettings,
-  outboundAddrs,
-  domainToStaticIPs,
-  isWorkerLess,
-  isWarp,
-) {
+async function buildXrayDNS(proxySettings, outboundAddrs, domainToStaticIPs, isWorkerLess, isWarp) {
   const {
     remoteDNS,
     localDNS,
@@ -7997,84 +7450,71 @@ async function buildXrayDNS(
     customBlockRules,
   } = proxySettings;
   const bypassRules = [
-    { rule: bypassIran, domain: "geosite:category-ir", ip: "geoip:ir" },
-    { rule: bypassChina, domain: "geosite:cn", ip: "geoip:cn" },
-    { rule: bypassRussia, domain: "geosite:category-ru", ip: "geoip:ru" },
+    { rule: bypassIran, domain: 'geosite:category-ir', ip: 'geoip:ir' },
+    { rule: bypassChina, domain: 'geosite:cn', ip: 'geoip:cn' },
+    { rule: bypassRussia, domain: 'geosite:category-ru', ip: 'geoip:ru' },
   ];
   const blockRules = [
-    { rule: blockAds, host: "geosite:category-ads-all" },
-    { rule: blockAds, host: "geosite:category-ads-ir" },
-    { rule: blockPorn, host: "geosite:category-porn" },
+    { rule: blockAds, host: 'geosite:category-ads-all' },
+    { rule: blockAds, host: 'geosite:category-ads-ir' },
+    { rule: blockPorn, host: 'geosite:category-porn' },
   ];
   const isFakeDNS = (VLTRFakeDNS && !isWarp) || (warpFakeDNS && isWarp);
   const isIPv62 = (enableIPv6 && !isWarp) || (warpEnableIPv6 && isWarp);
-  const outboundDomains = outboundAddrs.filter((address) => isDomain(address));
+  const outboundDomains = outboundAddrs.filter(address => isDomain(address));
   const customBypassRulesDomains = customBypassRules
-    .split(",")
-    .filter((address) => isDomain(address));
-  const customBlockRulesDomains = customBlockRules
-    .split(",")
-    .filter((address) => isDomain(address));
+    .split(',')
+    .filter(address => isDomain(address));
+  const customBlockRulesDomains = customBlockRules.split(',').filter(address => isDomain(address));
   const uniqueOutboundDomains = [...new Set(outboundDomains)];
-  const isDomainRule =
-    [...uniqueOutboundDomains, ...customBypassRulesDomains].length > 0;
+  const isDomainRule = [...uniqueOutboundDomains, ...customBypassRulesDomains].length > 0;
   const isBypass = bypassIran || bypassChina || bypassRussia;
   const isBlock = blockAds || blockPorn || customBlockRulesDomains.length > 0;
   const finalRemoteDNS = isWorkerLess
-    ? ["https://cloudflare-dns.com/dns-query"]
+    ? ['https://cloudflare-dns.com/dns-query']
     : isWarp
       ? warpEnableIPv6
-        ? ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"]
-        : ["1.1.1.1", "1.0.0.1"]
+        ? ['1.1.1.1', '1.0.0.1', '2606:4700:4700::1111', '2606:4700:4700::1001']
+        : ['1.1.1.1', '1.0.0.1']
       : [remoteDNS];
   const dnsHost = {};
   if (isBlock) {
     blockRules.forEach(({ rule, host }) => {
-      if (rule) dnsHost[host] = ["127.0.0.1"];
+      if (rule) dnsHost[host] = ['127.0.0.1'];
     });
-    customBlockRulesDomains.forEach((domain) => {
-      dnsHost[`domain:${domain}`] = ["127.0.0.1"];
+    customBlockRulesDomains.forEach(domain => {
+      dnsHost[`domain:${domain}`] = ['127.0.0.1'];
     });
   }
-  const staticIPs = domainToStaticIPs
-    ? await resolveDNS(domainToStaticIPs)
-    : void 0;
+  const staticIPs = domainToStaticIPs ? await resolveDNS(domainToStaticIPs) : void 0;
   if (staticIPs)
     dnsHost[domainToStaticIPs] = enableIPv6
       ? [...staticIPs.ipv4, ...staticIPs.ipv6]
       : staticIPs.ipv4;
   if (isWorkerLess) {
-    const domains = [
-      "cloudflare-dns.com",
-      "cloudflare.com",
-      "dash.cloudflare.com",
-    ];
+    const domains = ['cloudflare-dns.com', 'cloudflare.com', 'dash.cloudflare.com'];
     const resolved = await Promise.all(domains.map(resolveDNS));
-    const hostIPv4 = resolved.flatMap((r) => r.ipv4);
-    const hostIPv6 = enableIPv6 ? resolved.flatMap((r) => r.ipv6) : [];
-    dnsHost["cloudflare-dns.com"] = [...hostIPv4, ...hostIPv6];
+    const hostIPv4 = resolved.flatMap(r => r.ipv4);
+    const hostIPv6 = enableIPv6 ? resolved.flatMap(r => r.ipv6) : [];
+    dnsHost['cloudflare-dns.com'] = [...hostIPv4, ...hostIPv6];
   }
   const hosts = Object.keys(dnsHost).length ? { hosts: dnsHost } : {};
   const dnsObject = {
     ...hosts,
     servers: finalRemoteDNS,
-    queryStrategy: isIPv62 ? "UseIP" : "UseIPv4",
-    tag: "dns",
+    queryStrategy: isIPv62 ? 'UseIP' : 'UseIPv4',
+    tag: 'dns',
   };
   const dohHost = getDomain(remoteDNS);
   if (dohHost.isHostDomain && !isWorkerLess && !isWarp)
     dnsObject.servers.push({
-      address: "https://8.8.8.8/dns-query",
+      address: 'https://8.8.8.8/dns-query',
       domains: [`full:${dohHost.host}`],
       skipFallback: true,
     });
   if (isDomainRule) {
-    const outboundDomainRules = uniqueOutboundDomains.map(
-      (domain) => `full:${domain}`,
-    );
-    const bypassDomainRules = customBypassRulesDomains.map(
-      (domain) => `domain:${domain}`,
-    );
+    const outboundDomainRules = uniqueOutboundDomains.map(domain => `full:${domain}`);
+    const bypassDomainRules = customBypassRulesDomains.map(domain => `domain:${domain}`);
     dnsObject.servers.push({
       address: localDNS,
       domains: [...outboundDomainRules, ...bypassDomainRules],
@@ -8099,21 +7539,14 @@ async function buildXrayDNS(
   if (isFakeDNS) {
     const fakeDNSServer =
       isBypass && !isWorkerLess
-        ? { address: "fakedns", domains: localDNSServer.domains }
-        : "fakedns";
+        ? { address: 'fakedns', domains: localDNSServer.domains }
+        : 'fakedns';
     dnsObject.servers.unshift(fakeDNSServer);
   }
   return dnsObject;
 }
-__name(buildXrayDNS, "buildXrayDNS");
-function bldXryRR(
-  proxySettings,
-  outboundAddrs,
-  isChain,
-  isBalancer,
-  isWorkerLess,
-  isWarp,
-) {
+__name(buildXrayDNS, 'buildXrayDNS');
+function bldXryRR(proxySettings, outboundAddrs, isChain, isBalancer, isWorkerLess, isWarp) {
   const {
     remoteDNS,
     localDNS,
@@ -8130,79 +7563,68 @@ function bldXryRR(
   const geoRules = [
     {
       rule: bypassLAN,
-      type: "direct",
-      domain: "geosite:private",
-      ip: "geoip:private",
+      type: 'direct',
+      domain: 'geosite:private',
+      ip: 'geoip:private',
     },
     {
       rule: bypassIran,
-      type: "direct",
-      domain: "geosite:category-ir",
-      ip: "geoip:ir",
+      type: 'direct',
+      domain: 'geosite:category-ir',
+      ip: 'geoip:ir',
     },
-    { rule: bypassChina, type: "direct", domain: "geosite:cn", ip: "geoip:cn" },
-    { rule: blockAds, type: "block", domain: "geosite:category-ads-all" },
-    { rule: blockAds, type: "block", domain: "geosite:category-ads-ir" },
-    { rule: blockPorn, type: "block", domain: "geosite:category-porn" },
+    { rule: bypassChina, type: 'direct', domain: 'geosite:cn', ip: 'geoip:cn' },
+    { rule: blockAds, type: 'block', domain: 'geosite:category-ads-all' },
+    { rule: blockAds, type: 'block', domain: 'geosite:category-ads-ir' },
+    { rule: blockPorn, type: 'block', domain: 'geosite:category-porn' },
   ];
-  const outboundDomains = outboundAddrs.filter((address) => isDomain(address));
-  const customBypassRulesTotal = customBypassRules
-    ? customBypassRules.split(",")
-    : [];
-  const customBlockRulesTotal = customBlockRules
-    ? customBlockRules.split(",")
-    : [];
-  const customBypassRulesDomains = customBypassRulesTotal.filter((address) =>
-    isDomain(address),
-  );
-  const isDomainRule =
-    [...outboundDomains, ...customBypassRulesDomains].length > 0;
+  const outboundDomains = outboundAddrs.filter(address => isDomain(address));
+  const customBypassRulesTotal = customBypassRules ? customBypassRules.split(',') : [];
+  const customBlockRulesTotal = customBlockRules ? customBlockRules.split(',') : [];
+  const customBypassRulesDomains = customBypassRulesTotal.filter(address => isDomain(address));
+  const isDomainRule = [...outboundDomains, ...customBypassRulesDomains].length > 0;
   const isBlock = blockAds || blockPorn || customBlockRulesTotal.length > 0;
-  const isBypass =
-    bypassIran ||
-    bypassChina ||
-    bypassRussia ||
-    customBypassRulesTotal.length > 0;
+  const isBypass = bypassIran || bypassChina || bypassRussia || customBypassRulesTotal.length > 0;
   const rules = [
     {
-      inboundTag: ["dns-in"],
-      outboundTag: "dns-out",
-      type: "field",
+      inboundTag: ['dns-in'],
+      outboundTag: 'dns-out',
+      type: 'field',
     },
     {
-      inboundTag: ["socks-in", "http-in"],
-      port: "53",
-      outboundTag: "dns-out",
-      type: "field",
+      inboundTag: ['socks-in', 'http-in'],
+      port: '53',
+      outboundTag: 'dns-out',
+      type: 'field',
     },
   ];
   if (!isWorkerLess && (isDomainRule || isBypass))
     rules.push({
       ip: [localDNS],
-      port: "53",
-      network: "udp",
-      outboundTag: "direct",
-      type: "field",
+      port: '53',
+      network: 'udp',
+      outboundTag: 'direct',
+      type: 'field',
     });
   if (isBypass || isBlock) {
     const createRule = /* @__PURE__ */ __name(
       (type, outbound) => ({
         [type]: [],
         outboundTag: outbound,
-        type: "field",
+        type: 'field',
       }),
-      "createRule",
+      'createRule',
     );
     let domainDirectRule, ipDirectRule;
     if (!isWorkerLess) {
-      domainDirectRule = createRule("domain", "direct");
-      ipDirectRule = createRule("ip", "direct");
+      domainDirectRule = createRule('domain', 'direct');
+      ipDirectRule = createRule('ip', 'direct');
     }
-    let domainBlockRule = createRule("domain", "block");
-    let ipBlockRule = createRule("ip", "block");
+    let domainBlockRule = createRule('domain', 'block');
+    let ipBlockRule = createRule('ip', 'block');
     geoRules.forEach(({ rule, type, domain, ip }) => {
       if (rule) {
-        if (type === "direct") {
+        if (type === 'direct') {
           domainDirectRule?.domain.push(domain);
           ipDirectRule?.ip?.push(ip);
         } else {
@@ -8210,14 +7632,14 @@ function bldXryRR(
         }
       }
     });
-    customBypassRulesTotal.forEach((address) => {
+    customBypassRulesTotal.forEach(address => {
       if (isDomain(address)) {
         domainDirectRule?.domain.push(`domain:${address}`);
       } else {
         ipDirectRule?.ip.push(address);
       }
     });
-    customBlockRulesTotal.forEach((address) => {
+    customBlockRulesTotal.forEach(address => {
       if (isDomain(address)) {
         domainBlockRule.domain.push(`domain:${address}`);
       } else {
@@ -8233,50 +7655,48 @@ function bldXryRR(
   }
   blockUDP443 &&
     rules.push({
-      network: "udp",
-      port: "443",
-      outboundTag: "block",
-      type: "field",
+      network: 'udp',
+      port: '443',
+      outboundTag: 'block',
+      type: 'field',
     });
   if (isChain) {
     const rule = {
-      [isBalancer ? "balancerTag" : "outboundTag"]: isBalancer
-        ? "all-proxy"
-        : "proxy",
-      type: "field",
+      [isBalancer ? 'balancerTag' : 'outboundTag']: isBalancer ? 'all-proxy' : 'proxy',
+      type: 'field',
     };
     if (!isWarp) {
       const url = new URL(remoteDNS);
       const remoteDNSServer = url.hostname;
       rules.push({
-        [isDomain(remoteDNSServer) ? "domain" : "ip"]: [remoteDNSServer],
-        network: "tcp",
+        [isDomain(remoteDNSServer) ? 'domain' : 'ip']: [remoteDNSServer],
+        network: 'tcp',
         ...rule,
       });
     } else {
       rules.push({
-        network: "udp",
-        port: "53",
+        network: 'udp',
+        port: '53',
         ...rule,
       });
     }
   }
   if (isBalancer) {
     rules.push({
-      network: "tcp,udp",
-      balancerTag: "all",
-      type: "field",
+      network: 'tcp,udp',
+      balancerTag: 'all',
+      type: 'field',
     });
   } else {
     rules.push({
-      network: "tcp,udp",
-      outboundTag: isChain ? "chain" : isWorkerLess ? "fragment" : "proxy",
-      type: "field",
+      network: 'tcp,udp',
+      outboundTag: isChain ? 'chain' : isWorkerLess ? 'fragment' : 'proxy',
+      type: 'field',
     });
   }
   return rules;
 }
-__name(bldXryRR, "bldXryRR");
+__name(bldXryRR, 'bldXryRR');
 function bldXryVLOBD(
   tag2,
   address,
@@ -8289,7 +7709,7 @@ function bldXryVLOBD(
   enableIPv6,
 ) {
   const outbound = {
-    protocol: atob("dmxlc3M="),
+    protocol: atob('dmxlc3M='),
     settings: {
       vnext: [
         {
@@ -8298,7 +7718,7 @@ function bldXryVLOBD(
           users: [
             {
               id: globalThis.userID,
-              encryption: "none",
+              encryption: 'none',
               level: 8,
             },
           ],
@@ -8306,40 +7726,40 @@ function bldXryVLOBD(
       ],
     },
     streamSettings: {
-      network: "ws",
-      security: "none",
+      network: 'ws',
+      security: 'none',
       sockopt: {},
       wsSettings: {
         host,
         headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
         },
-        path: `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}?ed=2560`,
+        path: `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}?ed=2560`,
       },
     },
     tag: tag2,
   };
   if (globalThis.defaultHttpsPorts.includes(port)) {
-    outbound.streamSettings.security = "tls";
+    outbound.streamSettings.security = 'tls';
     outbound.streamSettings.tlsSettings = {
       allowInsecure,
-      fingerprint: "randomized",
-      alpn: ["h2", "http/1.1"],
+      fingerprint: 'randomized',
+      alpn: ['h2', 'http/1.1'],
       serverName: sni,
     };
   }
   const sockopt = outbound.streamSettings.sockopt;
   if (isFragment) {
-    sockopt.dialerProxy = "fragment";
+    sockopt.dialerProxy = 'fragment';
   } else {
     sockopt.tcpKeepAliveIdle = 30;
     sockopt.tcpNoDelay = true;
-    sockopt.domainStrategy = enableIPv6 ? "UseIPv4v6" : "UseIPv4";
+    sockopt.domainStrategy = enableIPv6 ? 'UseIPv4v6' : 'UseIPv4';
   }
   return outbound;
 }
-__name(bldXryVLOBD, "bldXryVLOBD");
+__name(bldXryVLOBD, 'bldXryVLOBD');
 function bldXryTrOBD(
   tag2,
   address,
@@ -8352,7 +7772,7 @@ function bldXryTrOBD(
   enableIPv6,
 ) {
   const outbound = {
-    protocol: atob("dHJvamFu"),
+    protocol: atob('dHJvamFu'),
     settings: {
       servers: [
         {
@@ -8364,38 +7784,38 @@ function bldXryTrOBD(
       ],
     },
     streamSettings: {
-      network: "ws",
-      security: "none",
+      network: 'ws',
+      security: 'none',
       sockopt: {},
       wsSettings: {
         headers: {
           Host: host,
         },
-        path: `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}?ed=2560`,
+        path: `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}?ed=2560`,
       },
     },
     tag: tag2,
   };
   if (globalThis.defaultHttpsPorts.includes(port)) {
-    outbound.streamSettings.security = "tls";
+    outbound.streamSettings.security = 'tls';
     outbound.streamSettings.tlsSettings = {
       allowInsecure,
-      fingerprint: "randomized",
-      alpn: ["h2", "http/1.1"],
+      fingerprint: 'randomized',
+      alpn: ['h2', 'http/1.1'],
       serverName: sni,
     };
   }
   const sockopt = outbound.streamSettings.sockopt;
   if (isFragment) {
-    sockopt.dialerProxy = "fragment";
+    sockopt.dialerProxy = 'fragment';
   } else {
     sockopt.tcpKeepAliveIdle = 30;
     sockopt.tcpNoDelay = true;
-    sockopt.domainStrategy = enableIPv6 ? "UseIPv4v6" : "UseIPv4";
+    sockopt.domainStrategy = enableIPv6 ? 'UseIPv4v6' : 'UseIPv4';
   }
   return outbound;
 }
-__name(bldXryTrOBD, "bldXryTrOBD");
+__name(bldXryTrOBD, 'bldXryTrOBD');
 function bldXryWrpOBD(proxySettings, warpConfigs, endpoint, isChain, client) {
   const {
     warpEnableIPv6,
@@ -8412,9 +7832,9 @@ function bldXryWrpOBD(proxySettings, warpConfigs, endpoint, isChain, client) {
     isChain,
   );
   const outbound = {
-    protocol: "wireguard",
+    protocol: 'wireguard',
     settings: {
-      address: ["172.16.0.2/32", warpIPv6],
+      address: ['172.16.0.2/32', warpIPv6],
       mtu: 1280,
       peers: [
         {
@@ -8428,42 +7848,30 @@ function bldXryWrpOBD(proxySettings, warpConfigs, endpoint, isChain, client) {
     },
     streamSettings: {
       sockopt: {
-        dialerProxy: "proxy",
-        domainStrategy: warpEnableIPv6 ? "UseIPv4v6" : "UseIPv4",
+        dialerProxy: 'proxy',
+        domainStrategy: warpEnableIPv6 ? 'UseIPv4v6' : 'UseIPv4',
       },
     },
-    tag: isChain ? "chain" : "proxy",
+    tag: isChain ? 'chain' : 'proxy',
   };
   !isChain && delete outbound.streamSettings;
-  client === "nikang" &&
+  client === 'nikang' &&
     !isChain &&
     Object.assign(outbound.settings, {
       wnoise: nikaNGNoiseMode,
       wnoisecount:
-        noiseCountMin === noiseCountMax
-          ? noiseCountMin
-          : `${noiseCountMin}-${noiseCountMax}`,
+        noiseCountMin === noiseCountMax ? noiseCountMin : `${noiseCountMin}-${noiseCountMax}`,
       wpayloadsize:
-        noiseSizeMin === noiseSizeMax
-          ? noiseSizeMin
-          : `${noiseSizeMin}-${noiseSizeMax}`,
+        noiseSizeMin === noiseSizeMax ? noiseSizeMin : `${noiseSizeMin}-${noiseSizeMax}`,
       wnoisedelay:
-        noiseDelayMin === noiseDelayMax
-          ? noiseDelayMin
-          : `${noiseDelayMin}-${noiseDelayMax}`,
+        noiseDelayMin === noiseDelayMax ? noiseDelayMin : `${noiseDelayMin}-${noiseDelayMax}`,
     });
   return outbound;
 }
-__name(bldXryWrpOBD, "bldXryWrpOBD");
+__name(bldXryWrpOBD, 'bldXryWrpOBD');
 function bldXryChOBD(chainProxyParams, enableIPv6) {
-  if (["socks", "http"].includes(chainProxyParams.protocol)) {
-    const {
-      protocol,
-      server: server2,
-      port: port2,
-      user,
-      pass,
-    } = chainProxyParams;
+  if (['socks', 'http'].includes(chainProxyParams.protocol)) {
+    const { protocol, server: server2, port: port2, user, pass } = chainProxyParams;
     return {
       protocol,
       settings: {
@@ -8482,10 +7890,10 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
         ],
       },
       streamSettings: {
-        network: "tcp",
+        network: 'tcp',
         sockopt: {
-          dialerProxy: "proxy",
-          domainStrategy: enableIPv6 ? "UseIPv4v6" : "UseIPv4",
+          dialerProxy: 'proxy',
+          domainStrategy: enableIPv6 ? 'UseIPv4v6' : 'UseIPv4',
           tcpNoDelay: true,
         },
       },
@@ -8493,9 +7901,9 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
         enabled: true,
         concurrency: 8,
         xudpConcurrency: 16,
-        xudpProxyUDP443: "reject",
+        xudpProxyUDP443: 'reject',
       },
-      tag: "chain",
+      tag: 'chain',
     };
   }
   const {
@@ -8523,9 +7931,9 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
       concurrency: 8,
       enabled: true,
       xudpConcurrency: 16,
-      xudpProxyUDP443: "reject",
+      xudpProxyUDP443: 'reject',
     },
-    protocol: atob("dmxlc3M="),
+    protocol: atob('dmxlc3M='),
     settings: {
       vnext: [
         {
@@ -8533,11 +7941,11 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
           port: +port,
           users: [
             {
-              encryption: "none",
+              encryption: 'none',
               flow,
               id: uuid,
               level: 8,
-              security: "auto",
+              security: 'auto',
             },
           ],
         },
@@ -8547,15 +7955,15 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
       network: type,
       security,
       sockopt: {
-        dialerProxy: "proxy",
-        domainStrategy: enableIPv6 ? "UseIPv4v6" : "UseIPv4",
+        dialerProxy: 'proxy',
+        domainStrategy: enableIPv6 ? 'UseIPv4v6' : 'UseIPv4',
         tcpNoDelay: true,
       },
     },
-    tag: "chain",
+    tag: 'chain',
   };
-  if (security === "tls") {
-    const tlsAlpns = alpn ? alpn?.split(",") : [];
+  if (security === 'tls') {
+    const tlsAlpns = alpn ? alpn?.split(',') : [];
     proxyOutbound.streamSettings.tlsSettings = {
       allowInsecure: false,
       fingerprint: fp,
@@ -8563,7 +7971,7 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
       serverName: sni,
     };
   }
-  if (security === "reality") {
+  if (security === 'reality') {
     delete proxyOutbound.mux;
     proxyOutbound.streamSettings.realitySettings = {
       fingerprint: fp,
@@ -8573,49 +7981,49 @@ function bldXryChOBD(chainProxyParams, enableIPv6) {
       spiderX: spx,
     };
   }
-  if (headerType === "http") {
-    const httpPaths = path?.split(",");
-    const httpHosts = host?.split(",");
+  if (headerType === 'http') {
+    const httpPaths = path?.split(',');
+    const httpHosts = host?.split(',');
     proxyOutbound.streamSettings.tcpSettings = {
       header: {
         request: {
           headers: { Host: httpHosts },
-          method: "GET",
+          method: 'GET',
           path: httpPaths,
-          version: "1.1",
+          version: '1.1',
         },
         response: {
-          headers: { "Content-Type": ["application/octet-stream"] },
-          reason: "OK",
-          status: "200",
-          version: "1.1",
+          headers: { 'Content-Type': ['application/octet-stream'] },
+          reason: 'OK',
+          status: '200',
+          version: '1.1',
         },
-        type: "http",
+        type: 'http',
       },
     };
   }
-  if (type === "tcp" && security !== "reality" && !headerType)
+  if (type === 'tcp' && security !== 'reality' && !headerType)
     proxyOutbound.streamSettings.tcpSettings = {
       header: {
-        type: "none",
+        type: 'none',
       },
     };
-  if (type === "ws")
+  if (type === 'ws')
     proxyOutbound.streamSettings.wsSettings = {
       headers: { Host: host },
       path,
     };
-  if (type === "grpc") {
+  if (type === 'grpc') {
     delete proxyOutbound.mux;
     proxyOutbound.streamSettings.grpcSettings = {
       authority,
-      multiMode: mode === "multi",
+      multiMode: mode === 'multi',
       serviceName,
     };
   }
   return proxyOutbound;
 }
-__name(bldXryChOBD, "bldXryChOBD");
+__name(bldXryChOBD, 'bldXryChOBD');
 function bldXryConf(
   proxySettings,
   remark,
@@ -8641,30 +8049,28 @@ function bldXryConf(
   const config = structuredClone(xrayConfigTemp);
   config.remarks = remark;
   if (isFakeDNS) {
-    config.inbounds[0].sniffing.destOverride.push("fakedns");
-    config.inbounds[1].sniffing.destOverride.push("fakedns");
+    config.inbounds[0].sniffing.destOverride.push('fakedns');
+    config.inbounds[1].sniffing.destOverride.push('fakedns');
   }
   if (isFragment) {
     const fragment = config.outbounds[0].settings.fragment;
     fragment.length = `${lengthMin}-${lengthMax}`;
     fragment.interval = `${intervalMin}-${intervalMax}`;
     fragment.packets = fragmentPackets;
-    config.outbounds[0].settings.domainStrategy = enableIPv6
-      ? "UseIPv4v6"
-      : "UseIPv4";
+    config.outbounds[0].settings.domainStrategy = enableIPv6 ? 'UseIPv4v6' : 'UseIPv4';
   } else {
     config.outbounds.shift();
   }
   if (isBalancer) {
     const interval = isWarp ? bestWarpInterval : bestVLTRInterval;
     config.observatory.pingConfig.interval = `${interval}s`;
-    if (balancerFallback) config.routing.balancers[0].fallbackTag = "prox-2";
+    if (balancerFallback) config.routing.balancers[0].fallbackTag = 'prox-2';
     if (isChain) {
-      config.observatory.subjectSelector.push("chain");
+      config.observatory.subjectSelector.push('chain');
       const chainBalancer = structuredClone(config.routing.balancers[0]);
-      if (balancerFallback) chainBalancer.fallbackTag = "chain-2";
-      config.routing.balancers.push({ ...chainBalancer, selector: ["chain"] });
-      config.routing.balancers[0].tag = "all-proxy";
+      if (balancerFallback) chainBalancer.fallbackTag = 'chain-2';
+      config.routing.balancers.push({ ...chainBalancer, selector: ['chain'] });
+      config.routing.balancers[0].tag = 'all-proxy';
     }
   } else {
     delete config.observatory;
@@ -8672,7 +8078,7 @@ function bldXryConf(
   }
   return config;
 }
-__name(bldXryConf, "bldXryConf");
+__name(bldXryConf, 'bldXryConf');
 async function bldXryBestPingConf(
   proxySettings,
   totalAddresses,
@@ -8683,58 +8089,33 @@ async function bldXryBestPingConf(
   const remark = isFragment
     ? `\u{1F4A6} Fragment - Best Ping \u{1F4A5}`
     : `\u{1F4A6} Best Ping \u{1F4A5}`;
-  const config = bldXryConf(
-    proxySettings,
-    remark,
-    isFragment,
-    true,
-    chainProxy,
-    true,
-  );
-  config.dns = await buildXrayDNS(
-    proxySettings,
-    totalAddresses,
-    void 0,
-    false,
-    false,
-  );
-  config.routing.rules = bldXryRR(
-    proxySettings,
-    totalAddresses,
-    chainProxy,
-    true,
-    false,
-    false,
-  );
+  const config = bldXryConf(proxySettings, remark, isFragment, true, chainProxy, true);
+  config.dns = await buildXrayDNS(proxySettings, totalAddresses, void 0, false, false);
+  config.routing.rules = bldXryRR(proxySettings, totalAddresses, chainProxy, true, false, false);
   config.outbounds.unshift(...outbounds);
   return config;
 }
-__name(bldXryBestPingConf, "bldXryBestPingConf");
-async function bldXryBestFragConf(
-  proxySettings,
-  hostName2,
-  chainProxy,
-  outbounds,
-) {
+__name(bldXryBestPingConf, 'bldXryBestPingConf');
+async function bldXryBestFragConf(proxySettings, hostName2, chainProxy, outbounds) {
   const bestFragValues = [
-    "10-20",
-    "20-30",
-    "30-40",
-    "40-50",
-    "50-60",
-    "60-70",
-    "70-80",
-    "80-90",
-    "90-100",
-    "10-30",
-    "20-40",
-    "30-50",
-    "40-60",
-    "50-70",
-    "60-80",
-    "70-90",
-    "80-100",
-    "100-200",
+    '10-20',
+    '20-30',
+    '30-40',
+    '40-50',
+    '50-60',
+    '60-70',
+    '70-80',
+    '80-90',
+    '90-100',
+    '10-30',
+    '20-40',
+    '30-50',
+    '40-60',
+    '50-70',
+    '60-80',
+    '70-90',
+    '80-100',
+    '100-200',
   ];
   const config = bldXryConf(
     proxySettings,
@@ -8746,14 +8127,7 @@ async function bldXryBestFragConf(
     false,
   );
   config.dns = await buildXrayDNS(proxySettings, [], hostName2, false, false);
-  config.routing.rules = bldXryRR(
-    proxySettings,
-    [],
-    chainProxy,
-    true,
-    false,
-    false,
-  );
+  config.routing.rules = bldXryRR(proxySettings, [], chainProxy, true, false, false);
   const fragment = config.outbounds.shift();
   const bestFragOutbounds = [];
   bestFragValues.forEach((fragLength, index) => {
@@ -8769,13 +8143,13 @@ async function bldXryBestFragConf(
     const fragmentOutbound = structuredClone(fragment);
     fragmentOutbound.tag = `frag-${index + 1}`;
     fragmentOutbound.settings.fragment.length = fragLength;
-    fragmentOutbound.settings.fragment.interval = "1-1";
+    fragmentOutbound.settings.fragment.interval = '1-1';
     bestFragOutbounds.push(proxyOutbound, fragmentOutbound);
   });
   config.outbounds.unshift(...bestFragOutbounds);
   return config;
 }
-__name(bldXryBestFragConf, "bldXryBestFragConf");
+__name(bldXryBestFragConf, 'bldXryBestFragConf');
 async function buildXrayWorkerLessConfig(proxySettings) {
   const config = bldXryConf(
     proxySettings,
@@ -8789,22 +8163,22 @@ async function buildXrayWorkerLessConfig(proxySettings) {
   config.dns = await buildXrayDNS(proxySettings, [], void 0, true);
   config.routing.rules = bldXryRR(proxySettings, [], false, false, true, false);
   const fakeOutbound = bldXryVLOBD(
-    "fake-outbound",
-    "google.com",
-    "443",
+    'fake-outbound',
+    'google.com',
+    '443',
     globalThis.userID,
-    "google.com",
-    "google.com",
-    "",
+    'google.com',
+    'google.com',
+    '',
     true,
     false,
   );
   delete fakeOutbound.streamSettings.sockopt;
-  fakeOutbound.streamSettings.wsSettings.path = "/";
+  fakeOutbound.streamSettings.wsSettings.path = '/';
   config.outbounds.push(fakeOutbound);
   return config;
 }
-__name(buildXrayWorkerLessConfig, "buildXrayWorkerLessConfig");
+__name(buildXrayWorkerLessConfig, 'buildXrayWorkerLessConfig');
 async function getXryCustomConf(request, env, isFragment) {
   const { proxySettings } = await getDataset(request, env);
   let configs = [];
@@ -8829,47 +8203,36 @@ async function getXryCustomConf(request, env, isFragment) {
     try {
       chainProxy = bldXryChOBD(proxyParams, enableIPv6);
     } catch (error) {
-      console.log("An error occured while parsing chain proxy: ", error);
+      console.log('An error occured while parsing chain proxy: ', error);
       chainProxy = void 0;
       await env.diana.put(
-        "proxySettings",
+        'proxySettings',
         JSON.stringify({
           ...proxySettings,
-          outProxy: "",
+          outProxy: '',
           outProxyParams: {},
         }),
       );
     }
   }
   const Addresses = await getConfigAddresses(cleanIPs, enableIPv6);
-  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
-  const totalAddresses = isFragment
-    ? [...Addresses]
-    : [...Addresses, ...customCdnAddresses];
-  const totalPorts = ports.filter((port) =>
+  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
+  const totalAddresses = isFragment ? [...Addresses] : [...Addresses, ...customCdnAddresses];
+  const totalPorts = ports.filter(port =>
     isFragment ? globalThis.defaultHttpsPorts.includes(port) : true,
   );
-  VLConfigs && protocols.push(atob("VkxFU1M="));
-  TRConfigs && protocols.push(atob("VHJvamFu"));
+  VLConfigs && protocols.push(atob('VkxFU1M='));
+  TRConfigs && protocols.push(atob('VHJvamFu'));
   let proxyIndex = 1;
   for (const protocol of protocols) {
     let protocolIndex = 1;
     for (const port of totalPorts) {
       for (const addr of totalAddresses) {
         const isCustomAddr = customCdnAddresses.includes(addr);
-        const configType = isCustomAddr ? "C" : isFragment ? "F" : "";
-        const sni = isCustomAddr
-          ? customCdnSni
-          : randomUpperCase(globalThis.hostName);
+        const configType = isCustomAddr ? 'C' : isFragment ? 'F' : '';
+        const sni = isCustomAddr ? customCdnSni : randomUpperCase(globalThis.hostName);
         const host = isCustomAddr ? customCdnHost : globalThis.hostName;
-        const remark = generateRemark(
-          protocolIndex,
-          port,
-          addr,
-          cleanIPs,
-          protocol,
-          configType,
-        );
+        const remark = generateRemark(protocolIndex, port, addr, cleanIPs, protocol, configType);
         const customConfig = bldXryConf(
           proxySettings,
           remark,
@@ -8889,9 +8252,9 @@ async function getXryCustomConf(request, env, isFragment) {
           false,
         );
         const outbound =
-          protocol === atob("VkxFU1M=")
+          protocol === atob('VkxFU1M=')
             ? bldXryVLOBD(
-                "proxy",
+                'proxy',
                 addr,
                 port,
                 host,
@@ -8902,7 +8265,7 @@ async function getXryCustomConf(request, env, isFragment) {
                 enableIPv6,
               )
             : bldXryTrOBD(
-                "proxy",
+                'proxy',
                 addr,
                 port,
                 host,
@@ -8949,13 +8312,13 @@ async function getXryCustomConf(request, env, isFragment) {
   return new Response(JSON.stringify(finalConfigs, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getXryCustomConf, "getXryCustomConf");
+__name(getXryCustomConf, 'getXryCustomConf');
 async function getXryWrpConf(request, env, client) {
   const { proxySettings, warpConfigs } = await getDataset(request, env);
   const xrayWarpConfigs = [];
@@ -8964,12 +8327,12 @@ async function getXryWrpConf(request, env, client) {
   const xrayWoWOutbounds = [];
   const { warpEndpoints } = proxySettings;
   const outboundDomains = warpEndpoints
-    .split(",")
-    .map((endpoint) => endpoint.split(":")[0])
-    .filter((address) => isDomain(address));
-  const proIndicator = client === "nikang" ? " Pro " : " ";
-  for (const [index, endpoint] of warpEndpoints.split(",").entries()) {
-    const endpointHost = endpoint.split(":")[0];
+    .split(',')
+    .map(endpoint => endpoint.split(':')[0])
+    .filter(address => isDomain(address));
+  const proIndicator = client === 'nikang' ? ' Pro ' : ' ';
+  for (const [index, endpoint] of warpEndpoints.split(',').entries()) {
+    const endpointHost = endpoint.split(':')[0];
     const warpConfig = bldXryConf(
       proxySettings,
       `\u{1F4A6} ${index + 1} - Warp${proIndicator}\u{1F1EE}\u{1F1F7}`,
@@ -8995,36 +8358,10 @@ async function getXryWrpConf(request, env, client) {
       false,
       true,
     );
-    warpConfig.routing.rules = bldXryRR(
-      proxySettings,
-      [endpointHost],
-      false,
-      false,
-      false,
-      true,
-    );
-    WoWConfig.routing.rules = bldXryRR(
-      proxySettings,
-      [endpointHost],
-      true,
-      false,
-      false,
-      true,
-    );
-    const warpOutbound = bldXryWrpOBD(
-      proxySettings,
-      warpConfigs,
-      endpoint,
-      false,
-      client,
-    );
-    const WoWOutbound = bldXryWrpOBD(
-      proxySettings,
-      warpConfigs,
-      endpoint,
-      true,
-      client,
-    );
+    warpConfig.routing.rules = bldXryRR(proxySettings, [endpointHost], false, false, false, true);
+    WoWConfig.routing.rules = bldXryRR(proxySettings, [endpointHost], true, false, false, true);
+    const warpOutbound = bldXryWrpOBD(proxySettings, warpConfigs, endpoint, false, client);
+    const WoWOutbound = bldXryWrpOBD(proxySettings, warpConfigs, endpoint, true, client);
     warpConfig.outbounds.unshift(warpOutbound);
     WoWConfig.outbounds.unshift(WoWOutbound, warpOutbound);
     xrayWarpConfigs.push(warpConfig);
@@ -9037,13 +8374,7 @@ async function getXryWrpConf(request, env, client) {
     xrayWarpOutbounds.push(proxyOutbound);
     xrayWoWOutbounds.push(chainOutbound);
   }
-  const dnsObject = await buildXrayDNS(
-    proxySettings,
-    outboundDomains,
-    void 0,
-    false,
-    true,
-  );
+  const dnsObject = await buildXrayDNS(proxySettings, outboundDomains, void 0, false, true);
   const xrayWarpBestPing = bldXryConf(
     proxySettings,
     `\u{1F4A6} Warp${proIndicator}- Best Ping \u{1F680}`,
@@ -9073,91 +8404,79 @@ async function getXryWrpConf(request, env, client) {
     true,
   );
   xrayWoWBestPing.dns = dnsObject;
-  xrayWoWBestPing.routing.rules = bldXryRR(
-    proxySettings,
-    outboundDomains,
-    true,
-    true,
-    false,
-    true,
-  );
+  xrayWoWBestPing.routing.rules = bldXryRR(proxySettings, outboundDomains, true, true, false, true);
   xrayWoWBestPing.outbounds.unshift(...xrayWoWOutbounds, ...xrayWarpOutbounds);
-  const configs = [
-    ...xrayWarpConfigs,
-    ...xrayWoWConfigs,
-    xrayWarpBestPing,
-    xrayWoWBestPing,
-  ];
+  const configs = [...xrayWarpConfigs, ...xrayWoWConfigs, xrayWarpBestPing, xrayWoWBestPing];
   return new Response(JSON.stringify(configs, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getXryWrpConf, "getXryWrpConf");
+__name(getXryWrpConf, 'getXryWrpConf');
 var xrayConfigTemp = {
-  remarks: "",
+  remarks: '',
   log: {
-    loglevel: "warning",
+    loglevel: 'warning',
   },
   dns: {},
   inbounds: [
     {
       port: 10808,
-      protocol: "socks",
+      protocol: 'socks',
       settings: {
-        auth: "noauth",
+        auth: 'noauth',
         udp: true,
         userLevel: 8,
       },
       sniffing: {
-        destOverride: ["http", "tls"],
+        destOverride: ['http', 'tls'],
         enabled: true,
         routeOnly: true,
       },
-      tag: "socks-in",
+      tag: 'socks-in',
     },
     {
       port: 10809,
-      protocol: "http",
+      protocol: 'http',
       settings: {
-        auth: "noauth",
+        auth: 'noauth',
         udp: true,
         userLevel: 8,
       },
       sniffing: {
-        destOverride: ["http", "tls"],
+        destOverride: ['http', 'tls'],
         enabled: true,
         routeOnly: true,
       },
-      tag: "http-in",
+      tag: 'http-in',
     },
     {
-      listen: "127.0.0.1",
+      listen: '127.0.0.1',
       port: 10853,
-      protocol: "dokodemo-door",
+      protocol: 'dokodemo-door',
       settings: {
-        address: "1.1.1.1",
-        network: "tcp,udp",
+        address: '1.1.1.1',
+        network: 'tcp,udp',
         port: 53,
       },
-      tag: "dns-in",
+      tag: 'dns-in',
     },
   ],
   outbounds: [
     {
-      tag: "fragment",
-      protocol: "freedom",
+      tag: 'fragment',
+      protocol: 'freedom',
       settings: {
         fragment: {
-          packets: "tlshello",
-          length: "",
-          interval: "",
+          packets: 'tlshello',
+          length: '',
+          interval: '',
         },
-        domainStrategy: "UseIP",
+        domainStrategy: 'UseIP',
       },
       streamSettings: {
         sockopt: {
@@ -9167,22 +8486,22 @@ var xrayConfigTemp = {
       },
     },
     {
-      protocol: "dns",
-      tag: "dns-out",
+      protocol: 'dns',
+      tag: 'dns-out',
     },
     {
-      protocol: "freedom",
+      protocol: 'freedom',
       settings: {},
-      tag: "direct",
+      tag: 'direct',
     },
     {
-      protocol: "blackhole",
+      protocol: 'blackhole',
       settings: {
         response: {
-          type: "http",
+          type: 'http',
         },
       },
-      tag: "block",
+      tag: 'block',
     },
   ],
   policy: {
@@ -9200,26 +8519,26 @@ var xrayConfigTemp = {
     },
   },
   routing: {
-    domainStrategy: "IPIfNonMatch",
+    domainStrategy: 'IPIfNonMatch',
     rules: [],
     balancers: [
       {
-        tag: "all",
-        selector: ["prox"],
+        tag: 'all',
+        selector: ['prox'],
         strategy: {
-          type: "leastPing",
+          type: 'leastPing',
         },
       },
     ],
   },
   observatory: {
-    subjectSelector: ["prox"],
+    subjectSelector: ['prox'],
     pingConfig: {
-      destination: "https://connectivitycheck.gstatic.com/generate_204",
-      connectivity: "https://www.google.com/generate_204",
-      interval: "30s",
+      destination: 'https://connectivitycheck.gstatic.com/generate_204',
+      connectivity: 'https://www.google.com/generate_204',
+      interval: '30s',
       sampling: 1,
-      timeout: "10s",
+      timeout: '10s',
     },
   },
   stats: {},
@@ -9247,150 +8566,146 @@ function bldSBDNS(proxySettings, outboundAddrs, isWarp, remoteDNSDetour) {
   const isFakeDNS = (VLTRFakeDNS && !isWarp) || (warpFakeDNS && isWarp);
   const isIPv62 = (enableIPv6 && !isWarp) || (warpEnableIPv6 && isWarp);
   const customBypassRulesDomains = customBypassRules
-    .split(",")
-    .filter((address) => isDomain(address));
-  const customBlockRulesDomains = customBlockRules
-    .split(",")
-    .filter((address) => isDomain(address));
+    .split(',')
+    .filter(address => isDomain(address));
+  const customBlockRulesDomains = customBlockRules.split(',').filter(address => isDomain(address));
   const geoRules = [
     {
       rule: bypassIran,
-      type: "direct",
-      geosite: "geosite-ir",
-      geoip: "geoip-ir",
+      type: 'direct',
+      geosite: 'geosite-ir',
+      geoip: 'geoip-ir',
     },
     {
       rule: bypassChina,
-      type: "direct",
-      geosite: "geosite-cn",
-      geoip: "geoip-cn",
+      type: 'direct',
+      geosite: 'geosite-cn',
+      geoip: 'geoip-cn',
     },
     {
       rule: bypassRussia,
-      type: "direct",
-      geosite: "geosite-category-ru",
-      geoip: "geoip-ru",
+      type: 'direct',
+      geosite: 'geosite-category-ru',
+      geoip: 'geoip-ru',
     },
-    { rule: true, type: "block", geosite: "geosite-malware" },
-    { rule: true, type: "block", geosite: "geosite-phishing" },
-    { rule: true, type: "block", geosite: "geosite-cryptominers" },
-    { rule: blockAds, type: "block", geosite: "geosite-category-ads-all" },
-    { rule: blockPorn, type: "block", geosite: "geosite-nsfw" },
+    { rule: true, type: 'block', geosite: 'geosite-malware' },
+    { rule: true, type: 'block', geosite: 'geosite-phishing' },
+    { rule: true, type: 'block', geosite: 'geosite-cryptominers' },
+    { rule: blockAds, type: 'block', geosite: 'geosite-category-ads-all' },
+    { rule: blockPorn, type: 'block', geosite: 'geosite-nsfw' },
   ];
   const servers = [
     {
-      address: isWarp ? "1.1.1.1" : remoteDNS,
-      address_resolver: dohHost.isHostDomain ? "doh-resolver" : "dns-direct",
+      address: isWarp ? '1.1.1.1' : remoteDNS,
+      address_resolver: dohHost.isHostDomain ? 'doh-resolver' : 'dns-direct',
       detour: remoteDNSDetour,
-      tag: "dns-remote",
+      tag: 'dns-remote',
     },
     {
       address: localDNS,
-      detour: "direct",
-      tag: "dns-direct",
+      detour: 'direct',
+      tag: 'dns-direct',
     },
     {
-      address: "rcode://success",
-      tag: "dns-block",
+      address: 'rcode://success',
+      tag: 'dns-block',
     },
   ];
   dohHost.isHostDomain &&
     !isWarp &&
     servers.push({
-      address: "https://8.8.8.8/dns-query",
-      detour: "direct",
-      tag: "doh-resolver",
+      address: 'https://8.8.8.8/dns-query',
+      detour: 'direct',
+      tag: 'doh-resolver',
     });
   let outboundRule;
   if (isWarp) {
     outboundRule = {
-      outbound: "any",
-      server: "dns-direct",
+      outbound: 'any',
+      server: 'dns-direct',
     };
   } else {
-    const outboundDomains = outboundAddrs.filter((address) =>
-      isDomain(address),
-    );
+    const outboundDomains = outboundAddrs.filter(address => isDomain(address));
     const uniqueDomains = [...new Set(outboundDomains)];
     outboundRule = {
       domain: uniqueDomains,
-      server: "dns-direct",
+      server: 'dns-direct',
     };
   }
   const rules = [
     outboundRule,
     {
-      domain: ["raw.githubusercontent.com", "time.apple.com"],
-      server: "dns-direct",
+      domain: ['raw.githubusercontent.com', 'time.apple.com'],
+      server: 'dns-direct',
     },
     {
-      clash_mode: "Direct",
-      server: "dns-direct",
+      clash_mode: 'Direct',
+      server: 'dns-direct',
     },
     {
-      clash_mode: "Global",
-      server: "dns-remote",
+      clash_mode: 'Global',
+      server: 'dns-remote',
     },
   ];
   let blockRule = {
     disable_cache: true,
     rule_set: [],
-    server: "dns-block",
+    server: 'dns-block',
   };
   geoRules.forEach(({ rule, type, geosite, geoip }) => {
     rule &&
-      type === "direct" &&
+      type === 'direct' &&
       rules.push({
-        type: "logical",
-        mode: "and",
+        type: 'logical',
+        mode: 'and',
         rules: [{ rule_set: geosite }, { rule_set: geoip }],
-        server: "dns-direct",
+        server: 'dns-direct',
       });
-    rule && type === "block" && blockRule.rule_set.push(geosite);
+    rule && type === 'block' && blockRule.rule_set.push(geosite);
   });
   rules.push(blockRule);
   const createRule = /* @__PURE__ */ __name(
-    (server) => ({
+    server => ({
       domain_suffix: [],
       server,
     }),
-    "createRule",
+    'createRule',
   );
   let domainDirectRule, domainBlockRule;
   if (customBypassRulesDomains.length) {
-    domainDirectRule = createRule("dns-direct");
-    customBypassRulesDomains.forEach((domain) => {
+    domainDirectRule = createRule('dns-direct');
+    customBypassRulesDomains.forEach(domain => {
       domainDirectRule.domain_suffix.push(domain);
     });
     rules.push(domainDirectRule);
   }
   if (customBlockRulesDomains.length) {
-    domainBlockRule = createRule("dns-block");
-    customBlockRulesDomains.forEach((domain) => {
+    domainBlockRule = createRule('dns-block');
+    customBlockRulesDomains.forEach(domain => {
       domainBlockRule.domain_suffix.push(domain);
     });
     rules.push(domainBlockRule);
   }
   if (isFakeDNS) {
     servers.push({
-      address: "fakeip",
-      tag: "dns-fake",
+      address: 'fakeip',
+      tag: 'dns-fake',
     });
     rules.push({
       disable_cache: true,
-      inbound: "tun-in",
-      query_type: ["A", "AAAA"],
-      server: "dns-fake",
+      inbound: 'tun-in',
+      query_type: ['A', 'AAAA'],
+      server: 'dns-fake',
     });
     fakeip = {
       enabled: true,
-      inet4_range: "198.18.0.0/15",
+      inet4_range: '198.18.0.0/15',
     };
-    if (isIPv62) fakeip.inet6_range = "fc00::/18";
+    if (isIPv62) fakeip.inet6_range = 'fc00::/18';
   }
   return { servers, rules, fakeip };
 }
-__name(bldSBDNS, "bldSBDNS");
+__name(bldSBDNS, 'bldSBDNS');
 function bldSBRR(proxySettings) {
   const {
     bypassLAN,
@@ -9403,112 +8718,106 @@ function bldSBRR(proxySettings) {
     customBypassRules,
     customBlockRules,
   } = proxySettings;
-  const customBypassRulesTotal = customBypassRules
-    ? customBypassRules.split(",")
-    : [];
-  const customBlockRulesTotal = customBlockRules
-    ? customBlockRules.split(",")
-    : [];
+  const customBypassRulesTotal = customBypassRules ? customBypassRules.split(',') : [];
+  const customBlockRulesTotal = customBlockRules ? customBlockRules.split(',') : [];
   const defaultRules = [
     {
-      protocol: "dns",
-      outbound: "dns-out",
+      protocol: 'dns',
+      outbound: 'dns-out',
     },
     {
-      clash_mode: "Direct",
-      outbound: "direct",
+      clash_mode: 'Direct',
+      outbound: 'direct',
     },
     {
-      clash_mode: "Global",
-      outbound: "\u2705 Selector",
+      clash_mode: 'Global',
+      outbound: '\u2705 Selector',
     },
   ];
   const geoRules = [
     {
       rule: bypassIran,
-      type: "direct",
+      type: 'direct',
       ruleSet: {
-        geosite: "geosite-ir",
-        geoip: "geoip-ir",
+        geosite: 'geosite-ir',
+        geoip: 'geoip-ir',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs',
         geoipURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs',
       },
     },
     {
       rule: bypassChina,
-      type: "direct",
+      type: 'direct',
       ruleSet: {
-        geosite: "geosite-cn",
-        geoip: "geoip-cn",
+        geosite: 'geosite-cn',
+        geoip: 'geoip-cn',
         geositeURL:
-          "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-        geoipURL:
-          "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+          'https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs',
+        geoipURL: 'https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs',
       },
     },
     {
       rule: bypassRussia,
-      type: "direct",
+      type: 'direct',
       ruleSet: {
-        geosite: "geosite-category-ru",
-        geoip: "geoip-ru",
+        geosite: 'geosite-category-ru',
+        geoip: 'geoip-ru',
         geositeURL:
-          "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ru.srs",
-        geoipURL:
-          "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-ru.srs",
+          'https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ru.srs',
+        geoipURL: 'https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-ru.srs',
       },
     },
     {
       rule: true,
-      type: "block",
+      type: 'block',
       ruleSet: {
-        geosite: "geosite-malware",
-        geoip: "geoip-malware",
+        geosite: 'geosite-malware',
+        geoip: 'geoip-malware',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs',
         geoipURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs',
       },
     },
     {
       rule: true,
-      type: "block",
+      type: 'block',
       ruleSet: {
-        geosite: "geosite-phishing",
-        geoip: "geoip-phishing",
+        geosite: 'geosite-phishing',
+        geoip: 'geoip-phishing',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs',
         geoipURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs',
       },
     },
     {
       rule: true,
-      type: "block",
+      type: 'block',
       ruleSet: {
-        geosite: "geosite-cryptominers",
+        geosite: 'geosite-cryptominers',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs',
       },
     },
     {
       rule: blockAds,
-      type: "block",
+      type: 'block',
       ruleSet: {
-        geosite: "geosite-category-ads-all",
+        geosite: 'geosite-category-ads-all',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs',
       },
     },
     {
       rule: blockPorn,
-      type: "block",
+      type: 'block',
       ruleSet: {
-        geosite: "geosite-nsfw",
+        geosite: 'geosite-nsfw',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-nsfw.srs",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-nsfw.srs',
       },
     },
   ];
@@ -9520,30 +8829,30 @@ function bldSBRR(proxySettings) {
   bypassLAN &&
     directIPRules.push({
       ip_is_private: true,
-      outbound: "direct",
+      outbound: 'direct',
     });
   const createRule = /* @__PURE__ */ __name(
     (rule, outbound) => ({
       [rule]: [],
       outbound,
     }),
-    "createRule",
+    'createRule',
   );
   const routingRuleSet = {
-    type: "remote",
-    tag: "",
-    format: "binary",
-    url: "",
-    download_detour: "direct",
+    type: 'remote',
+    tag: '',
+    format: 'binary',
+    url: '',
+    download_detour: 'direct',
   };
-  const directDomainRule = createRule("rule_set", "direct");
-  const directIPRule = createRule("rule_set", "direct");
-  const blockDomainRule = createRule("rule_set", "block");
-  const blockIPRule = createRule("rule_set", "block");
+  const directDomainRule = createRule('rule_set', 'direct');
+  const directIPRule = createRule('rule_set', 'direct');
+  const blockDomainRule = createRule('rule_set', 'block');
+  const blockIPRule = createRule('rule_set', 'block');
   geoRules.forEach(({ rule, type, ruleSet }) => {
     if (!rule) return;
     const { geosite, geoip, geositeURL, geoipURL } = ruleSet;
-    const isDirect = type === "direct";
+    const isDirect = type === 'direct';
     const domainRule = isDirect ? directDomainRule : blockDomainRule;
     const ipRule = isDirect ? directIPRule : blockIPRule;
     domainRule.rule_set.push(geosite);
@@ -9554,41 +8863,30 @@ function bldSBRR(proxySettings) {
     }
   });
   const pushRuleIfNotEmpty = /* @__PURE__ */ __name((rule, targetArray) => {
-    if (
-      rule.rule_set?.length ||
-      rule.domain_suffix?.length ||
-      rule.ip_cidr?.length
-    ) {
+    if (rule.rule_set?.length || rule.domain_suffix?.length || rule.ip_cidr?.length) {
       targetArray.push(rule);
     }
-  }, "pushRuleIfNotEmpty");
+  }, 'pushRuleIfNotEmpty');
   pushRuleIfNotEmpty(directDomainRule, directDomainRules);
   pushRuleIfNotEmpty(directIPRule, directIPRules);
   pushRuleIfNotEmpty(blockDomainRule, blockDomainRules);
   pushRuleIfNotEmpty(blockIPRule, blockIPRules);
   const processRules = /* @__PURE__ */ __name((addresses, action) => {
-    const domainRule = createRule("domain_suffix", action);
-    const ipRule = createRule("ip_cidr", action);
-    addresses.forEach((address) => {
+    const domainRule = createRule('domain_suffix', action);
+    const ipRule = createRule('ip_cidr', action);
+    addresses.forEach(address => {
       if (isDomain(address)) {
         domainRule.domain_suffix.push(address);
       } else {
-        const ip = isIPv6(address) ? address.replace(/\[|\]/g, "") : address;
+        const ip = isIPv6(address) ? address.replace(/\[|\]/g, '') : address;
         ipRule.ip_cidr.push(ip);
       }
     });
-    pushRuleIfNotEmpty(
-      domainRule,
-      action === "direct" ? directDomainRules : blockDomainRules,
-    );
-    pushRuleIfNotEmpty(
-      ipRule,
-      action === "direct" ? directIPRules : blockIPRules,
-    );
-  }, "processRules");
-  customBypassRulesTotal.length &&
-    processRules(customBypassRulesTotal, "direct");
-  customBlockRulesTotal.length && processRules(customBlockRulesTotal, "block");
+    pushRuleIfNotEmpty(domainRule, action === 'direct' ? directDomainRules : blockDomainRules);
+    pushRuleIfNotEmpty(ipRule, action === 'direct' ? directIPRules : blockIPRules);
+  }, 'processRules');
+  customBypassRulesTotal.length && processRules(customBypassRulesTotal, 'direct');
+  customBlockRulesTotal.length && processRules(customBlockRulesTotal, 'block');
   const rules = [
     ...defaultRules,
     ...directDomainRules,
@@ -9598,58 +8896,42 @@ function bldSBRR(proxySettings) {
   ];
   blockUDP443 &&
     rules.push({
-      network: "udp",
+      network: 'udp',
       port: 443,
-      protocol: "quic",
-      outbound: "block",
+      protocol: 'quic',
+      outbound: 'block',
     });
   return { rules, rule_set: ruleSets };
 }
-__name(bldSBRR, "bldSBRR");
-function bldSBVLOBD(
-  proxySettings,
-  remark,
-  address,
-  port,
-  host,
-  sni,
-  allowInsecure,
-  isFragment,
-) {
-  const {
-    enableIPv6,
-    lengthMin,
-    lengthMax,
-    intervalMin,
-    intervalMax,
-    proxyIP,
-  } = proxySettings;
-  const path = `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}`;
+__name(bldSBRR, 'bldSBRR');
+function bldSBVLOBD(proxySettings, remark, address, port, host, sni, allowInsecure, isFragment) {
+  const { enableIPv6, lengthMin, lengthMax, intervalMin, intervalMax, proxyIP } = proxySettings;
+  const path = `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}`;
   const tls = globalThis.defaultHttpsPorts.includes(port) ? true : false;
   const outbound = {
-    type: atob("dmxlc3M="),
+    type: atob('dmxlc3M='),
     server: address,
     server_port: +port,
-    domain_strategy: enableIPv6 ? "prefer_ipv4" : "ipv4_only",
+    domain_strategy: enableIPv6 ? 'prefer_ipv4' : 'ipv4_only',
     uuid: globalThis.userID,
     tls: {
-      alpn: "http/1.1",
+      alpn: 'http/1.1',
       enabled: true,
       insecure: allowInsecure,
       server_name: sni,
       utls: {
         enabled: true,
-        fingerprint: "randomized",
+        fingerprint: 'randomized',
       },
     },
     transport: {
-      early_data_header_name: "Sec-WebSocket-Protocol",
+      early_data_header_name: 'Sec-WebSocket-Protocol',
       max_early_data: 2560,
       headers: {
         Host: host,
       },
       path,
-      type: "ws",
+      type: 'ws',
     },
     tag: remark,
   };
@@ -9662,51 +8944,35 @@ function bldSBVLOBD(
     };
   return outbound;
 }
-__name(bldSBVLOBD, "bldSBVLOBD");
-function bldSBTrOBD(
-  proxySettings,
-  remark,
-  address,
-  port,
-  host,
-  sni,
-  allowInsecure,
-  isFragment,
-) {
-  const {
-    enableIPv6,
-    lengthMin,
-    lengthMax,
-    intervalMin,
-    intervalMax,
-    proxyIP,
-  } = proxySettings;
-  const path = `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}`;
+__name(bldSBVLOBD, 'bldSBVLOBD');
+function bldSBTrOBD(proxySettings, remark, address, port, host, sni, allowInsecure, isFragment) {
+  const { enableIPv6, lengthMin, lengthMax, intervalMin, intervalMax, proxyIP } = proxySettings;
+  const path = `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}`;
   const tls = globalThis.defaultHttpsPorts.includes(port) ? true : false;
   const outbound = {
-    type: atob("dHJvamFu"),
+    type: atob('dHJvamFu'),
     password: globalThis.TRPassword,
     server: address,
     server_port: +port,
-    domain_strategy: enableIPv6 ? "prefer_ipv4" : "ipv4_only",
+    domain_strategy: enableIPv6 ? 'prefer_ipv4' : 'ipv4_only',
     tls: {
-      alpn: "http/1.1",
+      alpn: 'http/1.1',
       enabled: true,
       insecure: allowInsecure,
       server_name: sni,
       utls: {
         enabled: true,
-        fingerprint: "randomized",
+        fingerprint: 'randomized',
       },
     },
     transport: {
-      early_data_header_name: "Sec-WebSocket-Protocol",
+      early_data_header_name: 'Sec-WebSocket-Protocol',
       max_early_data: 2560,
       headers: {
         Host: host,
       },
       path,
-      type: "ws",
+      type: 'ws',
     },
     tag: remark,
   };
@@ -9719,23 +8985,16 @@ function bldSBTrOBD(
     };
   return outbound;
 }
-__name(bldSBTrOBD, "bldSBTrOBD");
-function bldSBWrpOBD(
-  proxySettings,
-  warpConfigs,
-  remark,
-  endpoint,
-  chain,
-  client,
-) {
+__name(bldSBTrOBD, 'bldSBTrOBD');
+function bldSBWrpOBD(proxySettings, warpConfigs, remark, endpoint, chain, client) {
   const ipv6Regex = /\[(.*?)\]/;
   const portRegex = /[^:]*$/;
-  const endpointServer = endpoint.includes("[")
+  const endpointServer = endpoint.includes('[')
     ? endpoint.match(ipv6Regex)[1]
-    : endpoint.split(":")[0];
-  const endpointPort = endpoint.includes("[")
+    : endpoint.split(':')[0];
+  const endpointPort = endpoint.includes('[')
     ? +endpoint.match(portRegex)[0]
-    : +endpoint.split(":")[1];
+    : +endpoint.split(':')[1];
   const {
     warpEnableIPv6,
     hiddifyNoiseMode,
@@ -9746,61 +9005,46 @@ function bldSBWrpOBD(
     noiseDelayMin,
     noiseDelayMax,
   } = proxySettings;
-  const { warpIPv6, reserved, publicKey, privateKey } = extractWireguardParams(
-    warpConfigs,
-    chain,
-  );
+  const { warpIPv6, reserved, publicKey, privateKey } = extractWireguardParams(warpConfigs, chain);
   const outbound = {
-    local_address: ["172.16.0.2/32", warpIPv6],
+    local_address: ['172.16.0.2/32', warpIPv6],
     mtu: 1280,
     peer_public_key: publicKey,
     private_key: privateKey,
     reserved,
     server: endpointServer,
     server_port: endpointPort,
-    domain_strategy: warpEnableIPv6 ? "prefer_ipv4" : "ipv4_only",
-    type: "wireguard",
+    domain_strategy: warpEnableIPv6 ? 'prefer_ipv4' : 'ipv4_only',
+    type: 'wireguard',
     detour: chain,
     tag: remark,
   };
-  client === "hiddify" &&
+  client === 'hiddify' &&
     Object.assign(outbound, {
       fake_packets_mode: hiddifyNoiseMode,
       fake_packets:
-        noiseCountMin === noiseCountMax
-          ? noiseCountMin
-          : `${noiseCountMin}-${noiseCountMax}`,
+        noiseCountMin === noiseCountMax ? noiseCountMin : `${noiseCountMin}-${noiseCountMax}`,
       fake_packets_size:
-        noiseSizeMin === noiseSizeMax
-          ? noiseSizeMin
-          : `${noiseSizeMin}-${noiseSizeMax}`,
+        noiseSizeMin === noiseSizeMax ? noiseSizeMin : `${noiseSizeMin}-${noiseSizeMax}`,
       fake_packets_delay:
-        noiseDelayMin === noiseDelayMax
-          ? noiseDelayMin
-          : `${noiseDelayMin}-${noiseDelayMax}`,
+        noiseDelayMin === noiseDelayMax ? noiseDelayMin : `${noiseDelayMin}-${noiseDelayMax}`,
     });
   return outbound;
 }
-__name(bldSBWrpOBD, "bldSBWrpOBD");
+__name(bldSBWrpOBD, 'bldSBWrpOBD');
 function bldSBChainOBD(chainProxyParams, enableIPv6) {
-  if (["socks", "http"].includes(chainProxyParams.protocol)) {
-    const {
-      protocol,
-      server: server2,
-      port: port2,
-      user,
-      pass,
-    } = chainProxyParams;
+  if (['socks', 'http'].includes(chainProxyParams.protocol)) {
+    const { protocol, server: server2, port: port2, user, pass } = chainProxyParams;
     const chainOutbound2 = {
       type: protocol,
-      tag: "",
+      tag: '',
       server: server2,
       server_port: +port2,
       username: user,
       password: pass,
-      detour: "",
+      detour: '',
     };
-    if (protocol === "socks") chainOutbound2.version = "5";
+    if (protocol === 'socks') chainOutbound2.version = '5';
     return chainOutbound2;
   }
   const {
@@ -9821,19 +9065,17 @@ function bldSBChainOBD(chainProxyParams, enableIPv6) {
     serviceName,
   } = chainProxyParams;
   const chainOutbound = {
-    type: atob("dmxlc3M="),
-    tag: "",
+    type: atob('dmxlc3M='),
+    tag: '',
     server,
     server_port: +port,
-    domain_strategy: enableIPv6 ? "prefer_ipv4" : "ipv4_only",
+    domain_strategy: enableIPv6 ? 'prefer_ipv4' : 'ipv4_only',
     uuid,
     flow,
-    detour: "",
+    detour: '',
   };
-  if (security === "tls" || security === "reality") {
-    const tlsAlpns = alpn
-      ? alpn?.split(",").filter((value) => value !== "h2")
-      : [];
+  if (security === 'tls' || security === 'reality') {
+    const tlsAlpns = alpn ? alpn?.split(',').filter(value => value !== 'h2') : [];
     chainOutbound.tls = {
       enabled: true,
       server_name: sni,
@@ -9844,7 +9086,7 @@ function bldSBChainOBD(chainProxyParams, enableIPv6) {
         fingerprint: fp,
       },
     };
-    if (security === "reality") {
+    if (security === 'reality') {
       chainOutbound.tls.reality = {
         enabled: true,
         public_key: pbk,
@@ -9853,43 +9095,43 @@ function bldSBChainOBD(chainProxyParams, enableIPv6) {
       delete chainOutbound.tls.alpn;
     }
   }
-  if (headerType === "http") {
-    const httpHosts = host?.split(",");
+  if (headerType === 'http') {
+    const httpHosts = host?.split(',');
     chainOutbound.transport = {
-      type: "http",
+      type: 'http',
       host: httpHosts,
       path,
-      method: "GET",
+      method: 'GET',
       headers: {
-        Connection: ["keep-alive"],
-        "Content-Type": ["application/octet-stream"],
+        Connection: ['keep-alive'],
+        'Content-Type': ['application/octet-stream'],
       },
     };
   }
-  if (type === "ws") {
-    const wsPath = path?.split("?ed=")[0];
-    const earlyData = +path?.split("?ed=")[1] || 0;
+  if (type === 'ws') {
+    const wsPath = path?.split('?ed=')[0];
+    const earlyData = +path?.split('?ed=')[1] || 0;
     chainOutbound.transport = {
-      type: "ws",
+      type: 'ws',
       path: wsPath,
       headers: { Host: host },
       max_early_data: earlyData,
-      early_data_header_name: "Sec-WebSocket-Protocol",
+      early_data_header_name: 'Sec-WebSocket-Protocol',
     };
   }
-  if (type === "grpc")
+  if (type === 'grpc')
     chainOutbound.transport = {
-      type: "grpc",
+      type: 'grpc',
       service_name: serviceName,
     };
   return chainOutbound;
 }
-__name(bldSBChainOBD, "bldSBChainOBD");
+__name(bldSBChainOBD, 'bldSBChainOBD');
 async function getSBWrpConf(request, env, client) {
   const { proxySettings, warpConfigs } = await getDataset(request, env);
   const { warpEndpoints } = proxySettings;
   const config = structuredClone(singboxConfigTemp);
-  const proIndicator = client === "hiddify" ? " Pro " : " ";
+  const proIndicator = client === 'hiddify' ? ' Pro ' : ' ';
   const dnsObject = bldSBDNS(
     proxySettings,
     void 0,
@@ -9899,9 +9141,7 @@ async function getSBWrpConf(request, env, client) {
   const { rules, rule_set } = bldSBRR(proxySettings);
   config.dns.servers = dnsObject.servers;
   config.dns.rules = dnsObject.rules;
-  config.dns.strategy = proxySettings.warpEnableIPv6
-    ? "prefer_ipv4"
-    : "ipv4_only";
+  config.dns.strategy = proxySettings.warpEnableIPv6 ? 'prefer_ipv4' : 'ipv4_only';
   if (dnsObject.fakeip) config.dns.fakeip = dnsObject.fakeip;
   config.route.rules = rules;
   config.route.rule_set = rule_set;
@@ -9919,17 +9159,10 @@ async function getSBWrpConf(request, env, client) {
   WoWUrlTest.interval = `${proxySettings.bestWarpInterval}s`;
   const warpRemarks = [],
     WoWRemarks = [];
-  warpEndpoints.split(",").forEach((endpoint, index) => {
+  warpEndpoints.split(',').forEach((endpoint, index) => {
     const warpRemark = `\u{1F4A6} ${index + 1} - Warp \u{1F1EE}\u{1F1F7}`;
     const WoWRemark = `\u{1F4A6} ${index + 1} - WoW \u{1F30D}`;
-    const warpOutbound = bldSBWrpOBD(
-      proxySettings,
-      warpConfigs,
-      warpRemark,
-      endpoint,
-      "",
-      client,
-    );
+    const warpOutbound = bldSBWrpOBD(proxySettings, warpConfigs, warpRemark, endpoint, '', client);
     const WoWOutbound = bldSBWrpOBD(
       proxySettings,
       warpConfigs,
@@ -9948,13 +9181,13 @@ async function getSBWrpConf(request, env, client) {
   return new Response(JSON.stringify(config, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getSBWrpConf, "getSBWrpConf");
+__name(getSBWrpConf, 'getSBWrpConf');
 async function getSBCustomConf(request, env, isFragment) {
   const { proxySettings } = await getDataset(request, env);
   let chainProxy;
@@ -9976,68 +9209,59 @@ async function getSBCustomConf(request, env, isFragment) {
     try {
       chainProxy = bldSBChainOBD(proxyParams, enableIPv6);
     } catch (error) {
-      console.log("An error occured while parsing chain proxy: ", error);
+      console.log('An error occured while parsing chain proxy: ', error);
       chainProxy = void 0;
       await env.diana.put(
-        "proxySettings",
+        'proxySettings',
         JSON.stringify({
           ...proxySettings,
-          outProxy: "",
+          outProxy: '',
           outProxyParams: {},
         }),
       );
     }
   }
   const Addresses = await getConfigAddresses(cleanIPs, enableIPv6);
-  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
+  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
   const totalAddresses = [...Addresses, ...customCdnAddresses];
   const config = structuredClone(singboxConfigTemp);
   const dnsObject = bldSBDNS(
     proxySettings,
     totalAddresses,
     false,
-    chainProxy ? "proxy-1" : "\u2705 Selector",
+    chainProxy ? 'proxy-1' : '\u2705 Selector',
   );
   const { rules, rule_set } = bldSBRR(proxySettings);
   config.dns.servers = dnsObject.servers;
   config.dns.rules = dnsObject.rules;
   if (dnsObject.fakeip) config.dns.fakeip = dnsObject.fakeip;
-  config.dns.strategy = enableIPv6 ? "prefer_ipv4" : "ipv4_only";
+  config.dns.strategy = enableIPv6 ? 'prefer_ipv4' : 'ipv4_only';
   config.route.rules = rules;
   config.route.rule_set = rule_set;
   const selector = config.outbounds[0];
   const urlTest = config.outbounds[1];
-  selector.outbounds = ["\u{1F4A6} Best Ping \u{1F4A5}"];
+  selector.outbounds = ['\u{1F4A6} Best Ping \u{1F4A5}'];
   urlTest.interval = `${bestVLTRInterval}s`;
-  urlTest.tag = "\u{1F4A6} Best Ping \u{1F4A5}";
-  const totalPorts = ports.filter((port) =>
+  urlTest.tag = '\u{1F4A6} Best Ping \u{1F4A5}';
+  const totalPorts = ports.filter(port =>
     isFragment ? globalThis.defaultHttpsPorts.includes(port) : true,
   );
   let proxyIndex = 1;
   const protocols = [
-    ...(VLConfigs ? [atob("VkxFU1M=")] : []),
-    ...(TRConfigs ? [atob("VHJvamFu")] : []),
+    ...(VLConfigs ? [atob('VkxFU1M=')] : []),
+    ...(TRConfigs ? [atob('VHJvamFu')] : []),
   ];
-  protocols.forEach((protocol) => {
+  protocols.forEach(protocol => {
     let protocolIndex = 1;
-    totalPorts.forEach((port) => {
-      totalAddresses.forEach((addr) => {
+    totalPorts.forEach(port => {
+      totalAddresses.forEach(addr => {
         let VLOutbound, TROutbound;
         const isCustomAddr = customCdnAddresses.includes(addr);
-        const configType = isCustomAddr ? "C" : isFragment ? "F" : "";
-        const sni = isCustomAddr
-          ? customCdnSni
-          : randomUpperCase(globalThis.hostName);
+        const configType = isCustomAddr ? 'C' : isFragment ? 'F' : '';
+        const sni = isCustomAddr ? customCdnSni : randomUpperCase(globalThis.hostName);
         const host = isCustomAddr ? customCdnHost : globalThis.hostName;
-        const remark = generateRemark(
-          protocolIndex,
-          port,
-          addr,
-          cleanIPs,
-          protocol,
-          configType,
-        );
-        if (protocol === atob("VkxFU1M=")) {
+        const remark = generateRemark(protocolIndex, port, addr, cleanIPs, protocol, configType);
+        if (protocol === atob('VkxFU1M=')) {
           VLOutbound = bldSBVLOBD(
             proxySettings,
             chainProxy ? `proxy-${proxyIndex}` : remark,
@@ -10050,7 +9274,7 @@ async function getSBCustomConf(request, env, isFragment) {
           );
           config.outbounds.push(VLOutbound);
         }
-        if (protocol === atob("VHJvamFu")) {
+        if (protocol === atob('VHJvamFu')) {
           TROutbound = bldSBTrOBD(
             proxySettings,
             chainProxy ? `proxy-${proxyIndex}` : remark,
@@ -10079,16 +9303,16 @@ async function getSBCustomConf(request, env, isFragment) {
   return new Response(JSON.stringify(config, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getSBCustomConf, "getSBCustomConf");
+__name(getSBCustomConf, 'getSBCustomConf');
 var singboxConfigTemp = {
   log: {
-    level: "warn",
+    level: 'warn',
     timestamp: true,
   },
   dns: {
@@ -10098,21 +9322,21 @@ var singboxConfigTemp = {
   },
   inbounds: [
     {
-      type: "tun",
-      tag: "tun-in",
-      address: ["172.18.0.1/28", "fdfe:dcba:9876::1/126"],
+      type: 'tun',
+      tag: 'tun-in',
+      address: ['172.18.0.1/28', 'fdfe:dcba:9876::1/126'],
       mtu: 9e3,
       auto_route: true,
       strict_route: true,
-      stack: "mixed",
+      stack: 'mixed',
       endpoint_independent_nat: true,
       sniff: true,
       sniff_override_destination: true,
     },
     {
-      type: "mixed",
-      tag: "mixed-in",
-      listen: "127.0.0.1",
+      type: 'mixed',
+      tag: 'mixed-in',
+      listen: '127.0.0.1',
       listen_port: 2080,
       sniff: true,
       sniff_override_destination: false,
@@ -10120,29 +9344,29 @@ var singboxConfigTemp = {
   ],
   outbounds: [
     {
-      type: "selector",
-      tag: "\u2705 Selector",
+      type: 'selector',
+      tag: '\u2705 Selector',
       outbounds: [],
     },
     {
-      type: "urltest",
-      tag: "",
+      type: 'urltest',
+      tag: '',
       outbounds: [],
-      url: "https://www.gstatic.com/generate_204",
-      interval: "",
+      url: 'https://www.gstatic.com/generate_204',
+      interval: '',
     },
     {
-      type: "direct",
-      domain_strategy: "ipv4_only",
-      tag: "direct",
+      type: 'direct',
+      domain_strategy: 'ipv4_only',
+      tag: 'direct',
     },
     {
-      type: "block",
-      tag: "block",
+      type: 'block',
+      tag: 'block',
     },
     {
-      type: "dns",
-      tag: "dns-out",
+      type: 'dns',
+      tag: 'dns-out',
     },
   ],
   route: {
@@ -10150,14 +9374,14 @@ var singboxConfigTemp = {
     rule_set: [],
     auto_detect_interface: true,
     override_android_vpn: true,
-    final: "\u2705 Selector",
+    final: '\u2705 Selector',
   },
   ntp: {
     enabled: true,
-    server: "time.apple.com",
+    server: 'time.apple.com',
     server_port: 123,
-    detour: "direct",
-    interval: "30m",
+    detour: 'direct',
+    interval: '30m',
   },
   experimental: {
     cache_file: {
@@ -10165,12 +9389,12 @@ var singboxConfigTemp = {
       store_fakeip: true,
     },
     clash_api: {
-      external_controller: "127.0.0.1:9090",
-      external_ui: "ui",
+      external_controller: '127.0.0.1:9090',
+      external_ui: 'ui',
       external_ui_download_url:
-        "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      external_ui_download_detour: "direct",
-      default_mode: "Rule",
+        'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip',
+      external_ui_download_detour: 'direct',
+      default_mode: 'Rule',
     },
   },
 };
@@ -10191,70 +9415,66 @@ async function bldClDNS(proxySettings, isChain, isWarp) {
     customBypassRules,
   } = proxySettings;
   const warpRemoteDNS = warpEnableIPv6
-    ? ["1.1.1.1", "1.0.0.1", "[2606:4700:4700::1111]", "[2606:4700:4700::1001]"]
-    : ["1.1.1.1", "1.0.0.1"];
+    ? ['1.1.1.1', '1.0.0.1', '[2606:4700:4700::1111]', '[2606:4700:4700::1001]']
+    : ['1.1.1.1', '1.0.0.1'];
   const isFakeDNS = (VLTRFakeDNS && !isWarp) || (warpFakeDNS && isWarp);
   const isIPv62 = (enableIPv6 && !isWarp) || (warpEnableIPv6 && isWarp);
   const customBypassRulesDomains = customBypassRules
-    .split(",")
-    .filter((address) => isDomain(address));
+    .split(',')
+    .filter(address => isDomain(address));
   const isBypass = bypassIran || bypassChina || bypassRussia;
   const bypassRules = [
-    { rule: bypassIran, geosite: "ir" },
-    { rule: bypassChina, geosite: "cn" },
-    { rule: bypassRussia, geosite: "ru" },
+    { rule: bypassIran, geosite: 'ir' },
+    { rule: bypassChina, geosite: 'cn' },
+    { rule: bypassRussia, geosite: 'ru' },
   ];
   const dns = {
     enable: true,
-    listen: "0.0.0.0:1053",
+    listen: '0.0.0.0:1053',
     ipv6: isIPv62,
-    "respect-rules": true,
-    "use-system-hosts": false,
+    'respect-rules': true,
+    'use-system-hosts': false,
     nameserver: isWarp
-      ? warpRemoteDNS.map((dns2) =>
-          isChain
-            ? `${dns2}#\u{1F4A6} Warp - Best Ping \u{1F680}`
-            : `${dns2}#\u2705 Selector`,
+      ? warpRemoteDNS.map(dns2 =>
+          isChain ? `${dns2}#\u{1F4A6} Warp - Best Ping \u{1F680}` : `${dns2}#\u2705 Selector`,
         )
       : [isChain ? `${remoteDNS}#proxy-1` : `${remoteDNS}#\u2705 Selector`],
-    "proxy-server-nameserver": [`${localDNS}#DIRECT`],
-    "nameserver-policy": {
-      "raw.githubusercontent.com": `${localDNS}#DIRECT`,
-      "time.apple.com": `${localDNS}#DIRECT`,
+    'proxy-server-nameserver': [`${localDNS}#DIRECT`],
+    'nameserver-policy': {
+      'raw.githubusercontent.com': `${localDNS}#DIRECT`,
+      'time.apple.com': `${localDNS}#DIRECT`,
     },
   };
   if (isChain && !isWarp) {
     const chainOutboundServer = JSON.parse(outProxyParams).server;
     if (isDomain(chainOutboundServer))
-      dns["nameserver-policy"][chainOutboundServer] = `${remoteDNS}#proxy-1`;
+      dns['nameserver-policy'][chainOutboundServer] = `${remoteDNS}#proxy-1`;
   }
   if (isBypass) {
     const geosites = [];
     bypassRules.forEach(({ rule, geosite }) => {
       rule && geosites.push(geosite);
     });
-    dns["nameserver-policy"][`rule-set:${geosites.join(",")}`] = [
-      `${localDNS}#DIRECT`,
-    ];
+    dns['nameserver-policy'][`rule-set:${geosites.join(',')}`] = [`${localDNS}#DIRECT`];
   }
-  customBypassRulesDomains.forEach((domain) => {
-    dns["nameserver-policy"][`+.${domain}`] = [`${localDNS}#DIRECT`];
+  customBypassRulesDomains.forEach(domain => {
+    dns['nameserver-policy'][`+.${domain}`] = [`${localDNS}#DIRECT`];
   });
   const dohHost = getDomain(remoteDNS);
   if (dohHost.isHostDomain && !isWarp) {
-    dns["default-nameserver"] = [
-      `https://8.8.8.8/dns-query#${isChain ? "proxy-1" : "\u2705 Selector"}`,
+    dns['default-nameserver'] = [
+      `https://8.8.8.8/dns-query#${isChain ? 'proxy-1' : '\u2705 Selector'}`,
     ];
   }
   if (isFakeDNS)
     Object.assign(dns, {
-      "enhanced-mode": "fake-ip",
-      "fake-ip-range": "198.18.0.1/16",
-      "fake-ip-filter": ["geosite:private"],
+      'enhanced-mode': 'fake-ip',
+      'fake-ip-range': '198.18.0.1/16',
+      'fake-ip-filter': ['geosite:private'],
     });
   return dns;
 }
-__name(bldClDNS, "bldClDNS");
+__name(bldClDNS, 'bldClDNS');
 function bldClRR(proxySettings) {
   const {
     bypassLAN,
@@ -10267,122 +9487,117 @@ function bldClRR(proxySettings) {
     customBypassRules,
     customBlockRules,
   } = proxySettings;
-  const customBypassRulesTotal = customBypassRules
-    ? customBypassRules.split(",")
-    : [];
-  const customBlockRulesTotal = customBlockRules
-    ? customBlockRules.split(",")
-    : [];
+  const customBypassRulesTotal = customBypassRules ? customBypassRules.split(',') : [];
+  const customBlockRulesTotal = customBlockRules ? customBlockRules.split(',') : [];
   const geoRules = [
     {
       rule: bypassLAN,
-      type: "direct",
+      type: 'direct',
       noResolve: true,
       ruleProvider: {
-        format: "yaml",
-        geosite: "private",
-        geoip: "private-cidr",
+        format: 'yaml',
+        geosite: 'private',
+        geoip: 'private-cidr',
         geositeURL:
-          "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml",
+          'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml',
         geoipURL:
-          "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml",
+          'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml',
       },
     },
     {
       rule: bypassIran,
-      type: "direct",
+      type: 'direct',
       ruleProvider: {
-        format: "text",
-        geosite: "ir",
-        geoip: "ir-cidr",
-        geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt",
+        format: 'text',
+        geosite: 'ir',
+        geoip: 'ir-cidr',
+        geositeURL: 'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt',
         geoipURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt',
       },
     },
     {
       rule: bypassChina,
-      type: "direct",
+      type: 'direct',
       ruleProvider: {
-        format: "yaml",
-        geosite: "cn",
-        geoip: "cn-cidr",
+        format: 'yaml',
+        geosite: 'cn',
+        geoip: 'cn-cidr',
         geositeURL:
-          "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml",
+          'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml',
         geoipURL:
-          "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.yaml",
+          'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.yaml',
       },
     },
     {
       rule: bypassRussia,
-      type: "direct",
+      type: 'direct',
       ruleProvider: {
-        format: "yaml",
-        geosite: "ru",
-        geoip: "ru-cidr",
+        format: 'yaml',
+        geosite: 'ru',
+        geoip: 'ru-cidr',
         geositeURL:
-          "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ru.yaml",
+          'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ru.yaml',
         geoipURL:
-          "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/ru.yaml",
+          'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/ru.yaml',
       },
     },
     {
       rule: true,
-      type: "block",
+      type: 'block',
       ruleProvider: {
-        format: "text",
-        geosite: "malware",
+        format: 'text',
+        geosite: 'malware',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt',
       },
     },
     {
       rule: true,
-      type: "block",
+      type: 'block',
       ruleProvider: {
-        format: "text",
-        geosite: "phishing",
+        format: 'text',
+        geosite: 'phishing',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt',
       },
     },
     {
       rule: true,
-      type: "block",
+      type: 'block',
       ruleProvider: {
-        format: "text",
-        geosite: "cryptominers",
+        format: 'text',
+        geosite: 'cryptominers',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt',
       },
     },
     {
       rule: blockAds,
-      type: "block",
+      type: 'block',
       ruleProvider: {
-        format: "text",
-        geosite: "ads",
+        format: 'text',
+        geosite: 'ads',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.txt",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.txt',
       },
     },
     {
       rule: blockPorn,
-      type: "block",
+      type: 'block',
       ruleProvider: {
-        format: "text",
-        geosite: "nsfw",
+        format: 'text',
+        geosite: 'nsfw',
         geositeURL:
-          "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/nsfw.txt",
+          'https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/nsfw.txt',
       },
     },
   ];
   function buildRuleProvider(tag2, format, behavior, url) {
-    const fileExtension = format === "text" ? "txt" : format;
+    const fileExtension = format === 'text' ? 'txt' : format;
     return {
       [tag2]: {
-        type: "http",
+        type: 'http',
         format,
         behavior,
         url,
@@ -10391,7 +9606,7 @@ function bldClRR(proxySettings) {
       },
     };
   }
-  __name(buildRuleProvider, "buildRuleProvider");
+  __name(buildRuleProvider, 'buildRuleProvider');
   const directDomainRules = [],
     directIPRules = [],
     blockDomainRules = [],
@@ -10401,30 +9616,17 @@ function bldClRR(proxySettings) {
     const { geosite, geoip, geositeURL, geoipURL, format } = ruleProvider;
     if (rule) {
       if (geosite) {
-        const targetRules =
-          type === "direct" ? directDomainRules : blockDomainRules;
-        targetRules.push(
-          `RULE-SET,${geosite},${type === "direct" ? "DIRECT" : "REJECT"}`,
-        );
-        const ruleProvider2 = buildRuleProvider(
-          geosite,
-          format,
-          "domain",
-          geositeURL,
-        );
+        const targetRules = type === 'direct' ? directDomainRules : blockDomainRules;
+        targetRules.push(`RULE-SET,${geosite},${type === 'direct' ? 'DIRECT' : 'REJECT'}`);
+        const ruleProvider2 = buildRuleProvider(geosite, format, 'domain', geositeURL);
         Object.assign(ruleProviders, ruleProvider2);
       }
       if (geoip) {
-        const targetRules = type === "direct" ? directIPRules : blockIPRules;
+        const targetRules = type === 'direct' ? directIPRules : blockIPRules;
         targetRules.push(
-          `RULE-SET,${geoip},${type === "direct" ? "DIRECT" : "REJECT"}${noResolve ? ",no-resolve" : ""}`,
+          `RULE-SET,${geoip},${type === 'direct' ? 'DIRECT' : 'REJECT'}${noResolve ? ',no-resolve' : ''}`,
         );
-        const ruleProvider2 = buildRuleProvider(
-          geoip,
-          format,
-          "ipcidr",
-          geoipURL,
-        );
+        const ruleProvider2 = buildRuleProvider(geoip, format, 'ipcidr', geoipURL);
         Object.assign(ruleProviders, ruleProvider2);
       }
     }
@@ -10433,140 +9635,120 @@ function bldClRR(proxySettings) {
     if (isDomain(address)) {
       return `DOMAIN-SUFFIX,${address},${action}`;
     } else {
-      const type = isIPv4(address) ? "IP-CIDR" : "IP-CIDR6";
-      const ip = isIPv6(address) ? address.replace(/\[|\]/g, "") : address;
-      const cidr = address.includes("/")
-        ? ""
-        : isIPv4(address)
-          ? "/32"
-          : "/128";
+      const type = isIPv4(address) ? 'IP-CIDR' : 'IP-CIDR6';
+      const ip = isIPv6(address) ? address.replace(/\[|\]/g, '') : address;
+      const cidr = address.includes('/') ? '' : isIPv4(address) ? '/32' : '/128';
       return `${type},${ip}${cidr},${action},no-resolve`;
     }
-  }, "generateRule");
-  [...customBypassRulesTotal, ...customBlockRulesTotal].forEach(
-    (address, index) => {
-      const isDirectRule = index < customBypassRulesTotal.length;
-      const action = isDirectRule ? "DIRECT" : "REJECT";
-      const targetRules = isDirectRule
-        ? isDomain(address)
-          ? directDomainRules
-          : directIPRules
-        : isDomain(address)
-          ? blockDomainRules
-          : blockIPRules;
-      targetRules.push(generateRule(address, action));
-    },
-  );
-  const rules = [
-    ...directDomainRules,
-    ...directIPRules,
-    ...blockDomainRules,
-    ...blockIPRules,
-  ];
-  blockUDP443 && rules.push("AND,((NETWORK,udp),(DST-PORT,443)),REJECT");
-  rules.push("MATCH,\u2705 Selector");
+  }, 'generateRule');
+  [...customBypassRulesTotal, ...customBlockRulesTotal].forEach((address, index) => {
+    const isDirectRule = index < customBypassRulesTotal.length;
+    const action = isDirectRule ? 'DIRECT' : 'REJECT';
+    const targetRules = isDirectRule
+      ? isDomain(address)
+        ? directDomainRules
+        : directIPRules
+      : isDomain(address)
+        ? blockDomainRules
+        : blockIPRules;
+    targetRules.push(generateRule(address, action));
+  });
+  const rules = [...directDomainRules, ...directIPRules, ...blockDomainRules, ...blockIPRules];
+  blockUDP443 && rules.push('AND,((NETWORK,udp),(DST-PORT,443)),REJECT');
+  rules.push('MATCH,\u2705 Selector');
   return { rules, ruleProviders };
 }
-__name(bldClRR, "bldClRR");
+__name(bldClRR, 'bldClRR');
 function bldClVLOBD(remark, address, port, host, sni, path, allowInsecure) {
   const tls = globalThis.defaultHttpsPorts.includes(port) ? true : false;
-  const addr = isIPv6(address) ? address.replace(/\[|\]/g, "") : address;
+  const addr = isIPv6(address) ? address.replace(/\[|\]/g, '') : address;
   const outbound = {
     name: remark,
-    type: atob("dmxlc3M="),
+    type: atob('dmxlc3M='),
     server: addr,
     port: +port,
     uuid: globalThis.userID,
     tls: tls,
-    network: "ws",
+    network: 'ws',
     udp: true,
-    "ws-opts": {
+    'ws-opts': {
       path: path,
       headers: { host: host },
-      "max-early-data": 2560,
-      "early-data-header-name": "Sec-WebSocket-Protocol",
+      'max-early-data': 2560,
+      'early-data-header-name': 'Sec-WebSocket-Protocol',
     },
   };
   if (tls) {
     Object.assign(outbound, {
       servername: sni,
-      alpn: ["h2", "http/1.1"],
-      "client-fingerprint": "random",
-      "skip-cert-verify": allowInsecure,
+      alpn: ['h2', 'http/1.1'],
+      'client-fingerprint': 'random',
+      'skip-cert-verify': allowInsecure,
     });
   }
   return outbound;
 }
-__name(bldClVLOBD, "bldClVLOBD");
+__name(bldClVLOBD, 'bldClVLOBD');
 function bldClTrOBD(remark, address, port, host, sni, path, allowInsecure) {
-  const addr = isIPv6(address) ? address.replace(/\[|\]/g, "") : address;
+  const addr = isIPv6(address) ? address.replace(/\[|\]/g, '') : address;
   return {
     name: remark,
-    type: atob("dHJvamFu"),
+    type: atob('dHJvamFu'),
     server: addr,
     port: +port,
     password: globalThis.TRPassword,
-    network: "ws",
+    network: 'ws',
     udp: true,
-    "ws-opts": {
+    'ws-opts': {
       path: path,
       headers: { host: host },
-      "max-early-data": 2560,
-      "early-data-header-name": "Sec-WebSocket-Protocol",
+      'max-early-data': 2560,
+      'early-data-header-name': 'Sec-WebSocket-Protocol',
     },
     sni: sni,
-    alpn: ["h2", "http/1.1"],
-    "client-fingerprint": "random",
-    "skip-cert-verify": allowInsecure,
+    alpn: ['h2', 'http/1.1'],
+    'client-fingerprint': 'random',
+    'skip-cert-verify': allowInsecure,
   };
 }
-__name(bldClTrOBD, "bldClTrOBD");
+__name(bldClTrOBD, 'bldClTrOBD');
 function bldClWrpOBD(warpConfigs, remark, endpoint, chain) {
   const ipv6Regex = /\[(.*?)\]/;
   const portRegex = /[^:]*$/;
-  const endpointServer = endpoint.includes("[")
+  const endpointServer = endpoint.includes('[')
     ? endpoint.match(ipv6Regex)[1]
-    : endpoint.split(":")[0];
-  const endpointPort = endpoint.includes("[")
+    : endpoint.split(':')[0];
+  const endpointPort = endpoint.includes('[')
     ? +endpoint.match(portRegex)[0]
-    : +endpoint.split(":")[1];
-  const { warpIPv6, reserved, publicKey, privateKey } = extractWireguardParams(
-    warpConfigs,
-    chain,
-  );
+    : +endpoint.split(':')[1];
+  const { warpIPv6, reserved, publicKey, privateKey } = extractWireguardParams(warpConfigs, chain);
   return {
     name: remark,
-    type: "wireguard",
-    ip: "172.16.0.2/32",
+    type: 'wireguard',
+    ip: '172.16.0.2/32',
     ipv6: warpIPv6,
-    "private-key": privateKey,
+    'private-key': privateKey,
     server: endpointServer,
     port: endpointPort,
-    "public-key": publicKey,
-    "allowed-ips": ["0.0.0.0/0", "::/0"],
+    'public-key': publicKey,
+    'allowed-ips': ['0.0.0.0/0', '::/0'],
     reserved: reserved,
     udp: true,
     mtu: 1280,
-    "dialer-proxy": chain,
+    'dialer-proxy': chain,
   };
 }
-__name(bldClWrpOBD, "bldClWrpOBD");
+__name(bldClWrpOBD, 'bldClWrpOBD');
 function bldClChOBD(chainProxyParams) {
-  if (["socks", "http"].includes(chainProxyParams.protocol)) {
-    const {
-      protocol,
-      server: server2,
-      port: port2,
-      user,
-      pass,
-    } = chainProxyParams;
-    const proxyType = protocol === "socks" ? "socks5" : protocol;
+  if (['socks', 'http'].includes(chainProxyParams.protocol)) {
+    const { protocol, server: server2, port: port2, user, pass } = chainProxyParams;
+    const proxyType = protocol === 'socks' ? 'socks5' : protocol;
     return {
-      name: "",
+      name: '',
       type: proxyType,
       server: server2,
       port: +port2,
-      "dialer-proxy": "",
+      'dialer-proxy': '',
       username: user,
       password: pass,
     };
@@ -10589,65 +9771,65 @@ function bldClChOBD(chainProxyParams) {
     serviceName,
   } = chainProxyParams;
   const chainOutbound = {
-    name: "\u{1F4A6} Chain Best Ping \u{1F4A5}",
-    type: atob("dmxlc3M="),
+    name: '\u{1F4A6} Chain Best Ping \u{1F4A5}',
+    type: atob('dmxlc3M='),
     server: server,
     port: +port,
     udp: true,
     uuid: uuid,
     flow: flow,
     network: type,
-    "dialer-proxy": "\u{1F4A6} Best Ping \u{1F4A5}",
+    'dialer-proxy': '\u{1F4A6} Best Ping \u{1F4A5}',
   };
-  if (security === "tls") {
-    const tlsAlpns = alpn ? alpn?.split(",") : [];
+  if (security === 'tls') {
+    const tlsAlpns = alpn ? alpn?.split(',') : [];
     Object.assign(chainOutbound, {
       tls: true,
       servername: sni,
       alpn: tlsAlpns,
-      "client-fingerprint": fp,
+      'client-fingerprint': fp,
     });
   }
-  if (security === "reality")
+  if (security === 'reality')
     Object.assign(chainOutbound, {
       tls: true,
       servername: sni,
-      "client-fingerprint": fp,
-      "reality-opts": {
-        "public-key": pbk,
-        "short-id": sid,
+      'client-fingerprint': fp,
+      'reality-opts': {
+        'public-key': pbk,
+        'short-id': sid,
       },
     });
-  if (headerType === "http") {
-    const httpPaths = path?.split(",");
-    chainOutbound["http-opts"] = {
-      method: "GET",
+  if (headerType === 'http') {
+    const httpPaths = path?.split(',');
+    chainOutbound['http-opts'] = {
+      method: 'GET',
       path: httpPaths,
       headers: {
-        Connection: ["keep-alive"],
-        "Content-Type": ["application/octet-stream"],
+        Connection: ['keep-alive'],
+        'Content-Type': ['application/octet-stream'],
       },
     };
   }
-  if (type === "ws") {
-    const wsPath = path?.split("?ed=")[0];
-    const earlyData = +path?.split("?ed=")[1];
-    chainOutbound["ws-opts"] = {
+  if (type === 'ws') {
+    const wsPath = path?.split('?ed=')[0];
+    const earlyData = +path?.split('?ed=')[1];
+    chainOutbound['ws-opts'] = {
       path: wsPath,
       headers: {
         Host: host,
       },
-      "max-early-data": earlyData,
-      "early-data-header-name": "Sec-WebSocket-Protocol",
+      'max-early-data': earlyData,
+      'early-data-header-name': 'Sec-WebSocket-Protocol',
     };
   }
-  if (type === "grpc")
-    chainOutbound["grpc-opts"] = {
-      "grpc-service-name": serviceName,
+  if (type === 'grpc')
+    chainOutbound['grpc-opts'] = {
+      'grpc-service-name': serviceName,
     };
   return chainOutbound;
 }
-__name(bldClChOBD, "bldClChOBD");
+__name(bldClChOBD, 'bldClChOBD');
 async function getClWrpConf(request, env) {
   const { proxySettings, warpConfigs } = await getDataset(request, env);
   const { warpEndpoints } = proxySettings;
@@ -10655,30 +9837,25 @@ async function getClWrpConf(request, env) {
   config.dns = await bldClDNS(proxySettings, true, true);
   const { rules, ruleProviders } = bldClRR(proxySettings);
   config.rules = rules;
-  config["rule-providers"] = ruleProviders;
-  const selector = config["proxy-groups"][0];
-  const warpUrlTest = config["proxy-groups"][1];
+  config['rule-providers'] = ruleProviders;
+  const selector = config['proxy-groups'][0];
+  const warpUrlTest = config['proxy-groups'][1];
   selector.proxies = [
-    "\u{1F4A6} Warp - Best Ping \u{1F680}",
-    "\u{1F4A6} WoW - Best Ping \u{1F680}",
+    '\u{1F4A6} Warp - Best Ping \u{1F680}',
+    '\u{1F4A6} WoW - Best Ping \u{1F680}',
   ];
-  warpUrlTest.name = "\u{1F4A6} Warp - Best Ping \u{1F680}";
+  warpUrlTest.name = '\u{1F4A6} Warp - Best Ping \u{1F680}';
   warpUrlTest.interval = +proxySettings.bestWarpInterval;
-  config["proxy-groups"].push(structuredClone(warpUrlTest));
-  const WoWUrlTest = config["proxy-groups"][2];
-  WoWUrlTest.name = "\u{1F4A6} WoW - Best Ping \u{1F680}";
+  config['proxy-groups'].push(structuredClone(warpUrlTest));
+  const WoWUrlTest = config['proxy-groups'][2];
+  WoWUrlTest.name = '\u{1F4A6} WoW - Best Ping \u{1F680}';
   let warpRemarks = [],
     WoWRemarks = [];
-  warpEndpoints.split(",").forEach((endpoint, index) => {
+  warpEndpoints.split(',').forEach((endpoint, index) => {
     const warpRemark = `\u{1F4A6} ${index + 1} - Warp \u{1F1EE}\u{1F1F7}`;
     const WoWRemark = `\u{1F4A6} ${index + 1} - WoW \u{1F30D}`;
-    const warpOutbound = bldClWrpOBD(warpConfigs, warpRemark, endpoint, "");
-    const WoWOutbound = bldClWrpOBD(
-      warpConfigs,
-      WoWRemark,
-      endpoint,
-      warpRemark,
-    );
+    const warpOutbound = bldClWrpOBD(warpConfigs, warpRemark, endpoint, '');
+    const WoWOutbound = bldClWrpOBD(warpConfigs, WoWRemark, endpoint, warpRemark);
     config.proxies.push(WoWOutbound, warpOutbound);
     warpRemarks.push(warpRemark);
     WoWRemarks.push(WoWRemark);
@@ -10689,13 +9866,13 @@ async function getClWrpConf(request, env) {
   return new Response(JSON.stringify(config, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getClWrpConf, "getClWrpConf");
+__name(getClWrpConf, 'getClWrpConf');
 async function getClNormConf(request, env) {
   const { proxySettings } = await getDataset(request, env);
   let chainProxy;
@@ -10718,13 +9895,13 @@ async function getClNormConf(request, env) {
     try {
       chainProxy = bldClChOBD(proxyParams);
     } catch (error) {
-      console.log("An error occured while parsing chain proxy: ", error);
+      console.log('An error occured while parsing chain proxy: ', error);
       chainProxy = void 0;
       await env.diana.put(
-        "proxySettings",
+        'proxySettings',
         JSON.stringify({
           ...proxySettings,
-          outProxy: "",
+          outProxy: '',
           outProxyParams: {},
         }),
       );
@@ -10734,31 +9911,29 @@ async function getClNormConf(request, env) {
   const { rules, ruleProviders } = bldClRR(proxySettings);
   config.dns = await bldClDNS(proxySettings, chainProxy, false);
   config.rules = rules;
-  config["rule-providers"] = ruleProviders;
-  const selector = config["proxy-groups"][0];
-  const urlTest = config["proxy-groups"][1];
-  selector.proxies = ["\u{1F4A6} Best Ping \u{1F4A5}"];
-  urlTest.name = "\u{1F4A6} Best Ping \u{1F4A5}";
+  config['rule-providers'] = ruleProviders;
+  const selector = config['proxy-groups'][0];
+  const urlTest = config['proxy-groups'][1];
+  selector.proxies = ['\u{1F4A6} Best Ping \u{1F4A5}'];
+  urlTest.name = '\u{1F4A6} Best Ping \u{1F4A5}';
   urlTest.interval = +bestVLTRInterval;
   const Addresses = await getConfigAddresses(cleanIPs, enableIPv6);
-  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
+  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
   const totalAddresses = [...Addresses, ...customCdnAddresses];
   let proxyIndex = 1,
     path;
   const protocols = [
-    ...(VLConfigs ? [atob("VkxFU1M=")] : []),
-    ...(TRConfigs ? [atob("VHJvamFu")] : []),
+    ...(VLConfigs ? [atob('VkxFU1M=')] : []),
+    ...(TRConfigs ? [atob('VHJvamFu')] : []),
   ];
-  protocols.forEach((protocol) => {
+  protocols.forEach(protocol => {
     let protocolIndex = 1;
-    ports.forEach((port) => {
-      totalAddresses.forEach((addr) => {
+    ports.forEach(port => {
+      totalAddresses.forEach(addr => {
         let VLOutbound, TROutbound;
         const isCustomAddr = customCdnAddresses.includes(addr);
-        const configType = isCustomAddr ? "C" : "";
-        const sni = isCustomAddr
-          ? customCdnSni
-          : randomUpperCase(globalThis.hostName);
+        const configType = isCustomAddr ? 'C' : '';
+        const sni = isCustomAddr ? customCdnSni : randomUpperCase(globalThis.hostName);
         const host = isCustomAddr ? customCdnHost : globalThis.hostName;
         const remark = generateRemark(
           protocolIndex,
@@ -10767,9 +9942,9 @@ async function getClNormConf(request, env) {
           cleanIPs,
           protocol,
           configType,
-        ).replace(" : ", " - ");
-        if (protocol === atob("VkxFU1M=")) {
-          path = `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}`;
+        ).replace(' : ', ' - ');
+        if (protocol === atob('VkxFU1M=')) {
+          path = `/${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}`;
           VLOutbound = bldClVLOBD(
             chainProxy ? `proxy-${proxyIndex}` : remark,
             addr,
@@ -10783,11 +9958,8 @@ async function getClNormConf(request, env) {
           selector.proxies.push(remark);
           urlTest.proxies.push(remark);
         }
-        if (
-          protocol === atob("VHJvamFu") &&
-          globalThis.defaultHttpsPorts.includes(port)
-        ) {
-          path = `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ""}`;
+        if (protocol === atob('VHJvamFu') && globalThis.defaultHttpsPorts.includes(port)) {
+          path = `/tr${getRandomPath(16)}${proxyIP ? `/${btoa(proxyIP)}` : ''}`;
           TROutbound = bldClTrOBD(
             chainProxy ? `proxy-${proxyIndex}` : remark,
             addr,
@@ -10803,8 +9975,8 @@ async function getClNormConf(request, env) {
         }
         if (chainProxy) {
           let chain = structuredClone(chainProxy);
-          chain["name"] = remark;
-          chain["dialer-proxy"] = `proxy-${proxyIndex}`;
+          chain['name'] = remark;
+          chain['dialer-proxy'] = `proxy-${proxyIndex}`;
           config.proxies.push(chain);
         }
         proxyIndex++;
@@ -10815,52 +9987,51 @@ async function getClNormConf(request, env) {
   return new Response(JSON.stringify(config, null, 4), {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getClNormConf, "getClNormConf");
+__name(getClNormConf, 'getClNormConf');
 var clashConfigTemp = {
-  "mixed-port": 7890,
+  'mixed-port': 7890,
   ipv6: true,
-  "allow-lan": true,
-  mode: "rule",
-  "log-level": "warning",
-  "disable-keep-alive": false,
-  "keep-alive-idle": 30,
-  "keep-alive-interval": 30,
-  "unified-delay": false,
-  "geo-auto-update": true,
-  "geo-update-interval": 168,
-  "external-controller": "127.0.0.1:9090",
-  "external-ui-url":
-    "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-  "external-ui": "ui",
-  "external-controller-cors": {
-    "allow-origins": ["*"],
-    "allow-private-network": true,
+  'allow-lan': true,
+  mode: 'rule',
+  'log-level': 'warning',
+  'disable-keep-alive': false,
+  'keep-alive-idle': 30,
+  'keep-alive-interval': 30,
+  'unified-delay': false,
+  'geo-auto-update': true,
+  'geo-update-interval': 168,
+  'external-controller': '127.0.0.1:9090',
+  'external-ui-url': 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip',
+  'external-ui': 'ui',
+  'external-controller-cors': {
+    'allow-origins': ['*'],
+    'allow-private-network': true,
   },
   profile: {
-    "store-selected": true,
-    "store-fake-ip": true,
+    'store-selected': true,
+    'store-fake-ip': true,
   },
   dns: {},
   tun: {
     enable: true,
-    stack: "mixed",
-    "auto-route": true,
-    "strict-route": true,
-    "auto-detect-interface": true,
-    "dns-hijack": ["any:53"],
+    stack: 'mixed',
+    'auto-route': true,
+    'strict-route': true,
+    'auto-detect-interface': true,
+    'dns-hijack': ['any:53'],
     mtu: 9e3,
   },
   sniffer: {
     enable: true,
-    "force-dns-mapping": true,
-    "parse-pure-ip": true,
-    "override-destination": false,
+    'force-dns-mapping': true,
+    'parse-pure-ip': true,
+    'override-destination': false,
     sniff: {
       HTTP: {
         ports: [80, 8080, 8880, 2052, 2082, 2086, 2095],
@@ -10871,26 +10042,26 @@ var clashConfigTemp = {
     },
   },
   proxies: [],
-  "proxy-groups": [
+  'proxy-groups': [
     {
-      name: "\u2705 Selector",
-      type: "select",
+      name: '\u2705 Selector',
+      type: 'select',
       proxies: [],
     },
     {
-      name: "",
-      type: "url-test",
-      url: "https://www.gstatic.com/generate_204",
+      name: '',
+      type: 'url-test',
+      url: 'https://www.gstatic.com/generate_204',
       interval: 30,
       tolerance: 50,
       proxies: [],
     },
   ],
-  "rule-providers": {},
+  'rule-providers': {},
   rules: [],
   ntp: {
     enable: true,
-    server: "time.apple.com",
+    server: 'time.apple.com',
     port: 123,
     interval: 30,
   },
@@ -10911,65 +10082,49 @@ async function getNormConf(request, env) {
     customCdnSni,
     enableIPv6,
   } = proxySettings;
-  let VLConfs = "",
-    TRConfs = "",
-    chainProxy = "";
+  let VLConfs = '',
+    TRConfs = '',
+    chainProxy = '';
   let proxyIndex = 1;
   const Addresses = await getConfigAddresses(cleanIPs, enableIPv6);
-  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
+  const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
   const totalAddresses = [...Addresses, ...customCdnAddresses];
-  const alpn = globalThis.client === "singbox" ? "http/1.1" : "h2,http/1.1";
+  const alpn = globalThis.client === 'singbox' ? 'http/1.1' : 'h2,http/1.1';
   const TRPass = encodeURIComponent(globalThis.TRPassword);
   const earlyData =
-    globalThis.client === "singbox"
-      ? "&eh=Sec-WebSocket-Protocol&ed=2560"
-      : encodeURIComponent("?ed=2560");
-  ports.forEach((port) => {
+    globalThis.client === 'singbox'
+      ? '&eh=Sec-WebSocket-Protocol&ed=2560'
+      : encodeURIComponent('?ed=2560');
+  ports.forEach(port => {
     totalAddresses.forEach((addr, index) => {
       const isCustomAddr = index > Addresses.length - 1;
-      const configType = isCustomAddr ? "C" : "";
-      const sni = isCustomAddr
-        ? customCdnSni
-        : randomUpperCase(globalThis.hostName);
+      const configType = isCustomAddr ? 'C' : '';
+      const sni = isCustomAddr ? customCdnSni : randomUpperCase(globalThis.hostName);
       const host = isCustomAddr ? customCdnHost : globalThis.hostName;
-      const path = `${getRandomPath(16)}${proxyIP ? `/${encodeURIComponent(btoa(proxyIP))}` : ""}${earlyData}`;
+      const path = `${getRandomPath(16)}${proxyIP ? `/${encodeURIComponent(btoa(proxyIP))}` : ''}${earlyData}`;
       const VLRemark = encodeURIComponent(
-        generateRemark(
-          proxyIndex,
-          port,
-          addr,
-          cleanIPs,
-          atob("VkxFU1M="),
-          configType,
-        ),
+        generateRemark(proxyIndex, port, addr, cleanIPs, atob('VkxFU1M='), configType),
       );
       const TRRemark = encodeURIComponent(
-        generateRemark(
-          proxyIndex,
-          port,
-          addr,
-          cleanIPs,
-          atob("VHJvamFu"),
-          configType,
-        ),
+        generateRemark(proxyIndex, port, addr, cleanIPs, atob('VHJvamFu'), configType),
       );
       const tlsFields = globalThis.defaultHttpsPorts.includes(port)
         ? `&security=tls&sni=${sni}&fp=randomized&alpn=${alpn}`
-        : "&security=none";
+        : '&security=none';
       if (VLConfigs) {
-        VLConfs += `${atob("dmxlc3M6Ly8=")}${globalThis.userID}@${addr}:${port}?path=/${path}&encryption=none&host=${host}&type=ws${tlsFields}#${VLRemark}
+        VLConfs += `${atob('dmxlc3M6Ly8=')}${globalThis.userID}@${addr}:${port}?path=/${path}&encryption=none&host=${host}&type=ws${tlsFields}#${VLRemark}
 `;
       }
       if (TRConfigs) {
-        TRConfs += `${atob("dHJvamFuOi8v")}${TRPass}@${addr}:${port}?path=/tr${path}&host=${host}&type=ws${tlsFields}#${TRRemark}
+        TRConfs += `${atob('dHJvamFuOi8v')}${TRPass}@${addr}:${port}?path=/tr${path}&host=${host}&type=ws${tlsFields}#${TRRemark}
 `;
       }
       proxyIndex++;
     });
   });
   if (outProxy) {
-    let chainRemark = `#${encodeURIComponent("\u{1F4A6} Chain proxy \u{1F517}")}`;
-    if (outProxy.startsWith("socks") || outProxy.startsWith("http")) {
+    let chainRemark = `#${encodeURIComponent('\u{1F4A6} Chain proxy \u{1F517}')}`;
+    if (outProxy.startsWith('socks') || outProxy.startsWith('http')) {
       const regex = /^(?:socks|http):\/\/([^@]+)@/;
       const isUserPass = outProxy.match(regex);
       const userPass = isUserPass ? isUserPass[1] : false;
@@ -10977,20 +10132,20 @@ async function getNormConf(request, env) {
         ? outProxy.replace(userPass, btoa(userPass)) + chainRemark
         : outProxy + chainRemark;
     } else {
-      chainProxy = outProxy.split("#")[0] + chainRemark;
+      chainProxy = outProxy.split('#')[0] + chainRemark;
     }
   }
   const configs = btoa(VLConfs + TRConfs + chainProxy);
   return new Response(configs, {
     status: 200,
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-      "CDN-Cache-Control": "no-store",
+      'Content-Type': 'text/plain;charset=utf-8',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'CDN-Cache-Control': 'no-store',
     },
   });
 }
-__name(getNormConf, "getNormConf");
+__name(getNormConf, 'getNormConf');
 
 // src/pages/autogen.js
 async function renderSecretsPage() {
@@ -11000,7 +10155,7 @@ async function renderSecretsPage() {
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${atob("QlBC")} Generator</title>
+    <title>${atob('QlBC')} Generator</title>
     <style>
         :root {
             --color: black;
@@ -11103,7 +10258,7 @@ async function renderSecretsPage() {
     </head>
     <body>
         <div class="container">
-            <h1>${atob("QlBCIFBhbmVsIA==")}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
+            <h1>${atob('QlBCIFBhbmVsIA==')}<span style="font-size: smaller;">${globalThis.panelVersion}</span> \u{1F4A6}</h1>
             <div class="form-container">
                 <h2>Secrets generator</h2>
                 <div>
@@ -11114,10 +10269,10 @@ async function renderSecretsPage() {
                     </div>
                 </div>
                 <div>
-                    <strong>Random ${atob("VHJvamFu")} Password</strong>
+                    <strong>Random ${atob('VHJvamFu')} Password</strong>
                     <div class="output-container">
-                        <span id="${atob("dHJvamFu")}-password" class="output"></span>
-                        <span class="copy-icon" onclick="copyToClipboard('${atob("dHJvamFu")}-password')">\u{1F4CB}</span>
+                        <span id="${atob('dHJvamFu')}-password" class="output"></span>
+                        <span class="copy-icon" onclick="copyToClipboard('${atob('dHJvamFu')}-password')">\u{1F4CB}</span>
                     </div>
                 </div>
                 <div>
@@ -11167,7 +10322,7 @@ async function renderSecretsPage() {
                 const uriPath = generateSubURIPath();
     
                 document.getElementById('uuid').textContent = uuid;
-                document.getElementById('${atob("dHJvamFu")}-password').textContent = password;
+                document.getElementById('${atob('dHJvamFu')}-password').textContent = password;
                 document.getElementById('sub-path').textContent = uriPath;
             }
     
@@ -11184,59 +10339,52 @@ async function renderSecretsPage() {
     </html>`;
   return new Response(secretsPage, {
     status: 200,
-    headers: { "Content-Type": "text/html" },
+    headers: { 'Content-Type': 'text/html' },
   });
 }
-__name(renderSecretsPage, "renderSecretsPage");
+__name(renderSecretsPage, 'renderSecretsPage');
 
 // src/worker.js
 var worker_default = {
   async fetch(request, env) {
     try {
       initializeParams(request, env);
-      const upgradeHeader = request.headers.get("Upgrade");
-      if (!upgradeHeader || upgradeHeader !== "websocket") {
+      const upgradeHeader = request.headers.get('Upgrade');
+      if (!upgradeHeader || upgradeHeader !== 'websocket') {
         switch (globalThis.pathName) {
-          case "/update-warp":
+          case '/update-warp':
             return await updateWarpConfigs(request, env);
           case `/sub/${globalThis.subPath}`:
-            if (globalThis.client === "sfa")
-              return await getSBCustomConf(request, env, false);
-            if (globalThis.client === "clash")
-              return await getClNormConf(request, env);
-            if (globalThis.client === "xray")
-              return await getXryCustomConf(request, env, false);
+            if (globalThis.client === 'sfa') return await getSBCustomConf(request, env, false);
+            if (globalThis.client === 'clash') return await getClNormConf(request, env);
+            if (globalThis.client === 'xray') return await getXryCustomConf(request, env, false);
             return await getNormConf(request, env);
           case `/fragsub/${globalThis.subPath}`:
-            return globalThis.client === "hiddify"
+            return globalThis.client === 'hiddify'
               ? await getSBCustomConf(request, env, true)
               : await getXryCustomConf(request, env, true);
           case `/warpsub/${globalThis.subPath}`:
-            if (globalThis.client === "clash")
-              return await getClWrpConf(request, env);
-            if (
-              globalThis.client === "singbox" ||
-              globalThis.client === "hiddify"
-            )
+            if (globalThis.client === 'clash') return await getClWrpConf(request, env);
+            if (globalThis.client === 'singbox' || globalThis.client === 'hiddify')
               return await getSBWrpConf(request, env, globalThis.client);
             return await getXryWrpConf(request, env, globalThis.client);
-          case "/panel":
+          case '/panel':
             return await handlePanel(request, env);
-          case "/signin":
+          case '/signin':
             return await login(request, env);
-          case "/logout":
+          case '/logout':
             return logout();
-          case "/panel/password":
+          case '/panel/password':
             return await resetPassword(request, env);
-          case "/my-ip":
+          case '/my-ip':
             return await getMyIP(request);
-          case "/autogen":
+          case '/autogen':
             return await renderSecretsPage();
           default:
             return await fallback(request);
         }
       } else {
-        return globalThis.pathName.startsWith("/tr")
+        return globalThis.pathName.startsWith('/tr')
           ? await trojanOverDiHandler(request)
           : await vlOverDiHandler(request);
       }
