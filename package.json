@@ -9,22 +9,31 @@
     "format": "prettier --write **/*.{js,json,html,css,yml,md} --ignore-unknown",
     "lint:fix": "eslint . --ext .js,.json,.html,.css,.yml,.md --fix"
   },
+  "name": "di",
+  "version": "2.7.2",
+  "author": {
+    "name": "Diana"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Diana-Cl/di.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Diana-Cl/di/issues"
   },
   "homepage": "https://github.com/Diana-Cl/di#readme",
   "dependencies": {
+    "jose": "^5.9.4",
+    "js-sha256": "^0.11.0",
+    "tweetnacl": "^1.0.3"
     "package-lock.json": "^1.0.0",
     "prettier": "^3.4.2"
   },
   "devDependencies": {
+    "wrangler": "latest",
+    "javascript-obfuscator": "latest"
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
